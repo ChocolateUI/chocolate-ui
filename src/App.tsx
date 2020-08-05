@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button, { ButtonType, ButtonSize } from './components/Button/button'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <Button onClick={(e)=>{e.preventDefault(); alert('123')}}>Button Click</Button>
+                <Button btnType={ButtonType.Primary} size={ButtonSize.Small} disabled> Button Small Disabled </Button>
+                <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Button Small Danger </Button>
+                <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Button Small Large </Button>
+                <Button btnType={ButtonType.Link} href="www.baidu.com" target="_blank"> Button Link </Button>
+                <Button btnType={ButtonType.Link} href="www.baidu.com" disabled> Button Link disabled</Button>
+            </header>
+        </div>
+    );
 }
 
 export default App;
