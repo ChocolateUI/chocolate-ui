@@ -1,21 +1,21 @@
-# Peanuts-Ui
+# Peanut-Ui
 
-🥜 Peanuts-Ui 即插即用，一站式体验!
+🥜 Peanut-Ui 即插即用，一站式体验!
 
 ## 安装已经发布的组件库来试试
 
 ~~~javascript
-npm install peanuts-ui --save
+npm install peanut-ui --save
 ~~~
 
 ### 使用
 
 ~~~javascript
 // 加载样式
-import 'peanuts/dist/index.css'
+import 'peanut/dist/index.css'
 
 // 引入组件
-import { Button } from 'peanuts-ui'
+import { Button } from 'peanut-ui'
 ~~~
 
 ### 技术点
