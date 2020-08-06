@@ -1,5 +1,5 @@
 {
-  "name": "peanut",
+  "name": "peanuts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:nowatch": "cross-env CI=true react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "husky": {
     "hooks": {
@@ -45,9 +47,20 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^5.3.19",
     "@types/classnames": "^2.2.10",
+    "@types/storybook__addon-info": "^5.2.1",
+    "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "react-docgen-typescript-loader": "^3.7.2"
   }
 }
