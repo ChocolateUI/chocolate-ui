@@ -14,3 +14,4 @@ storiesOf('Welcome page', module)
       </>
     )
   }, { info : { disable: true }})
+  
