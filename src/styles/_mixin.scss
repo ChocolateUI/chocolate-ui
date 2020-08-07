@@ -31,3 +31,15 @@
         border-color: $border;
     }
 }
+
+@mixin alert-size($padding-y, $padding-x, $font-size,  $border-radius) {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+    border-radius: $border-radius;
+}
+
+@mixin alert-style($background, $border, $color){
+    background: lighten($background, 40.5%);
+    border-color: $border;
+    color: $color;
+}

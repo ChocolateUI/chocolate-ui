@@ -211,3 +211,24 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+
+// 警告提示基本属性
+$alert-font-weight:           345;
+$alert-padding-y:             .5rem !default;
+$alert-padding-x:             1.5rem !default;
+$alert-font-family:           $font-family-base !default;
+$alert-font-size:             $font-size-base !default;
+$alert-line-height:           $line-height-lg !default;
+
+// 警告提示框 radius
+$alert-border-radius:         $border-radius-sm !default;
+
+// 警告提示框 按边框
+$alert-border-width:          $border-width !default;
+
+// 警告提示框 信息
+$alert-font-weight-bold:      $font-weight-normal !default;
+
+// 警告提示框 描述
+$alert-font-size-sm:          $font-size-sm !default;

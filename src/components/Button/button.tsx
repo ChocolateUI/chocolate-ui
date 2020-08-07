@@ -12,8 +12,8 @@ interface BaseButtonProps {
     size?: ButtonSize;
     /**设置 Button 的类型 */
     btnType?: ButtonType;
-    children: React.ReactNode,
-    href?: string,
+    children: React.ReactNode;
+    href?: string;
 }
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
@@ -25,7 +25,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
  * ### 引用方法
  * 
  * ~~~js
- * import { Button } from 'peanuts'
+ * import { Button } from 'peanut-ui'
  * ~~~
  */
 export const Button: FC<ButtonProps> = (props) => {
@@ -44,6 +44,7 @@ export const Button: FC<ButtonProps> = (props) => {
         [`btn-${size}`]: size,
         'disabled': (btnType === 'link') && disabled
     })
+
     if (btnType === 'link' && href) {
         return (
             <a
