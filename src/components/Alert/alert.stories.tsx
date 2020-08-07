@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 
 import Alert from './alert';
 
