@@ -1,17 +1,38 @@
-import React from 'react'
-import Alert from './components/Alert/alert'
+import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu';
 
+library.add(fas)
 const App: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <div style={{ display: "block", flexDirection: "column" }}>
-                    <Alert message="Tips" description="Detailed description and advice about successful copywriting." />
-                    <Alert message="Tips" type="success" description="Detailed description and advice about successful copywriting." />
-                    <Alert message="Tips" type="danger" description="Detailed description and advice about successful copywriting." />
-                    <Alert message="Tips" type="warning" description="Detailed description and advice about successful copywriting." />
-                    <Alert message="Message 必填" closable type="warning" onClose={(e)=>{e.preventDefault(); console.log('object')} }/>
-                    <Alert message="Message 必填" closable type="warning"/>
+                <div style={{ margin: 20, display: "block", flexDirection: "column" }}>
+                    <Menu defaultIndex="0" mode='vertical' onSelect={(index) => console.log('hello index', index)} defaultOpenSubMenus={['2']}>
+                        <MenuItem >
+                            coolLink 1
+                        </MenuItem>
+                        <MenuItem disabled>
+                            coolLink 2
+                        </MenuItem>
+                        <SubMenu title='dropdown'>
+                            <MenuItem>
+                                dropdown 1
+                            </MenuItem>
+                            <MenuItem>
+                                dropdown 2
+                            </MenuItem>
+                            <MenuItem>
+                                dropdown 3
+                            </MenuItem>
+                        </SubMenu>
+                        <MenuItem>
+                            coolLink 3
+                        </MenuItem>
+                    </Menu>
                 </div>
             </header>
         </div>
