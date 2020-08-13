@@ -1,7 +1,8 @@
 import React from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import AutoComplete, { DataSourceType } from './components/AutoComplete/autoComplete'
+// import AutoComplete, { DataSourceType } from './components/AutoComplete/autoComplete'
+import AutoComplete from './components/AutoComplete/autoComplete'
 
 interface GithubUserProps {
     login: string;
