@@ -986,12 +986,12 @@ main {
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
   list-style: none;
-  padding: 4px 11px;
   position: absolute;
   z-index: 100;
   left: 0;
   top: calc(100% + 8px);
   width: 100%;
+  padding-left: 0;
 }
 
 .peanut-suggest-list-item {
@@ -1001,15 +1001,16 @@ main {
   cursor: pointer;
   -webkit-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  padding: 4px 11px;
 }
 
 .peanut-suggest-list-item.is-active {
-  background: #0d6efd !important;
+  background: rgba(13, 110, 253, 0.7) !important;
   color: #fff !important;
 }
 
 .peanut-suggest-list-item:hover {
-  color: #0d6efd !important;
+  color: rgba(13, 110, 253, 0.7) !important;
 }
 
 .list-item-sm {
