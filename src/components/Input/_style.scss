@@ -30,7 +30,8 @@
         }
     }
 
-    &-group-prepend, &-group-append{
+    &-group-prepend,
+    &-group-append {
         display: flex;
         align-items: center;
         font-size: $input-font-size;
@@ -68,4 +69,16 @@
 .input-group>.peanut-input-group-append,
 .input-group.input-group-prepend>.peanut-input-inner {
     @include border-left-radius(0);
+}
+
+.input-size-sm .peanut-input-inner {
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+    border-radius: $input-border-radius-sm;
+}
+
+.input-size-lg .peanut-input-inner {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $input-font-size-lg;
+    border-radius: $input-border-radius-lg;
 }

@@ -6,7 +6,7 @@ import { scopedClass } from '../../utils/scopedClass'
 const sc = scopedClass('peanut-input')
 
 type InputSize = 'lg' | 'sm'
-interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
     disabled?: boolean,
     size?: InputSize,
     icon?: IconProp,
@@ -30,7 +30,7 @@ export const Input: FC<InputProps> = (props) => {
         'is-disabled': disabled,
         'input-group': prepend || append,
         'input-group-append': !!append,
-        'input-group-prepend': !!prepend
+        'input-group-prepend': !!prepend,
     })
 
     const fixControlledValue = (value: any) => {
@@ -47,12 +47,12 @@ export const Input: FC<InputProps> = (props) => {
     return (
         <div
             className={classnames}
-            style={style}
         >
             {prepend && <div className={sc('group-prepend')}>{prepend}</div>}
             <input
                 className={sc('inner')}
                 disabled={disabled}
+                style={style}
                 {...restProps}
             />
             {append && <div className={sc('group-append')}>{append}</div>}
