@@ -4,21 +4,21 @@ import { action } from '@storybook/addon-actions'
 import Button from './button'
 
 const defaultButton = () => (
-  <Button onClick={action('clicked')}> default button </Button>
+  <Button onClick={action('clicked')}> default </Button>
 )
 
 const buttonWithSize = () => (
   <>
-    <Button size="lg"> large button </Button>
-    <Button size="sm"> small button </Button>
+    <Button size="lg"> large </Button>
+    <Button size="sm" style={{ marginLeft: 20 }}> small </Button>
   </>
 )
 
 const buttonWithType = () => (
   <>
-    <Button btnType="primary"> primary button </Button>
-    <Button btnType="danger"> danger button </Button>
-    <Button btnType="link" href="https://google.com"> link button </Button>
+    <Button btnType="primary"> primary </Button>
+    <Button btnType="danger" style={{ marginLeft: 20 }}> danger </Button>
+    <Button btnType="link" href="https://google.com" style={{ marginLeft: 20 }}> link </Button>
   </>
 )
 storiesOf('Button', module)
