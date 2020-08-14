@@ -65,4 +65,4 @@ Input.defaultProps = {
     size: 'sm',
 }
 
-export default Input
+export default Input;

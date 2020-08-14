@@ -11,6 +11,7 @@ const sc = scopedClass('peanut-suggest')
 
 interface DataSourceObject {
     value: string
+    zhValue: string
 }
 export type DataSourceType<T = {}> = T & DataSourceObject
 
@@ -123,7 +124,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
             >
                 <ul className={sc('list')} style={{ width: `${width}px` }}>
                     {loading &&
-                        <div className="suggstions-loading-icon">
+                        <div className="suggestions-loading-icon">
                             <Icon icon="spinner" spin />
                         </div>
                     }

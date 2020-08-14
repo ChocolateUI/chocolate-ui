@@ -28,6 +28,7 @@
                 background: rgba($primary, .7) !important;
                 color: $white !important;
             }
+
             &:hover {
                 color: rgba($primary, .7) !important;
             }
@@ -43,4 +44,11 @@
 .list-item-lg {
     font-size: $input-font-size-lg;
     border-radius: $input-border-radius-lg;
+}
+
+.suggestions-loading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
 }
