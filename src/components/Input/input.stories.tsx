@@ -51,7 +51,7 @@ const inputWithFix = () => (
         />
     </>
 )
-storiesOf('Input Component', module)
+storiesOf('Input 输入框', module)
     .add('默认样式', defaultInput)
     .add('不同尺寸的 Input', inputWithSize)
     .add('带有前后缀的 Input', inputWithFix)

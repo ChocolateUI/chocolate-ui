@@ -1,13 +1,16 @@
-module.exports = ({ config }) => {
+const path = require('path');
+
+module.exports = ({
+  config
+}) => {
   config.module.rules.push({
     test: /\.tsx?$/,
-    use: [
-      {
+    use: [{
         loader: require.resolve("babel-loader"),
         options: {
           presets: [require.resolve("babel-preset-react-app")]
         }
-      }, 
+      },
       {
         loader: require.resolve("react-docgen-typescript-loader"),
         options: {
@@ -16,11 +19,15 @@ module.exports = ({ config }) => {
             if (prop.parent) {
               return !prop.parent.fileName.includes('node_modules')
             }
-            return true            
+            return true
           }
         }
       }
     ]
+  }, {
+    test: /.(scss|sass)$/,
+    loaders: ["style-loader", "css-loader", "sass-loader"],
+    include: path.resolve(__dirname, "../")
   });
 
   config.resolve.extensions.push(".ts", ".tsx");

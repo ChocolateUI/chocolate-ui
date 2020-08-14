@@ -90,7 +90,7 @@ const storyWrapper = (stroyFn: any) => (
     </div>
 )
 
-storiesOf('Menu', module)
+storiesOf('Menu 菜单', module)
     .addDecorator(storyWrapper)
     .add('默认样式', defaultMenu)
     .add('纵向菜单', verticalMenu)

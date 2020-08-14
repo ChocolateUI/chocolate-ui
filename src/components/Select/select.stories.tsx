@@ -10,5 +10,5 @@ const defaultSelect = () => (
         <Option value='ming'> Ming </Option>
     </Select>
 )
-storiesOf('Select', module)
+storiesOf('Select 选择器', module)
     .add('默认样式', defaultSelect)
