@@ -47,12 +47,12 @@ export const Input: FC<InputProps> = (props) => {
     return (
         <div
             className={classnames}
+            style={style}
         >
             {prepend && <div className={sc('group-prepend')}>{prepend}</div>}
             <input
                 className={sc('inner')}
                 disabled={disabled}
-                style={style}
                 {...restProps}
             />
             {append && <div className={sc('group-append')}>{append}</div>}

@@ -74,7 +74,7 @@
 }
 
 @mixin input-style($padding-y, $padding-x, $font-family, $font-size, $font-weight,
-    $line-height, $color: rgba($black, .65)) {
+    $line-height, $color: rgba($black, .95)) {
     padding: $padding-y $padding-x;
     font-family: $font-family;
     font-size: $font-size;

@@ -35,7 +35,7 @@ const renderOption = (item: DataSourceType) => {
 const defaultAutoComplete = () => (
     <AutoComplete
         fetchSuggestions={handleFetch}
-        width={400}
+        width={300}
         size="sm"
         placeholder="输入你最喜欢换的水果试试看"
     />
@@ -44,7 +44,7 @@ const defaultAutoComplete = () => (
 const asyncInput = () => (
     <AutoComplete
         fetchSuggestions={handleAsyncFetch}
-        width={400}
+        width={300}
         size="sm"
         placeholder="随便搜点什么吧"
     />
@@ -53,7 +53,7 @@ const asyncInput = () => (
 const diyInput = () => (
     <AutoComplete
         fetchSuggestions={handleAsyncFetch}
-        width={400}
+        width={300}
         size="sm"
         placeholder="随便搜点什么吧"
         renderOption={renderOption}
