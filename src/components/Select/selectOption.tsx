@@ -26,7 +26,6 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
     }
     const classnames = classNames(sc('option-list-item'), {
         'disabled': !disabled,
-        // 'is-active': context.index === index,
     })
     return (
         <li
