@@ -21,10 +21,7 @@
             transition: $menu-transition;
             padding: $input-padding-y $input-padding-x;
             font-size: $font-size-base;
-            // &.is-active {
-            //     background: rgba($primary, .7) !important;
-            //     color: $white !important;
-            // }
+            
             &[disabled] {
                 cursor: not-allowed;
                 background-color: rgba($input-disabled-bg, .65);
@@ -33,10 +30,8 @@
             }
 
             &:hover {
-                // color: rgba($primary, .7) !important;
                 background: rgba($primary, .15) !important;
             }
         }
     }
-
 }

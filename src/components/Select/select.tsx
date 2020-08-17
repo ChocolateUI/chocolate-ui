@@ -49,15 +49,12 @@ const Select: React.FC<SelectProps> = (props) => {
     const componentRef = useRef<HTMLDivElement>(null)
     useClickOutside(componentRef, () => setShowOption(false))
     const renderChildren = () => {
-        const classnames = classNames(sc('option-list'), {
-            
-        })
+        const classnames = classNames(sc('option-list'))
         return (
             <Transition
                 in={showOption}
                 animation="zoom-in-top"
                 timeout={300}
-                onExited={() => setShowOption(false)}
             >
                 <ul className={classnames}>
                     {
@@ -70,12 +67,9 @@ const Select: React.FC<SelectProps> = (props) => {
             </Transition>
         )
     }
-    const classnames = classNames('peanut-select', {
-        // 'is-focused'
-    })
 
     return (
-        <div style={style} className={classnames} ref={componentRef}>
+        <div style={style} className='peanut-select' ref={componentRef}>
             <SelectContext.Provider value={passedContext}>
                 <Input
                     onChange={onChange}
@@ -85,7 +79,7 @@ const Select: React.FC<SelectProps> = (props) => {
                     onClick={() => setShowOption(true)}
                     value={inputValue}
                 />
-                {showOption && renderChildren()}
+                {renderChildren()}
             </SelectContext.Provider>
         </div>
     )

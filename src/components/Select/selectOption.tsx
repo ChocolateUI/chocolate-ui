@@ -17,7 +17,6 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
         children,
         ...restProps
     } = props
-    const { disabled = false } = restProps
     const context = useContext(SelectContext)
 
     const handleOptionItem = (item: string) => {
@@ -25,7 +24,7 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
         context.onShowOption && context.onShowOption(false)
     }
     const classnames = classNames(sc('option-list-item'), {
-        'disabled': !disabled,
+
     })
     return (
         <li
