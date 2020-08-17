@@ -61,6 +61,7 @@
     "@types/react-transition-group": "^4.2.3",
     "@types/storybook__addon-info": "^5.2.1",
     "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",

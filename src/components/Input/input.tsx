@@ -2,6 +2,7 @@ import React, { ReactElement, FC, ChangeEvent, InputHTMLAttributes } from 'react
 import classNames from 'classnames'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { scopedClass } from '../../utils/scopedClass'
+import Icon from '../Icon/icon'
 
 const sc = scopedClass('peanut-input')
 
@@ -50,6 +51,7 @@ export const Input: FC<InputProps> = (props) => {
             style={style}
         >
             {prepend && <div className={sc('group-prepend')}>{prepend}</div>}
+            {icon && <div className={sc('icon-wrapper')}><Icon icon={icon} title={`title-${icon}`}/></div>}
             <input
                 className={sc('inner')}
                 disabled={disabled}
@@ -62,7 +64,6 @@ export const Input: FC<InputProps> = (props) => {
 
 Input.defaultProps = {
     disabled: false,
-    size: 'sm',
 }
 
 export default Input;

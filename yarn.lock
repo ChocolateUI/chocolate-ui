@@ -4129,7 +4129,7 @@ babel-preset-jest@^24.9.0:
 
 babel-preset-react-app@^9.1.2:
   version "9.1.2"
-  resolved "https://registry.npm.taobao.org/babel-preset-react-app/download/babel-preset-react-app-9.1.2.tgz?cache=0&sync_timestamp=1596080600475&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-preset-react-app%2Fdownload%2Fbabel-preset-react-app-9.1.2.tgz#54775d976588a8a6d1a99201a702befecaf48030"
+  resolved "https://registry.npm.taobao.org/babel-preset-react-app/download/babel-preset-react-app-9.1.2.tgz#54775d976588a8a6d1a99201a702befecaf48030"
   integrity sha1-VHddl2WIqKbRqZIBpwK+/sr0gDA=
   dependencies:
     "@babel/core" "7.9.0"

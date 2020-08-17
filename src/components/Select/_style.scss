@@ -1,0 +1,42 @@
+.peanut-select {
+    position: relative;
+
+    &-option-list {
+        background-color: $white;
+        border: $menu-border-width solid $menu-border-color;
+        box-shadow: $submenu-box-shadow;
+        list-style: none;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        top: calc(100% + 8px);
+        width: 100%;
+        padding-left: 0;
+
+        &-item {
+            line-height: $line-height-lg;
+            height: $line-height-lg;
+            color: rgba($black, .75);
+            cursor: pointer;
+            transition: $menu-transition;
+            padding: $input-padding-y $input-padding-x;
+            font-size: $font-size-base;
+            // &.is-active {
+            //     background: rgba($primary, .7) !important;
+            //     color: $white !important;
+            // }
+            &[disabled] {
+                cursor: not-allowed;
+                background-color: rgba($input-disabled-bg, .65);
+                border-color: $input-disabled-border-color;
+                opacity: 1;
+            }
+
+            &:hover {
+                // color: rgba($primary, .7) !important;
+                background: rgba($primary, .15) !important;
+            }
+        }
+    }
+
+}

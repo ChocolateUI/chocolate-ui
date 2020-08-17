@@ -1,6 +1,22 @@
 .peanut-input {
     &-wrapper {
         display: flex;
+        position: relative;
+    }
+
+    &-icon-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 35px;
+        justify-content: center;
+        color: $input-color;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        svg {
+            color: $input-placeholder-color;
+        }
     }
 
     &-inner {
@@ -9,6 +25,7 @@
         border: $input-border-width solid $input-border-color;
         border-radius: $input-border-radius;
         width: 100%;
+
         &:focus {
             color: $input-focus-color;
             background-color: $input-focus-bg;
