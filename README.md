@@ -1,30 +1,36 @@
 # Chocolate-Ui
 
-**🥜 Chocolate-Ui**
+**🍫 Chocolate-Ui 即插即用，纵享丝滑 🎗️**
 
 **A React.js UI component library for Web**
 
-**此刻尽丝滑!**
+**Indulge in silky smoothnessIndulge in silky smoothness**
 
 ***
 
-## 安装已经发布的组件库来试试
+### :zap: Install
 
+>使用 npm
 ~~~javascript
 npm install chocolate-ui --save
 ~~~
 
-### 使用
-
+>使用 yarn
 ~~~javascript
+yarn add chocolate-ui
+~~~
+
+### :book: Use
+
+```javascript
 // 加载样式
 import 'chocolate-ui/dist/index.css'
 
 // 引入组件
 import { Button } from 'chocolate-ui'
-~~~
+```
 
-### 技术点
+### Feature
 
 * 😁 typescript with React Hooks
 * 🍑 使用 react-testing-library 完成单元测试
@@ -32,7 +38,7 @@ import { Button } from 'chocolate-ui'
 * 🥦 使用 react-doc-gen 自动生成文档
 * 🥭 使用第三方库扩充组件-(react-fontawesome, react-transition-group)
 
-### 一些本地开发命令
+### Some code
 
 ~~~bash
 // 启动本地环境
@@ -44,6 +50,6 @@ npm test
 // build 可发布静态文件
 npm run build
 
-// 发布到 npm
+//发布到 npm
 npm run publish
 ~~~
