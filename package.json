@@ -1,7 +1,10 @@
 {
-  "name": "peanuts",
+  "name": "peanut",
   "version": "0.1.0",
   "private": true,
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
@@ -15,12 +18,21 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.3.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "yarn-deduplicate": "^2.1.1",
+    "peanut": "0.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
-    "build": "react-scripts build",
+    "clean": "rimraf ./build",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
     "test": "react-scripts test",
     "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
@@ -67,6 +79,7 @@
     "css-loader": "^4.2.1",
     "husky": "^4.2.5",
     "react-docgen-typescript-loader": "^3.7.2",
+    "rimraf": "^3.0.2",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0"
