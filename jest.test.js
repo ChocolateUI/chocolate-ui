@@ -14,5 +14,5 @@ test('test number', ()=>{
 })
 
 test('test object', ()=>{
-    expect({name: 'peanut'}).toEqual({name: 'peanut'})
+    expect({name: 'chocolate'}).toEqual({name: 'chocolate'})
 })

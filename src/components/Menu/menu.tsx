@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     } = props;
     const [currentActive, setActive] = useState(defaultIndex);
 
-    const classes = classNames('peanut-menu', className, {
+    const classes = classNames('chocolate-menu', className, {
         'menu-vertical': mode === 'vertical',
         'menu-horizontal': mode !== 'vertical',
     })

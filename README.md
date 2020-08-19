@@ -1,6 +1,6 @@
-# Peanut-Cl
+# Chocolate-Ui
 
-🥜 Peanut-Cl
+🥜 Chocolate-Ui
 
 A React.js UI component library for Web
 
@@ -9,17 +9,17 @@ A React.js UI component library for Web
 ## 安装已经发布的组件库来试试
 
 ~~~javascript
-npm install peanut-cl --save
+npm install chocolate-ui --save
 ~~~
 
 ### 使用
 
 ~~~javascript
 // 加载样式
-import 'peanut-cl/dist/index.css'
+import 'chocolate-ui/dist/index.css'
 
 // 引入组件
-import { Button } from 'peanut-cl'
+import { Button } from 'chocolate-ui'
 ~~~
 
 ### 技术点

@@ -6,7 +6,7 @@ import { scopedClass } from '../../utils/scopedClass'
 import Transition from '../Transition/transition'
 import useClickOutside from '../../hooks/useClickOutside'
 
-const sc = scopedClass('peanut-select')
+const sc = scopedClass('chocolate-select')
 
 export interface SelectProps {
     disabled?: boolean;
@@ -69,7 +69,7 @@ const Select: React.FC<SelectProps> = (props) => {
     }
 
     return (
-        <div style={style} className='peanut-select' ref={componentRef}>
+        <div style={style} className='chocolate-select' ref={componentRef}>
             <SelectContext.Provider value={passedContext}>
                 <Input
                     onChange={onChange}

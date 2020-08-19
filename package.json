@@ -1,5 +1,5 @@
 {
-  "name": "peanut-cl",
+  "name": "chocolate-ui",
   "version": "0.1.2",
   "description": "A React.js UI component library for Web",
   "author": "shiming_xsm",
@@ -14,10 +14,10 @@
     "React",
     "Front-end"
   ],
-  "homepage": "https://github.com/fikyair/Peanut-Ui",
+  "homepage": "https://github.com/fikyair/Chocolate-Ui",
   "repository": {
       "type": "git",
-      "url": "https://github.com/fikyair/Peanut-Ui"
+      "url": "https://github.com/fikyair/Chocolate-Ui"
   },
   "files": [
     "dist"

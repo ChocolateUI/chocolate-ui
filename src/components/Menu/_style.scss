@@ -1,4 +1,4 @@
-.peanut-menu {
+.chocolate-menu {
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
@@ -62,7 +62,7 @@
         }
     }
 
-    .peanut-submenu {
+    .chocolate-submenu {
         display: none;
         list-style: none;
         padding-left: 0;
@@ -81,7 +81,7 @@
         }
     }
 
-    .peanut-submenu.menu-opened {
+    .chocolate-submenu.menu-opened {
         display: block;
     }
 }
@@ -91,7 +91,7 @@
         border-bottom: $menu-item-active-border-width solid transparent;
     }
 
-    .peanut-submenu {
+    .chocolate-submenu {
         position: absolute;
         background: $white;
         z-index: 100;

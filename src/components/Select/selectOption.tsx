@@ -9,7 +9,7 @@ export interface SelectOptionProps {
     disabled?: boolean,
 }
 
-const sc = scopedClass('peanut-select')
+const sc = scopedClass('chocolate-select')
 
 const SelectOption: React.FC<SelectOptionProps> = (props) => {
     const {

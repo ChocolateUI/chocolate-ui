@@ -7,7 +7,7 @@ import Transition from '../Transition/transition'
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside'
 
-const sc = scopedClass('peanut-suggest')
+const sc = scopedClass('chocolate-suggest')
 
 interface DataSourceObject {
     value: string
@@ -147,7 +147,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
         )
     }
     return (
-        <div className='peanut-auto-complete'  ref={componentRef}>
+        <div className='chocolate-auto-complete'  ref={componentRef}>
             <Input
                 style={{ width: `${width}px`, ...style }}
                 value={inputValue}

@@ -1,4 +1,4 @@
-.peanut-input {
+.chocolate-input {
     &-wrapper {
         display: flex;
         position: relative;
@@ -71,36 +71,36 @@
 
 }
 
-.peanut-input-group-append+.btn {
+.chocolate-input-group-append+.btn {
     padding: 0;
     border: 0;
 }
 
-.input-group>.peanut-input-group-prepend {
+.input-group>.chocolate-input-group-prepend {
     border-right: 0;
 }
 
-.input-group>.peanut-input-group-append {
+.input-group>.chocolate-input-group-append {
     border-left: 0;
 }
 
-.input-group>.peanut-input-group-prepend,
-.input-group.input-group-append>.peanut-input-inner {
+.input-group>.chocolate-input-group-prepend,
+.input-group.input-group-append>.chocolate-input-inner {
     @include border-right-radius(0);
 }
 
-.input-group>.peanut-input-group-append,
-.input-group.input-group-prepend>.peanut-input-inner {
+.input-group>.chocolate-input-group-append,
+.input-group.input-group-prepend>.chocolate-input-inner {
     @include border-left-radius(0);
 }
 
-.input-size-sm .peanut-input-inner {
+.input-size-sm .chocolate-input-inner {
     padding: $input-padding-y-sm $input-padding-x-sm;
     font-size: $input-font-size-sm;
     border-radius: $input-border-radius-sm;
 }
 
-.input-size-lg .peanut-input-inner {
+.input-size-lg .chocolate-input-inner {
     padding: $input-padding-y-lg $input-padding-x-lg;
     font-size: $input-font-size-lg;
     border-radius: $input-border-radius-lg;
