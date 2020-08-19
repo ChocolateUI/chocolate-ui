@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "build",
+    "outDir": "dist",
     "module": "esnext",
     "target": "es5", // 确定使用 es5 版本
     "declaration": true, // 为每个 js 文件生成 .d.ts 文件

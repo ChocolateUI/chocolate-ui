@@ -1,21 +1,25 @@
-# Peanut-Ui
+# Peanut-Cl
 
-🥜 Peanut-Ui 即插即用，一站式体验!
+🥜 Peanut-Cl
+
+A React.js UI component library for Web
+
+此刻尽丝滑!
 
 ## 安装已经发布的组件库来试试
 
 ~~~javascript
-npm install peanut-ui --save
+npm install peanut-cl --save
 ~~~
 
 ### 使用
 
 ~~~javascript
 // 加载样式
-import 'peanut/dist/index.css'
+import 'peanut-cl/dist/index.css'
 
 // 引入组件
-import { Button } from 'peanut-ui'
+import { Button } from 'peanut-cl'
 ~~~
 
 ### 技术点

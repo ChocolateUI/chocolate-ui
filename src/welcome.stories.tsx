@@ -5,11 +5,11 @@ storiesOf('Welcome page', module)
   .add('welcome', () => {
     return (
       <>
-        <h1>Peanut-Ui</h1>
-        <p>Peanut-Ui 即插即用</p>
+        <h1>Peanut-Cl</h1>
+        <p>Peanut-Cl 即插即用</p>
         <h3>安装试试</h3>
         <code>
-          npm install peanut-ui --save
+          npm install peanut-cl --save
         </code>
       </>
     )
