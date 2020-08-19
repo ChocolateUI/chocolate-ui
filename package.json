@@ -14,10 +14,10 @@
     "React",
     "Front-end"
   ],
-  "homepage": "https://github.com/fikyair/Chocolate-Ui",
+  "homepage": "https://github.com/ChocolateUI/chocolate-ui",
   "repository": {
       "type": "git",
-      "url": "https://github.com/fikyair/Chocolate-Ui"
+      "url": "https://github.com/ChocolateUI/chocolate-ui"
   },
   "files": [
     "dist"
