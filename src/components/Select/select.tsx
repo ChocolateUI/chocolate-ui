@@ -8,7 +8,7 @@ import useClickOutside from '../../hooks/useClickOutside'
 
 const sc = scopedClass('peanut-select')
 
-interface SelectProps {
+export interface SelectProps {
     disabled?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     children?: React.ReactNode;
