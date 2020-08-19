@@ -1,10 +1,10 @@
 # Chocolate-Ui
 
-🥜 Chocolate-Ui
+**🥜 Chocolate-Ui**
 
-A React.js UI component library for Web
+**A React.js UI component library for Web**
 
-此刻尽丝滑!
+**此刻尽丝滑!**
 
 ## 安装已经发布的组件库来试试
 
