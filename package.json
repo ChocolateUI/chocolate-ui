@@ -16,8 +16,8 @@
   ],
   "homepage": "https://github.com/ChocolateUI/chocolate-ui",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/ChocolateUI/chocolate-ui"
+    "type": "git",
+    "url": "https://github.com/ChocolateUI/chocolate-ui"
   },
   "files": [
     "dist"
@@ -73,16 +73,16 @@
     "@storybook/addon-info": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
-    "@storybook/react": "^5.2.8",
     "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^5.2.8",
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^12.1.1",
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.9",
     "@types/node": "^14.0.27",
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.0",
-    "@types/classnames": "^2.2.10",
     "@types/react-transition-group": "^4.2.3",
     "@types/storybook__addon-info": "^5.2.1",
     "babel-loader": "^8.1.0",
@@ -90,16 +90,18 @@
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "husky": "^4.2.5",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1",
+    "react-scripts": "3.4.3",
+    "react-syntax-highlighter": "^13.5.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
-    "url-loader": "^4.1.0",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "typescript": "~3.9.7",
-    "react-scripts": "3.4.3",
+    "url-loader": "^4.1.0",
     "yarn-deduplicate": "^2.1.1"
   }
 }

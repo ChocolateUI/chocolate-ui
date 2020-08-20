@@ -873,6 +873,29 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+}
+
+.chocolate-input-icon-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 35px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #495057;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chocolate-input-icon-wrapper svg {
+  color: #dee2e6;
 }
 
 .chocolate-input-inner {
@@ -881,9 +904,10 @@ main {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.95);
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  width: 100%;
 }
 
 .chocolate-input-inner:focus {
@@ -915,8 +939,14 @@ main {
   opacity: 1;
 }
 
-.chocolate-input-inner:disabled, .chocolate-input-inner[readonly] {
+.chocolate-input-inner:disabled {
+  cursor: not-allowed;
   background-color: rgba(233, 236, 239, 0.65);
+  opacity: 1;
+}
+
+.chocolate-input-inner[readonly] {
+  background-color: rgba(233, 236, 239, 0.1);
   opacity: 1;
 }
 
@@ -930,7 +960,7 @@ main {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: rgba(73, 80, 87, 0.65);
+  color: rgba(73, 80, 87, 0.95);
   text-align: center;
   white-space: nowrap;
   background-color: rgba(233, 236, 239, 0.65);
@@ -1034,5 +1064,44 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 75px;
+}
+
+.chocolate-select {
+  position: relative;
+}
+
+.chocolate-select-option-list {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+  list-style: none;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: calc(100% + 8px);
+  width: 100%;
+  padding-left: 0;
+}
+
+.chocolate-select-option-list-item {
+  line-height: 2;
+  height: 2;
+  color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  padding: 4px 11px;
+  font-size: 1rem;
+}
+
+.chocolate-select-option-list-item[disabled] {
+  cursor: not-allowed;
+  background-color: rgba(233, 236, 239, 0.65);
+  opacity: 1;
+}
+
+.chocolate-select-option-list-item:hover {
+  background: rgba(13, 110, 253, 0.15) !important;
 }
 /*# sourceMappingURL=index.css.map */
