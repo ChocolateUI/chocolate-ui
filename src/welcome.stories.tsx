@@ -7,7 +7,7 @@ storiesOf('Welcome page', module)
       <>
         <h1>Chocolate-Ui</h1>
         <span role="img" aria-label='chocolate'> 🍫 Chocolate-Ui 即插即用，纵享丝滑 🎗️</span>
-        <h3>安装试试</h3>
+        <h3>Usage</h3>
         <div>
           使用 npm 安装
         </div>
