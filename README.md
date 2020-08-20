@@ -4,7 +4,7 @@
 
 **A React.js UI component library for Web**
 
-**Indulge in silky smoothnessIndulge in silky smoothness**
+**Indulge in silky smoothness**
 
 ***
 
