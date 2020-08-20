@@ -6,7 +6,7 @@ storiesOf('Welcome page', module)
     return (
       <>
         <h1>Chocolate-Ui</h1>
-        <p>Chocolate-Ui 即插即用</p>
+        <p>🍫 Chocolate-Ui 即插即用，纵享丝滑 🎗️</p>
         <h3>安装试试</h3>
         <code>
           npm install chocolate-ui --save
