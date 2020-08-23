@@ -1,11 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import ReactMarkDown from "react-markdown"
-import CodeBlock from "./codeBlock.tsx"
+import CodeBlock from "./codeBlock"
 import { FaGithub } from "react-icons/fa"
 import Introduction from '../introduction.md'
 import { name, repository } from "../package.json"
 import "./styles/welcome.scss"
+
 
 storiesOf('Welcome page', module)
   .add("介绍", () => (
