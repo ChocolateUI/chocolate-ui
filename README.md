@@ -1,26 +1,27 @@
-# Chocolate-Ui
 
-**🍫 Chocolate-Ui 即插即用，纵享丝滑 🎗️**
+<div align="center">
+        <img alt="chocolateUi" style={{ width: 180, height: 180 }} src="http://qiniu.xueshiming.cn/chocolate%E7%9A%84%E5%89%AF%E6%9C%AC.png" />
+</div>
 
-**A React.js UI component library for Web**
+#### 🐳 预览
 
-**Indulge in silky smoothness**
+[https://chocolateui.github.io/chocolate-ui/](https://chocolateui.github.io/chocolate-ui/)
 
-***
-
-### :zap: Install
+#### ⚡ 安装
 
 >使用 npm
-~~~javascript
+
+```javascript
 npm install chocolate-ui --save
-~~~
+```
 
 >使用 yarn
-~~~javascript
-yarn add chocolate-ui
-~~~
 
-### :book: Use
+```javascript
+yarn add chocolate-ui
+```
+
+#### 📖 使用
 
 ```javascript
 // 加载样式
@@ -30,7 +31,7 @@ import 'chocolate-ui/dist/index.css'
 import { Button } from 'chocolate-ui'
 ```
 
-### Feature
+#### ✨ 技术栈
 
 * 😁 typescript with React Hooks
 * 🍑 使用 react-testing-library 完成单元测试
@@ -38,7 +39,7 @@ import { Button } from 'chocolate-ui'
 * 🥦 使用 react-doc-gen 自动生成文档
 * 🥭 使用第三方库扩充组件-(react-fontawesome, react-transition-group)
 
-### Some code
+#### 🎋 一些命令行
 
 ~~~bash
 // 启动本地环境

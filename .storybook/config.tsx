@@ -11,7 +11,7 @@ const wrapperStyle: React.CSSProperties = {
 
 const storyWrapper = (stroyFn: any) => (
   <div style={wrapperStyle}>
-    <h3>组件演示</h3>
+    {/* <h3>组件演示</h3> */}
     {stroyFn()}
   </div>
 )
