@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import ReactMarkDown from "react-markdown"
 import CodeBlock from "./codeBlock.tsx"
 import { FaGithub } from "react-icons/fa"
-import README from '../README.md'
+import Introduction from '../introduction.md'
 import { name, repository } from "../package.json"
 import "./styles/welcome.scss"
 
@@ -30,7 +30,7 @@ storiesOf('Welcome page', module)
         <p> 此刻尽丝滑！ </p>
       </div>
       <ReactMarkDown
-          source={README}
+          source={Introduction}
           renderers={{
             CodeBlock,
             Code: CodeBlock
