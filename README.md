@@ -14,9 +14,10 @@
 
 #### 🐳 预览
 
-[https://chocolateui.github.io/chocolate-ui/](https://chocolateui.github.io/chocolate-ui/)
+<a href="https://chocolateui.github.io/chocolate-ui/" target="_blank">https://chocolateui.github.io/chocolate-ui/</a>
 
-或者可以使用这个地址 [ui.xueshiming.cn](www.ui.xueshiming.cn)
+或者可以使用这个地址 <a href="http://www.ui.xueshiming.cn" target="_blank">ui.xueshiming.cn</a>
+
 
 #### ⚡ 安装
 
