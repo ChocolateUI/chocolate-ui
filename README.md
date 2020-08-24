@@ -16,7 +16,7 @@
 
 [https://chocolateui.github.io/chocolate-ui/](https://chocolateui.github.io/chocolate-ui/)
 
-或者可以使用这个地址 [ui.xueshiming.cn](ui.xueshiming.cn)
+或者可以使用这个地址 [ui.xueshiming.cn](www.ui.xueshiming.cn)
 
 #### ⚡ 安装
 
