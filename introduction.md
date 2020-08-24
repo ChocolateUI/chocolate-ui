@@ -1,7 +1,3 @@
-#### 🐳 预览
-
-[https://chocolateui.github.io/chocolate-ui/](https://chocolateui.github.io/chocolate-ui/)
-
 #### ⚡ 安装
 
 >使用 npm
