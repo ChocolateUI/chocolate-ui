@@ -46,11 +46,17 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build",
+    "commit": "git-cz"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run test:nowatch && npm run lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
     }
   },
   "eslintConfig": {
@@ -88,8 +94,10 @@
     "@types/storybook__addon-info": "^5.2.1",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "highlight": "^0.2.4",
     "highlight.js": "^10.1.2",
     "husky": "^4.2.5",
