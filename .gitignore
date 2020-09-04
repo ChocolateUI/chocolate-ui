@@ -10,6 +10,8 @@
 /yarn.lock
 /package-lock.json
 /.idea
+/.vscode
+
 
 # testing
 /coverage
@@ -18,6 +20,7 @@
 /build
 /dist
 /storybook-static
+yarn.lock
 
 # misc
 .DS_Store
