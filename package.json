@@ -51,12 +51,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test:nowatch && npm run lint"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "pre-commit": "npm run test:nowatch && npm run lint",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "eslintConfig": {

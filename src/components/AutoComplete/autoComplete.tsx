@@ -101,6 +101,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
         break
     }
   }
+  
 
   const handleSelectItem = (item: DataSourceType) => {
     setInputValue(item.value)
