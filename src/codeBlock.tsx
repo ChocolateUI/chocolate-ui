@@ -26,6 +26,7 @@ interface CodeBlockProps  {
 }
 
 const CodeBlock: FC<CodeBlockProps> =(props)=> {
+  console.log('props: ', props);
   const { language, literal, inline } = props
   return (
     <Lowlight
