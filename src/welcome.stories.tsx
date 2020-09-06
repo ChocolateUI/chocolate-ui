@@ -32,10 +32,10 @@ storiesOf('Welcome page', module)
       </div>
       <ReactMarkDown
           source={Introduction}
-          renderers={{
-            CodeBlock,
-            Code: CodeBlock
-          }}
+          // renderers={{
+          //   CodeBlock,
+          //   Code: CodeBlock
+          // }}
         />
     </>
   ), { info: { disable: true } })
