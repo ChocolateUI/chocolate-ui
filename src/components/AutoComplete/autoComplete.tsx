@@ -21,7 +21,7 @@ export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
   width?: number | string;
   renderOption?: (item: DataSourceType) => ReactElement;
 }
-const AutoComplete: FC<AutoCompleteProps> = (props) => {
+export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const {
     fetchSuggestions,
     value,
