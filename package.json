@@ -42,7 +42,7 @@
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "test:nowatch": "cross-env CI=true test",
+    "test:nowatch": "cross-env CI=true npm run test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
