@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { scopedClass } from '../../utils/scopedClass'
 import { TabItemProps } from './tabItem'
-import Transition from '../Transition/transition';
 
 const sc = scopedClass('chocolate-tabs')
 
