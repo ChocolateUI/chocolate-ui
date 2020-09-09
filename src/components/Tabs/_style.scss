@@ -1,0 +1,58 @@
+.chocolate-tabs {
+
+  &-nav {
+    display: flex;
+    list-style: none;
+    border-bottom: $menu-border-width solid $menu-border-color;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    &-item {
+      display: block;
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+
+      &.disabled {
+        color: $menu-item-disabled-color;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      &.is-active {
+        color: $menu-item-active-color;
+        border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+      }
+
+      &:hover {
+        color: $menu-item-active-color;
+      }
+    }
+  }
+
+  &-content {
+    margin-top: 10px;
+  }
+
+}
+
+.nav-line .chocolate-tabs-nav-item.is-active {
+  border-bottom: 2px solid #0d6efd;
+}
+
+.nav-card .chocolate-tabs-nav-item {
+  border: 1px solid transparent;
+  margin-bottom: -1px;
+}
+
+.nav-card .chocolate-tabs-nav-item.is-active {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background-color: $white;
+  border-color: $gray-300 $gray-300 $white;
+}
