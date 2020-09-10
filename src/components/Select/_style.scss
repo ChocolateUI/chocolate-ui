@@ -22,11 +22,13 @@
             padding: $input-padding-y $input-padding-x;
             font-size: $font-size-base;
             
-            &[disabled] {
-                cursor: not-allowed;
-                background-color: rgba($input-disabled-bg, .65);
-                border-color: $input-disabled-border-color;
-                opacity: 1;
+            &.is-disabled{
+              cursor: not-allowed;
+              background-color: rgba($input-disabled-bg, .65);
+              border-color: $input-disabled-border-color;
+              color: $gray-600;
+              pointer-events: none;
+              opacity: 1;
             }
 
             &:hover {
