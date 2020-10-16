@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-    - "stable"
+    - "stable"   
 cache:
     directories:
-    - node_modules
+    - node_modules   #使用缓存
 env:
-    - CI=true
+    - CI=true #
 script:
     - npm run build-storybook
 deploy:
     provider: pages
     skip_cleanup: true
-    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    github_token: $GITHUB_TOKEN
     local_dir: storybook-static
     on:
       branch: master
