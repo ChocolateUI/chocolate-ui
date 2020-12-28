@@ -1,0 +1,23 @@
+.date-picker-title {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.date-picker-title-center {
+  flex: 1;
+}
+
+.date-picker-prev-btn,
+.date-picker-next-btn {
+  width: 16px;
+  height: 16px;
+  background: {
+    size: cover;
+    repeat: no-repeat;
+    position: center;
+  }
+  cursor: pointer;
+  line-height: 16px;
+}
