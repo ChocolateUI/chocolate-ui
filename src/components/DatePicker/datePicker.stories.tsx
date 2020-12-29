@@ -5,7 +5,7 @@ import DatePicker from './datePicker';
 
 
 const wrapperStyle: React.CSSProperties = {
-    width: '500px'
+    width: '300px'
 }
 
 const defaultDatePicker = () => (

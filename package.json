@@ -29,6 +29,8 @@
     "axios": "^0.19.1",
     "classnames": "^2.2.6",
     "dayjs": "^1.9.8",
+    "moment": "^2.29.1",
+    "moment-range": "^4.0.2",
     "react-transition-group": "^4.3.0"
   },
   "peerDependencies": {
