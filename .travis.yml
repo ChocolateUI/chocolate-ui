@@ -7,7 +7,7 @@ cache:
 env:
     - CI=true #
 script:
-    - npm run build-storybook
+    - npm run build-storybook && npm install --legacy-peer-deps
 deploy:
     provider: pages
     skip_cleanup: true
