@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import Lowlight from 'react-lowlight'
-import js from 'highlight.js/lib/languages/javascript'
+// import React, { FC } from 'react'
+// import Lowlight from 'react-lowlight'
+// import js from 'highlight.js/lib/languages/javascript'
 
 
-import ts from 'highlight.js/lib/languages/typescript'
+// import ts from 'highlight.js/lib/languages/typescript'
 
 
 // 内置了很多 颜色主题 
@@ -16,27 +16,27 @@ import ts from 'highlight.js/lib/languages/typescript'
 // react-markdown 和 react-lowlight 一起使用 实现高亮 markdown
 
 // 注册支持哪些样式
-Lowlight.registerLanguage('js', js);
-Lowlight.registerLanguage('ts', ts);
+// Lowlight.registerLanguage('js', js);
+// Lowlight.registerLanguage('ts', ts);
 
-interface CodeBlockProps  {
-  language?: string,
-  inline?: boolean,
-  literal?: string
-}
+// interface CodeBlockProps  {
+//   language?: string,
+//   inline?: boolean,
+//   literal?: string
+// }
 
-const CodeBlock: FC<CodeBlockProps> =(props)=> {
-  console.log('props: ', props);
-  const { language, literal, inline } = props
-  return (
-    <Lowlight
-      language={language || 'ts'}
-      value={literal}
-      inline={inline}
-    />
-  );
-}
+// const CodeBlock: FC<CodeBlockProps> =(props)=> {
+//   console.log('props: ', props);
+//   const { language, literal, inline } = props
+//   return (
+//     <Lowlight
+//       language={language || 'ts'}
+//       value={literal}
+//       inline={inline}
+//     />
+//   );
+// }
 
-CodeBlock.displayName = 'CodeBlock'
+// CodeBlock.displayName = 'CodeBlock'
 
-export default CodeBlock;
+// export default CodeBlock;

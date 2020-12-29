@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Select, { SelectProps } from './select'
 import Option from './selectOption'
 

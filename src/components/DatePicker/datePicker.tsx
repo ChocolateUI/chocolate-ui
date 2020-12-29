@@ -3,7 +3,7 @@ import Header from './header'
 import DayJs from 'dayjs';
 
 interface DatePickerProps {
-  defaultValue: string;
+  defaultValue?: string;
 }
 
 const DatePicker: FC<DatePickerProps> = (props) => {
