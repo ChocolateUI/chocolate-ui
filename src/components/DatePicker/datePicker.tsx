@@ -23,11 +23,11 @@ const DatePicker: FC<DatePickerProps> = (props) => {
   useEffect(() => {
     const resizeHandle = () => {
       if (componentRef) {
-        setContainerWidth(componentRef.current.offsetWidth)
+        setContainerWidth(componentRef.current!['offsetWidth'])
       }
     };
     window.addEventListener('resize', resizeHandle);
-    setContainerWidth(componentRef.current.offsetWidth)
+    setContainerWidth(componentRef.current!['offsetWidth'])
   }, [])
   return (
     <div className="rdp__container" ref={componentRef}>

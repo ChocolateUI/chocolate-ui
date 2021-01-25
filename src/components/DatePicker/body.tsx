@@ -11,15 +11,23 @@ interface BodyProps {
   itemRender: boolean;
   ranges: any;
   isAnimating: boolean;
+  bodyWidth: number, 
+  itemClass?: any, 
+  selectable?: any,
+  startDate?: any,
+  endDate?: any, 
+  minDate?: any,
+  maxDate?: any, 
+  disabledDates?: any
 }
 
 const labelKeys = Object.values(WEEK_DAYS);
 
 const getAllDays = (currDate: any) => {
   const currMonth = DayJs(currDate).startOf('month');
-  const prevMonthDays = getMonthDays(currMonth.clone().subtract(1, 'months'));
+  const prevMonthDays = getMonthDays(currMonth.clone().subtract(1, 'month'));
   const currMonthDays = getMonthDays(currMonth);
-  const nextMonthDays = getMonthDays(currMonth.clone().add(1, 'months'));
+  const nextMonthDays = getMonthDays(currMonth.clone().add(1, 'month'));
   return [prevMonthDays, currMonthDays, nextMonthDays];
 }
 
@@ -42,9 +50,9 @@ const getMonthDays = (startOfMonth: any) => {
 /**
 * render last month
 */
-const renderPrevMonthDays = (firstDay, count) => {
+const renderPrevMonthDays = (firstDay: string | number | Date | DayJs.Dayjs | undefined, count: number) => {
   const emptyDays = [];
-  let start = DayJs(firstDay).clone().subtract(count, 'days');
+  let start = DayJs(firstDay).clone().subtract(count, 'day');
   const i = -1;
   while (count--) {
     emptyDays.push(
@@ -56,7 +64,7 @@ const renderPrevMonthDays = (firstDay, count) => {
         isDisable: true,
       },
     );
-    start = DayJs(firstDay).clone().subtract(count, 'days');
+    start = DayJs(firstDay).clone().subtract(count, 'day');
   }
   return emptyDays;
 }
@@ -64,11 +72,11 @@ const renderPrevMonthDays = (firstDay, count) => {
 /**
   * render current month
   */
-const renderCurrMonthDays = (firstDay, count) => {
+const renderCurrMonthDays = (firstDay: string | number | Date | DayJs.Dayjs | undefined, count: number) => {
   const realDays = [];
   let i = 1;
   while (count--) {
-    const date = DayJs(firstDay).clone().add(i - 1, 'days');
+    const date = DayJs(firstDay).clone().add(i - 1, 'day');
     realDays.push(
       {
         num: i,
@@ -92,7 +100,7 @@ const renderCurrMonthDays = (firstDay, count) => {
 * @param {*} start
 * @param {*} count
 */
-const renderNextMonthDays = (start, count) => {
+const renderNextMonthDays = (start: DayJs.Dayjs , count: number) => {
   const emptyDays = [];
   let i = 1;
   while (count--) {
@@ -113,14 +121,15 @@ const renderNextMonthDays = (start, count) => {
 }
 
 const Body: FC<BodyProps> = (props) => {
-  const { defaultValue, isAnimating, bodyWidth, itemClass, itemRender, range, selectable, startDate,
+  const { defaultValue, isAnimating, 
+    bodyWidth, itemClass, itemRender, range, selectable, startDate,
     endDate, minDate,ranges,
-    maxDate, disabledDates =[] } = props;
+    maxDate, disabledDates = [] } = props;
 
   const [allDays, setAllDays] = useState(getAllDays(defaultValue))
   const [movePrev, setMovePrev] = useState(false)
   const [moveNext, setMoveNext] = useState(false)
-  const renderRowDays = (days: []) => days.map((item) => {
+  const renderRowDays = (days: any[]) => days.map((item: any) => {
     const typeOfItemClass = typeof itemClass;
     let itemClassStr = '';
     if (typeOfItemClass === 'function') {
@@ -166,16 +175,15 @@ const Body: FC<BodyProps> = (props) => {
       // onMouseDown={() => allowDownEvent && handleMouseDown(item.date)}
       // onMouseEnter={() => allowHoverEvent && handleMouseEnter(item.date)}
       >
-        { itemRender ? itemRender(item) : item.num}
+        { itemRender ? null : item.num}
       </div>
     );
   });
 
   const renderDays = (days: []) => {
     const rowArray = [];
-    let arr = [];
+    let arr: any[] = [];
     days.forEach((item: any, idx: number) => {
-      console.log('item: ', item);
       if (item.date) { // only handle item has date
         // if (ranges && checkInRange(ranges)) {
         //   const checkRangeRet = checkInRange(item.date);
@@ -222,7 +230,7 @@ const Body: FC<BodyProps> = (props) => {
     ));
   };
 
-  const renderAllDays = () => allDays.map((pageDays, idx) => {
+  const renderAllDays = (val: any) => allDays.map((pageDays: any, idx) => {
     // base on key format is { YYYYMMDD }
     const key = Object.keys(pageDays)[0];
     const cls = classNames({
@@ -252,12 +260,11 @@ const Body: FC<BodyProps> = (props) => {
     translateX = -bodyWidth;
   }
 
-  const bodyStyle = {
+  const bodyStyle: React.CSSProperties = {
     width: bodyWidth * 3,
     left: -bodyWidth,
-    transform: isAnimating && `translateX(${translateX}px)`,
-  };
-
+    transform: (isAnimating && `translateX(${translateX}px)`) as string,
+  }
   return (
     <div>
       <div className="rdp__labels">

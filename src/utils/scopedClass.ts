@@ -11,6 +11,4 @@ export function scopedClass(componentClass: string) {
   }
 }
 
-export default {
-  scopedClass
-}
+export default scopedClass;
