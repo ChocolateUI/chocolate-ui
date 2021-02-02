@@ -4,6 +4,7 @@ node_js:
 cache:
     directories:
     - node_modules   #使用缓存
+    npm: false
 env:
     - CI=true #
 script:
