@@ -2,9 +2,7 @@ language: node_js
 node_js:
     - "stable"   
 cache:
-    directories:
-    - node_modules   #使用缓存
-    npm: false
+  npm: false
 env:
     - CI=true #
 script:
