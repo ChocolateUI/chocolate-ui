@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-    - "stable"   
+    - "stable"
+install: 
+    - npm install --legacy-peer-deps   
 cache:
-  npm: false
+    directories:
+    - node_modules   #使用缓存
 env:
     - CI=true #
 script:
