@@ -10,15 +10,18 @@ interface DatePickerProps {
 const DatePicker: FC<DatePickerProps> = (props) => {
   const [date, setDate] = useState(DayJs)
   const [containerWidth, setContainerWidth] = useState(0)
+  const [animating, setAnimating] = useState(false)
   const componentRef = useRef(null)
 
   const onPrevClick = () => {
     const preMonth = date.subtract(1, 'month')
     setDate(preMonth)
+    setAnimating(true)
   }
   const onNextClick = () => {
-    const preMonth = date.add(1, 'month')
-    setDate(preMonth)
+    const nextMonth = date.add(1, 'month')
+    setDate(nextMonth)
+    setAnimating(true)
   }
   useEffect(() => {
     const resizeHandle = () => {
@@ -38,10 +41,13 @@ const DatePicker: FC<DatePickerProps> = (props) => {
       />
       <Body
         defaultValue={date} 
+        selectable={true}
         range={false}
         itemRender={false}
-        isAnimating={false}
+        isAnimating={animating}
+        animateEnd={() => setAnimating(false)}
         bodyWidth={containerWidth}
+        date={date}
         ranges={[[DayJs().add(8, 'day'), DayJs().add(12, 'day')], [DayJs(), DayJs().add(8, 'day')]]}
       />
     </div>

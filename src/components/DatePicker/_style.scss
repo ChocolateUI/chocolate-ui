@@ -7,6 +7,28 @@
 
 .date-picker-title-center {
   flex: 1;
+  >span {
+    cursor: pointer;
+  }
+}
+
+.hidden_tag {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.rdp__animation-left {
+  transition: transform 0.4s ease;
+}
+
+.rdp__animation-right {
+  transition: transform 0.4s ease;
+}
+
+.rdp__view {
+  display: inline-block;
+  vertical-align: top;
+  flex: 1;
 }
 
 .date-picker-prev-btn,
@@ -67,5 +89,27 @@
 }
 
 .rdp__container {
-  width: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  user-select: none;
+  box-sizing: border-box;
 }
+
+// .rdp__months-item-active,
+// .rdp__days-item-active,
+// .rdp__days-item-active--start,
+// .rdp__days-item-active--end,
+// .rdp__days-item-active--single,
+// .rdb__days-item-active--connect {
+//   background-color: #4D9DE0;
+//   color: #fff;
+// }
+
+// .rdp__days-item-active--single {
+//   background-color: #1EA7FD;
+//   border-radius: 50% !important;
+// }
