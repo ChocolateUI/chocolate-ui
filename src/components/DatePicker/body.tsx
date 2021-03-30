@@ -318,7 +318,7 @@ const Body: FC<BodyProps> = (props) => {
       <div className="rdp__labels">
         {
           labelKeys.map((item, idx) => (
-            <div className="rdp__labels-item" key={item}>
+            <div className="rdp__labels-item" key={idx}>
               {item}
             </div>
           ))

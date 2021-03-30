@@ -9,10 +9,10 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "keywords": [
-    "Component",
-    "UI",
-    "React",
-    "Front-end"
+    "component",
+    "ui",
+    "react",
+    "front-end"
   ],
   "homepage": "https://chocolateui.github.io/chocolate-ui/",
   "repository": {
