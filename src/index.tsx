@@ -3,10 +3,10 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fas)
 
-export { default as Button } from './components/Button'
-export { default as Menu } from './components/Menu'
-export { default as AutoComplete } from './components/AutoComplete'
-export { default as Alert } from './components/Alert'
-export { default as Icon } from './components/Icon'
-export { default as Input } from './components/Input'
-export { default as Transition } from './components/Transition'
+export { default as Button } from './components/button'
+export { default as Menu } from './components/menu'
+export { default as AutoComplete } from './components/auto-complete'
+export { default as Alert } from './components/alert'
+export { default as Icon } from './components/icon'
+export { default as Input } from './components/input'
+export { default as Transition } from './components/transition'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import AutoComplete from './autoComplete'
-import { DataSourceType } from '../AutoComplete/autoComplete'
+import { DataSourceType } from './autoComplete'
 import { lakersWithNumber } from './dataConfig'
 
 interface GithubUserProps {

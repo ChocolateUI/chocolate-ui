@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src"
+    "src",
   ],
   "exclude": [
     "src/**/*.test.tsx",

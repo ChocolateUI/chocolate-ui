@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useState, createContext, useRef } from 'react'
 import classNames from 'classnames'
 import { SelectOptionProps } from './selectOption'
-import Input from '../Input/input'
+import Input from '../input/input'
 import { scopedClass } from '../../utils/scopedClass'
-import Transition from '../Transition/transition'
+import Transition from '../transition/transition'
 import useClickOutside from '../../hooks/useClickOutside'
 
 const sc = scopedClass('chocolate-select')

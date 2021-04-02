@@ -3,16 +3,16 @@ import { withInfo } from '@storybook/addon-info'
 import React from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import "../src/components/Alert/_style.scss"
-import "../src/components/AutoComplete/_style.scss"
-import "../src/components/Button/_style.scss"
-import "../src/components/DatePicker/_style.scss"
-import "../src/components/Icon/_style.scss"
-import "../src/components/Input/_style.scss"
-import "../src/components/Menu/_style.scss"
-import "../src/components/Progress/_style.scss"
-import "../src/components/Select/_style.scss"
-import "../src/components/Tabs/_style.scss"
+import "../src/components/alert/style.scss"
+import "../src/components/auto-complete/style.scss"
+import "../src/components/button/style.scss"
+import "../src/components/date-picker/style.scss"
+import "../src/components/icon/style.scss"
+import "../src/components/input/style.scss"
+import "../src/components/menu/style.scss"
+import "../src/components/progress/style.scss"
+import "../src/components/select/style.scss"
+import "../src/components/tabs/style.scss"
 
 library.add(fas)
 const wrapperStyle: React.CSSProperties = {
