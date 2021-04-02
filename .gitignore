@@ -19,6 +19,8 @@
 # production
 /build
 /dist
+/es
+/lib
 /storybook-static
 yarn.lock
 
