@@ -31,20 +31,16 @@ module.exports = ({
     //     loaders: ["style-loader", "css-loader", "sass-loader"],
     //     include: path.resolve(__dirname, "../")
     // }
-    // {
-    //   test: /.(scss|sass)$/,
-    //   use: [
-    //     "style-loader",
-    //     "css-loader",
-    //     {
-    //       loader: "sass-loader",
-    //       options: {
-    //         sourceMap: false,
-    //       },
-    //     },
-    //   ],
-    //   include: path.resolve(__dirname, '../src'),
-    // },
+    {
+      test: /.(scss|sass)$/,
+      use: {
+        loader: "sass-loader",
+        options: {
+          sourceMap: false,
+        },
+      },
+      include: path.resolve(__dirname, '../src'),
+    },
     // {
     //   test: /\.css$/,
     //   use: [
