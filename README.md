@@ -35,6 +35,8 @@ yarn add chocolate-ui
 
 #### 📖 使用
 
+> 1 .全部引入
+
 ```javascript
 // 加载样式
 import 'chocolate-ui/dist/index.css'
@@ -43,6 +45,27 @@ import 'chocolate-ui/dist/index.css'
 import { Button } from 'chocolate-ui'
 ```
 
+> 2 .按需加载
+
+```js
+import Button from 'chocolate-ui/dist/components/button';
+import 'chocolate-ui/dist/components/button/style';
+```
+
+> 3 .使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
+
+```js
+// .babelrc.js
+module.exports = {
+  plugins: [
+    ["babel-plugin-import", {
+      "libraryName": 'chocolate-ui',
+      "libraryDirectory": "dist/components",
+      "style": true
+    },'cuke-ui'], 
+  ]
+}
+```
 
 #### ✨ 技术栈
 
