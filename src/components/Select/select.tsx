@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { SelectOptionProps } from './selectOption'
 import Input from '../input/input'
 import { scopedClass } from '../../utils/scopedClass'
-import Transition from '../transition/transition'
+import Transition from '../transitions/transition'
 import useClickOutside from '../../hooks/useClickOutside'
 
 const sc = scopedClass('chocolate-select')
