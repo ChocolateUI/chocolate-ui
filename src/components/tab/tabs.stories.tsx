@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Tabs from './tabs';
 import TabItem from './tabItem';
-import Icon from '../icon/index';
+// import Icon from '../icon/index';
 
 
 const wrapperStyle: React.CSSProperties = {
@@ -50,9 +50,9 @@ const iconTabs = () => (
     onSelect={(value) => console.log('第', value, '项')}
     type="card"
   >
-    <TabItem label={<span> <Icon icon="apple-alt" style={{ marginRight: 5 }} />Tab 1</span>}>
+    {/* <TabItem label={<span> <Icon icon="apple-alt" style={{ marginRight: 5 }} />Tab 1</span>}>
       Content of Tab Pane 1
-    </TabItem>
+    </TabItem> */}
     <TabItem label="Tab 2">
       Content of Tab Pane 2
     </TabItem>
