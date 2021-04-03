@@ -26,21 +26,21 @@ module.exports = ({
         }
       ]
     },
-    // ,{
-    //     test: /.(scss|sass)$/,
-    //     loaders: ["style-loader", "css-loader", "sass-loader"],
-    //     include: path.resolve(__dirname, "../")
-    // }
-    {
-      test: /.(scss|sass)$/,
-      use: {
-        loader: "sass-loader",
-        options: {
-          sourceMap: false,
-        },
-      },
-      include: path.resolve(__dirname, '../src'),
-    },
+    ,{
+        test: /.(scss|sass)$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"],
+        include: path.resolve(__dirname, "../")
+    }
+    // {
+    //   test: /.(scss|sass)$/,
+    //   use: {
+    //     loader: "sass-loader",
+    //     options: {
+    //       sourceMap: false,
+    //     },
+    //   },
+    //   include: path.resolve(__dirname, '../src'),
+    // },
     // {
     //   test: /\.css$/,
     //   use: [
