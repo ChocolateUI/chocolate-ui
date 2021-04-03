@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Tabs from './tabs';
 import TabItem from './tabItem';
-import Icon from '../icon';
+import Icon from '../icon/index';
 
 
 const wrapperStyle: React.CSSProperties = {
