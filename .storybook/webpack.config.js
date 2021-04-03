@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({
   config
@@ -24,15 +25,49 @@ module.exports = ({
           }
         }
       ]
-    }
+    },
     // ,{
     //     test: /.(scss|sass)$/,
     //     loaders: ["style-loader", "css-loader", "sass-loader"],
     //     include: path.resolve(__dirname, "../")
     // }
+    // {
+    //   test: /.(scss|sass)$/,
+    //   use: [
+    //     "style-loader",
+    //     "css-loader",
+    //     {
+    //       loader: "sass-loader",
+    //       options: {
+    //         sourceMap: false,
+    //       },
+    //     },
+    //   ],
+    //   include: path.resolve(__dirname, '../src'),
+    // },
+    // {
+    //   test: /\.css$/,
+    //   use: [
+    //     "style-loader",
+    //     {
+    //       loader: "css-loader",
+    //       options: {
+    //         javascriptEnabled: true,
+    //         minimize: true,
+    //         sourceMap: false
+    //       }
+    //     },
+    //     {
+    //       loader: "postcss-loader",
+    //       options: { javascriptEnabled: true, sourceMap: false }
+    //     }
+    //   ],
+    // },
   );
-
-  config.resolve.extensions.push(".ts", ".tsx", ".md");
+  // config.plugins.push(new MiniCssExtractPlugin({
+  //   filename: "[name].min.css"
+  // }));
+  config.resolve.extensions.push(".ts", ".tsx", ".md", ".scss");
 
   return config;
 };
