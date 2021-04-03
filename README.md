@@ -39,7 +39,7 @@ yarn add chocolate-ui
 
 ```javascript
 // 加载样式
-import 'chocolate-ui/dist/index.css'
+import 'chocolate-ui/dist/styles/index.css'
 
 // 引入组件
 import { Button } from 'chocolate-ui'
