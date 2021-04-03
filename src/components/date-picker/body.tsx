@@ -299,12 +299,12 @@ const Body: FC<BodyProps> = (props) => {
       const currAllDays = allDays;
       if (movePrev) {
         currAllDays.pop();
-        currAllDays.unshift(_allDays.shift());
+        currAllDays.unshift(_allDays.shift() || {});
       }
 
       if (moveNext) {
         currAllDays.shift();
-        currAllDays.push(_allDays.pop());
+        currAllDays.push(_allDays.pop() || {});
       }
 
       setMoveNext(false)
