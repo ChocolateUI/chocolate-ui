@@ -3,16 +3,7 @@ import { withInfo } from '@storybook/addon-info'
 import React from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import "../src/components/alert/style.ts"
-import "../src/components/auto-complete/style.ts"
-import "../src/components/button/style.ts"
-import "../src/components/date-picker/style.ts"
-import "../src/components/icon/style.ts"
-import "../src/components/input/style.ts"
-import "../src/components/menu/style.ts"
-import "../src/components/progress/style.ts"
-import "../src/components/select/style.ts"
-import "../src/components/tabs/style.ts"
+import "../src/styles/index.scss"
 
 library.add(fas)
 const wrapperStyle: React.CSSProperties = {
