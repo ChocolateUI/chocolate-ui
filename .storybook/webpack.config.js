@@ -31,7 +31,6 @@ module.exports = ({
       options: {
         sassOptions: {
           outputStyle: "compressed",
-          includePaths: ["../src/components"]
         },
       }
     }],
