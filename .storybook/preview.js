@@ -5,7 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import "../src/styles/index.scss"
-import "../src/components/alert/style";
+// import "../src/components/alert/style.scss";
 
 library.add(fas)
 const wrapperStyle = {
