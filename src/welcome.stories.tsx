@@ -6,7 +6,6 @@ import Introduction from './introduction.md'
 import { name, repository } from "../package.json"
 import "./styles/welcome.scss"
 
-
 storiesOf('Welcome page', module)
   .add("介绍", () => (
     <>
