@@ -1,5 +1,5 @@
 # Workflow name
-name: 'Node CI'
+name: 'Chromatic Deployment'
 
 # Event for the workflow
 on: push
