@@ -14,10 +14,7 @@
 
 #### 🐳 预览
 
-<a href="https://chocolateui.github.io/chocolate-ui/" target="_blank">https://chocolateui.github.io/chocolate-ui/</a>
-
-或者可以使用这个地址 <a href="http://www.ui.xueshiming.fun" target="_blank">ui.xueshiming.fun</a>
-
+<a href="https://www.chromatic.com/library?appId=60e31bd4495b7b003b0b96a3" target="_blank">chromatic.com</a>
 
 #### ⚡ 安装
 
