@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="chocolateUi" style={{ width: 180, height: 180 }} src="http://qiniu.xueshiming.cn/chocolate%E7%9A%84%E5%89%AF%E6%9C%AC.png" />
+    <img alt="chocolateUi" style={{ width: 180, height: 180 }} src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/chocolate.png" />
     <div >
       <img alt="chocolateUi" style={{ width: 95, height: 23 }} src="https://api.travis-ci.com/ChocolateUI/chocolate-ui.svg?branch=master&status=passed" />
       <img alt="chocolateUi" style={{ width: 144, height: 23, margin-left: 10 }} src="https://img.shields.io/npm/dm/chocolate-ui.svg" />
