@@ -95,6 +95,7 @@
     "@types/storybook__addon-info": "^5.2.3",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "chromatic": "^5.9.2",
     "commitizen": "^4.2.2",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
