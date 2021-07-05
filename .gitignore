@@ -22,7 +22,6 @@
 /es
 /lib
 /storybook-static
-yarn.lock
 
 # misc
 .DS_Store
