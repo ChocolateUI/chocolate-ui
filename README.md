@@ -1,9 +1,10 @@
 <div align="center">
     <img alt="chocolateUi" style={{ width: 180, height: 180 }} src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/chocolate.png" />
     <div >
-      <img alt="chocolateUi" style={{ width: 144, height: 23, margin-left: 10 }} src="https://img.shields.io/npm/dm/chocolate-ui.svg" />
-      <img alt="chocolateUi" style={{ width: 95, height: 23, margin-left: 10 }} src="https://badgen.net/npm/v/chocolate-ui/" />
-      <img alt="chocolateUi" style={{ width: 142, height: 23, margin-left: 10 }} src="https://api.netlify.com/api/v1/badges/45fb5b8b-392a-4a4a-8731-fb3a4cc6d14c/deploy-status" />
+      <img alt="chocolate-ui" style={{ marginLeft: 10 }} src="https://img.shields.io/npm/dm/chocolate-ui.svg" />
+      <img alt="npm" style={{ marginLeft: 10 }} src="https://img.shields.io/npm/v/chocolate-ui.svg?style=flat" />
+      <img alt="netlify" style={{ marginLeft: 10 }} src="https://img.shields.io/badge/netlify-Success-blue" />
+      <img alt="chromatic" style={{ marginLeft: 10 }} src="https://img.shields.io/badge/chromatic-Success-green" />
     </div>
     <br />
     <p> <span role="img" aria-label="chocolateUi" >🍫</span> Chocolate-Ui 即插即用，纵享丝滑 <span role="img" aria-label="chocolateUi" > 🎗️</span></p>
