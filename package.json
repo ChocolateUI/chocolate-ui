@@ -145,7 +145,7 @@
     "@testing-library/user-event": "^12.6.0",
     "@types/classnames": "^2.2.10",
     "@types/highlight.js": "^10.1.0",
-    "@types/jest": "^26.0.9",
+    "@types/jest": "26.0.24",
     "@types/node": "^14.0.27",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
