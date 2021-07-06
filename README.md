@@ -14,7 +14,7 @@
 
 #### 🐳 预览
 
-<a href="https://60e31bd4495b7b003b0b96a3-bwcocobxzn.chromatic.com/" target="_blank">chromatic.com</a>
+<a href="https://master--60e31bd4495b7b003b0b96a3.chromatic.com" target="_blank">chromatic.com</a>
 
 #### ⚡ 安装
 
