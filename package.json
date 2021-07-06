@@ -42,7 +42,7 @@
     "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build-ts && npm run build:css && npm run build-css",
-    "build:css": "cd scripts && gulp",
+    "build:css": "cd gulp-config && gulp",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
