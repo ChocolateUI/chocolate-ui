@@ -1,7 +1,6 @@
 <div align="center">
     <img alt="chocolateUi" style={{ width: 180, height: 180 }} src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/chocolate.png" />
     <div >
-      <img alt="chocolateUi" style={{ width: 95, height: 23 }} src="https://api.travis-ci.com/ChocolateUI/chocolate-ui.svg?branch=master&status=passed" />
       <img alt="chocolateUi" style={{ width: 144, height: 23, margin-left: 10 }} src="https://img.shields.io/npm/dm/chocolate-ui.svg" />
       <img alt="chocolateUi" style={{ width: 95, height: 23, margin-left: 10 }} src="https://badgen.net/npm/v/chocolate-ui/" />
       <img alt="chocolateUi" style={{ width: 142, height: 23, margin-left: 10 }} src="https://api.netlify.com/api/v1/badges/45fb5b8b-392a-4a4a-8731-fb3a4cc6d14c/deploy-status" />
