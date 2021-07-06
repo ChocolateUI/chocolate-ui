@@ -5,7 +5,7 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    '@storybook/preset-scss'
+    // '@storybook/preset-scss'
   ],
   webpackFinal: async config => {
     config.module.rules.push({
@@ -24,7 +24,13 @@ module.exports = {
           }
         }
       ]
-    });
+    },
+    {
+      test: /.(scss|sass)$/,
+      loaders: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "../")
+    }
+    );
     config.resolve.extensions.push(".ts", ".tsx", ".md", ".scss");
 
     return config;
