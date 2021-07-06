@@ -84,7 +84,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "6.3.2",
     "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
+    "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "^12.6.0",
     "@types/classnames": "^2.2.10",
     "@types/highlight.js": "^10.1.0",
