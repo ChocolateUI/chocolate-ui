@@ -2,9 +2,9 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import Button, { BaseButtonProps } from './button'
-import CustomMDXDocumentation from './button-doc.mdx' 
+import CustomMDXDocumentation from './button-doc.mdx'
 
-const DefaultButton = (props: BaseButtonProps) => {
+const BaseButton = (props: BaseButtonProps) => {
   const { disabled, size, className, btnType, href } = props;
   return (
     <Button
@@ -18,44 +18,37 @@ const DefaultButton = (props: BaseButtonProps) => {
   )
 }
 
-const ButtonWithSize = (props: BaseButtonProps) => (
-  <>
-    <Button size="lg"> large </Button>
-  </>
-)
-
 export default {
   component: Button,
-  // title: 'Library/Button',
   title: 'Components/Button',
   decorators: [
     (Story) => (
       <div>
-        <Story/>
+        <Story />
       </div>
     ),
   ],
   argTypes: {
     size: {
       options: ['sm', 'lg'],
-      description: 'Available options available to the Badge',
       control: { type: 'select' }
     },
   },
-  parameters: { 
-    docs: { 
-      page: CustomMDXDocumentation, 
+  parameters: {
+    docs: {
+      page: CustomMDXDocumentation,
       source: {
         type: 'code'
       }
-    } 
+    },
+    controls: { exclude: ['className'] }
   },
 } as Meta;
 
-//👇 We create a “template” of how args map to rendering
-const Template: Story<BaseButtonProps> = (args) => <DefaultButton {...args} />;
+// _default
+const _default: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
 
-export const Default = Template.bind({});
+export const Default = _default.bind({});
 
 Default.args = {
   className: '',
@@ -65,12 +58,32 @@ Default.args = {
   href: 'http://www.baidu.com',
 };
 
+// _primary
+const _primary: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
 
+export const Primary = _primary.bind({});
 
-// const Template2: Story<BaseButtonProps> = (args) => <ButtonWithSize {...args} />;
+Primary.args = {
+ ...Default.args,
+ btnType: 'primary'
+};
 
-// export const Primary = Template2.bind({});
+// _danger
+const _danger: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
 
-// Primary.args = {
-//   btnType: 'default',
-// };
+export const Danger = _danger.bind({});
+
+Danger.args = {
+ ...Default.args,
+ btnType: 'danger'
+};
+
+// _link
+const _link: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
+
+export const Link = _link.bind({});
+
+Link.args = {
+ ...Default.args,
+ btnType: 'link'
+};

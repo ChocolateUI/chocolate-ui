@@ -193,6 +193,7 @@
     "react-syntax-highlighter": "^13.5.1",
     "rimraf": "^3.0.2",
     "sass-loader": "10.1.1",
+    "ts-dedent": "^2.1.1",
     "typescript": "~3.9.7",
     "url-loader": "^4.1.0",
     "yarn-deduplicate": "^2.1.1"
