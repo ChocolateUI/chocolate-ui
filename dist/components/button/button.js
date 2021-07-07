@@ -46,7 +46,10 @@ export var Button = function (props) {
     }
 };
 Button.defaultProps = {
+    className: '',
     disabled: false,
+    size: 'sm',
     btnType: 'default',
+    href: 'http://www.baidu.com',
 };
 export default Button;

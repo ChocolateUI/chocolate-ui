@@ -1,0 +1,33 @@
+<!-- Button Doc -->
+## Button
+我们可以配置不同大小的 `Button`
+
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
+import { Button } from './button';
+<Meta title="MDX/Button" component={Button} />
+
+具体参数如下：
+<ArgsTable of={Button} />
+
+`按钮是主要组件。它有四种可能的状态。`
+
+export const Template = (args) => <Button {...args} />
+
+- [Default](#default)
+- [Primary](#primary)
+- [Danger](#danger)
+- [Link](#link)
+
+效果展示：
+#### Default
+
+
+
+#### Primary
+
+
+#### Danger
+
+
+#### Link
+

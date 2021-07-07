@@ -5,7 +5,17 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    // '@storybook/preset-scss'
+    '@storybook/addon-a11y',
+    '@storybook/addon-essentials',
+    '@storybook/addon-docs'
+    // {
+    //   name: '@storybook/preset-scss',
+    //   options: {
+    //     cssLoaderOptions: {
+    //       modules: { localIdentName: '[name]__[local]--[hash:base64:5]' },
+    //     },
+    //   },
+    // },
   ],
   webpackFinal: async config => {
     config.module.rules.push({

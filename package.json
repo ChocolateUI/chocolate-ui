@@ -12,8 +12,20 @@
     "component",
     "ui",
     "react",
-    "front-end"
+    "front-end",
+    "storybook"
   ],
+  "storybook": {
+    "displayName": "Outline",
+    "unsupportedFrameworks": [
+      "Vue"
+    ],
+    "supportedFrameworks": [
+      "React",
+      "Angular"
+    ],
+    "icon": "https://yoursite.com/outline-icon.png"
+  },
   "homepage": "https://chocolateui.github.io/chocolate-ui/",
   "repository": {
     "type": "git",
@@ -133,7 +145,10 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.3.2",
     "@storybook/addon-actions": "6.3.2",
+    "@storybook/addon-docs": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
     "@storybook/addon-info": "5.3.21",
     "@storybook/addon-links": "6.3.2",
     "@storybook/addons": "6.3.2",

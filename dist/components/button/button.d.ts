@@ -1,15 +1,27 @@
 import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 export declare type ButtonSize = 'lg' | 'sm';
 export declare type ButtonType = 'primary' | 'default' | 'danger' | 'link';
-interface BaseButtonProps {
+export interface BaseButtonProps {
+    /**
+     * 设置按钮额外的样式
+     */
     className?: string;
-    /**设置 Button 的禁用 */
+    /**
+     * 设置按钮是否可用
+     */
     disabled?: boolean;
-    /**设置 Button 的尺寸 */
+    /**
+     * 设置按钮大小
+     */
     size?: ButtonSize;
-    /**设置 Button 的类型 */
+    /**
+     * 设置按钮类型
+     */
     btnType?: ButtonType;
     children: React.ReactNode;
+    /**
+     * 设置 link 类型按钮的跳转链接
+     */
     href?: string;
 }
 declare type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
