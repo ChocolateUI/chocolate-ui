@@ -60,9 +60,7 @@ Default.args = {
 };
 
 // _primary
-const _primary: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
-
-export const Primary = _primary.bind({});
+export const Primary = _default.bind({});
 
 Primary.args = {
  ...Default.args,
@@ -70,9 +68,7 @@ Primary.args = {
 };
 
 // _danger
-const _danger: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
-
-export const Danger = _danger.bind({});
+export const Danger = _default.bind({});
 
 Danger.args = {
  ...Default.args,
@@ -80,9 +76,7 @@ Danger.args = {
 };
 
 // _link
-const _link: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
-
-export const Link = _link.bind({});
+export const Link = _default.bind({});
 
 Link.args = {
  ...Default.args,

@@ -1,14 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Story, Meta } from '@storybook/react'
+import Alert, { BaseAlertProps } from './alert';
+import AlertDoc from './alert-doc.mdx';
 
-import Alert from './alert';
-
-const wrapperStyle: React.CSSProperties = {
-    width: '500px'
+const BaseAlert = (props: BaseAlertProps) => {
+  const { message, description, closable, type } = props;
+  return <Alert  message={message} description={description} closable={closable} type={type} />  
 }
-const defaultAlert = () => (
-    <Alert message="It's your message" />
-)
 
 const alertWithType = () => (
     <>
@@ -28,14 +26,68 @@ const alertWithClosable = () => (
     </>
 )
 
-const storyWrapper = (stroyFn: any) => (
-    <div style={wrapperStyle}>
-        {stroyFn()}
-    </div>
-)
+// storiesOf('Alert 警告提示', module)
+//     .addDecorator(storyWrapper)
+//     .add('默认样式', defaultAlert)
+//     .add('四种样式', alertWithType)
+//     .add('可关闭的警告提示', alertWithClosable)
 
-storiesOf('Alert 警告提示', module)
-    .addDecorator(storyWrapper)
-    .add('默认样式', defaultAlert)
-    .add('四种样式', alertWithType)
-    .add('可关闭的警告提示', alertWithClosable)
+
+export default {
+  Component: Alert,
+  title: 'Alert',
+  argTypes: {
+    type: {
+      options: ['default', 'success', 'danger', 'warning'],
+      control: { type: 'select' }
+    },
+  },
+  parameters: {
+    docs: {
+      page: AlertDoc,
+      source: {
+        type: 'code'
+      }
+    },
+    layout: 'centered',
+    controls: { exclude: ['className'] }
+  },
+} as Meta;
+
+const _default: Story<BaseAlertProps> = (args) => <BaseAlert {...args} />;
+
+// default
+export const Default = _default.bind({});
+
+Default.args = {
+  className: '',
+  message: 'Tips',
+  description: 'Detailed description and advice about default copywriting.',
+  closable: false,
+  type: 'default'
+};
+
+// success
+export const Success = _default.bind({});
+
+Success.args = {
+  ...Default.args,
+  type: 'success'
+};
+
+// danger
+export const Danger = _default.bind({});
+
+Danger.args = {
+  ...Default.args,
+  type: 'danger'
+};
+
+
+// warning
+export const Warning = _default.bind({});
+
+Warning.args = {
+  ...Default.args,
+  type: 'warning'
+};
