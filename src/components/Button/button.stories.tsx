@@ -20,7 +20,7 @@ const BaseButton = (props: BaseButtonProps) => {
 
 export default {
   component: Button,
-  title: 'Components/Button',
+  title: 'Button',
   decorators: [
     (Story) => (
       <div>

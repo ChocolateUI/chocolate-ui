@@ -29,11 +29,7 @@ storiesOf('Welcome page', module)
         <p> 此刻尽丝滑！ </p>
       </div>
       <ReactMarkDown
-          source={Introduction}
-          // renderers={{
-          //   CodeBlock,
-          //   Code: CodeBlock
-          // }}
-        />
+        source={Introduction}
+      />
     </>
   ), { info: { disable: true } })
