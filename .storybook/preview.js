@@ -16,30 +16,9 @@ const storyWrapper = (stroyFn) => {
 </div>
 }
 
-// 通过addDecorator添加插件
+// 通过 addDecorator 添加插件
 addDecorator(storyWrapper)
-addDecorator(withInfo)
-// addParameters(
-//   {
-//     info: { 
-//       inline: true, // 直接展示所有信息
-//       header: false, // 隐藏组件名称和组件描述
-//       source: true,
-//     }
-//     ,
-//     options: {
-//       name: 'Chocolate-ui',
-//       panelPosition: 'right',
-//       isFullscreen: false,
-//       showNav: true,
-//       showPanel: true,
-//       sortStoriesByKind: false,
-//       sidebarAnimations: true,
-//       enableShortcuts: true,
-//       isToolshown: true,
-//     }
-//   },
-// )
+
 
 export const parameters = {
   backgrounds: {
@@ -55,22 +34,8 @@ export const parameters = {
       },
     ],
   },
+  controls: { expanded: false }, // 在 Controls 中展示 description
 };
-
-// export const globalTypes = {
-//   theme: {
-//     name: 'Theme',
-//     description: 'Global theme for components',
-//     defaultValue: 'light',
-//     toolbar: {
-//       icon: 'circlehollow',
-//       // Array of plain string values or MenuItem shape (see below)
-//       items: ['light', 'dark'],
-//       // Property that specifies if the name of the item will be displayed
-//       showName: True,
-//     },
-//   },
-// };
 
 // 将 welcome 文档说明置于顶部
 const loaderFn = () => {

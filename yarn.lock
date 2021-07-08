@@ -2572,6 +2572,14 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
+"@storybook/client-logger@6.3.3":
+  version "6.3.3"
+  resolved "https://registry.nlark.com/@storybook/client-logger/download/@storybook/client-logger-6.3.3.tgz?cache=0&sync_timestamp=1625672614304&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40storybook%2Fclient-logger%2Fdownload%2F%40storybook%2Fclient-logger-6.3.3.tgz#87aaa7b92ed2389f90317469fb99c5d066446554"
+  integrity sha1-h6qnuS7SOJ+QMXRp+5nF0GZEZVQ=
+  dependencies:
+    core-js "^3.8.2"
+    global "^4.4.0"
+
 "@storybook/components@5.3.21":
   version "5.3.21"
   resolved "https://registry.nlark.com/@storybook/components/download/@storybook/components-5.3.21.tgz#17ee371a2455c6e807c3d3135a9266e63ad7651a"
@@ -3115,6 +3123,24 @@
     "@emotion/is-prop-valid" "^0.8.6"
     "@emotion/styled" "^10.0.27"
     "@storybook/client-logger" "6.3.2"
+    core-js "^3.8.2"
+    deep-object-diff "^1.1.0"
+    emotion-theming "^10.0.27"
+    global "^4.4.0"
+    memoizerific "^1.11.3"
+    polished "^4.0.5"
+    resolve-from "^5.0.0"
+    ts-dedent "^2.0.0"
+
+"@storybook/theming@^6.3.3":
+  version "6.3.3"
+  resolved "https://registry.nlark.com/@storybook/theming/download/@storybook/theming-6.3.3.tgz#4801a6a774b3e6a356e86f3c6351f79d1dc9bee7"
+  integrity sha1-SAGmp3Sz5qNW6G88Y1H3nR3Jvuc=
+  dependencies:
+    "@emotion/core" "^10.1.1"
+    "@emotion/is-prop-valid" "^0.8.6"
+    "@emotion/styled" "^10.0.27"
+    "@storybook/client-logger" "6.3.3"
     core-js "^3.8.2"
     deep-object-diff "^1.1.0"
     emotion-theming "^10.0.27"

@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import Button, { BaseButtonProps } from './button'
-import CustomMDXDocumentation from './button-doc.mdx'
+import ButtonDoc from './button-doc.mdx'
 
 const BaseButton = (props: BaseButtonProps) => {
   const { disabled, size, className, btnType, href } = props;
@@ -36,11 +36,12 @@ export default {
   },
   parameters: {
     docs: {
-      page: CustomMDXDocumentation,
+      page: ButtonDoc,
       source: {
         type: 'code'
       }
     },
+    layout: 'centered',
     controls: { exclude: ['className'] }
   },
 } as Meta;
