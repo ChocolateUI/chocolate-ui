@@ -1,0 +1,118 @@
+<!-- Menu Doc -->
+## Menu
+根据需要展示不同的 `Menu`, 以满足不同系统的布局展示。
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import Menu, { MenuProps } from './menu';
+import dedent from 'ts-dedent';
+
+<Meta title="Components/Button" component={Menu} />
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+      <Menu mode={mode} 
+        defaultOpenSubMenus={defaultOpenSubMenus} 
+        defaultIndex={defaultIndex} 
+        onSelect={(index) => {console.log(index)}} 
+      >
+        <MenuItem>
+            菜单 1
+        </MenuItem>
+        <MenuItem>
+            菜单 2
+        </MenuItem>
+        <MenuItem>
+            菜单 3
+        </MenuItem>
+        <SubMenu title='菜单 4'>
+            <MenuItem>
+                子菜单项 1
+            </MenuItem>
+            <MenuItem>
+                子菜单项 2
+            </MenuItem>
+            <MenuItem>
+                子菜单项 3
+            </MenuItem>
+        </SubMenu>
+      </Menu>`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={Menu} />
+
+export const Template = (args) => (
+   <Menu 
+      {...args}
+    >
+      <MenuItem>
+          菜单 1
+      </MenuItem>
+      <MenuItem>
+          菜单 2
+      </MenuItem>
+      <MenuItem>
+          菜单 3
+      </MenuItem>
+      <SubMenu title='菜单 4'>
+          <MenuItem>
+              子菜单项 1
+          </MenuItem>
+          <MenuItem>
+              子菜单项 2
+          </MenuItem>
+          <MenuItem>
+              子菜单项 3
+          </MenuItem>
+      </SubMenu>
+    </Menu>
+)
+
+### 组件展示
+
+##### 水平展示
+
+<Story 
+  name="default" 
+  id="menu--horizontal" 
+  args={{ 
+    mode: "horizontal",
+    defaultIndex: '0',
+    defaultOpenSubMenus: []
+  }}
+>
+{Template.bind({})}
+</Story>
+
+##### 垂直展示
+
+<Story 
+  name="default" 
+  id="menu--vertical" 
+  args={{ 
+    mode: "vertical",
+    defaultIndex: '0',
+    defaultOpenSubMenus: []
+  }}
+>
+{Template.bind({})}
+</Story>
+
+##### 默认展开子菜单
+
+<Story 
+  name="default" 
+  id="menu--default-opened" 
+  args={{ 
+    mode: "vertical",
+    defaultIndex: '2',
+    defaultOpenSubMenus: ['3']
+  }}
+>
+{Template.bind({})}
+</Story>

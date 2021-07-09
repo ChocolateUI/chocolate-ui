@@ -33,6 +33,10 @@ export default {
       options: ['sm', 'lg'],
       control: { type: 'select' }
     },
+    href: {
+      options: ['http://www.baidu.com', 'http://www.google.com'],
+      control: { type: 'radio' }
+    }
   },
   parameters: {
     docs: {
@@ -42,7 +46,7 @@ export default {
       }
     },
     layout: 'centered',
-    controls: { exclude: ['className'] }
+    controls: { exclude: ['className', 'btnType'] }
   },
 } as Meta;
 

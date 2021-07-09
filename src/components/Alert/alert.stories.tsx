@@ -36,12 +36,6 @@ const alertWithClosable = () => (
 export default {
   Component: Alert,
   title: 'Alert',
-  argTypes: {
-    type: {
-      options: ['default', 'success', 'danger', 'warning'],
-      control: { type: 'select' }
-    },
-  },
   parameters: {
     docs: {
       page: AlertDoc,
@@ -50,7 +44,7 @@ export default {
       }
     },
     layout: 'centered',
-    controls: { exclude: ['className'] }
+    controls: { exclude: ['className', 'type'] }
   },
 } as Meta;
 

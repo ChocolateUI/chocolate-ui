@@ -1,97 +1,87 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Menu from './menu';
+import Menu, { MenuProps } from './menu';
 import MenuItem from './menuItem';
 import SubMenu from './subMenu';
+import { Story, Meta } from '@storybook/react'
+import MenuDoc from './menu-doc.mdx';
 
-const wrapperStyle: React.CSSProperties = {
-    width: '500px'
+const BaseMenu = (props: MenuProps) =>{
+  const { mode, defaultOpenSubMenus, defaultIndex } = props;
+  return (
+    <Menu mode={mode} 
+        defaultOpenSubMenus={defaultOpenSubMenus} 
+        defaultIndex={defaultIndex} 
+        onSelect={(index) => { action(`clicked ${index} item`) }} 
+    >
+        <MenuItem>
+            菜单 1
+        </MenuItem>
+        <MenuItem>
+            菜单 2
+        </MenuItem>
+        <MenuItem>
+            菜单 3
+        </MenuItem>
+        <SubMenu title='菜单 4'>
+            <MenuItem>
+                子菜单项 1
+            </MenuItem>
+            <MenuItem>
+                子菜单项 2
+            </MenuItem>
+            <MenuItem>
+                子菜单项 3
+            </MenuItem>
+        </SubMenu>
+    </Menu>
+  )
 }
 
-export const defaultMenu = () => (
-    <Menu defaultIndex='0' onSelect={(index) => { action(`clicked ${index} item`) }} >
-        <MenuItem>
-            菜单 1
-        </MenuItem>
-        <MenuItem disabled>
-            菜单 2
-        </MenuItem>
-        <MenuItem>
-            菜单 3
-        </MenuItem>
-        <SubMenu title='子菜单'>
-            <MenuItem>
-                子菜单项 1
-            </MenuItem>
-            <MenuItem>
-                子菜单项 2
-            </MenuItem>
-            <MenuItem>
-                子菜单项 3
-            </MenuItem>
-        </SubMenu>
-    </Menu>
-)
+export default {
+  component: Menu,
+  title: 'Menu',
+  parameters: {
+    docs: {
+      page: MenuDoc,
+      source: {
+        type: 'code'
+      }
+    },
+    layout: 'centered',
+    controls: { 
+      include: [],
+      hideNoControlsWarning: true 
+    }
+  },
+} as Meta;
 
-const verticalMenu = () => (
-    <Menu defaultIndex='0' mode='vertical'>
-        <MenuItem>
-            菜单 1
-        </MenuItem>
-        <MenuItem disabled>
-            菜单 2
-        </MenuItem>
-        <MenuItem>
-            菜单 3
-        </MenuItem>
-        <SubMenu title='子菜单'>
-            <MenuItem>
-                子菜单项 1
-            </MenuItem>
-            <MenuItem>
-                子菜单项 2
-            </MenuItem>
-            <MenuItem>
-                子菜单项 3
-            </MenuItem>
-        </SubMenu>
-    </Menu>
-)
+const _default: Story<MenuProps> = (args) => <BaseMenu {...args} />;
 
-const defaultOpenSubMenus = () => (
-    <Menu defaultIndex='0' mode='vertical' defaultOpenSubMenus={['3']}>
-        <MenuItem>
-            菜单 1
-        </MenuItem>
-        <MenuItem disabled>
-            菜单 2
-        </MenuItem>
-        <MenuItem>
-            菜单 3
-        </MenuItem>
-        <SubMenu title='子菜单'>
-            <MenuItem>
-                子菜单项 1
-            </MenuItem>
-            <MenuItem>
-                子菜单项 2
-            </MenuItem>
-            <MenuItem>
-                子菜单项 3
-            </MenuItem>
-        </SubMenu>
-    </Menu>
-)
+// 水平 Menu
+export const Horizontal = _default.bind({});
 
-const storyWrapper = (stroyFn: any) => (
-    <div style={wrapperStyle}>
-        {stroyFn()}
-    </div>
-)
+Horizontal.args = {
+  mode: 'horizontal',
+  defaultIndex: '0',
+  defaultOpenSubMenus: []
+}
 
-storiesOf('Menu 菜单', module)
-    .addDecorator(storyWrapper)
-    .add('默认样式', defaultMenu)
-    .add('纵向菜单', verticalMenu)
-    .add('默认展开', defaultOpenSubMenus)
+// 垂直 Menu
+export const Vertical = _default.bind({});
+
+Vertical.args = {
+  ...Horizontal.args,
+  mode: 'vertical',
+  defaultOpenSubMenus: []
+}
+
+// 默认展开子 Menu
+export const defaultOpened = _default.bind({});
+
+defaultOpened.args = {
+  ...Horizontal.args,
+  defaultIndex: '2',
+  mode: 'vertical',
+  defaultOpenSubMenus: ['3']
+}
