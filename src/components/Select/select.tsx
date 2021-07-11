@@ -24,7 +24,7 @@ interface ISelectContext {
 
 export const SelectContext = createContext<ISelectContext>({ index: '0' });
 
-const Select: React.FC<SelectProps> = (props) => {
+export const Select: React.FC<SelectProps> = (props) => {
     const {
         disabled,
         children,

@@ -1,20 +1,47 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import Select from './select'
+import { Story, Meta } from '@storybook/react'
+import Select, { SelectProps } from './select'
 import Option from './selectOption'
+import SelectDoc from './select-doc.mdx'
 
-const defaultSelect = () => (
+const BaseSelect = (props: SelectProps) => {
+  const { defaultValue, disabled } = props;
+  return (
     <Select
-        style={{ width: 300 }}
-        defaultValue="ming"
-        onChange={(value) => console.log(value)}
+      style={{ width: 300 }}
+      defaultValue={defaultValue}
+      onChange={(value) => console.log(value)}
     >
-        <Option value='jack'> Jack </Option>
-        <Option value='lucy' disabled> Lucy </Option>
-        <Option value='ming'> Ming </Option>
-        <Option value='nice'> Nice </Option>
+      <Option value='jack'> Jack </Option>
+      <Option value='lucy' disabled={disabled}> Lucy </Option>
+      <Option value='ming'> Ming </Option>
+      <Option value='nice'> Nice </Option>
     </Select>
-)
+  )
+}
 
-storiesOf('Select 选择器', module)
-    .add('默认样式', defaultSelect)
+export default {
+  component: Select,
+  title: 'Select',
+  parameters: {
+    docs: {
+      page: SelectDoc,
+      source: {
+        type: 'code'
+      }
+    },
+    controls: { 
+      include: ['disabled'],
+      hideNoControlsWarning: true 
+    }
+  }
+} as Meta;
+
+const _default: Story<SelectProps> = (args) => <BaseSelect {...args} />;
+
+export const Default = _default.bind({});
+
+Default.args = {
+  defaultValue: 'ming',
+  disabled: false,
+}
