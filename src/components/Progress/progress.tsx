@@ -5,14 +5,29 @@ import { scopedClass } from '../../utils/scopedClass'
 const sc = scopedClass('chocolate-progress')
 
 export interface ProgressProps {
+  /**
+   * 控制进度条的进度
+   */
   percent: number,
+  /**
+   * 控制进度条的高度
+   */
   strokeHeight?: number,
+  /**
+   * 是否展示进度条提示
+   */
   showText?: boolean,
+  /**
+   * 自定义样式
+   */
   styles?: React.CSSProperties,
+  /**
+   * 主题
+   */
   theme?: ThemeProps,
 }
 
-const Progress: FC<ProgressProps> = (props) => {
+export const Progress: FC<ProgressProps> = (props) => {
   const {
     percent,
     strokeHeight,
@@ -38,6 +53,8 @@ Progress.defaultProps = {
   strokeHeight: 15,
   showText: true,
   theme: "primary",
+  percent: 0,
+  styles: {}
 }
 
 export default Progress;

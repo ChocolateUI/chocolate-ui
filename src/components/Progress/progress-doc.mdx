@@ -1,0 +1,32 @@
+<!-- Progress Doc -->
+## Progress
+进度条组件 `Progress`，支持修改“主题”，“高度”，“进度”以及是否展示进度信息
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Progress } from './progress';
+import dedent from 'ts-dedent';
+<Meta title="Components/Progress" component={Progress} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`<Progress percent={percent} theme={theme} showText={showText} strokeHeight={strokeHeight} />`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={Progress} />
+
+export const Template = (args) => <Progress {...args} />
+
+
+### 组件展示
+
+
+##### primary 类型
+
+<Story name="default" id="progress--primary" args={{ showText: true }}>
+{Template.bind({})}
+</Story>
