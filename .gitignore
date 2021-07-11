@@ -10,7 +10,7 @@
 /yarn.lock
 /package-lock.json
 /.idea
-/.vscode
+.vscode/
 
 
 # testing
