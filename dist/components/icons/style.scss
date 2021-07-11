@@ -1,9 +1,0 @@
-@import "../../styles/mixin";
-@import "../../styles/variables";
-@import "../../styles/reboot";
-
-@each $key, $val in $theme-colors {
-  .icon-#{$key} {
-    color: $val;
-  }
-}
