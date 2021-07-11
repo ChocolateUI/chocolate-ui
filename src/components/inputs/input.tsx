@@ -63,7 +63,11 @@ export const Input: FC<InputProps> = (props) => {
 }
 
 Input.defaultProps = {
-    disabled: false,
+  disabled: false,
+  size: 'sm',
+  icon: undefined,
+  prepend: '',
+  append: '',
 }
 
 export default Input;
