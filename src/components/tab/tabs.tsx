@@ -18,15 +18,13 @@ export interface TabsProps {
 
 
 /**
- * 选项卡切换组件。
- * 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
  * ### 引用方法
  *
  * ~~~js
  * import { Tabs } from 'chocolate-ui'
  * ~~~
  */
-const Tabs: FC<TabsProps> = (props) => {
+export const Tabs: FC<TabsProps> = (props) => {
   const {
     defaultIndex,
     className,
@@ -92,7 +90,9 @@ const Tabs: FC<TabsProps> = (props) => {
 
 Tabs.defaultProps = {
   defaultIndex: 0,
-  type: 'line'
+  type: 'line',
+  className: "",
+  onSelect: ()=>{}
 }
 
 export default Tabs;

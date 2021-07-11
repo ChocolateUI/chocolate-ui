@@ -1,0 +1,61 @@
+<!-- Tabs Doc -->
+## Tabs
+选项卡切换组件 `Tabs`，提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
+
+有默认模式和卡片模式的 `Tab`，并且支持加入 `Icon`
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Tabs } from './tabs';
+import dedent from 'ts-dedent';
+<Meta title="Components/Tabs" component={Tabs} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+    <Tabs
+      defaultIndex={defaultIndex}
+      onSelect={(value) => console.log('第', value, '项')}
+      type={type}
+    >
+      <TabItem label="Tab 1">
+        Content of Tab Pane 1
+      </TabItem>
+      <TabItem label="Tab 2">
+        Content of Tab Pane 2
+      </TabItem>
+      <TabItem label="Tab 3">
+        Content of Tab Pane 3
+      </TabItem>
+    </Tabs>`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={Tabs} />
+
+export const Template = (args) => <Tabs {...args} />
+
+
+### 组件展示
+
+
+##### Line 类型
+
+<Story name="default" id="tabs--line-type" args={{ type: 'line' }}>
+{Template.bind({})}
+</Story>
+
+##### card 类型
+
+<Story name="default" id="tabs--card-type" args={{ type: 'card' }}>
+{Template.bind({})}
+</Story>
+
+##### 带有图标的 Tabs
+
+<Story name="default" id="tabs--with-icon">
+{Template.bind({})}
+</Story>
