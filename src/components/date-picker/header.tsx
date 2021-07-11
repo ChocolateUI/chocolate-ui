@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 
-interface HeaderProps {
+export interface HeaderProps {
   /** 上一月 */
   onPrevClick: () => void;
   /** 下一月 */

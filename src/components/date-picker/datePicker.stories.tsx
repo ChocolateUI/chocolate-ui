@@ -1,23 +1,33 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-// import { action } from '@storybook/addon-actions';
-import DatePicker from './datePicker';
+import React from 'react'
+import { Story, Meta } from '@storybook/react'
+import DatePicker from './datePicker'
+import DatePickerDoc from './date-picker-doc.mdx'
+const BaseDatePicker = () => <div style={{ width: 300 }}> <DatePicker /> </div>
 
+export default {
+  component: DatePicker,
+  title: 'DatePicker',
+  argTypes: {
+    defaultValue: {
+      // options: [],
+      // control: { type: 'date' }
+    }
+  },
+  parameters: {
+    docs: {
+      page: DatePickerDoc,
+      source: {
+        type: 'code'
+      }
+    },
+    controls: { 
+      include: [],
+      hideNoControlsWarning: true 
+    }
+  },
+} as Meta;
 
-const wrapperStyle: React.CSSProperties = {
-    width: '300px'
-}
+const _default: Story = () => <BaseDatePicker />;
 
-const defaultDatePicker = () => (
-  <DatePicker />
-)
-
-const storyWrapper = (stroyFn: any) => (
-    <div style={wrapperStyle}>
-        {stroyFn()}
-    </div>
-)
-
-storiesOf('DatePicker', module)
-    .addDecorator(storyWrapper)
-    .add('日历组件', defaultDatePicker)
+// 默认
+export const Default = _default.bind({});

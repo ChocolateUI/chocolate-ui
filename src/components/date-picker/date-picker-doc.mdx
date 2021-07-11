@@ -1,0 +1,30 @@
+<!-- DatePicker Doc -->
+## DatePicker 日历
+日历组件
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { DatePicker } from './datePicker';
+import dedent from 'ts-dedent';
+<Meta title="Components/DatePicker" component={DatePicker} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`<DatePicker />`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={DatePicker} />
+
+export const Template = (args) => <DatePicker {...args} />
+
+### 组件展示
+
+##### default 类型
+
+<Story name="default" id="datepicker--default">
+{Template.bind({})}
+</Story>

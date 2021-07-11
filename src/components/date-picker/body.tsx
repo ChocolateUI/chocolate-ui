@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import WEEK_DAYS from './utils/title';
 import { isSameDay, isDayBefore, isDayAfter, dateDisabled, checkInRange } from './utils/timer';
 
-interface BodyProps {
+export interface BodyProps {
   defaultValue?: any;
   range: boolean;
   itemRender: boolean;

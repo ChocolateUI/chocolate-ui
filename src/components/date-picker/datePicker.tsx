@@ -3,11 +3,11 @@ import Header from './header'
 import Body from './body'
 import DayJs from 'dayjs';
 
-interface DatePickerProps {
+export interface DatePickerProps {
   defaultValue?: string;
 }
 
-const DatePicker: FC<DatePickerProps> = (props) => {
+export const DatePicker: FC<DatePickerProps> = (props) => {
   const [date, setDate] = useState(DayJs)
   const [containerWidth, setContainerWidth] = useState(0)
   const [animating, setAnimating] = useState(false)
