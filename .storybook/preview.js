@@ -19,7 +19,6 @@ const storyWrapper = (stroyFn) => {
 // 通过 addDecorator 添加插件
 addDecorator(storyWrapper)
 
-
 export const parameters = {
   backgrounds: {
     default: 'light',
@@ -28,10 +27,10 @@ export const parameters = {
         name: 'light',
         value: '#FFFFFF',
       },
-      {
-        name: 'dark',
-        value: '#000000',
-      },
+      // {
+      //   name: 'dark',
+      //   value: '#000000',
+      // },
     ],
   },
   controls: { expanded: false }, // 在 Controls 中展示 description

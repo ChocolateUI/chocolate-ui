@@ -3,7 +3,7 @@ import { themes } from '@storybook/theming';
 
 addons.setConfig({
   isFullscreen: false,
-  showNav: false,
+  showNav: true,
   showPanel: true,
   panelPosition: 'right',
   enableShortcuts: true,
