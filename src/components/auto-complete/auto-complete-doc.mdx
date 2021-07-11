@@ -1,0 +1,62 @@
+<!-- AutoComplete Doc -->
+## AutoDrop/AutoComplete
+
+自动完成搜索组件 `AutoComplete`，通过读取本地数据源，或者请求网络数据源，将搜索和远程数据结合
+
+远程搜索带有加载状态以及防抖控制，支持自定义下拉选项。
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { AutoComplete } from './autoComplete';
+import dedent from 'ts-dedent';
+<Meta title="Components/AutoComplete" component={AutoComplete} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+    <AutoComplete
+      fetchSuggestions={fetchSuggestions}
+      width={width}
+      size={size}
+      disabled={disabled}
+      renderOption={renderOption}
+      placeholder={placeholder}
+    />`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={AutoComplete} />
+
+export const Template = (args) => <AutoComplete {...args} />
+
+### 组件展示
+
+##### 读取本地数据源
+
+<Story 
+  name="default" 
+  id="autodrop--config-search" 
+>
+{Template.bind({})}
+</Story>
+
+##### 远程搜索
+
+<Story 
+  name="default" 
+  id="autodrop--remote-search" 
+>
+{Template.bind({})}
+</Story>
+
+##### 自定义返回选项样式
+
+<Story 
+  name="default" 
+  id="autodrop--diy-options" 
+>
+{Template.bind({})}
+</Story>

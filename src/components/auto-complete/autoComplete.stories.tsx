@@ -1,9 +1,9 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import AutoComplete from './autoComplete'
+import { Story, Meta } from '@storybook/react'
+import AutoComplete, { AutoCompleteProps } from './autoComplete'
 import { DataSourceType } from './autoComplete'
 import { lakersWithNumber } from './dataConfig'
-
+import AutoCompleteDoc from './auto-complete-doc.mdx'
 interface GithubUserProps {
     login: string;
     url: string;
@@ -32,35 +32,66 @@ const renderOption = (item: DataSourceType) => {
     )
 }
 
-const defaultAutoComplete = () => (
+const BaseAutoComplete = (props: AutoCompleteProps) => {
+  const { fetchSuggestions, renderOption, placeholder, size, width, disabled } = props;
+  return (
     <AutoComplete
-        fetchSuggestions={handleFetch}
-        width={300}
-        size="sm"
-        placeholder="输入你最喜欢换的水果试试看"
+      fetchSuggestions={fetchSuggestions}
+      width={width}
+      size={size}
+      disabled={disabled}
+      renderOption={renderOption}
+      placeholder={placeholder}
     />
-)
+  )
+}
 
-const asyncInput = () => (
-    <AutoComplete
-        fetchSuggestions={handleAsyncFetch}
-        width={300}
-        size="sm"
-        placeholder="随便搜点什么吧"
-    />
-)
+export default {
+  component: AutoComplete,
+  title: 'AutoDrop',
+  parameters: {
+    controls: {
+      include: ['disabled', 'size', 'placeholder', 'width']
+    },
+    docs: {
+      page: AutoCompleteDoc
+    }
+  },
+  argTypes: {
+    width: {
+      control: { 
+        type: 'range', min: 100, max: 400, step: 1,
+      }
+    },
+  }
+} as Meta;
 
-const diyInput = () => (
-    <AutoComplete
-        fetchSuggestions={handleAsyncFetch}
-        width={300}
-        size="sm"
-        placeholder="随便搜点什么吧"
-        renderOption={renderOption}
-    />
-)
+// _default
+const _default: Story<AutoCompleteProps> = (args) => <BaseAutoComplete {...args} />;
 
-storiesOf('AutoComponent 自动完成', module)
-    .add('默认样式', defaultAutoComplete)
-    .add('异步自动完成', asyncInput)
-    .add('自定义下拉样式', diyInput)
+export const ConfigSearch = _default.bind({});
+
+ConfigSearch.args = {
+  fetchSuggestions: handleFetch,
+  width: 300,
+  size: 'sm',
+  disabled: false,
+  placeholder: '输入你最喜欢换的水果试试看'
+}
+
+export const RemoteSearch= _default.bind({});
+
+RemoteSearch.args = {
+  ...ConfigSearch.args,
+  fetchSuggestions: handleAsyncFetch,
+  placeholder: '随便搜点什么吧'
+}
+
+export const DiyOptions = _default.bind({});
+
+DiyOptions.args = {
+  ...ConfigSearch.args,
+  fetchSuggestions: handleAsyncFetch,
+  placeholder: '随便搜点什么吧',
+  renderOption: renderOption,
+}

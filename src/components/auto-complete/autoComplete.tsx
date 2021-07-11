@@ -162,6 +162,8 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
 }
 
 AutoComplete.defaultProps = {
-  width: 300
+  width: 300,
+  disabled: false,
+  size: 'sm',
 }
 export default AutoComplete;

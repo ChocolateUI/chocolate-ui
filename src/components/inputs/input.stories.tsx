@@ -31,7 +31,7 @@ export default {
       }
     },
     controls: {
-      include: ['disabled', 'size']
+      include: ['disabled', 'size', 'placeholder']
     }
   }
 } as Meta;
