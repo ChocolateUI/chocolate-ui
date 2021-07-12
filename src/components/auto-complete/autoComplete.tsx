@@ -55,10 +55,11 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
           }
         })
       } else {
-        setSuggestions(results)
-        setShowDropdown(true)
         if (results.length > 0) {
+          setSuggestions(results)
           setShowDropdown(true)
+        } else {
+          setShowDropdown(false)
         }
       }
     } else {

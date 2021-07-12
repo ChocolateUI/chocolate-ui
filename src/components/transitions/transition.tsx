@@ -24,7 +24,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
   } = props
   return (
     <CSSTransition
-      classNames = { animation}
+      classNames = {animation}
       {...restProps}
     >
       {wrapper ? <div>{children}</div> : children}
