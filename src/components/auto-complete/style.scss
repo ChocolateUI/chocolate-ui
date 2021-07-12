@@ -19,6 +19,7 @@
         top: calc(100% + 8px);
         width: 100%;
         padding-left: 0;
+        overflow-y: scroll;
 
         &-item {
             line-height: $line-height-lg;

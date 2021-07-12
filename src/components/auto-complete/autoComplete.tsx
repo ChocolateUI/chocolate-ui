@@ -39,7 +39,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const triggerSearch = useRef(false)
   const componentRef = useRef<HTMLDivElement>(null)
   const debouncedValue = useDebounce(inputValue, 300)
-  useClickOutside(componentRef, () => { setSuggestions([]) })
+  useClickOutside(componentRef, () => { setShowDropdown(false) })
 
   useEffect(() => {
     if (debouncedValue && triggerSearch.current) {
@@ -123,7 +123,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         timeout={300}
         onExited={() => { setSuggestions([]) }}
       >
-        <ul className={sc('list')} style={{ width: `${width}px` }}>
+        <ul className={sc('list')} style={{ width: `${width}px` , maxHeight: loading ? 'auto': 300 }}>
           {loading &&
             <div className="suggestions-loading-icon">
               <Icon icon="spinner" spin />

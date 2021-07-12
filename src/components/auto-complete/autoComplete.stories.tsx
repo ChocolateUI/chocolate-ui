@@ -14,7 +14,7 @@ const handleAsyncFetch = (query: string) => {
     return fetch(`https://api.github.com/search/users?q=${query}`)
         .then(res => res.json())
         .then(({ items }) => {
-            return items.length && items.slice(0, 10).map((item: any) => ({ value: item.login, ...item }))
+            return items.length && items.map((item: any) => ({ value: item.login, ...item }))
         })
 }
 
