@@ -1,0 +1,46 @@
+.chocolate-tree {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #EEE;
+
+  &-nodes {
+    position: relative;
+    overflow: hidden;
+
+    &-node {
+      &-inner {
+        color: #000;
+        font-size: 20px;
+        position: relative;
+        cursor: pointer;
+        padding-left: 10px;
+
+        &-collapse {
+          position: absolute;
+          left: 0;
+          cursor: pointer;
+        }
+        &-caret-right:before {
+          content: '\25B8';
+        }
+        &-caret-down:before {
+          content: '\25BE';
+        }
+        &-content {
+          display: inline-block;
+          width: 100%;
+          padding: 4px 5px;
+        }
+      }
+
+      &-children {
+        padding-left: 20px;
+      }
+    }
+  }
+}

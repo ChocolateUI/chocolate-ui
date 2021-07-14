@@ -10,3 +10,5 @@ export { default as Alert } from './components/alert'
 export { default as Icon } from './components/icons'
 export { default as Input } from './components/inputs'
 export { default as Transition } from './components/transitions'
+export { default as Tree } from './components/Tree'
+
