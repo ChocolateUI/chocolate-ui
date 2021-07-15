@@ -1,26 +1,33 @@
 import { TreeSource } from "./tree";
 
 export const data: TreeSource = {
-  name: '父亲',
+  name: 'parent',
   key: '1',
   type: 'folder',
   collapsed: false,
   children: [
     {
-      name: '儿子1',
+      name: 'parent 1-1',
       key: '1-1',
       type: 'folder',
       collapsed: false,
       children: [
         {
-          name: '孙子1',
+          name: 'parent 1-1-1',
           key: '1-1-1',
           type: 'folder',
           collapsed: false,
           children: [
             {
-              name: '重孙1',
+              name: 'leaf',
               key: '1-1-1-1',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+            {
+              name: 'leaf',
+              key: '1-1-1-2',
               type: 'file',
               collapsed: false,
               children: []
@@ -30,7 +37,7 @@ export const data: TreeSource = {
       ]
     },
     {
-      name: '儿子2',
+      name: 'parent 1-2',
       key: '1-2',
       type: 'folder',
       collapsed: true

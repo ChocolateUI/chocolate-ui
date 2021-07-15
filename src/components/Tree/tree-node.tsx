@@ -20,34 +20,34 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
   if(children) {
     if(children.length > 0) {
       caret = (
-        <span className={`${scIn('collapse')} ${collapsed ? scIn('caret-right') : scIn('caret-down')}`} onClick={()=> onCollapse && onCollapse(key)} />
+        <span className={`collapse ${collapsed ? 'caret-right' : 'caret-down'}`} onClick={()=> onCollapse && onCollapse(key)} />
       )
-      icon = collapsed ? <Icon icon="folder-minus" /> : <Icon icon="folder-open" />
+      icon = collapsed ? <Icon icon="file" /> : <Icon icon="folder-open" />
     } else {
       caret = null
       icon =  <Icon icon="folder" /> 
     }
   }else {
     caret = (
-        <span className={`${scIn('collapse')} ${scIn('caret-right')}`}
+        <span className={'collapse caret-right'}
             onClick={() => onCollapse && onCollapse(key)}
         />
     )
     icon = <Icon icon="folder-minus" />
   }
   return (
-    <div className={sc('node')}>
-      <div className={sc('node-inner')}>
+    <div className="node">
+      <div className="inner">
         {caret}
-        <span className={sc('node-inner-content')}>
-          <input type="checkbox" checked={checked} onChange={() => onCheck && onCheck(key)} ></input>
-          {icon}
+        <span className="content">
+          <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={() => onCheck && onCheck(key)} ></input>
+          {/* {icon} */}
           {name}
         </span>
       </div>
       {
         (children && children.length > 0 && !collapsed) && (
-          <div className={sc('node-children')}>
+          <div className="children">
             {
               children.map((item: TreeSource) => (
                 <TreeNode key={item.key} data={item} onCollapse={onCollapse} onCheck={onCheck} />

@@ -30,18 +30,18 @@ export interface TreeProps {
 
 export const Tree: FC<TreeProps> = (props) => { 
 
-  const keyToNodeMap: KeyToNodeMap = {}
+  // const keyToNodeMap = useMemo<KeyToNodeMap>(() => { return {} as KeyToNodeMap } , [])
+  const keyToNodeMap = useRef<KeyToNodeMap>({})
   const [data, setData] = useState<TreeSource>(props.treeData)
-  // const [keyToNodeMap, setKeyToNodeMap] = useState<KeyToNodeMap>({})
   const doTranslate = useCallback((children: Array<TreeSource>, parent: TreeSource)=>{
     children.forEach((item: TreeSource) => {
       item.parent = parent
-      keyToNodeMap[item.key] = item
+      keyToNodeMap.current[item.key] = item
       if(item.children && item.children.length > 0) {
         doTranslate(item.children, item)
       }
     })
-  }, [keyToNodeMap])
+  }, [])
 
   const copy =(obj: any)=> {
     if (!obj || typeof obj !== 'object') {
@@ -63,14 +63,14 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   useEffect(() => {
-    keyToNodeMap[data.key] = data
+    keyToNodeMap.current[data.key] = data
     if(data.children && data.children.length > 0) {
       doTranslate(data.children, data)
     }
-  }, [data, doTranslate, keyToNodeMap])
+  }, [data, doTranslate])
 
   const onCollapse =(key: string)=>{
-    let target = keyToNodeMap[key]
+    let target = keyToNodeMap.current[key]
     if(target) {
       // 修改 target 就像当于修改了 data
       target.collapsed = !target.collapsed
@@ -80,8 +80,7 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const onCheck =(key: string)=>{
-    console.log('key: ', key);
-    let target: TreeSource = keyToNodeMap[key];
+    let target: TreeSource = keyToNodeMap.current[key];
     if(target) {
       target.checked = !target.checked
       if(target.checked) {

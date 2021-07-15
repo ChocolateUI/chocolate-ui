@@ -300,3 +300,11 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-bar-color:                $white !default;
 $progress-bar-transition:           width .6s ease !default;
+
+// tree
+$tree-font-weight:                  345;
+$tree-padding-y:                    0rem !default;
+$tree-padding-x:                    .5rem !default;
+$tree-font-family:                  $font-family-base !default;
+$tree-font-size:                    $font-size-base !default;
+$tree-content-font-size:            $font-size-base * 1.05 !default;
