@@ -74,7 +74,7 @@
     "jest": "26.6.0",
     "jest-circus": "26.6.0",
     "jest-resolve": "26.6.0",
-    "jest-watch-typeahead": "0.6.1",
+    "jest-watch-typeahead": "0.6.4",
     "mini-css-extract-plugin": "0.11.3",
     "moment": "^2.29.1",
     "moment-range": "^4.0.2",
