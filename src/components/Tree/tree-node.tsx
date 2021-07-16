@@ -1,20 +1,19 @@
-import React, {FC} from 'react'
+import React, {FC, useRef, useEffect} from 'react'
 import { TreeSource } from './tree';
-import { scopedClass } from '../../utils/scopedClass'
 import Icon from '../icons/icon';
  
-const sc = scopedClass('chocolate-tree-nodes')
-const scIn = scopedClass('chocolate-tree-nodes-node-inner')
-
 interface TreeNodeProps {
   data: TreeSource,
   onCollapse?: (key: string) => void,
   onCheck?: (key: string) => void,
+  setFromNode: any,
+  onMove: any
 }
 
 const TreeNode: FC<TreeNodeProps> =(props)=>{
-  const { data: { name, children, collapsed = false, key, checked = false }, onCollapse, onCheck } = props
-
+  const { data: { name, children = [], collapsed = false, key, checked = false }, onCollapse, onCheck, setFromNode, onMove } = props
+  const treeNodeRef = useRef<HTMLDivElement>(null)
+  const propsData = useRef(props.data)
   let caret, icon;
 
   if(children) {
@@ -35,8 +34,44 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
     )
     icon = <Icon icon="folder-minus" />
   }
+
+  useEffect(() => {
+    const { current } = treeNodeRef;
+
+    const dragStart = (event: DragEvent): void =>{
+      console.log('dragstart');
+      setFromNode(propsData.current)
+      event.stopPropagation();
+    }
+    const dragEnter = (event: DragEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const dragOver = (event: DragEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    const drop = (event: DragEvent) => {
+      event.preventDefault();
+      console.log('move');
+      onMove(propsData.current);
+      event.stopPropagation();
+    }
+    current?.addEventListener('dragstart', dragStart, false)
+    current?.addEventListener('dragenter', dragEnter, false);
+    current?.addEventListener('dragover', dragOver, false);
+    current?.addEventListener('drop', drop, false);
+    return () => {
+      current?.removeEventListener("dragstart", dragStart)
+      current?.removeEventListener("dragenter", dragEnter)
+      current?.removeEventListener("dragover", dragOver)
+      current?.removeEventListener("drop", drop)
+    };
+  }, [onMove, setFromNode])
+
   return (
-    <div className="node">
+    <div className="node" draggable={true} ref={treeNodeRef}>
       <div className="inner">
         {caret}
         <span className="content">
@@ -50,7 +85,14 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
           <div className="children">
             {
               children.map((item: TreeSource) => (
-                <TreeNode key={item.key} data={item} onCollapse={onCollapse} onCheck={onCheck} />
+                <TreeNode 
+                  key={item.key} 
+                  data={item} 
+                  onCollapse={onCollapse} 
+                  onCheck={onCheck} 
+                  setFromNode={setFromNode} 
+                  onMove={onMove}
+                />
               ))
             }
           </div>
