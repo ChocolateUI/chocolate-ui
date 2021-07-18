@@ -39,7 +39,6 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
     const { current } = treeNodeRef;
 
     const dragStart = (event: DragEvent): void =>{
-      console.log('dragstart');
       setFromNode(propsData.current)
       event.stopPropagation();
     }
@@ -54,7 +53,6 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
 
     const drop = (event: DragEvent) => {
       event.preventDefault();
-      console.log('move');
       onMove(propsData.current);
       event.stopPropagation();
     }

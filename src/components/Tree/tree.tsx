@@ -34,8 +34,8 @@ export const Tree: FC<TreeProps> = (props) => {
   const data = useRef<TreeSource>(props.treeData)
   const [updateData, setUpdateData] = useState(true)
   const [fromNode, setFromNodeState] = useState<TreeSource>()
-  const _fromNode = useRef<TreeSource>()
-  const _toNode = useRef<TreeSource>()
+  const _fromNode = useRef<TreeSource>({} as TreeSource)
+  const _toNode = useRef<TreeSource>({} as TreeSource)
   const [show, setShow] = useState(false)
   const doTranslate = useCallback((children: Array<TreeSource>, parent: TreeSource) => {
     children.forEach((item: TreeSource) => {
@@ -106,22 +106,21 @@ export const Tree: FC<TreeProps> = (props) => {
     })
   }
 
-  const checkParentCheckAll = (parent: TreeSource) => {
+  const checkParentCheckAll = (parent: TreeSource = {} as TreeSource) => {
     while (parent) {
       parent.checked = parent.children?.every(item => item.checked)
-      parent = parent.parent
+      parent = parent.parent as TreeSource
     }
   }
 
-  const checkParent = (parent: TreeSource, checked: boolean) => {
+  const checkParent = (parent: TreeSource = {} as TreeSource, checked: boolean) => {
     while (parent) {
       parent.checked = checked
-      parent = parent.parent
+      parent = parent.parent as TreeSource
     }
   }
 
   const setFromNode = (fromNode: TreeSource) => {
-    console.log('fromNode: ', fromNode);
     _fromNode.current = copy(fromNode)
     setFromNodeState(fromNode)
   }
@@ -139,9 +138,7 @@ export const Tree: FC<TreeProps> = (props) => {
     if (fromIndex !== undefined && toIndex !== undefined) {
       fromChildren?.splice(Number(fromIndex), 1, _toNode.current)
       toChildren?.splice(Number(toIndex), 1, _fromNode.current)
-      setTimeout(() => {
-        setUpdateData(!updateData)
-      }, 300);
+      setUpdateData(!updateData)
     }
   }
 
