@@ -26,7 +26,7 @@ export interface TreeProps {
    * treeNodes 数据，如果设置则不需要手动构造
    * TreeNode 节点（key 在整个树范围内唯一）
    */
-  treeData: TreeSource
+  treeData: TreeSource[]
 }
 
 export type Key = string | number;
@@ -45,7 +45,10 @@ export interface DataEntity {
   // key: Key;
   // parentPos: Key;
   level: number;
-  parent?: DataEntity
+  parent?: DataEntity;
+  name: string,
+  key: string,
+  type: string,
 }
 interface posEntities {
   [key: string]: DataEntity
@@ -59,7 +62,7 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const keyToNodeMap = useRef<KeyToNodeMap>({})
   const posEntities = useRef<posEntities>({})
-  const data = useRef<TreeSource>(props.treeData)
+  const data = useRef<TreeSource[]>(props.treeData)
   const [updateData, setUpdateData] = useState(true)
   const [fromNode, setFromNodeState] = useState<TreeSource>()
   const _fromNode = useRef<TreeSource>({} as TreeSource)
@@ -77,17 +80,15 @@ export const Tree: FC<TreeProps> = (props) => {
       level: number;
     }) => void
   )=>{
-
     function processNode(
       node: TreeSource,
       index?: number,
       parent?: { node: TreeSource; pos: string; level: number },
     ) {
       // const { children = [] } = dataNode
-      const children = node ? node['children'] : dataNode['children'];
+      const children = node ? node['children'] : dataNode;
       console.log('children: ', children);
-      const pos = node ? getPosition(parent?.pos, index) : '0-0';
-
+      const pos = node ? getPosition(parent?.pos, index) : '0';
       if(node) {
         // const key: Key
         const data = {
@@ -140,7 +141,8 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const onCheck = (key: string) => {
-    let target: TreeSource = keyToNodeMap.current[key];
+    console.log('key: ', key);
+    let target: TreeSource  = posEntities.current[key];
     // console.log('target: ', target);
     if (target) {
       target.checked = !target.checked

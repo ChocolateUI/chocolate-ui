@@ -1,44 +1,60 @@
-import React, {FC, useRef, useEffect} from 'react'
+import React, { FC, useRef, useEffect } from 'react'
 import { TreeSource } from './tree';
 import Icon from '../icons/icon';
- 
+
 interface TreeNodeProps {
-  data: TreeSource,
+  data: TreeSource[],
   onCollapse?: (key: string) => void,
   onCheck?: (key: string) => void,
   setFromNode: any,
   onMove: any
 }
 
-const TreeNode: FC<TreeNodeProps> =(props)=>{
-  const { data: { name, children = [], collapsed = false, key, checked = false }, onCollapse, onCheck, setFromNode, onMove } = props
+const TreeNode: FC<TreeNodeProps> = (props) => {
+  const { data, onCollapse, onCheck, setFromNode, onMove } = props
+
+  // { name, children = [], collapsed = false, key, checked = false }
   const treeNodeRef = useRef<HTMLDivElement>(null)
   const propsData = useRef(props.data)
-  let caret, icon;
 
-  if(children) {
-    if(children.length > 0) {
-      caret = (
-        <span className={`collapse ${collapsed ? 'caret-right' : 'caret-down'}`} onClick={()=> onCollapse && onCollapse(key)} />
-      )
-      icon = collapsed ? <Icon icon="file" /> : <Icon icon="folder-open" />
+  const renderWidgets = (children: TreeSource[], collapsed: boolean, key: string) => {
+    let caret, icon;
+    if (children) {
+      if (children.length > 0) {
+        caret = (
+          <span className={`collapse ${collapsed ? 'caret-right' : 'caret-down'}`} onClick={() => onCollapse && onCollapse(key)} />
+        )
+        icon = collapsed ? <Icon icon="file" /> : <Icon icon="folder-open" />
+      } else {
+        caret = null
+        icon = <Icon icon="folder" />
+      }
     } else {
-      caret = null
-      icon =  <Icon icon="folder" /> 
-    }
-  }else {
-    caret = (
+      caret = (
         <span className={'collapse caret-right'}
-            onClick={() => onCollapse && onCollapse(key)}
+          onClick={() => onCollapse && onCollapse(key)}
         />
+      )
+      icon = <Icon icon="folder-minus" />
+    }
+    return {caret, icon}
+  }
+
+  const renderCheckBox = (checked: boolean, key: string, name: string) => {
+    console.log('checked: ', checked);
+    return (
+      <span className="content">
+        <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={() => onCheck && onCheck(key)} ></input>
+        {/* {icon} */}
+        {name}
+      </span>
     )
-    icon = <Icon icon="folder-minus" />
   }
 
   useEffect(() => {
     const { current } = treeNodeRef;
 
-    const dragStart = (event: DragEvent): void =>{
+    const dragStart = (event: DragEvent): void => {
       setFromNode(propsData.current)
       event.stopPropagation();
     }
@@ -69,34 +85,36 @@ const TreeNode: FC<TreeNodeProps> =(props)=>{
   }, [onMove, setFromNode])
 
   return (
-    <div className="node" draggable={true} ref={treeNodeRef}>
-      <div className="inner">
-        {caret}
-        <span className="content">
-          <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={() => onCheck && onCheck(key)} ></input>
-          {/* {icon} */}
-          {name}
-        </span>
-      </div>
-      {
-        (children && children.length > 0 && !collapsed) && (
-          <div className="children">
-            {
-              children.map((item: TreeSource) => (
-                <TreeNode 
-                  key={item.key} 
-                  data={item} 
-                  onCollapse={onCollapse} 
-                  onCheck={onCheck} 
-                  setFromNode={setFromNode} 
-                  onMove={onMove}
-                />
-              ))
-            }
-          </div>
-        )
-      }
-    </div>
+    (data && data.length > 0) && (
+      <>
+        {
+          data.map((item: TreeSource) => {
+            const { children = [], name, checked = false, key, collapsed = false } = item
+            return (
+              <div className="node" draggable={true} ref={treeNodeRef} key={key}>
+                <div className="inner">
+                  {renderWidgets(children, collapsed, key).caret}
+                  {renderCheckBox(checked, key, name)}
+                </div>
+                {
+                  children && children?.length ? (
+                    <div className="children">
+                      <TreeNode
+                        key={item.key}
+                        data={children}
+                        onCollapse={onCollapse}
+                        onCheck={onCheck}
+                        setFromNode={setFromNode}
+                        onMove={onMove}
+                      />
+                    </div>
+                  ) : null}
+              </div>
+            )
+          })
+        }
+      </>
+    )
   )
 }
 
