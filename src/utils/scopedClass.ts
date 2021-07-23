@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 export function scopedClass(componentClass: string) {
   return function (c: object | string, className?: string) {
     const scArray = Object.entries(typeof c === 'object' ? c : { [c]: true })

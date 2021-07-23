@@ -1,7 +1,9 @@
 import React, { FC, useEffect, useState, useCallback, useRef } from 'react'
+import clone from '../../utils/clone'
 import { scopedClass } from '../../utils/scopedClass'
 import Alert from '../Alert/alert'
 import TreeNode from './tree-node'
+
 const sc = scopedClass('chocolate')
 
 export interface TreeSource {
@@ -27,52 +29,105 @@ export interface TreeProps {
   treeData: TreeSource
 }
 
+export type Key = string | number;
+
+export type NodeElement = React.ReactElement<TreeProps> & {
+  selectHandle?: HTMLSpanElement;
+  type: {
+    isTreeNode: boolean;
+  };
+};
+
+export interface DataEntity {
+  node: TreeSource;
+  index: number;
+  pos: string;
+  // key: Key;
+  // parentPos: Key;
+  level: number;
+  parent?: DataEntity
+}
+interface posEntities {
+  [key: string]: DataEntity
+}
+
+function getPosition(level: string | number, index: number) {
+  return `${level}-${index}`;
+}
 
 export const Tree: FC<TreeProps> = (props) => {
 
   const keyToNodeMap = useRef<KeyToNodeMap>({})
+  const posEntities = useRef<posEntities>({})
   const data = useRef<TreeSource>(props.treeData)
   const [updateData, setUpdateData] = useState(true)
   const [fromNode, setFromNodeState] = useState<TreeSource>()
   const _fromNode = useRef<TreeSource>({} as TreeSource)
   const _toNode = useRef<TreeSource>({} as TreeSource)
   const [show, setShow] = useState(false)
-  const doTranslate = useCallback((children: Array<TreeSource>, parent: TreeSource) => {
-    children.forEach((item: TreeSource) => {
-      item.parent = parent
-      keyToNodeMap.current[item.key] = item
-      if (item.children && item.children.length > 0) {
-        doTranslate(item.children, item)
-      }
-    })
-  }, [])
+  // 通过 treeSource 转换所有数据
+  const traverseDataNodes = (
+    dataNode: TreeSource,
+    callBack: (data:  {
+      node: TreeSource;
+      index: number;
+      pos: string;
+      // key: Key;
+      parentPos: Key;
+      level: number;
+    }) => void
+  )=>{
 
-  const copy = (obj: any) => {
-    if (!obj || typeof obj !== 'object') {
-      return
-    }
-    var newObj: any = obj.constructor === Array ? [] : {}
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        if (typeof obj[key] === 'object') {
-          if (key !== 'parent') {
-            newObj[key] = copy(obj[key])
-          }
-        } else {
-          newObj[key] = obj[key]
+    function processNode(
+      node: TreeSource,
+      index?: number,
+      parent?: { node: TreeSource; pos: string; level: number },
+    ) {
+      // const { children = [] } = dataNode
+      const children = node ? node['children'] : dataNode['children'];
+      console.log('children: ', children);
+      const pos = node ? getPosition(parent?.pos, index) : '0-0';
+
+      if(node) {
+        // const key: Key
+        const data = {
+          node,
+          index,
+          pos,
+          // key,
+          parentPos: parent.node ? parent.pos : null,
+          level: parent?.level + 1
         }
+        callBack(data);
+      }
+
+      if(children && children.length > 0) {
+        children.forEach((subNode, subIndex) =>{
+          processNode(subNode, subIndex, {
+            node,
+            pos,
+            level: parent ? parent.level + 1 : -1
+          })
+        })
       }
     }
-    return newObj
+
+    processNode(null);
   }
 
   useEffect(() => {
-    keyToNodeMap.current[data.current.key] = data.current
-    if (data.current.children && data.current.children.length > 0) {
-      doTranslate(data.current.children, data.current)
-    }
-  }, [updateData, doTranslate])
+    traverseDataNodes(
+      data.current,
+      item => {
+        const { node, index, pos, parentPos, level } = item;
+        const entity: DataEntity = { node, index, pos, level };
+        posEntities.current[pos] = entity;
+        entity.parent = posEntities.current[parentPos];
+        console.log('entity: ', entity);
 
+      }
+    )
+  }, [])
 
   const onCollapse = (key: string) => {
     let target = keyToNodeMap.current[key]
@@ -86,6 +141,7 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const onCheck = (key: string) => {
     let target: TreeSource = keyToNodeMap.current[key];
+    // console.log('target: ', target);
     if (target) {
       target.checked = !target.checked
       if (target.checked) {
@@ -121,12 +177,12 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const setFromNode = (fromNode: TreeSource) => {
-    _fromNode.current = copy(fromNode)
+    _fromNode.current = clone(fromNode)
     setFromNodeState(fromNode)
   }
 
   const onMove = (toNode: TreeSource) => {
-    _toNode.current = copy(toNode)
+    _toNode.current = clone(toNode)
     let fromChildren = fromNode?.parent?.children, toChildren = toNode?.parent?.children
     let fromIndex = fromChildren?.findIndex(item => item.key === fromNode?.key)
     let toIndex = toChildren?.findIndex(item => item.key === toNode?.key)

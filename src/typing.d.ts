@@ -8,6 +8,9 @@ declare module '*.mdx' {
   export default value;
 }
 
+declare module 'lodash/cloneDeep';
+
+declare module 'lodash/clone';
 
 // declare module 'react-lowlight'
 
