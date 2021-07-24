@@ -141,9 +141,7 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const onCheck = (key: string) => {
-    console.log('key: ', key);
     let target: TreeSource  = posEntities.current[key];
-    console.log('target: ', target);
     if (target) {
       target.node.checked = !target.node.checked
       if (target.node.checked) {
