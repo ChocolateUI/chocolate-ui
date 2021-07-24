@@ -143,15 +143,16 @@ export const Tree: FC<TreeProps> = (props) => {
   const onCheck = (key: string) => {
     console.log('key: ', key);
     let target: TreeSource  = posEntities.current[key];
-    // console.log('target: ', target);
+    console.log('target: ', target);
     if (target) {
-      target.checked = !target.checked
-      if (target.checked) {
-        checkChildren(target.children, true)
-        checkParentCheckAll(target.parent)
+      target.node.checked = !target.node.checked
+      if (target.node.checked) {
+        checkChildren(target.node.children, true)
+        checkParentCheckAll(target?.parent)
       } else {
-        checkChildren(target.children, false);
-        checkParent(target.parent, false);
+        console.log('object');
+        checkChildren(target.node.children, false);
+        checkParent(target?.parent, false);
       }
       setUpdateData(!updateData)
     }
@@ -166,14 +167,14 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const checkParentCheckAll = (parent: TreeSource = {} as TreeSource) => {
     while (parent) {
-      parent.checked = parent.children?.every(item => item.checked)
-      parent = parent.parent as TreeSource
+      parent.node.checked = parent?.node?.children?.every(item => item.checked)
+      parent = parent?.parent as TreeSource
     }
   }
 
   const checkParent = (parent: TreeSource = {} as TreeSource, checked: boolean) => {
     while (parent) {
-      parent.checked = checked
+      parent.node.checked = checked
       parent = parent.parent as TreeSource
     }
   }
