@@ -41,7 +41,6 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
   }
 
   const renderCheckBox = (checked: boolean, key: string, name: string) => {
-    console.log('checked: ', checked);
     return (
       <span className="content">
         <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={() => onCheck && onCheck(key)} ></input>

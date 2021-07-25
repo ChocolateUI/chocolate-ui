@@ -2,34 +2,40 @@ import React, { FC, useEffect, useState, useCallback, useRef } from 'react'
 import clone from '../../utils/clone'
 import { scopedClass } from '../../utils/scopedClass'
 import Alert from '../Alert/alert'
+import { Key } from './interface'
 import TreeNode from './tree-node'
+import parseCheckedKeys from './utils/parseCheckedKeys'
+import traverseDataNodes, { getKey } from './utils/traverseDataNodes'
 
 const sc = scopedClass('chocolate')
 
 export interface TreeSource {
-  name: string,
-  key: string,
-  type: string,
-  collapsed?: boolean,
-  children?: Array<TreeSource>,
-  parent?: TreeSource
-  checked?: boolean
+  name: string;
+  key: string;
+  type: string;
+  collapsed?: boolean;
+  children?: Array<TreeSource>;
+  parent?: TreeSource;
+  checked?: boolean;
+  // keyEntities: Record<Key, DataEntity>;
 }
+
 
 interface KeyToNodeMap {
   [key: string]: TreeSource
 }
-
 export interface TreeProps {
-  selectedKeys?: string[],
+  selectedKeys?: string[];
   /**
    * treeNodes 数据，如果设置则不需要手动构造
    * TreeNode 节点（key 在整个树范围内唯一）
    */
-  treeData: TreeSource[]
+  treeData: TreeSource[];
+  onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[]) => void;
+  checkable: boolean;
+  defaultCheckedKeys?: Key[];
+  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
 }
-
-export type Key = string | number;
 
 export type NodeElement = React.ReactElement<TreeProps> & {
   selectHandle?: HTMLSpanElement;
@@ -46,88 +52,71 @@ export interface DataEntity {
   // parentPos: Key;
   level: number;
   parent?: DataEntity;
-  name: string,
-  key: string,
-  type: string,
+  name: string;
+  key: string;
+  type: string;
 }
 interface posEntities {
   [key: string]: DataEntity
 }
 
-function getPosition(level: string | number, index: number) {
-  return `${level}-${index}`;
+interface keyEntities {
+  [key: string]: DataEntity
+}
+
+interface treeState {
+
 }
 
 export const Tree: FC<TreeProps> = (props) => {
-
+  const { treeData = [], checkable = false, checkedKeys = [], defaultCheckedKeys = [] } = props
   const keyToNodeMap = useRef<KeyToNodeMap>({})
   const posEntities = useRef<posEntities>({})
-  const data = useRef<TreeSource[]>(props.treeData)
+  const keyEntities = useRef<keyEntities>({})
+  const data = useRef<TreeSource[]>(treeData)
   const [updateData, setUpdateData] = useState(true)
   const [fromNode, setFromNodeState] = useState<TreeSource>()
   const _fromNode = useRef<TreeSource>({} as TreeSource)
   const _toNode = useRef<TreeSource>({} as TreeSource)
   const [show, setShow] = useState(false)
-  // 通过 treeSource 转换所有数据
-  const traverseDataNodes = (
-    dataNode: TreeSource,
-    callBack: (data:  {
-      node: TreeSource;
-      index: number;
-      pos: string;
-      // key: Key;
-      parentPos: Key;
-      level: number;
-    }) => void
-  )=>{
-    function processNode(
-      node: TreeSource,
-      index?: number,
-      parent?: { node: TreeSource; pos: string; level: number },
-    ) {
-      // const { children = [] } = dataNode
-      const children = node ? node['children'] : dataNode;
-      console.log('children: ', children);
-      const pos = node ? getPosition(parent?.pos, index) : '0';
-      if(node) {
-        // const key: Key
-        const data = {
-          node,
-          index,
-          pos,
-          // key,
-          parentPos: parent.node ? parent.pos : null,
-          level: parent?.level + 1
-        }
-        callBack(data);
-      }
-
-      if(children && children.length > 0) {
-        children.forEach((subNode, subIndex) =>{
-          processNode(subNode, subIndex, {
-            node,
-            pos,
-            level: parent ? parent.level + 1 : -1
-          })
-        })
-      }
-    }
-
-    processNode(null);
-  }
 
   useEffect(() => {
     traverseDataNodes(
       data.current,
       item => {
-        const { node, index, pos, parentPos, level } = item;
+        const { node, index, pos, parentPos, level, key } = item;
         const entity: DataEntity = { node, index, pos, level };
+        const mergedKey = getKey(key, pos);
         posEntities.current[pos] = entity;
+        keyEntities.current[mergedKey] = entity;
+
         entity.parent = posEntities.current[parentPos];
-        console.log('entity: ', entity);
+        console.log('posEntities.curren: ', posEntities.current);
+
+        // console.log('keyEntities: ', keyEntities.current);
 
       }
     )
+  }, [])
+
+  useEffect(() => {
+    let checkedKeyEntity;
+    if (defaultCheckedKeys.length !== 0) {
+      checkedKeyEntity = parseCheckedKeys(defaultCheckedKeys) || {}
+    } else {
+      checkedKeyEntity = parseCheckedKeys(checkedKeys) || {}
+    }
+
+    if (checkedKeyEntity) {
+      let { checkedKeys = [], halfCheckedKeys = [] } = checkedKeyEntity
+      checkedKeys.forEach(item => {
+        const target = keyEntities.current[item]
+        if (target) {
+          target.node.checked = !target.node.checked
+          setUpdateData(!updateData)
+        }
+      })
+    }
   }, [])
 
   const onCollapse = (key: string) => {
@@ -141,7 +130,7 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const onCheck = (key: string) => {
-    let target: TreeSource  = posEntities.current[key];
+    let target: TreeSource = posEntities.current[key];
     if (target) {
       target.node.checked = !target.node.checked
       if (target.node.checked) {

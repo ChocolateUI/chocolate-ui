@@ -4,7 +4,11 @@ import Tree, { TreeProps } from './tree'
 import { data } from './data';
 const BaseTree = (props: TreeProps) => {
   const { treeData } = props;
-  return <Tree treeData={treeData} />
+  return <Tree
+    treeData={treeData}
+    checkable
+    defaultCheckedKeys={['0-0-0-0-0', '0-0-0-0-1']}
+  />
 }
 
 export default {
