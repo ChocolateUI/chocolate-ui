@@ -160,7 +160,7 @@
     "@storybook/theming": "^6.3.4",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
+    "@testing-library/user-event": "13.2.1",
     "@types/classnames": "^2.2.10",
     "@types/highlight.js": "^10.1.0",
     "@types/jest": "^26.0.9",
