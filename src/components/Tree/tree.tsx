@@ -1,9 +1,10 @@
-import React, { FC, useEffect, useState, useCallback, useRef } from 'react'
+import React, { FC, useEffect, useState, useCallback, useRef, ChangeEvent } from 'react'
 import clone from '../../utils/clone'
 import { scopedClass } from '../../utils/scopedClass'
 import Alert from '../Alert/alert'
 import { Key } from './interface'
 import TreeNode from './tree-node'
+import executeCheck from './utils/execute'
 import parseCheckedKeys from './utils/parseCheckedKeys'
 import traverseDataNodes, { getKey } from './utils/traverseDataNodes'
 
@@ -20,7 +21,6 @@ export interface TreeSource {
   // keyEntities: Record<Key, DataEntity>;
 }
 
-
 interface KeyToNodeMap {
   [key: string]: TreeSource
 }
@@ -31,10 +31,11 @@ export interface TreeProps {
    * TreeNode 节点（key 在整个树范围内唯一）
    */
   treeData: TreeSource[];
-  onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[]) => void;
+  onCheck?: (checked: Key[]) => void;
+  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>,key: string) => void,
   checkable: boolean;
   defaultCheckedKeys?: Key[];
-  checkedKeys?: Key[] | { checked: Key[]; halfChecked: Key[] };
+  checkedKeys?: Key[];
 }
 
 export type NodeElement = React.ReactElement<TreeProps> & {
@@ -64,12 +65,8 @@ interface keyEntities {
   [key: string]: DataEntity
 }
 
-interface treeState {
-
-}
-
 export const Tree: FC<TreeProps> = (props) => {
-  const { treeData = [], checkable = false, checkedKeys = [], defaultCheckedKeys = [] } = props
+  const { treeData = [], checkable = false, checkedKeys: propCheckedKeys = [], defaultCheckedKeys = [], onCheck } = props
   const keyToNodeMap = useRef<KeyToNodeMap>({})
   const posEntities = useRef<posEntities>({})
   const keyEntities = useRef<keyEntities>({})
@@ -79,8 +76,11 @@ export const Tree: FC<TreeProps> = (props) => {
   const _fromNode = useRef<TreeSource>({} as TreeSource)
   const _toNode = useRef<TreeSource>({} as TreeSource)
   const [show, setShow] = useState(false)
-
+  const [checkedKeysState, setCheckedKeysState] = useState(propCheckedKeys)
+  const [dataNode, setDataNode] = useState<DataEntity[]>()
+  const firstRender = useRef(true)
   useEffect(() => {
+    let arr: any = []
     traverseDataNodes(
       data.current,
       item => {
@@ -89,35 +89,37 @@ export const Tree: FC<TreeProps> = (props) => {
         const mergedKey = getKey(key, pos);
         posEntities.current[pos] = entity;
         keyEntities.current[mergedKey] = entity;
-
         entity.parent = posEntities.current[parentPos];
-        console.log('posEntities.curren: ', posEntities.current);
-
-        // console.log('keyEntities: ', keyEntities.current);
-
+        arr.push(entity)
       }
     )
+    setDataNode(arr)
   }, [])
 
   useEffect(() => {
     let checkedKeyEntity;
-    if (defaultCheckedKeys.length !== 0) {
+    if (propCheckedKeys && propCheckedKeys.length === 0 && firstRender.current) {
       checkedKeyEntity = parseCheckedKeys(defaultCheckedKeys) || {}
+      firstRender.current = false
     } else {
-      checkedKeyEntity = parseCheckedKeys(checkedKeys) || {}
+      checkedKeyEntity = parseCheckedKeys(propCheckedKeys) || {}
     }
-
     if (checkedKeyEntity) {
-      let { checkedKeys = [], halfCheckedKeys = [] } = checkedKeyEntity
-      checkedKeys.forEach(item => {
-        const target = keyEntities.current[item]
-        if (target) {
-          target.node.checked = !target.node.checked
-          setUpdateData(!updateData)
+      let { checkedKeys = [] } = checkedKeyEntity
+      const conductKeys = executeCheck(checkedKeys, true, keyEntities.current);
+      ({ checkedKeys } = conductKeys);
+      // dataNode
+      dataNode && dataNode.forEach((item: DataEntity, index: number) => {
+        const has = checkedKeys.findIndex(ele => ele === item.node.key)
+        if(has !== -1) {
+          item.node.checked = true
+        } else {
+          item.node.checked = false
         }
       })
+      setCheckedKeysState(checkedKeys)
     }
-  }, [])
+  }, [propCheckedKeys, defaultCheckedKeys, dataNode])
 
   const onCollapse = (key: string) => {
     let target = keyToNodeMap.current[key]
@@ -125,22 +127,6 @@ export const Tree: FC<TreeProps> = (props) => {
       // 修改 target 就像当于修改了 data
       target.collapsed = !target.collapsed
       target.children = target.children || []
-      setUpdateData(!updateData)
-    }
-  }
-
-  const onCheck = (key: string) => {
-    let target: TreeSource = posEntities.current[key];
-    if (target) {
-      target.node.checked = !target.node.checked
-      if (target.node.checked) {
-        checkChildren(target.node.children, true)
-        checkParentCheckAll(target?.parent)
-      } else {
-        console.log('object');
-        checkChildren(target.node.children, false);
-        checkParent(target?.parent, false);
-      }
       setUpdateData(!updateData)
     }
   }
@@ -188,6 +174,25 @@ export const Tree: FC<TreeProps> = (props) => {
     }
   }
 
+  const handleOnNodeCheck =(e: ChangeEvent<HTMLInputElement>, key: string)=>{
+    let checkedObj
+    let currKeys: Key[] = []
+    let flag: boolean
+    if(e.target.checked) {currKeys = [...checkedKeysState, key]; flag = true }
+    else {
+      currKeys = checkedKeysState.filter(item => item !== key);flag = false 
+    }
+    setCheckedKeysState(currKeys)
+
+    let { checkedKeys } = executeCheck(
+      currKeys,
+      flag,
+      keyEntities.current,
+    );
+    checkedObj = checkedKeys;
+    onCheck && onCheck(checkedObj)
+  }
+
   return (
     <div>
       <div className={sc('tree')}>
@@ -195,7 +200,7 @@ export const Tree: FC<TreeProps> = (props) => {
           <TreeNode
             data={data.current}
             onCollapse={onCollapse}
-            onCheck={onCheck}
+            onNodeCheck={handleOnNodeCheck}
             setFromNode={setFromNode}
             onMove={onMove}
           />

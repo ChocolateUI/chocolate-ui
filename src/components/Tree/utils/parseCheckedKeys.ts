@@ -1,9 +1,9 @@
 import { Key } from "../interface"
 
 /**
- * Parse `checkedKeys` to { checkedKeys, halfCheckedKeys } style
+ * 将 `checkedKeys` 转换为 { checkedKeys } 样式，后续会支持部分选中 halfCheckedKeys
  */
-const parseCheckedKeys =(keys: Key[] | { checked: Key[]; halfChecked: Key[] }) => {
+const parseCheckedKeys =(keys: Key[]) => {
   if (!keys) {
     return null;
   }
@@ -11,15 +11,9 @@ const parseCheckedKeys =(keys: Key[] | { checked: Key[]; halfChecked: Key[] }) =
   if(Array.isArray(keys)) {
     keyProps = {
       checkedKeys: keys,
-      halfCheckedKeys: undefined,
-    };
-  } else if (typeof keys === 'object') {
-    keyProps = {
-      checkedKeys: keys.checked || undefined,
-      halfCheckedKeys: keys.halfChecked || undefined,
     };
   } else {
-    console.warn(false, '`checkedKeys` is not an array or an object');
+    console.warn(false, '`checkedKeys` is not an array');
     return null;
   }
   return keyProps;

@@ -1,3 +1,5 @@
+### 优化思路
+
 循环引用 `item.parent = parent`
 现象： 发现每次切换 `storybook` 的 tab 的时候，都会包一个错误 `max...`,  也就是栈溢出
 起初以为是 平台的 bug，但经过提交 github issue 发现确实是自己代码的问题。

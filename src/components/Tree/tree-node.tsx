@@ -1,17 +1,19 @@
-import React, { FC, useRef, useEffect } from 'react'
+import React, { FC, useRef, useEffect, ChangeEvent } from 'react'
 import { TreeSource } from './tree';
 import Icon from '../icons/icon';
+import { Key } from './interface';
 
 interface TreeNodeProps {
-  data: TreeSource[],
-  onCollapse?: (key: string) => void,
-  onCheck?: (key: string) => void,
-  setFromNode: any,
-  onMove: any
+  data: TreeSource[];
+  onCollapse?: (key: string) => void;
+  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string) => void,
+  onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[]) => void;
+  setFromNode: any;
+  onMove: any;
 }
 
 const TreeNode: FC<TreeNodeProps> = (props) => {
-  const { data, onCollapse, onCheck, setFromNode, onMove } = props
+  const { data, onCollapse, onCheck, setFromNode, onMove, onNodeCheck } = props
 
   // { name, children = [], collapsed = false, key, checked = false }
   const treeNodeRef = useRef<HTMLDivElement>(null)
@@ -43,7 +45,11 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
   const renderCheckBox = (checked: boolean, key: string, name: string) => {
     return (
       <span className="content">
-        <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={() => onCheck && onCheck(key)} ></input>
+        <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={
+         (e) => {
+            onNodeCheck && onNodeCheck(e, key)
+          }
+        } ></input>
         {/* {icon} */}
         {name}
       </span>
@@ -102,8 +108,9 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
                         key={item.key}
                         data={children}
                         onCollapse={onCollapse}
-                        onCheck={onCheck}
+                        // onCheck={onCheck}
                         setFromNode={setFromNode}
+                        onNodeCheck={onNodeCheck}
                         onMove={onMove}
                       />
                     </div>
