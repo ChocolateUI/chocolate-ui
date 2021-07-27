@@ -47,6 +47,13 @@ export const data: Array<TreeSource> = [{
                   collapsed: false,
                   children: []
                 },
+                {
+                  name: '0-0-0-0-1-2',
+                  key: '0-0-0-0-1-2',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
               ]
             }
           ]

@@ -94,7 +94,18 @@ function cleanExecuteCheck(
 			const {
 				node: { key = "", children = [] },
 			} = entity
-      // !halfCheckedKeys.has(key) 只删除自己父节点下的
+      /**
+        !halfCheckedKeys.has(key) 只删除自己父节点下的 key
+        所以引入 halfCheckedKeys：表示子节点未完全选中的父节点的 key
+        eg: [0-0]
+                [0-0-0]
+                      [0-0-0-0]
+                      [0-0-0-1] ✅ 1
+                [0-0-1] ✅ 2
+                      [0-0-1-0] ✅ 3
+        取消选中 2，1 也会消失
+        或者 取消选中 1，2&&3 也会消失
+       */
 			if (!checkedKeys.has(key) && !halfCheckedKeys.has(key)) {
 				children.forEach((childEntity) => {
 					checkedKeys.delete(childEntity.key)
@@ -154,8 +165,8 @@ function fillExecuteCheck(
 ): ConductReturnType {
 	const checkedKeys = new Set<Key>(keys)
 	const halfCheckedKeys = new Set<Key>()
-	console.log("fillExecuteCheck")
-	// 自上而下添加选中的键 , 把子节点都选中
+
+	// 自顶向下添加选中的键 , 把子节点都选中
 	for (let level = 0; level <= maxLevel; level += 1) {
 		const entities = levelEntities.get(level) || new Set()
 		entities.forEach((entity) => {
@@ -171,7 +182,7 @@ function fillExecuteCheck(
 		})
 	}
 
-	// 自下而上添加选中的键
+	// 自底向上添加选中的键
 	const visitedKeys = new Set<Key>()
 	for (let level = maxLevel; level >= 0; level -= 1) {
 		const entities = levelEntities.get(level) || new Set()
