@@ -3,56 +3,116 @@ import { TreeSource } from "./tree";
 
 
 export const data: Array<TreeSource> = [{
-  name: 'parent 1',
+  name: '0-0',
   key: '0-0',
   type: 'folder',
   collapsed: false,
   children: [
     {
-      name: 'parent 1-1',
+      name: '0-0-0',
       key: '0-0-0',
       type: 'folder',
       collapsed: false,
       children: [
         {
-          name: 'parent 1-1-1',
+          name: '0-0-0-0',
           key: '0-0-0-0',
           type: 'folder',
           collapsed: false,
           children: [
             {
-              name: 'leaf1',
+              name: '0-0-0-0-0',
               key: '0-0-0-0-0',
               type: 'file',
               collapsed: false,
               children: []
             },
             {
-              name: 'leaf2',
+              name: '0-0-0-0-1',
               key: '0-0-0-0-1',
-              type: 'file',
+              type: 'folder',
               collapsed: false,
-              children: []
+              children: [
+                {
+                  name: '0-0-0-0-1-0',
+                  key: '0-0-0-0-1-0',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+                {
+                  name: '0-0-0-0-1-1',
+                  key: '0-0-0-0-1-1',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+              ]
             }
           ]
         }
       ]
     },
     {
-      name: 'parent 1-2',
+      name: '0-0-1',
       key: '0-0-1',
       type: 'folder',
       collapsed: false,
       children: [
         {
-          name: 'leaf3',
+          name: '0-0-1-0',
           key: '0-0-1-0',
+          type: 'file',
+          collapsed: false,
+          children: []
+        },
+        {
+          name: '0-0-1-1',
+          key: '0-0-1-1',
           type: 'file',
           collapsed: false,
           children: []
         }
       ]
     }
+  ]
+},
+{
+  name: '0-1',
+  key: '0-1',
+  type: 'folder',
+  collapsed: false,
+  children: [
+    {
+      name: '0-1-0',
+      key: '0-1-0',
+      type: 'folder',
+      collapsed: false,
+      children: [
+        {
+          name: '0-1-0-0',
+          key: '0-1-0-0',
+          type: 'folder',
+          collapsed: false,
+          children: [
+            {
+              name: '0-1-0-0-0',
+              key: '0-1-0-0-0',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+            {
+              name: '0-1-0-0-1',
+              key: '0-1-0-0-1',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+          ]
+        }
+      ]
+    },
   ]
 }]
 

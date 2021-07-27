@@ -13,3 +13,7 @@
 然后阅读源码的过程中，发现 tree 实现的有问题：
   - 没有暴露出 onCheck 接口去让用户去设置 checkbox。第一版的设计仅仅是通过 data，来映射出 tree 节点，然后可以实现 折叠/checkbox/拖拽，但如果作为单独组件导出将不支持回调。最终引入 `onCheck` 来解决
   - 不支持默认选中。引入了 `defaultCheckedKeys` 来解决
+
+#### 优化checkbox选择逻辑
+
+通过暴露 onChange 接口，让用户使用通过 keys 来控制组件的事件。

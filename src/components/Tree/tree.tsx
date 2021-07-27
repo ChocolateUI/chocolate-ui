@@ -32,7 +32,7 @@ export interface TreeProps {
    */
   treeData: TreeSource[];
   onCheck?: (checked: Key[]) => void;
-  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>,key: string) => void,
+  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string) => void,
   checkable: boolean;
   defaultCheckedKeys?: Key[];
   checkedKeys?: Key[];
@@ -98,11 +98,14 @@ export const Tree: FC<TreeProps> = (props) => {
 
   useEffect(() => {
     let checkedKeyEntity;
-    if (propCheckedKeys && propCheckedKeys.length === 0 && firstRender.current) {
+    if (checkedKeysState && checkedKeysState.length === 0 && firstRender.current) {
       checkedKeyEntity = parseCheckedKeys(defaultCheckedKeys) || {}
       firstRender.current = false
+      // console.log('checkedKeyEntity: ', checkedKeyEntity);
     } else {
-      checkedKeyEntity = parseCheckedKeys(propCheckedKeys) || {}
+      checkedKeyEntity = parseCheckedKeys(checkedKeysState) || {}
+      firstRender.current = false
+      // console.log('checkedKeyEntity:--- ', checkedKeyEntity);
     }
     if (checkedKeyEntity) {
       let { checkedKeys = [] } = checkedKeyEntity
@@ -117,9 +120,10 @@ export const Tree: FC<TreeProps> = (props) => {
           item.node.checked = false
         }
       })
-      setCheckedKeysState(checkedKeys)
+      setUpdateData(!updateData)
     }
-  }, [propCheckedKeys, defaultCheckedKeys, dataNode])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkedKeysState, defaultCheckedKeys, dataNode])
 
   const onCollapse = (key: string) => {
     let target = keyToNodeMap.current[key]
@@ -177,19 +181,31 @@ export const Tree: FC<TreeProps> = (props) => {
   const handleOnNodeCheck =(e: ChangeEvent<HTMLInputElement>, key: string)=>{
     let checkedObj
     let currKeys: Key[] = []
-    let flag: boolean
-    if(e.target.checked) {currKeys = [...checkedKeysState, key]; flag = true }
+    let checked: boolean
+    if(e.target.checked) {currKeys = [...checkedKeysState, key]; checked = true }
     else {
-      currKeys = checkedKeysState.filter(item => item !== key);flag = false 
+      currKeys = checkedKeysState.filter(item => item !== key); checked = false 
     }
-    setCheckedKeysState(currKeys)
 
-    let { checkedKeys } = executeCheck(
+    let { checkedKeys, halfCheckedKeys } = executeCheck(
       currKeys,
-      flag,
+      true,
       keyEntities.current,
     );
+    // console.log('checkedKeys: ', checkedKeys);
+    // console.log('halfCheckedKeys: ', halfCheckedKeys);
+    if (!checked) {
+      const keySet = new Set(checkedKeys);
+      keySet.delete(key);
+      ({ checkedKeys, halfCheckedKeys } = executeCheck(
+        Array.from(keySet),
+        { checked: false, halfCheckedKeys },
+        keyEntities.current,
+      ));
+    }
+
     checkedObj = checkedKeys;
+    setCheckedKeysState(checkedKeys)
     onCheck && onCheck(checkedObj)
   }
 

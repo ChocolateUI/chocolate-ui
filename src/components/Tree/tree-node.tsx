@@ -6,7 +6,7 @@ import { Key } from './interface';
 interface TreeNodeProps {
   data: TreeSource[];
   onCollapse?: (key: string) => void;
-  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string) => void,
+  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string, isLeaf?: boolean) => void,
   onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[]) => void;
   setFromNode: any;
   onMove: any;
@@ -42,12 +42,12 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
     return {caret, icon}
   }
 
-  const renderCheckBox = (checked: boolean, key: string, name: string) => {
+  const renderCheckBox = (checked: boolean, key: string, name: string, type: string) => {
     return (
       <span className="content">
         <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={
          (e) => {
-            onNodeCheck && onNodeCheck(e, key)
+            onNodeCheck && onNodeCheck(e, key, type === 'file')
           }
         } ></input>
         {/* {icon} */}
@@ -94,12 +94,12 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
       <>
         {
           data.map((item: TreeSource) => {
-            const { children = [], name, checked = false, key, collapsed = false } = item
+            const { children = [], name, checked = false, key, collapsed = false, type = '' } = item
             return (
               <div className="node" draggable={true} ref={treeNodeRef} key={key}>
                 <div className="inner">
                   {renderWidgets(children, collapsed, key).caret}
-                  {renderCheckBox(checked, key, name)}
+                  {renderCheckBox(checked, key, name, type)}
                 </div>
                 {
                   children && children?.length ? (

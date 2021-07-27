@@ -24,8 +24,7 @@ export default {
 const _default: Story<TreeProps> = (args: TreeProps) => {
   const [_, updateArgs] = useArgs();
   const handleOnCheck = (newArgs: any) => {
-    console.log('newArgs: ', newArgs);
-    updateArgs({ ...args, checkedKeys: newArgs })
+    updateArgs({...args})
   }
   return <BaseTree {...args} onCheck={handleOnCheck} />
 }
