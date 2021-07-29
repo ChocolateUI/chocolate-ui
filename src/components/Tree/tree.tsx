@@ -139,12 +139,13 @@ export const Tree: FC<TreeProps> = (props) => {
     console.log('toNode: ', toNode);
     _toNode.current = clone(toNode)
     const fromNodeIn = keyEntities.current[fromNode.key];
+    console.log('fromNodeIn: ', fromNodeIn);
     const toNodeIn = keyEntities.current[toNode.key];
     let fromChildren = fromNodeIn?.parent?.node.children, toChildren = toNodeIn?.parent?.node.children
     console.log('toChildren: ', toChildren);
     console.log('fromChildren: ', fromChildren);
-    let fromIndex = fromChildren?.findIndex(item => item.key === fromNode?.key)
-    let toIndex = toChildren?.findIndex(item => item.key === toNode?.key)
+    let fromIndex = fromChildren?.findIndex(item => item.key === fromNodeIn?.node.key)
+    let toIndex = toChildren?.findIndex(item => item.key === toNodeIn?.node.key)
 
     if (fromNodeIn?.parent?.node.key === toNodeIn.node.key) {
       setShow(true)
