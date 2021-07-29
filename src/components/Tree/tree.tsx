@@ -64,7 +64,6 @@ interface keyEntities {
 
 export const Tree: FC<TreeProps> = (props) => {
   const { treeData = [], checkedKeys: propCheckedKeys = [], defaultCheckedKeys = [], onCheck } = props
-  const keyToNodeMap = useRef<KeyToNodeMap>({})
   const posEntities = useRef<posEntities>({})
   const keyEntities = useRef<keyEntities>({})
   const data = useRef<TreeSource[]>(treeData)
@@ -122,33 +121,38 @@ export const Tree: FC<TreeProps> = (props) => {
   }, [checkedKeysState, defaultCheckedKeys, dataNode])
 
   const onCollapse = (key: string) => {
-    let target = keyToNodeMap.current[key]
+    let target = keyEntities.current[key]
     if (target) {
-      // 修改 target 就像当于修改了 data
-      target.collapsed = !target.collapsed
-      target.children = target.children || []
+      target.node.collapsed = !target.node.collapsed
+      target.node.children = target.node.children || []
       setUpdateData(!updateData)
     }
   }
 
   const setFromNode = (fromNode: TreeSource) => {
+    console.log('fromNode: ', fromNode);
     _fromNode.current = clone(fromNode)
     setFromNodeState(fromNode)
   }
 
   const onMove = (toNode: TreeSource) => {
+    console.log('toNode: ', toNode);
     _toNode.current = clone(toNode)
-    let fromChildren = fromNode?.parent?.children, toChildren = toNode?.parent?.children
+    const fromNodeIn = keyEntities.current[fromNode.key];
+    const toNodeIn = keyEntities.current[toNode.key];
+    let fromChildren = fromNodeIn?.parent?.node.children, toChildren = toNodeIn?.parent?.node.children
+    console.log('toChildren: ', toChildren);
+    console.log('fromChildren: ', fromChildren);
     let fromIndex = fromChildren?.findIndex(item => item.key === fromNode?.key)
     let toIndex = toChildren?.findIndex(item => item.key === toNode?.key)
 
-    if (fromNode?.parent?.key === toNode.key) {
+    if (fromNodeIn?.parent?.node.key === toNodeIn.node.key) {
       setShow(true)
       return
     }
     if (fromIndex !== undefined && toIndex !== undefined) {
-      fromChildren?.splice(Number(fromIndex), 1, _toNode.current)
-      toChildren?.splice(Number(toIndex), 1, _fromNode.current)
+      fromChildren?.splice(Number(fromIndex), 1, toNodeIn.node)
+      toChildren?.splice(Number(toIndex), 1, fromNodeIn.node)
       setUpdateData(!updateData)
     }
   }
@@ -167,8 +171,6 @@ export const Tree: FC<TreeProps> = (props) => {
       true,
       keyEntities.current,
     );
-    // console.log('checkedKeys: ', checkedKeys);
-    // console.log('halfCheckedKeys: ', halfCheckedKeys);
     if (!checked) {
       const keySet = new Set(checkedKeys);
       keySet.delete(key);
@@ -178,7 +180,6 @@ export const Tree: FC<TreeProps> = (props) => {
         keyEntities.current,
       ));
     }
-
     checkedObj = checkedKeys;
     setCheckedKeysState(checkedKeys)
     onCheck && onCheck(checkedObj)
@@ -188,13 +189,18 @@ export const Tree: FC<TreeProps> = (props) => {
     <div>
       <div className={sc('tree')}>
         <div className={sc('tree-nodes')}>
-          <TreeNode
-            data={data.current}
-            onCollapse={onCollapse}
-            onNodeCheck={handleOnNodeCheck}
-            setFromNode={setFromNode}
-            onMove={onMove}
-          />
+          {
+            data.current.map((item)=>{
+              return <TreeNode
+                key={item.key}
+                data={item}
+                onCollapse={onCollapse}
+                onNodeCheck={handleOnNodeCheck}
+                setFromNode={setFromNode}
+                onMove={onMove}
+              />
+            })
+          }
         </div>
       </div>
       {

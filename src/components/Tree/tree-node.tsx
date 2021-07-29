@@ -4,7 +4,7 @@ import Icon from '../icons/icon';
 import { Key } from './interface';
 
 interface TreeNodeProps {
-  data: TreeSource[];
+  data: TreeSource;
   onCollapse?: (key: string) => void;
   onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string, isLeaf?: boolean) => void,
   onCheck?: (checked: { checked: Key[]; halfChecked: Key[] } | Key[]) => void;
@@ -13,11 +13,10 @@ interface TreeNodeProps {
 }
 
 const TreeNode: FC<TreeNodeProps> = (props) => {
-  const { data, onCollapse, onCheck, setFromNode, onMove, onNodeCheck } = props
-
-  // { name, children = [], collapsed = false, key, checked = false }
+  const { data, onCollapse, setFromNode, onMove, onNodeCheck } = props
   const treeNodeRef = useRef<HTMLDivElement>(null)
-  const propsData = useRef(props.data)
+  const propsData = useRef(data)
+  const { data: { children = [], name, checked = false, key, collapsed = false, type = '' } } = props
 
   const renderWidgets = (children: TreeSource[], collapsed: boolean, key: string) => {
     let caret, icon;
@@ -39,14 +38,14 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
       )
       icon = <Icon icon="folder-minus" />
     }
-    return {caret, icon}
+    return { caret, icon }
   }
 
   const renderCheckBox = (checked: boolean, key: string, name: string, type: string) => {
     return (
       <span className="content">
         <input type="checkbox" style={{ marginRight: 8 }} checked={checked} onChange={
-         (e) => {
+          (e) => {
             onNodeCheck && onNodeCheck(e, key, type === 'file')
           }
         } ></input>
@@ -60,6 +59,7 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
     const { current } = treeNodeRef;
 
     const dragStart = (event: DragEvent): void => {
+      console.log('event: ', event.target);
       setFromNode(propsData.current)
       event.stopPropagation();
     }
@@ -90,38 +90,47 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
   }, [onMove, setFromNode])
 
   return (
-    (data && data.length > 0) && (
-      <>
-        {
-          data.map((item: TreeSource) => {
-            const { children = [], name, checked = false, key, collapsed = false, type = '' } = item
-            return (
-              <div className="node" draggable={true} ref={treeNodeRef} key={key}>
-                <div className="inner">
-                  {renderWidgets(children, collapsed, key).caret}
-                  {renderCheckBox(checked, key, name, type)}
-                </div>
-                {
-                  children && children?.length ? (
-                    <div className="children">
-                      <TreeNode
-                        key={item.key}
-                        data={children}
-                        onCollapse={onCollapse}
-                        // onCheck={onCheck}
-                        setFromNode={setFromNode}
-                        onNodeCheck={onNodeCheck}
-                        onMove={onMove}
-                      />
-                    </div>
-                  ) : null}
-              </div>
-            )
-          })
-        }
-      </>
-    )
+    <div className="node" draggable={true} ref={treeNodeRef} key={key}>
+      <div className="inner">
+        {renderWidgets(children, collapsed, key).caret}
+        {renderCheckBox(checked, key, name, type)}
+      </div>
+      {
+        (children && children.length && !collapsed) ? (
+          <div className="children">
+            {
+              children.map((item: TreeSource) => (
+                <TreeNode
+                  key={item.key}
+                  data={item}
+                  onCollapse={onCollapse}
+                  setFromNode={setFromNode}
+                  onNodeCheck={onNodeCheck}
+                  onMove={onMove}
+                />
+              ))
+            }
+          </div>
+        ) : null
+      }
+    </div>
   )
 }
-
+// {
+//   (children && children.length > 0 && !collapsed) && (
+//     <div className="children">
+//       {
+//         children.map((item: TreeSource) => (
+//           <TreeNode 
+//             key={item.key} 
+//             data={item} 
+//             onCollapse={onCollapse} 
+//             onCheck={onCheck} 
+//             setFromNode={setFromNode} 
+//             onMove={onMove}
+//           />
+//         ))
+//       }
+//     </div>
+//   )
 export default TreeNode;
