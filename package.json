@@ -192,7 +192,7 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
-    "react-markdown": "^5.0.3",
+    "react-markdown": "6.0.3",
     "react-syntax-highlighter": "^13.5.1",
     "rimraf": "^3.0.2",
     "sass-loader": "10.1.1",
