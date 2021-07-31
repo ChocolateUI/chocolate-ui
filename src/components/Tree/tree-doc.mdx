@@ -1,0 +1,52 @@
+<!-- Tree Doc -->
+## tree 树
+树组件 `Tree`，提供数据的多层级展示，支持多级父节点，支持 `checkbox` ，支持拖拽。
+
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Tree } from './tree';
+import dedent from 'ts-dedent';
+<Meta title="Components/Tree" component={Tree} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+    <Tree
+      treeData={treeData}
+      checkable={checkable}
+      checkedKeys={checkedKeys}
+      onCheck={onCheck}
+      defaultCheckedKeys={defaultCheckedKeys}
+      draggable={draggable}
+    />`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={Tree} />
+
+export const Template = (args) => <Tree {...args} />
+
+
+### 组件展示
+
+##### 有默认值
+
+<Story name="line" id="tree--default-value">
+{Template.bind({})}
+</Story>
+
+##### 多个父节点
+
+<Story name="car" id="tree--multiple-parent">
+{Template.bind({})}
+</Story>
+
+##### 可拖拽
+
+<Story name="with-icon" id="tree--draggable">
+{Template.bind({})}
+</Story>

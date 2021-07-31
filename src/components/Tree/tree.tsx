@@ -27,10 +27,10 @@ export interface TreeProps {
    */
   treeData: TreeSource[];
   onCheck?: (checked: Key[]) => void;
-  onNodeCheck?: (e: ChangeEvent<HTMLInputElement>, key: string) => void,
-  checkable: boolean;
-  defaultCheckedKeys?: Key[];
+  checkable?: boolean;
+  defaultCheckedKeys: Key[]; // TODO：必传否则会有异常
   checkedKeys?: Key[];
+  draggable?: boolean
 }
 
 export type NodeElement = React.ReactElement<TreeProps> & {
@@ -59,7 +59,7 @@ interface keyEntities {
 }
 
 export const Tree: FC<TreeProps> = (props) => {
-  const { treeData = [], checkedKeys: propCheckedKeys = [], defaultCheckedKeys = [], onCheck } = props
+  const { treeData = [], checkedKeys: propCheckedKeys = [], defaultCheckedKeys = [], onCheck, draggable, checkable } = props
   const posEntities = useRef<posEntities>({})
   const keyEntities = useRef<keyEntities>({})
   const data = useRef<TreeSource[]>(treeData)
@@ -92,18 +92,21 @@ export const Tree: FC<TreeProps> = (props) => {
 
   useEffect(() => {
     let checkedKeyEntity;
-    if (checkedKeysState && checkedKeysState.length === 0 && firstRender.current) {
-      checkedKeyEntity = parseCheckedKeys(defaultCheckedKeys) || {}
-      firstRender.current = false
-    } else {
-      checkedKeyEntity = parseCheckedKeys(checkedKeysState) || {}
-      firstRender.current = false
+    if (dataNode) {
+      if (checkedKeysState && checkedKeysState.length === 0 && firstRender.current) {
+        checkedKeyEntity = parseCheckedKeys(defaultCheckedKeys) || {}
+        firstRender.current = false
+      } else {
+        checkedKeyEntity = parseCheckedKeys(checkedKeysState) || {}
+        firstRender.current = false
+      }
     }
+
     if (checkedKeyEntity) {
       let { checkedKeys = [] } = checkedKeyEntity
       const conductKeys = executeCheck(checkedKeys, true, keyEntities.current);
       ({ checkedKeys } = conductKeys);
-      // dataNode
+
       dataNode && dataNode.forEach((item: DataEntity, index: number) => {
         const has = checkedKeys.findIndex(ele => ele === item.node.key)
         if(has !== -1) {
@@ -192,6 +195,8 @@ export const Tree: FC<TreeProps> = (props) => {
                 onNodeCheck={handleOnNodeCheck}
                 setFromNode={setFromNode}
                 onMove={onMove}
+                draggable={draggable}
+                checkable={checkable} 
               />
             })
           }
