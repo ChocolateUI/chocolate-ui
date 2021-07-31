@@ -19,10 +19,6 @@ export interface TreeSource {
   parent?: TreeSource;
   checked?: boolean;
 }
-
-interface KeyToNodeMap {
-  [key: string]: TreeSource
-}
 export interface TreeProps {
   selectedKeys?: string[];
   /**
@@ -75,6 +71,7 @@ export const Tree: FC<TreeProps> = (props) => {
   const [checkedKeysState, setCheckedKeysState] = useState(propCheckedKeys)
   const [dataNode, setDataNode] = useState<DataEntity[]>()
   const firstRender = useRef(true)
+  const [updateKeys, setUpDataKeys] = useState(false)
   
   useEffect(() => {
     let arr: any = []
@@ -91,7 +88,7 @@ export const Tree: FC<TreeProps> = (props) => {
       }
     )
     setDataNode(arr)
-  }, [])
+  }, [updateKeys])
 
   useEffect(() => {
     let checkedKeyEntity;
@@ -130,20 +127,15 @@ export const Tree: FC<TreeProps> = (props) => {
   }
 
   const setFromNode = (fromNode: TreeSource) => {
-    console.log('fromNode: ', fromNode);
     _fromNode.current = clone(fromNode)
     setFromNodeState(fromNode)
   }
 
   const onMove = (toNode: TreeSource) => {
-    console.log('toNode: ', toNode);
     _toNode.current = clone(toNode)
-    const fromNodeIn = keyEntities.current[fromNode.key];
-    console.log('fromNodeIn: ', fromNodeIn);
-    const toNodeIn = keyEntities.current[toNode.key];
+    let fromNodeIn = keyEntities.current[fromNode.key];
+    let toNodeIn = keyEntities.current[toNode.key];
     let fromChildren = fromNodeIn?.parent?.node.children, toChildren = toNodeIn?.parent?.node.children
-    console.log('toChildren: ', toChildren);
-    console.log('fromChildren: ', fromChildren);
     let fromIndex = fromChildren?.findIndex(item => item.key === fromNodeIn?.node.key)
     let toIndex = toChildren?.findIndex(item => item.key === toNodeIn?.node.key)
 
@@ -155,6 +147,7 @@ export const Tree: FC<TreeProps> = (props) => {
       fromChildren?.splice(Number(fromIndex), 1, toNodeIn.node)
       toChildren?.splice(Number(toIndex), 1, fromNodeIn.node)
       setUpdateData(!updateData)
+      setUpDataKeys(!updateKeys)
     }
   }
 
