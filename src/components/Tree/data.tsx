@@ -1,50 +1,81 @@
 import { TreeSource } from "./tree";
 
-export const data: TreeSource = {
-  name: 'parent',
-  key: '1',
+
+// 单个父节点
+export const singleData: Array<TreeSource> = [{
+  name: 'parent 1',
+  key: '0-0',
   type: 'folder',
   collapsed: false,
   children: [
     {
       name: 'parent 1-1',
-      key: '1-1',
+      key: '0-0-0',
       type: 'folder',
       collapsed: false,
       children: [
         {
           name: 'parent 1-1-1',
-          key: '1-1-1',
+          key: '0-0-0-0',
           type: 'folder',
           collapsed: false,
           children: [
             {
-              name: 'leaf1',
-              key: '1-1-1-1',
+              name: 'leaf 1-1-1-0',
+              key: '0-0-0-0-0',
               type: 'file',
               collapsed: false,
               children: []
             },
             {
-              name: 'leaf2',
-              key: '1-1-1-2',
-              type: 'file',
+              name: 'parent 1-1-1-0',
+              key: '0-0-0-0-1',
+              type: 'folder',
               collapsed: false,
-              children: []
+              children: [
+                {
+                  name: 'leaf 1-1-1-0-0',
+                  key: '0-0-0-0-1-0',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+                {
+                  name: 'leaf 1-1-1-0-1',
+                  key: '0-0-0-0-1-1',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+                {
+                  name: 'leaf 1-1-1-0-2',
+                  key: '0-0-0-0-1-2',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+              ]
             }
           ]
         }
       ]
     },
     {
-      name: 'parent 1-2',
-      key: '1-2',
+      name: 'parent 1-1',
+      key: '0-0-1',
       type: 'folder',
       collapsed: false,
       children: [
         {
-          name: 'leaf3',
-          key: '1-2-1',
+          name: 'leaf 1-1-0',
+          key: '0-0-1-0',
+          type: 'file',
+          collapsed: false,
+          children: []
+        },
+        {
+          name: 'leaf 1-1-1',
+          key: '0-0-1-1',
           type: 'file',
           collapsed: false,
           children: []
@@ -52,4 +83,229 @@ export const data: TreeSource = {
       ]
     }
   ]
-}
+}]
+
+// 多个父节点
+export const multipleData: Array<TreeSource> = [{
+  name: 'parent 1',
+  key: '0-0',
+  type: 'folder',
+  collapsed: false,
+  children: [
+    {
+      name: 'parent 1-1',
+      key: '0-0-0',
+      type: 'folder',
+      collapsed: false,
+      children: [
+        {
+          name: 'parent 1-1-1',
+          key: '0-0-0-0',
+          type: 'folder',
+          collapsed: false,
+          children: [
+            {
+              name: 'leaf 1-1-1-0',
+              key: '0-0-0-0-0',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+            {
+              name: 'parent 1-1-1-0',
+              key: '0-0-0-0-1',
+              type: 'folder',
+              collapsed: false,
+              children: [
+                {
+                  name: 'leaf 1-1-1-0-0',
+                  key: '0-0-0-0-1-0',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+                {
+                  name: 'leaf 1-1-1-0-1',
+                  key: '0-0-0-0-1-1',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+                {
+                  name: 'leaf 1-1-1-0-2',
+                  key: '0-0-0-0-1-2',
+                  type: 'file',
+                  collapsed: false,
+                  children: []
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'parent 1-1',
+      key: '0-0-1',
+      type: 'folder',
+      collapsed: false,
+      children: [
+        {
+          name: 'leaf 1-1-0',
+          key: '0-0-1-0',
+          type: 'file',
+          collapsed: false,
+          children: []
+        },
+        {
+          name: 'leaf 1-1-1',
+          key: '0-0-1-1',
+          type: 'file',
+          collapsed: false,
+          children: []
+        }
+      ]
+    }
+  ]
+},
+{
+  name: 'parent 2',
+  key: '0-1',
+  type: 'folder',
+  collapsed: false,
+  children: [
+    {
+      name: 'parent 2-1',
+      key: '0-1-0',
+      type: 'folder',
+      collapsed: false,
+      children: [
+        {
+          name: 'parent 2-1-0',
+          key: '0-1-0-0',
+          type: 'folder',
+          collapsed: false,
+          children: [
+            {
+              name: 'leaf 2-1-0-0',
+              key: '0-1-0-0-0',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+            {
+              name: 'leaf 2-1-0-1',
+              key: '0-1-0-0-1',
+              type: 'file',
+              collapsed: false,
+              children: []
+            },
+          ]
+        }
+      ]
+    },
+  ]
+}]
+
+// export const data: TreeSource = {
+//   name: 'parent 1',
+//   key: '0-0',
+//   type: 'folder',
+//   collapsed: false,
+//   children: [
+//     {
+//       name: 'parent 1-1',
+//       key: '0-0-0',
+//       type: 'folder',
+//       collapsed: false,
+//       children: [
+//         {
+//           name: 'parent 1-1-1',
+//           key: '0-0-0-0',
+//           type: 'folder',
+//           collapsed: false,
+//           children: [
+//             {
+//               name: 'leaf1',
+//               key: '0-0-0-0-0',
+//               type: 'file',
+//               collapsed: false,
+//               children: []
+//             },
+//             {
+//               name: 'leaf2',
+//               key: '0-0-0-0-1',
+//               type: 'file',
+//               collapsed: false,
+//               children: []
+//             }
+//           ]
+//         }
+//       ]
+//     },
+//     {
+//       name: 'parent 1-2',
+//       key: '0-0-1',
+//       type: 'folder',
+//       collapsed: false,
+//       children: [
+//         {
+//           name: 'leaf3',
+//           key: '0-0-1-0',
+//           type: 'file',
+//           collapsed: false,
+//           children: []
+//         }
+//       ]
+//     }
+//   ]
+// }
+
+// 修改初始数据，以支持多个根结点
+
+
+
+
+const treeData = [
+  {
+    title: '0-0',
+    key: '0-0',
+    children: [
+      {
+        title: '0-0-0',
+        key: '0-0-0',
+        children: [
+          { title: '0-0-0-0', key: '0-0-0-0' },
+          { title: '0-0-0-1', key: '0-0-0-1' },
+          { title: '0-0-0-2', key: '0-0-0-2' },
+        ],
+      },
+      {
+        title: '0-0-1',
+        key: '0-0-1',
+        children: [
+          { title: '0-0-1-0', key: '0-0-1-0' },
+          { title: '0-0-1-1', key: '0-0-1-1' },
+          { title: '0-0-1-2', key: '0-0-1-2' },
+        ],
+      },
+      {
+        title: '0-0-2',
+        key: '0-0-2',
+      },
+    ],
+  },
+  {
+    title: '0-1',
+    key: '0-1',
+    children: [
+      { title: '0-1-0-0', key: '0-1-0-0' },
+      { title: '0-1-0-1', key: '0-1-0-1' },
+      { title: '0-1-0-2', key: '0-1-0-2' },
+    ],
+  },
+  {
+    title: '0-2',
+    key: '0-2',
+  },
+];

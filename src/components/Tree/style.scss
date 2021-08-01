@@ -6,16 +6,12 @@
   width: max-content;
   overflow-x: hidden;
   overflow-y: auto;
-  // background-color: #EEE;
 
   &-nodes {
     position: relative;
     overflow: hidden;
 
     .node {
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
       .inner {
         color: #000;
         font-size: $tree-font-size;
