@@ -26,7 +26,7 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
     onMove,
     onNodeCheck,
     draggable,
-    checkable = false
+    checkable = false,
   } = props;
   const treeNodeRef = useRef<HTMLDivElement>(null);
   const propsData = useRef(data);

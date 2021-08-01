@@ -66,7 +66,7 @@ export const DefaultValue = _default.bind({});
 
 DefaultValue.args = {
   treeData: singleData,
-  checkedKeys: ["0-0-0-0-0"],
+  checkedKeys: [],
   checkable: true,
   defaultCheckedKeys: ["0-0-0-0-0", "0-0-0-0-1"],
 };
