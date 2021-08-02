@@ -31,6 +31,10 @@ import { Button } from 'chocolate-ui'
 * 🐳 使用 chromatic 发布
 * 🥭 使用第三方库扩充组件-(react-fontawesome, react-transition-group)
 
+#### 😊 谁在使用
+
+- 我自己 -> [chocolate-hooks](https://github.com/ChocolateUI/chocolate-hooks)
+
 #### 🎋 一些命令行
 
 ~~~bash
