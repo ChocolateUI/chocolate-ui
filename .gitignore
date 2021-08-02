@@ -33,4 +33,4 @@
 #git action
 /.github
 
-./build-storybook.log
+.build-storybook.log
