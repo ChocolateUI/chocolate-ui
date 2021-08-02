@@ -32,3 +32,5 @@
 
 #git action
 /.github
+
+./build-storybook.log
