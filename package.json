@@ -183,7 +183,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemap": "^1.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "husky": "7.0.0",
+    "husky": "7.0.2",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.4.0",
