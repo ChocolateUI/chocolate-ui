@@ -19,7 +19,7 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
     ...restProps
   } = props
   const context = useContext(SelectContext)
-  const [over, setOver] = useState(false)
+  const [hover, setHover] = useState(false)
 
   const handleOptionItem = (item: string) => {
     if (!props.disabled) {
@@ -30,17 +30,17 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
   const classnames = classNames(sc('option-list-item'), {
     'is-disabled': props.disabled,
     'is-active': value === context.value,
-    'is-hover': over,
+    'is-hover': hover,
   })
   return (
     <li
       className={classnames}
       onMouseOver={()=>{
         if(!props.disabled){
-          setOver(true)
+          setHover(true)
         }
       }}
-      onMouseLeave={()=>setOver(false)}
+      onMouseLeave={()=>setHover(false)}
       onClick={() => handleOptionItem(value)}
       {...restProps}
     >

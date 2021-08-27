@@ -1,4 +1,4 @@
-import React, { ReactElement, FC, ChangeEvent, InputHTMLAttributes } from 'react'
+import React, { ReactElement, FC, ChangeEvent, InputHTMLAttributes, useState } from 'react'
 import classNames from 'classnames'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { scopedClass } from '../../utils/scopedClass'
@@ -26,12 +26,14 @@ export const Input: FC<InputProps> = (props) => {
         style,
         ...restProps
     } = props;
+    const [hover, setHover] = useState(false)
     const classnames = classNames(sc('wrapper'), {
         [`input-size-${size}`]: size,
         'is-disabled': disabled,
         'input-group': prepend || append,
         'input-group-append': !!append,
         'input-group-prepend': !!prepend,
+        [`${sc('inner')}-is-hover`]: hover,
     })
 
     const fixControlledValue = (value: any) => {
@@ -54,6 +56,8 @@ export const Input: FC<InputProps> = (props) => {
             {icon && <div className={sc('icon-wrapper')}><Icon icon={icon} title={`title-${icon}`}/></div>}
             <input
                 className={sc('inner')}
+                onMouseOver={()=>setHover(!disabled)}
+                onMouseLeave={()=>setHover(false)}
                 disabled={disabled}
                 {...restProps}
             />

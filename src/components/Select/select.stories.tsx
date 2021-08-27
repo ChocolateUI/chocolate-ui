@@ -43,5 +43,5 @@ export const Default = _default.bind({});
 
 Default.args = {
   defaultValue: 'four',
-  disabled: true,
+  disabled: false,
 }

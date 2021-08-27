@@ -30,14 +30,6 @@
         border-radius: $input-border-radius;
         width: 100%;
 
-        &:hover {
-            color: $input-focus-color;
-            background-color: $input-focus-bg;
-            border-color: $input-focus-border-color;
-            outline: 0;
-            transition: all .3s;
-        }
-
         &:focus {
             color: $input-focus-color;
             background-color: $input-focus-bg;
@@ -62,6 +54,16 @@
             background-color: rgba($input-disabled-bg, .1);
             border-color: $input-disabled-border-color;
             opacity: 1;
+        }
+
+        &-is-hover {
+            input:hover {
+                color: $input-focus-color;
+                background-color: $input-focus-bg;
+                border-color: $input-focus-border-color;
+                outline: 0;
+                transition: all .3s;
+            }
         }
     }
 
