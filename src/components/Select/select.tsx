@@ -20,6 +20,7 @@ interface ISelectContext {
     index?: string,
     onSelect?: (selectItem: string) => void;
     onShowOption?: (value: boolean) => void;
+    value?: string;
 }
 
 export const SelectContext = createContext<ISelectContext>({ index: '0' });
@@ -45,6 +46,7 @@ export const Select: React.FC<SelectProps> = (props) => {
     const passedContext: ISelectContext = {
         onSelect: handleClick,
         onShowOption: handleShowOption,
+        value: inputValue,
     }
     const componentRef = useRef<HTMLDivElement>(null)
     useClickOutside(componentRef, () => setShowOption(false))

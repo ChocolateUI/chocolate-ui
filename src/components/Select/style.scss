@@ -28,15 +28,17 @@
             
             &.is-disabled{
               cursor: not-allowed;
-              background-color: rgba($input-disabled-bg, .65);
               border-color: $input-disabled-border-color;
-              color: $gray-600;
-              pointer-events: none;
-              opacity: 1;
+              color: $input-disabled-bg;
             }
 
-            &:hover {
-                background: rgba($primary, .15) !important;
+            &.is-active{
+                color: $primary;
+            }
+
+            &.is-hover {
+                color: $primary;
+                background: $g10;
             }
         }
     }

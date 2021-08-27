@@ -30,6 +30,14 @@
         border-radius: $input-border-radius;
         width: 100%;
 
+        &:hover {
+            color: $input-focus-color;
+            background-color: $input-focus-bg;
+            border-color: $input-focus-border-color;
+            outline: 0;
+            transition: all .3s;
+        }
+
         &:focus {
             color: $input-focus-color;
             background-color: $input-focus-bg;
@@ -67,7 +75,7 @@
         color: rgba($input-group-addon-color, .95);
         text-align: center;
         white-space: nowrap;
-        background-color: rgba($input-group-addon-bg, .65);
+        background-color: $input-group-addon-bg;
         padding: $input-padding-y $input-padding-x;
         border: $input-border-width solid $input-group-addon-border-color;
         border-radius: $input-border-radius;

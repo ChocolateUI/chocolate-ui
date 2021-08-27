@@ -12,10 +12,10 @@ const BaseSelect = (props: SelectProps) => {
       defaultValue={defaultValue}
       onChange={(value) => console.log(value)}
     >
-      <Option value='jack'> Jack </Option>
-      <Option value='lucy' disabled={disabled}> Lucy </Option>
-      <Option value='ming'> Ming </Option>
-      <Option value='nice'> Nice </Option>
+      <Option value='one'> one </Option>
+      <Option value='two' disabled={disabled}> two </Option>
+      <Option value='tree'> tree </Option>
+      <Option value='four'> four </Option>
     </Select>
   )
 }
@@ -42,6 +42,6 @@ const _default: Story<SelectProps> = (args) => <BaseSelect {...args} />;
 export const Default = _default.bind({});
 
 Default.args = {
-  defaultValue: 'ming',
-  disabled: false,
+  defaultValue: 'four',
+  disabled: true,
 }
