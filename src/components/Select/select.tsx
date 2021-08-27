@@ -77,7 +77,7 @@ export const Select: React.FC<SelectProps> = (props) => {
                     onChange={onChange}
                     icon='angle-down'
                     disabled={disabled}
-                    readOnly={!disabled}
+                    // readOnly={!disabled}
                     onClick={() => setShowOption(true)}
                     value={inputValue}
                 />
