@@ -1,0 +1,136 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+@import "../../styles/reboot";
+
+$prefixCls: chocolate-checkbox;
+
+.chocolate-checkbox {
+  font-size: $font-size-base;
+  color: $font-color;
+  outline: none;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: sub;
+  white-space: nowrap;
+
+  &-wrapper {
+    height: $checkbox-height;
+    color: $font-color;
+    font-size: $font-size-base;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: all $default-transition;
+
+
+    .chocolate-checkbox-button-wrapper {
+      border: 1px solid $border-color;
+      padding: $checkbox-button-padding;
+      border-radius: $border-radius;
+      margin: 0;
+
+      .chocolate-checkbox-checked {
+        background-color: $primary;
+        border-color: $primary;
+        color: #fff;
+        text-shadow: $default-text-shadow;
+      }
+
+      .chocolate-checkbox-disabled {
+        background-color: $checkbox-disabled-color;
+        color: $checkbox-disabled-font-color;
+        border-color: $border-color;
+      }
+    }
+  }
+
+
+  &-input {
+    box-sizing: border-box;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &-checked {
+    .chocolate-checkbox-inner {
+      border-color: $primary;
+      background-color: $primary;
+
+      &::after {
+        transform: rotate(45deg) scale(1);
+        transform: all .2s $animate-type .1s;
+      }
+    }
+  }
+
+
+  &-disabled {
+    .chocolate-checkbox-inner {
+      border-color: #e8e8e8 !important;
+      background-color: #f5f5f5 !important;
+
+      &::after {
+        border-color: $checkbox-disabled-color;
+      }
+    }
+
+    .chocolate-checkbox-input {
+      cursor: not-allowed;
+    }
+
+    >span {
+      cursor: not-allowed;
+      color: $checkbox-disabled-font-color
+    }
+  }
+
+  &-inner {
+    display: inline-block;
+    width: $checkbox-width;
+    height: $checkbox-height;
+    background-color: #fff;
+    border: 1px solid $border-color;
+    margin-right: $checkbox-offset-right;
+    transition: all $default-transition;
+    position: relative;
+    left: 0;
+    top: -2px;
+
+
+    &::after {
+      //画一个矩形 旋转45° 形成一个 √
+      transform: rotate(45deg) scale(0);
+      position: absolute;
+      left: 4px;
+      top: 2px;
+      width: 5px;
+      height: 8px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      transition: all .1s cubic-bezier(.71, -0.46, .88, .6);
+    }
+  }
+
+  &-indeterminate {
+    .chocolate-checkbox-inner {
+      border-color: $primary;
+      background-color: $primary;
+
+      &::after {
+        width: 0;
+        transform: rotate(90deg) scale(1) translate(1px, -2px);
+      }
+    }
+  }
+}

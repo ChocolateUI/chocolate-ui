@@ -10,7 +10,7 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
-$g03:      #3A404C !default;
+$g03:      #3A404C !default;  // 主要信息
 $g07:      #DDDFE2 !default;  // 不可用
 $g08:      #EDEEEF !default;
 $g09:      #F5F6FA !default;
@@ -58,6 +58,7 @@ $font-size-base:              1rem !default; // Assumes the browser default, typ
 $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-root:              null !default;
+$font-color:                  $g03 !default;
 
 // 字重
 $font-weight-lighter:         lighter !default;
@@ -104,6 +105,9 @@ $headings-color:              null !default;
 // Paragraphs
 
 $paragraph-margin-bottom:   1rem !default;
+
+// 阴影
+$default-text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
 
 // 字体其他部分 heading list hr 等等
 $headings-margin-bottom:      $spacer / 2 !default;
@@ -180,6 +184,14 @@ $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
 $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+
+//动画时间
+$loading-time: 1.5s;
+$loading-opacity: .7;
+$animate-time: .5s;
+$animate-type: cubic-bezier(0.165, 0.84, 0.44, 1);
+$animate-type-easy-in-out: cubic-bezier(.9, .25, .08, .83);
+$default-transition: $animate-time $animate-type;
 
 // 按钮
 // 按钮基本属性
@@ -320,3 +332,15 @@ $tabs-nav-active:                    $primary !default;
 
 // select
 $select-hover-active:                $g08     !default;
+
+
+//Checkbox 复选框
+$checkbox-width:                    16px;
+$checkbox-height:                   $checkbox-width;
+$checkbox-offset-right:             10px;
+$checkbox-group-offset-right:       20px;
+$checkbox-button-padding:           8px 20px;
+$checkbox-button-padding-large:     10px 28px;
+$checkbox-button-padding-small:     5px 10px;
+$checkbox-disabled-color:           $g07 !default;
+$checkbox-disabled-font-color:      fade($g07, 25%);
