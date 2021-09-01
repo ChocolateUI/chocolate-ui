@@ -1,0 +1,41 @@
+<!-- CheckBox Doc -->
+## 复选框
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { CheckboxComponent } from './checkbox';
+import dedent from 'ts-dedent';
+<Meta title="Components/CheckBox" component={CheckboxComponent} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+    <Checkbox
+        onChange={(e) => console.log(e.target.checked)}
+        disabled={disabled}
+        checked={checked}
+        defaultValue={defaultValue}
+        indeterminate={indeterminate}
+        isButton={isButton}
+        size={size}
+      >
+        香蕉
+      </Checkbox>`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={CheckboxComponent} />
+
+export const Template = (args) => <CheckboxComponent {...args} />
+
+
+### 组件展示
+
+##### 默认
+
+<Story name="default-value" id="checkbox--default">
+{Template.bind({})}
+</Story>

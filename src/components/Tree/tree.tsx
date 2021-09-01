@@ -132,6 +132,7 @@ export const Tree: FC<TreeProps> = (props) => {
         checkedKeyEntity = parseCheckedKeys(checkedKeysState) || {};
         firstRender.current = false;
       }
+      setCheckedKeysState(checkedKeyEntity?.checkedKeys || [])
     }
 
     if (checkedKeyEntity) {

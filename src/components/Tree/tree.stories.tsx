@@ -68,7 +68,7 @@ DefaultValue.args = {
   treeData: singleData,
   checkedKeys: [],
   checkable: true,
-  defaultCheckedKeys: ["0-0-0-0-0", "0-0-0-0-1"],
+  defaultCheckedKeys: ["0-0-0-0-1"],
 };
 
 // multipleParent

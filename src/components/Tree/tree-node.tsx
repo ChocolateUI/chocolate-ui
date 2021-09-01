@@ -88,10 +88,12 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
             onChange={(e) => {
               onNodeCheck && onNodeCheck(e, key);
             }}
-          />
+          >
+            {name}
+          </Checkbox>
         ) : null}
         {/* {icon} */}
-        {name}
+        { checkable ? null : name }
       </span>
     );
   };

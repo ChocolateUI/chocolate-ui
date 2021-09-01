@@ -4,12 +4,20 @@ import { action } from "@storybook/addon-actions";
 import { CheckboxProps } from "./checkbox";
 import Checkbox from "./index";
 import { CheckboxGroupProps } from "./checkboxGroup";
-
+import CheckBox from './checkbox-doc.mdx'
 
 const BaseCheckbox = (props: CheckboxProps) => {
-  const { disabled, checked, defaultValue, indeterminate, size, isButton } = props;
+  const {
+    disabled,
+    checked,
+    defaultValue,
+    indeterminate,
+    size,
+    isButton,
+  } = props;
   return (
     <div>
+      <h6>基本使用</h6>
       <Checkbox
         onChange={(e) => console.log(e.target.checked)}
         disabled={disabled}
@@ -18,46 +26,64 @@ const BaseCheckbox = (props: CheckboxProps) => {
         indeterminate={indeterminate}
         isButton={isButton}
         size={size}
-      >香蕉</Checkbox>
-      <Checkbox
-        onChange={(e) => console.log(e.target.checked)}
-        disabled={true}
-      >香蕉1</Checkbox>
+        style={{ marginRight: 20 }}
+      >
+        香蕉
+      </Checkbox>
+      <h6 style={{ marginTop: 50 }}>禁用</h6>
       <Checkbox
         onChange={(e) => console.log(e.target.checked)}
         checked={true}
         disabled={true}
-      >香蕉2</Checkbox>
+      >
+        葡萄
+      </Checkbox>
+      <h6 style={{ marginTop: 50 }}>不确定</h6>
+      <Checkbox
+        onChange={(e) => console.log(e.target.checked)}
+        checked={true}
+        indeterminate={true}
+      >
+        橘子
+      </Checkbox>
       {CheckboxGroup(props as CheckboxGroupProps)}
-      {CheckButton(props)}
+      {/* {CheckButton(props)} */}
     </div>
   );
 };
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
   return (
-    <Checkbox.Group onChange={(value: string[]) => {
-      console.log(value, 'value');
-    }}>
-      <Checkbox value="黄瓜" checked>黄瓜</Checkbox>
-      <Checkbox value="茄子" isButton={true}>茄子</Checkbox>
-      <Checkbox value="玉米" indeterminate={true} checked>
-        玉米
-      </Checkbox>
-      <Checkbox value="番茄">
-        番茄
-      </Checkbox>
-    </Checkbox.Group>
+    <div>
+      <h6 style={{ marginTop: 50 }}>组合 && 默认选中</h6>
+      <Checkbox.Group
+        onChange={(value: string[]) => {
+          console.log(value, "value");
+        }}
+      >
+        <Checkbox value="苹果" checked  style={{ marginRight: 20 }}>
+          苹果
+        </Checkbox>
+        <Checkbox value="茄子" isButton={true} style={{ marginRight: 20 }}>
+          茄子
+        </Checkbox>
+        <Checkbox value="玉米" indeterminate={false} checked style={{ marginRight: 20 }}>
+          玉米
+        </Checkbox>
+        <Checkbox value="番茄">番茄</Checkbox>
+      </Checkbox.Group>
+    </div>
   );
 };
 
 const CheckButton = (props: CheckboxProps) => {
   return (
     <div>
-      <Checkbox.Button>黄瓜 ui</Checkbox.Button>
-      <Checkbox.Button>黄瓜 ui</Checkbox.Button>
+      <h6 style={{ marginTop: 50 }}>按钮模式</h6>
+      <Checkbox.Button style={{ marginRight: 20 }}>苹果</Checkbox.Button>
+      <Checkbox.Button style={{ marginRight: 20 }}>茄子</Checkbox.Button>
       <Checkbox.Button checked disabled>
-        黄瓜 ui
+        玉米
       </Checkbox.Button>
     </div>
   );
@@ -66,6 +92,14 @@ const CheckButton = (props: CheckboxProps) => {
 export default {
   component: BaseCheckbox,
   title: "Checkbox",
+  parameters: {
+    docs: {
+      page: CheckBox,
+      source: {
+        type: 'code'
+      }
+    }
+  },
   decorators: [
     (Story) => (
       <div>
