@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useState } from "react";
+import React, { FC, ChangeEvent, useState, useEffect } from "react";
 import classNames from "classnames";
 import scopedClass from "../../utils/scopedClass";
 
@@ -16,6 +16,7 @@ export interface CheckboxProps {
   isButton?: boolean;
   className?: string;
   value?: string;
+  style?: React.CSSProperties;
 }
 
 export const CheckboxComponent: FC<CheckboxProps> = (props) => {
@@ -28,13 +29,19 @@ export const CheckboxComponent: FC<CheckboxProps> = (props) => {
     size,
     indeterminate,
     value,
+    style,
     onChange
   } = props;
   const [isChecked, setIsChecked] = useState(checked);
+  
+  useEffect(() => {
+    setIsChecked(checked)
+  }, [checked])
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(!isChecked);
     onChange && onChange(e);
   };
+
   return (
     <label
       className={classNames(sc("wrapper"), {
@@ -44,6 +51,7 @@ export const CheckboxComponent: FC<CheckboxProps> = (props) => {
         [`${sc("indeterminate")}`]: isChecked && indeterminate,
         [`${sc(`${size}`)}`]: isButton,
       })}
+      style={style}
     >
       <span
         className={classNames(sc(""), className, {

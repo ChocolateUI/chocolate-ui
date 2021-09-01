@@ -12,9 +12,9 @@ $prefixCls: chocolate-checkbox;
   line-height: 1;
   vertical-align: sub;
   white-space: nowrap;
+  position: relative;
 
   &-wrapper {
-    height: $checkbox-height;
     color: $font-color;
     font-size: $font-size-base;
     box-sizing: border-box;

@@ -2,6 +2,7 @@ import React, { FC, useRef, useEffect, ChangeEvent } from "react";
 import { TreeSource } from "./tree";
 import Icon from "../icons/icon";
 import { Key } from "./interface";
+import Checkbox from "../Checkbox";
 
 interface TreeNodeProps {
   data: TreeSource;
@@ -82,12 +83,10 @@ const TreeNode: FC<TreeNodeProps> = (props) => {
     return (
       <span className="content">
         {checkable ? (
-          <input
-            type="checkbox"
-            style={{ marginRight: 8 }}
+          <Checkbox
             checked={checked}
             onChange={(e) => {
-              onNodeCheck && onNodeCheck(e, key, type === "file");
+              onNodeCheck && onNodeCheck(e, key);
             }}
           />
         ) : null}
