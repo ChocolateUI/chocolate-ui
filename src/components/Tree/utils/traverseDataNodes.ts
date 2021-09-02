@@ -15,7 +15,7 @@ export function getKey(key: Key, pos: string) {
 
 // 通过 treeSource 转换所有数据
 const traverseDataNodes = (
-  dataNode: TreeSource,
+  dataNode: Array<TreeSource>,
   callBack: (data:  {
     node: TreeSource;
     index: number;

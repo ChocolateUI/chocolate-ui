@@ -44,6 +44,7 @@ export default {
 } as Meta;
 
 const _default: Story<TreeProps> = (args: TreeProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, updateArgs] = useArgs();
   const handleOnCheck = (newArgs: any) => {
     updateArgs({ ...args });

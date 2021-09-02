@@ -1,6 +1,5 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import { CheckboxProps } from "./checkbox";
 import Checkbox from "./index";
 import { CheckboxGroupProps } from "./checkboxGroup";
@@ -76,18 +75,18 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
   );
 };
 
-const CheckButton = (props: CheckboxProps) => {
-  return (
-    <div>
-      <h6 style={{ marginTop: 50 }}>按钮模式</h6>
-      <Checkbox.Button style={{ marginRight: 20 }}>苹果</Checkbox.Button>
-      <Checkbox.Button style={{ marginRight: 20 }}>茄子</Checkbox.Button>
-      <Checkbox.Button checked disabled>
-        玉米
-      </Checkbox.Button>
-    </div>
-  );
-};
+// const CheckButton = (props: CheckboxProps) => {
+//   return (
+//     <div>
+//       <h6 style={{ marginTop: 50 }}>按钮模式</h6>
+//       <Checkbox.Button style={{ marginRight: 20 }}>苹果</Checkbox.Button>
+//       <Checkbox.Button style={{ marginRight: 20 }}>茄子</Checkbox.Button>
+//       <Checkbox.Button checked disabled>
+//         玉米
+//       </Checkbox.Button>
+//     </div>
+//   );
+// };
 
 export default {
   component: BaseCheckbox,

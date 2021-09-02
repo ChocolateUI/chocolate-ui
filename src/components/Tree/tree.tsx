@@ -65,9 +65,9 @@ export interface DataEntity {
   pos: string;
   level: number;
   parent?: DataEntity;
-  name: string;
-  key: string;
-  type: string;
+  name?: string;
+  key?: string;
+  type?: string;
 }
 interface posEntities {
   [key: string]: DataEntity;
@@ -103,7 +103,7 @@ export const Tree: FC<TreeProps> = (props) => {
     let arr: any = [];
     traverseDataNodes(data.current, (item) => {
       const { node, index, pos, parentPos, level, key } = item;
-      const entity: DataEntity = { node, index, pos, level };
+      const entity: DataEntity = { node, index, pos, level};
       const mergedKey = getKey(key, pos);
       posEntities.current[pos] = entity;
       keyEntities.current[mergedKey] = entity;
@@ -169,7 +169,7 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const onMove = (toNode: TreeSource) => {
     _toNode.current = clone(toNode);
-    let fromNodeIn = keyEntities.current[fromNode.key];
+    let fromNodeIn = keyEntities.current[fromNode?.key || ''];
     let toNodeIn = keyEntities.current[toNode.key];
     let fromChildren = fromNodeIn?.parent?.node.children,
       toChildren = toNodeIn?.parent?.node.children;
