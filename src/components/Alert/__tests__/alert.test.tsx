@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
-import { Alert } from "./alert";
+import { Alert } from "../alert";
 
 describe('test Alert Component', ()=>{
   it('should hidden when close Alert', async()=>{

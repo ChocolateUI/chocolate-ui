@@ -1,9 +1,10 @@
 import React from 'react'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
-import Menu, {MenuProps} from './menu'
-import MenuItem from './menuItem'
-import SubMenu from './subMenu'
-jest.mock('../icons/icon', () => {
+import Menu, {MenuProps} from '../menu'
+import MenuItem from '../menuItem'
+import SubMenu from '../subMenu'
+jest.mock('../../icons/icon.tsx', () => {
+  const React = require('react');
   return () => {
     return <i className="fa" />
   }
@@ -115,7 +116,7 @@ describe('test Menu and MenuItem component in vertical mode', () => {
     expect(menuElement).toHaveClass('menu-vertical')
   })
   it('should show dropdown items when click on subMenu for vertical mode', () => {
-    const dropDownItem = wrapper2.queryByText('drop1')
+    const dropDownItem = wrapper2.queryByText('drop1') as HTMLElement
     expect(dropDownItem).not.toBeVisible()
     fireEvent.click(wrapper2.getByText('dropdown'))
     expect(dropDownItem).toBeVisible()

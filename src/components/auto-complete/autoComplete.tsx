@@ -16,7 +16,7 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
-  fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
+  fetchSuggestions?: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
   onSelect?: (item: DataSourceType) => void;
   width?: number | string;
   renderOption?: (item: DataSourceType) => ReactElement;
@@ -44,7 +44,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   useEffect(() => {
     if (debouncedValue && triggerSearch.current) {
       setSuggestions([])
-      const results = fetchSuggestions(debouncedValue)
+      const results = fetchSuggestions && fetchSuggestions(debouncedValue)
       if (results instanceof Promise) {
         setLoading(true)
         results.then(data => {
@@ -55,7 +55,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
           }
         })
       } else {
-        if (results.length > 0) {
+        if (results && results.length > 0) {
           setSuggestions(results)
           setShowDropdown(true)
         } else {
