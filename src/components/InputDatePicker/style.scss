@@ -23,6 +23,7 @@
   &-weeks-item {
     text-align: center;
   }
+
   &-day {
     .chocolate-picker-is-today {
       background-color: lighten($primary, 40%);
@@ -77,5 +78,32 @@
       display: block;
       margin: $picker-padding 0;
     }
+  }
+}
+
+.chocolate-picker-month {
+  &-wrapper {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: $picker-padding;
+  }
+
+  &-cell {
+    width: 33.3%;
+    border: 0.1rem solid $border-color;
+  }
+
+  &-ghost {
+    height: 5.7rem;
+    width: 100%;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+
+
+  &-is-selected {
+    background-color: $primary;
+    color: $white;
+    border-color: $primary;
   }
 }

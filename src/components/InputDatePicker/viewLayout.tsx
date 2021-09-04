@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, ReactNode } from "react";
 import classNames from "classnames";
 import { scopedClass } from "../../utils/scopedClass";
 

@@ -5,13 +5,13 @@ import { CalendarType, } from "./datePicker";
 
 
 function HeaderTitle(props: CalendarType) {
-  const { year, monthIndex } = props;
+  const { year, monthIndex, onTitleClick } = props;
   const firstDayOfMonth = new Date(year, monthIndex);
   const monthLabel = format(firstDayOfMonth, "MMM");
   const yearLabel = format(firstDayOfMonth, "YYYY");
 
   return (
-    <Button btnType="ghost" size="sm">
+    <Button btnType="ghost" size="sm" onClick={onTitleClick}>
       {yearLabel} {monthLabel}
     </Button>
   );

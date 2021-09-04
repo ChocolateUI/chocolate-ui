@@ -10,6 +10,7 @@ interface DateViewProps {
   onSelectMonthYear: Dispatch<
     SetStateAction<{ year: number; monthIndex: number }>
   >;
+  onTitleClick: () => void;
 }
 
 function module(m: number, n: number) {
@@ -19,6 +20,7 @@ function DateView(props: DateViewProps) {
   const {
     calendar: { year, monthIndex },
     onSelectMonthYear,
+    onTitleClick
   } = props;
 
   function incrementMonthIndex(increment: number) {
@@ -46,7 +48,7 @@ function DateView(props: DateViewProps) {
         leftElement: <Icon icon="arrow-left" onClick={goToPreviousMonth} />,
         middleElement: (
           <p>
-            <HeaderTitle year={year} monthIndex={monthIndex} />
+            <HeaderTitle year={year} monthIndex={monthIndex} onTitleClick={onTitleClick}/>
           </p>
         ),
         rightElement: <Icon icon="arrow-right" onClick={goToNextMonth} />,
