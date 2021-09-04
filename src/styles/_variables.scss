@@ -11,10 +11,13 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 $g03:      #3A404C !default;  // 主要信息
-$g07:      #DDDFE2 !default;  // 不可用
-$g08:      #EDEEEF !default;
-$g09:      #F5F6FA !default;
-$g10:      #FBFBFB !default;
+$g04:      #737780 !default;  // 辅助信息
+$g05:      #969ba4 !default;  // 辅助信息
+$g06:      #bcc0c6 !default;  // 次要信息
+$g07:      #DDDFE2 !default;  // 不可用，描边
+$g08:      #edeeef !default;  // 背景，描边
+$g09:      #F5F6FA !default;  // 背景
+$g10:      #FBFBFB !default;  // 背景
 
 $blue:    #009dff !default;
 $indigo:  #6610f2 !default;
@@ -187,6 +190,10 @@ $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
+// padding
+$padding-normal:              15px !default;
+$padding-small:               10px !default;
+
 //动画时间
 $loading-time: 1.5s;
 $loading-opacity: .7;
@@ -350,4 +357,5 @@ $checkbox-disabled-font-color:      fade($g07, 25%);
 // datePicker 日期组件
 $picker-width:                      2.4rem !default;
 $picker-height:                     2.4rem !default;
-$picker-disabled-color:             $g07 !default;          
+$picker-disabled-color:             $g07 !default;
+$picker-padding:                    $padding-small !default;          

@@ -34,7 +34,7 @@ export const DatePicker: FC<DatePickerProps> = (props) => {
   const classes = classNames(className, sc(""));
   return (
     <table className={classNames(sc("wrapper"))}>
-      <thead className={classNames("header")}>
+      <thead className={classNames(sc("header"))}>
         {dayNames.map((dayName, i) => (
           <th key={i}>{dayName}</th>
         ))}
@@ -42,7 +42,7 @@ export const DatePicker: FC<DatePickerProps> = (props) => {
 
       <tbody className={classNames("weeks")}>
         {weeks.map((week: [], i: number) => (
-          <tr key={i}>
+          <tr key={i} className={classNames(sc("weeks-item"))}>
             {week.map((day: number, j: number) => {
               // 目前是当前日期
               const isToday = dateFnsIsToday(day);

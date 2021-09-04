@@ -3,12 +3,26 @@
 @import "../../styles/reboot";
 
 .chocolate-picker {
-  &-wrapper {}
+  width: 29rem;
+  height: 35rem;
+  padding: $padding-normal;
+  border: 0.1rem solid $border-color;
 
-  &-header {}
+
+  &-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &-header {
+    text-align: center;
+  }
 
   &-weeks {}
 
+  &-weeks-item {
+    text-align: center;
+  }
   &-day {
     .chocolate-picker-is-today {
       background-color: lighten($primary, 40%);
@@ -35,5 +49,34 @@
     width: $picker-width;
     height: $picker-height;
     color: $font-color;
+    box-shadow: none;
+  }
+}
+
+.chocolate-picker-view-layout {
+  &-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $picker-padding;
+  }
+
+  &-body {
+    flex: 1;
+  }
+
+  &-footer {
+    &::before {
+      content: "";
+      border-bottom: 0.1rem solid $g08;
+      display: block;
+      margin: $picker-padding 0;
+    }
   }
 }
