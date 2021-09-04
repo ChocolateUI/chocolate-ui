@@ -47,6 +47,7 @@
 }
 
 .btn-ghost {
+    box-shadow: none;
     @include button-style($white, $transparent, $font-color, $white, $primary, $primary)
 }
 

@@ -6,12 +6,11 @@ import getDate from "date-fns/get_date";
 import getMonth from "date-fns/get_month";
 import isSameDay from "date-fns/is_same_day";
 import dateFnsIsToday from "date-fns/is_today";
-
 import { Button } from "../Button/button";
 
 const sc = scopedClass("chocolate-picker");
 
-interface CalendarType {
+export interface CalendarType {
   year: number;
   monthIndex: number;
 }
@@ -31,7 +30,6 @@ export const DatePicker: FC<DatePickerProps> = (props) => {
 
   const weeks = useMemo(() => buildWeeks(year, monthIndex), [monthIndex, year]);
   const dayNames = useMemo(() => buildDayNames(0), []);
-  const classes = classNames(className, sc(""));
   return (
     <table className={classNames(sc("wrapper"))}>
       <thead className={classNames(sc("header"))}>
