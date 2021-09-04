@@ -46,6 +46,10 @@
     @include button-style($danger, $danger, $white)
 }
 
+.btn-ghost {
+    @include button-style($white, $transparent, $font-color, $white, $primary, $primary)
+}
+
 .btn-default {
     @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
 }

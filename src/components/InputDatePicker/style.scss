@@ -1,0 +1,39 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+@import "../../styles/reboot";
+
+.chocolate-picker {
+  &-wrapper {}
+
+  &-header {}
+
+  &-weeks {}
+
+  &-day {
+    .chocolate-picker-is-today {
+      background-color: lighten($primary, 40%);
+      border-color: $primary;
+    }
+
+    .chocolate-picker-is-selected {
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
+    }
+
+    .chocolate-picker-is-current-month {
+      color: $picker-disabled-color;
+
+      &:hover {
+        border-color: lighten($primary, 40%);
+        color: lighten($primary, 40%);
+      }
+    }
+  }
+
+  &-ghost {
+    width: $picker-width;
+    height: $picker-height;
+    color: $font-color;
+  }
+}

@@ -2,7 +2,7 @@ import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
 import classNames from 'classnames'
 
 export type ButtonSize = 'lg' | 'sm'
-export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link' | 'ghost'
 
 export interface BaseButtonProps {
     /**
@@ -54,7 +54,7 @@ export const Button: FC<ButtonProps> = (props) => {
     const classes = classNames('btn', className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
-        'disabled': (btnType === 'link') && disabled
+        'disabled': (btnType === 'link') && disabled,
     })
 
     if (btnType === 'link' && href) {

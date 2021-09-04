@@ -183,6 +183,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
+    "date-fn": "^0.0.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cssnano": "^2.1.3",
