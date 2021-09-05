@@ -52,7 +52,7 @@ function DateView(props: DateViewProps & CalendarProps) {
         />
       }
       header={{
-        leftElement: <Icon icon="arrow-left" onClick={goToPreviousMonth} />,
+        leftElement: <Icon icon="angle-left" onClick={goToPreviousMonth} />,
         middleElement: (
           <HeaderTitle
             year={year}
@@ -60,7 +60,7 @@ function DateView(props: DateViewProps & CalendarProps) {
             onTitleClick={onTitleClick}
           />
         ),
-        rightElement: <Icon icon="arrow-right" onClick={goToNextMonth} />,
+        rightElement: <Icon icon="angle-right" onClick={goToNextMonth} />,
       }}
       footerElement={
         <Button btnType="ghost" onClick={onClickToday}>

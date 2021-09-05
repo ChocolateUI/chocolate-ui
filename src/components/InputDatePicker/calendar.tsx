@@ -15,7 +15,7 @@ export interface CalendarProps {
 
 function Calendar(props: CalendarProps) {
   const { selectedDate, onSelectDate } = props;
-  const [isDateView, setDateView] = useState(false);
+  const [isDateView, setDateView] = useState(true);
   const calendarRef = useRef(null);
 
   const today = new Date();

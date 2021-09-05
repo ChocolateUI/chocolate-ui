@@ -26,8 +26,7 @@ export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
     <FocusManager onFocus={onFocus} onBlur={onBlur} tabIndex={0}>
       <DateManager onChange={props.onChange}>
         <InputComponent />
-        {/* {showPicker && <Picker />} */}
-        {<Picker />}
+        {showPicker && <Picker />}
       </DateManager>
     </FocusManager>
   );

@@ -26,7 +26,7 @@ function MonthYearView(props: DateViewProps) {
   return (
     <ViewLayout
       header={{
-        leftElement: <Icon icon="arrow-left" onClick={onBackClick} />,
+        leftElement: <Icon icon="angle-left" onClick={onBackClick} />,
         middleElement: (
           <HeaderTitle {...calendar} onSelectYear={onSelectYear} />
         ),
