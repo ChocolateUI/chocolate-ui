@@ -1,4 +1,6 @@
-import React, { FC, ChangeEvent } from "react";
+import React, { FC, ChangeEvent, useState } from "react";
+import FocusManager from "../../utils/focusManager";
+import { Input } from "../inputs/input";
 import Calendar from "./calendar";
 
 export interface InputDatePickerProps {
@@ -6,9 +8,20 @@ export interface InputDatePickerProps {
 }
 
 export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
-  const {} = props;
+  const [showPicker, setShowPicker] = useState(false);
+  const openPicker = setShowPicker.bind(null, true);
+  const closePicker = setShowPicker.bind(null, false);
+  function onFocus() {
+    openPicker();
+  }
+  function onBlur() {
+    closePicker();
+  }
   return (
-    <Calendar />
+    <FocusManager onFocus={onFocus} onBlur={onBlur}>
+      <Input size="sm"/>
+      {showPicker && <Calendar />}
+    </FocusManager>
   );
 };
 

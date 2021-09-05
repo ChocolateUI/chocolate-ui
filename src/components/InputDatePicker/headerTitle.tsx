@@ -5,9 +5,8 @@ import { CalendarType } from "./datePicker";
 import YearPicker from "./yearPicker";
 import scopedClass from "../../utils/scopedClass";
 
-const  sc = scopedClass('chocolate-picker-header-title')
+const sc = scopedClass("chocolate-picker-header-title");
 function HeaderTitle(props: CalendarType) {
-
   const { year, monthIndex, onTitleClick, onSelectYear } = props;
   const firstDayOfMonth = new Date(year, monthIndex);
   const monthLabel = format(firstDayOfMonth, "MMM");
@@ -15,9 +14,13 @@ function HeaderTitle(props: CalendarType) {
 
   if (onSelectYear) {
     return (
-      <div className={sc('wrapper')}>
+      <div className={sc("wrapper")}>
         <span>{monthLabel}</span>
-        <YearPicker selectedYear={year} defaultValue={yearLabel} onSelectYear={onSelectYear} />
+        <YearPicker
+          selectedYear={year}
+          defaultValue={yearLabel}
+          onSelectYear={onSelectYear}
+        />
       </div>
     );
   } else {

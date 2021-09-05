@@ -6,6 +6,7 @@ import Option from "../Select//selectOption";
 interface YearPickerProps {
   selectedYear: number;
   defaultValue: string;
+  onSelectYear: (value: number) => void;
 }
 
 function YearPicker(props: YearPickerProps) {
