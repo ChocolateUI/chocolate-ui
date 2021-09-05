@@ -4,21 +4,24 @@ import ViewLayout from "./viewLayout";
 import { Button } from "../Button/button";
 import Icon from "../icons";
 import { CalendarType } from "./datePicker";
+import YearPicker from "./yearPicker";
+import HeaderTitle from "./headerTitle";
 
 interface DateViewProps {
   calendar: CalendarType;
   onSelectMonth: (value: number) => void;
+  onSelectYear: (value: number) => void;
   onBackClick: MouseEventHandler<SVGSVGElement>;
 }
 
 function MonthYearView(props: DateViewProps) {
-  const { calendar, onSelectMonth, onBackClick} = props;
+  const { calendar, onSelectMonth, onBackClick, onSelectYear } = props;
   const { monthIndex } = calendar;
   return (
     <ViewLayout
       header={{
         leftElement: <Icon icon="arrow-left" onClick={onBackClick} />,
-        middleElement: <p>{111}</p>,
+        middleElement: <HeaderTitle {...calendar} onSelectYear={onSelectYear} />,
         rightElement: <Icon icon="arrow-right" onClick={() => {}} />,
       }}
       bodyElement={

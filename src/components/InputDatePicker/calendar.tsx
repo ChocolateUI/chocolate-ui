@@ -15,6 +15,9 @@ function Calendar() {
   function onSelectMonth (selectedMonthIndex: number) {
     setCalendar({...calendar, monthIndex: selectedMonthIndex})
   }
+  function onSelectYear(selectedYear: number) {
+    setCalendar({ ...calendar, year: selectedYear });
+  }
   const onSetMonthYearView = setDateView.bind(null, false);
   const onSetDateView = setDateView.bind(null, true);
 
@@ -23,7 +26,7 @@ function Calendar() {
       {isDateView ? (
         <DateView calendar={calendar} onSelectMonthYear={setCalendar} onTitleClick={onSetMonthYearView} />
       ) : (
-        <MonthYearView calendar={calendar} onSelectMonth={onSelectMonth} onBackClick={onSetDateView}/>
+        <MonthYearView calendar={calendar} onSelectMonth={onSelectMonth} onBackClick={onSetDateView} onSelectYear={onSelectYear}/>
       )}
     </div>
   );

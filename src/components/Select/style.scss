@@ -15,6 +15,8 @@
         left: 0;
         top: calc(100% + 8px);
         width: 100%;
+        max-height: $select-option-list-height;
+        overflow: scroll;
         padding-left: 0;
 
         &-item {

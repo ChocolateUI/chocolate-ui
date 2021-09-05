@@ -14,7 +14,7 @@ interface MonthPickerProps {
   selectedMonthIndex: number;
   onSelect: (value: number) => void;
 }
-// const MonthButton =
+
 function MonthPicker(props: MonthPickerProps) {
   const months: MonthOfYear[][] = buildMonths();
   const { selectedMonthIndex, onSelect } = props;

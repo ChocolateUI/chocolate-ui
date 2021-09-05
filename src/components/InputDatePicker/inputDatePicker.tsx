@@ -1,6 +1,4 @@
-import React, { FC, ChangeEvent, InputHTMLAttributes, useState } from "react";
-import classNames from "classnames";
-import { scopedClass } from "../../utils/scopedClass";
+import React, { FC, ChangeEvent } from "react";
 import Calendar from "./calendar";
 
 export interface InputDatePickerProps {

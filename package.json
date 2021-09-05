@@ -93,6 +93,7 @@
     "prompts": "2.4.0",
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
+    "react-overlays": "^5.1.1",
     "react-refresh": "^0.8.3",
     "react-transition-group": "^4.3.0",
     "resolve": "1.18.1",

@@ -29,7 +29,19 @@ export function buildMonths(): MonthOfYear[][] {
   const months = new Array(12)
     .fill(0)
     .map((_, i) => setMonth(new Date(0), i))
-    .map((month, j) => ({ index: j, name: format(month, "MMM") } as MonthOfYear));
+    .map(
+      (month, j) => ({ index: j, name: format(month, "MMM") } as MonthOfYear)
+    );
 
-    return chunk(months, 3)
+  return chunk(months, 3);
+}
+
+export function buildYears(middle: number, windowSize: number = 3): number[] {
+  const start = middle - windowSize;
+  const end = middle + windowSize;
+  const years = [];
+  for (let i = start; i <= end; i++) {
+    years.push(i);
+  }
+  return years;
 }

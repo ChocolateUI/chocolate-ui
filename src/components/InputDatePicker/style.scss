@@ -107,3 +107,13 @@
     border-color: $primary;
   }
 }
+
+.chocolate-picker-header-title {
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    >span {
+      margin-right: $picker-padding;
+    }
+  }
+}
