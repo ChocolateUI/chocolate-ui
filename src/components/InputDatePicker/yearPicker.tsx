@@ -1,6 +1,6 @@
 import React from "react";
 import { Select } from "../Select/select";
-import { buildYears } from "./generator";
+import { buildYears } from "./utils/generator";
 import Option from "../Select//selectOption";
 
 interface YearPickerProps {
@@ -27,7 +27,5 @@ function YearPicker(props: YearPickerProps) {
     </div>
   );
 }
-
-YearPicker.propTypes = {};
 
 export default YearPicker;

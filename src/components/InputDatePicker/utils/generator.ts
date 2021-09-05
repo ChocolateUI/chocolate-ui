@@ -4,7 +4,7 @@ import addDays from "date-fns/add_days";
 import setDay from "date-fns/set_day";
 import setMonth from "date-fns/set_month";
 import format from "date-fns/format";
-import { MonthOfYear } from "./monthPicker";
+import { MonthOfYear } from "../monthPicker";
 
 export default function buildWeeks(year: number, monthIndex: number) {
   const firstDayOfMonth = new Date(year, monthIndex);
@@ -21,7 +21,7 @@ export function buildDayNames(weekStartsOn: number): string[] {
     .map((_, i) => (i + weekStartsOn) % 7)
     .map((dayOfWeek) => {
       const day = setDay(new Date(0), dayOfWeek);
-      return format(day, "ddd");
+      return format(day, "d");
     });
 }
 

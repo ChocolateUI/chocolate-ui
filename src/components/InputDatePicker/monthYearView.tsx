@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { MouseEvent, MouseEventHandler } from "react";
 import MonthPicker from "./monthPicker";
 import ViewLayout from "./viewLayout";
 import { Button } from "../Button/button";
@@ -11,22 +11,35 @@ interface DateViewProps {
   onSelectMonth: (value: number) => void;
   onSelectYear: (value: number) => void;
   onBackClick: MouseEventHandler<SVGSVGElement>;
+  onClickToday: (e: MouseEvent<HTMLElement>) => void;
 }
 
 function MonthYearView(props: DateViewProps) {
-  const { calendar, onSelectMonth, onBackClick, onSelectYear } = props;
+  const {
+    calendar,
+    onSelectMonth,
+    onBackClick,
+    onSelectYear,
+    onClickToday,
+  } = props;
   const { monthIndex } = calendar;
   return (
     <ViewLayout
       header={{
         leftElement: <Icon icon="arrow-left" onClick={onBackClick} />,
-        middleElement: <HeaderTitle {...calendar} onSelectYear={onSelectYear} />,
-        rightElement: <Icon icon="arrow-right" onClick={() => {}} />,
+        middleElement: (
+          <HeaderTitle {...calendar} onSelectYear={onSelectYear} />
+        ),
+        rightElement: <div />,
       }}
       bodyElement={
         <MonthPicker selectedMonthIndex={monthIndex} onSelect={onSelectMonth} />
       }
-      footerElement={<Button> aaa</Button>}
+      footerElement={
+        <Button btnType="ghost" onClick={onClickToday}>
+          今天
+        </Button>
+      }
     />
   );
 }

@@ -1,9 +1,10 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, {MouseEvent, Dispatch, SetStateAction } from "react";
 import { ViewLayout } from "./viewLayout";
 import DatePicker, { CalendarType } from "./datePicker";
 import { Button } from "../Button/button";
 import Icon from "../icons/icon";
 import HeaderTitle from "./headerTitle";
+import { CalendarProps } from "./calendar";
 
 interface DateViewProps {
   calendar: CalendarType;
@@ -11,16 +12,21 @@ interface DateViewProps {
     SetStateAction<{ year: number; monthIndex: number }>
   >;
   onTitleClick: () => void;
+  onClickToday: (e: MouseEvent<HTMLElement>) => void;
 }
 
 function module(m: number, n: number) {
   return ((m % n) + n) % n;
 }
-function DateView(props: DateViewProps) {
+
+function DateView(props: DateViewProps & CalendarProps) {
   const {
     calendar: { year, monthIndex },
     onSelectMonthYear,
-    onTitleClick
+    onTitleClick,
+    selectedDate,
+    onSelectDate,
+    onClickToday
   } = props;
 
   function incrementMonthIndex(increment: number) {
@@ -41,23 +47,26 @@ function DateView(props: DateViewProps) {
       bodyElement={
         <DatePicker
           calendar={props.calendar}
-          selectedDate={new Date(2021, 8, 5)}
+          selectedDate={selectedDate}
+          onSelectDate={onSelectDate}
         />
       }
       header={{
         leftElement: <Icon icon="arrow-left" onClick={goToPreviousMonth} />,
         middleElement: (
           <p>
-            <HeaderTitle year={year} monthIndex={monthIndex} onTitleClick={onTitleClick}/>
+            <HeaderTitle
+              year={year}
+              monthIndex={monthIndex}
+              onTitleClick={onTitleClick}
+            />
           </p>
         ),
         rightElement: <Icon icon="arrow-right" onClick={goToNextMonth} />,
       }}
-      footerElement={<Button btnType="ghost"> today</Button>}
+      footerElement={<Button btnType="ghost" onClick={onClickToday}> 今天 </Button>}
     ></ViewLayout>
   );
 }
-
-DateView.propTypes = {};
 
 export default DateView;

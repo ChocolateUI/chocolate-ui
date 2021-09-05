@@ -1,10 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import DateView from "./dateView";
 import MonthYearView from "./monthYearView";
 import getYear from "date-fns/get_year";
 import getMonth from "date-fns/get_month";
+import startOfDay from "date-fns/start_of_day";
 
-function Calendar() {
+export interface CalendarProps {
+  selectedDate: Date;
+  onSelectDate: (
+    e: MouseEvent<HTMLElement>,
+    date: Date | string | number
+  ) => void;
+}
+
+function Calendar(props: CalendarProps) {
+  const { selectedDate, onSelectDate } = props;
   const [isDateView, setDateView] = useState(true);
   const calendarRef = useRef(null);
 
@@ -14,7 +24,7 @@ function Calendar() {
     monthIndex: getMonth(today),
   };
   const [calendar, setCalendar] = useState(initialCalendar);
-  
+
   function onSelectMonth(selectedMonthIndex: number) {
     setCalendar({ ...calendar, monthIndex: selectedMonthIndex });
   }
@@ -31,6 +41,10 @@ function Calendar() {
     }
   }, [isDateView]);
 
+  const onClickToday = (e: MouseEvent<HTMLElement>) => {
+    onSelectDate(e, startOfDay(new Date()));
+  };
+
   return (
     <div className="chocolate-picker" ref={calendarRef}>
       {isDateView ? (
@@ -38,6 +52,9 @@ function Calendar() {
           calendar={calendar}
           onSelectMonthYear={setCalendar}
           onTitleClick={onSetMonthYearView}
+          selectedDate={selectedDate}
+          onSelectDate={onSelectDate}
+          onClickToday={onClickToday}
         />
       ) : (
         <MonthYearView
@@ -45,6 +62,7 @@ function Calendar() {
           onSelectMonth={onSelectMonth}
           onBackClick={onSetDateView}
           onSelectYear={onSelectYear}
+          onClickToday={onClickToday}
         />
       )}
     </div>

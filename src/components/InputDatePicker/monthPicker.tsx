@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import scopedClass from "../../utils/scopedClass";
 import { Button } from "../Button/button";
-import { buildMonths } from "./generator";
+import { buildMonths } from "./utils/generator";
 import classNames from "classnames";
 const sc = scopedClass("chocolate-picker-month");
 
@@ -43,7 +43,5 @@ function MonthPicker(props: MonthPickerProps) {
     </table>
   );
 }
-
-MonthPicker.propTypes = {};
 
 export default MonthPicker;

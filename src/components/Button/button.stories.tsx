@@ -13,7 +13,7 @@ const BaseButton = (props: BaseButtonProps) => {
       disabled={disabled}
       className={className}
       btnType={btnType}
-      onClick={action('clicked')}
+      onClick={action('onClick')}
     > button </Button>
   )
 }
