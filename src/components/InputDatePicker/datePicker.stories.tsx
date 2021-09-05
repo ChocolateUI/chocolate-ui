@@ -2,6 +2,7 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import InputDatePicker, { InputDatePickerProps } from "./inputDatePicker";
 import { actions } from "@storybook/addon-actions";
+import inputDatePickerDoc from './inputDatePickerDoc.mdx';
 
 const BaseInputDatePicker = (props: InputDatePickerProps) => {
   return (
@@ -13,7 +14,7 @@ const BaseInputDatePicker = (props: InputDatePickerProps) => {
 
 export default {
   component: InputDatePicker,
-  title: "InputDatePicker",
+  title: "DatePicker",
   argTypes: {
     defaultValue: {
       // options: [],
@@ -22,6 +23,7 @@ export default {
   },
   parameters: {
     docs: {
+      page: inputDatePickerDoc,
       source: {
         type: "code",
       },

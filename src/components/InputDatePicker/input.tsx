@@ -5,7 +5,7 @@ import { Input } from "../inputs/input";
 function InputComponent() {
   const { value } = useContext<IPickerContext>(DateContext);
 
-  return <Input size="sm" value={value.textInput}/>;
+  return <Input placeholder="请选择日期" size="sm" value={value.textInput}/>;
 }
 
 export default InputComponent;

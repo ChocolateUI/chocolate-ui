@@ -6,7 +6,7 @@ const BaseDatePicker = () => <div style={{ width: 300 }}> <DatePicker /> </div>
 
 export default {
   component: DatePicker,
-  title: 'DatePicker',
+  title: 'Calendar',
   argTypes: {
     defaultValue: {
       // options: [],

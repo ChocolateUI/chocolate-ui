@@ -1,0 +1,31 @@
+<!-- InputDatePicker Doc -->
+
+# DatePicker 日历选择器
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { InputDatePicker } from './inputDatePicker';
+import dedent from 'ts-dedent';
+<Meta title="Components/InputDatePicker" component={InputDatePicker} />;
+
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`<InputDatePicker onChange={()=>actions('onChange')} />`
+  }
+/>
+
+### 具体参数
+<ArgsTable of={InputDatePicker} />
+
+export const Template = (args) => <InputDatePicker {...args} />
+
+### 组件展示
+
+##### default 类型
+
+<Story name="default" id="datepicker--default">
+{Template.bind({})}
+</Story>
