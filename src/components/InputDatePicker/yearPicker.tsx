@@ -16,7 +16,7 @@ function YearPicker(props: YearPickerProps) {
     <div>
       <Select defaultValue={defaultValue} style={{ width: 100 }} onChange={(value) => onSelectYear(Number(value))}>
         {years.map((year: number, i: number) => (
-          <Option value={year.toString()} >{year}</Option>
+          <Option value={year.toString()} key={i}>{year}</Option>
         ))}
       </Select>
       {/* <ul>

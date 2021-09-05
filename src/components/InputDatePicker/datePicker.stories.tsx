@@ -6,7 +6,7 @@ import { actions } from "@storybook/addon-actions";
 const BaseInputDatePicker = (props: InputDatePickerProps) => {
   return (
     <div style={{ width: 300 }}>
-      <InputDatePicker onChange={actions("onChange")} />
+      <InputDatePicker onChange={()=>actions('onChange')} />
     </div>
   );
 };

@@ -12,21 +12,25 @@ export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
   const [showPicker, setShowPicker] = useState(false);
   const openPicker = setShowPicker.bind(null, true);
   const closePicker = setShowPicker.bind(null, false);
+
   function onFocus() {
     openPicker();
   }
+
   function onBlur() {
     closePicker();
   }
+
+  // tabIndex 使 div 可以聚焦，从而可以使用 onFocus/onBlur
   return (
-    <FocusManager onFocus={onFocus} onBlur={onBlur}>
+    <FocusManager onFocus={onFocus} onBlur={onBlur} tabIndex={0}>
       <DateManager onChange={props.onChange}>
         <InputComponent />
-        {showPicker && <Picker />}
+        {/* {showPicker && <Picker />} */}
+        {<Picker />}
       </DateManager>
     </FocusManager>
   );
 };
-InputDatePicker.defaultProps = {};
 
 export default InputDatePicker;

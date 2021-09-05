@@ -1,4 +1,4 @@
-import React, {MouseEvent, Dispatch, SetStateAction } from "react";
+import React, { MouseEvent, Dispatch, SetStateAction } from "react";
 import { ViewLayout } from "./viewLayout";
 import DatePicker, { CalendarType } from "./datePicker";
 import { Button } from "../Button/button";
@@ -26,7 +26,7 @@ function DateView(props: DateViewProps & CalendarProps) {
     onTitleClick,
     selectedDate,
     onSelectDate,
-    onClickToday
+    onClickToday,
   } = props;
 
   function incrementMonthIndex(increment: number) {
@@ -54,17 +54,19 @@ function DateView(props: DateViewProps & CalendarProps) {
       header={{
         leftElement: <Icon icon="arrow-left" onClick={goToPreviousMonth} />,
         middleElement: (
-          <p>
-            <HeaderTitle
-              year={year}
-              monthIndex={monthIndex}
-              onTitleClick={onTitleClick}
-            />
-          </p>
+          <HeaderTitle
+            year={year}
+            monthIndex={monthIndex}
+            onTitleClick={onTitleClick}
+          />
         ),
         rightElement: <Icon icon="arrow-right" onClick={goToNextMonth} />,
       }}
-      footerElement={<Button btnType="ghost" onClick={onClickToday}> 今天 </Button>}
+      footerElement={
+        <Button btnType="ghost" onClick={onClickToday}>
+          今天
+        </Button>
+      }
     ></ViewLayout>
   );
 }

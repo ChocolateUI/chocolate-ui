@@ -55,9 +55,11 @@ export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
   return (
     <table className={classNames(sc("wrapper"))}>
       <thead className={classNames(sc("header"))}>
-        {dayNames.map((dayName, i) => (
-          <th key={i}>{exchangeDayNames(dayName)}</th>
-        ))}
+        <tr>
+          {dayNames.map((dayName, i) => (
+            <th key={i}>{exchangeDayNames(dayName)}</th>
+          ))}
+        </tr>
       </thead>
 
       <tbody className={classNames("weeks")}>

@@ -20,26 +20,28 @@ function MonthPicker(props: MonthPickerProps) {
   const { selectedMonthIndex, onSelect } = props;
   return (
     <table className={sc("wrapper")}>
-      {months.map((row: MonthOfYear[], i: number) => (
-        <tr key={i}>
-          {row.map((month: MonthOfYear, j: number) => {
-            const isSelected = month.index === selectedMonthIndex;
-            return (
-              <td className={sc("cell")} key={j}>
-                <Button
-                  className={classNames(sc("ghost"), {
-                    [`${sc("is-selected")}`]: isSelected,
-                  })}
-                  btnType="ghost"
-                  onClick={() => onSelect && onSelect(month.index)}
-                >
-                  {month.name}
-                </Button>
-              </td>
-            );
-          })}
-        </tr>
-      ))}
+      <tbody>
+        {months.map((row: MonthOfYear[], i: number) => (
+          <tr key={i}>
+            {row.map((month: MonthOfYear, j: number) => {
+              const isSelected = month.index === selectedMonthIndex;
+              return (
+                <td className={sc("cell")} key={j}>
+                  <Button
+                    className={classNames(sc("ghost"), {
+                      [`${sc("is-selected")}`]: isSelected,
+                    })}
+                    btnType="ghost"
+                    onClick={() => onSelect && onSelect(month.index)}
+                  >
+                    {month.name}
+                  </Button>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }

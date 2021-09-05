@@ -14,9 +14,24 @@
 
   &-header {
     text-align: center;
+
+    tr>th {
+      padding-bottom: $picker-padding;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      border-bottom: 0.1rem solid #edeeef;
+      position: absolute;
+      left: 0;
+      top: 2.2rem;
+    }
   }
 
-  &-weeks {}
+  &-weeks {
+    cursor: pointer;
+  }
 
   &-weeks-item {
     text-align: center;
@@ -55,7 +70,6 @@
   &-container {
     display: flex;
     flex-direction: column;
-
   }
 
   &-header {
@@ -110,6 +124,7 @@
   &-wrapper {
     display: flex;
     align-items: center;
+
     >span {
       margin-right: $picker-padding;
     }
