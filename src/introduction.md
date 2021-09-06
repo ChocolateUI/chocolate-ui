@@ -22,6 +22,10 @@ import 'chocolate-ui/dist/index.css'
 import { Button } from 'chocolate-ui'
 ```
 
+#### 🚗 Tips
+
+>在每个组件展示页右边的 `Controls` 栏中，可以查看组件的不同形态
+
 #### ✨ 技术栈
 
 * 😁 typescript with React Hooks
