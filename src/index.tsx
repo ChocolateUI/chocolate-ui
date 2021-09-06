@@ -12,5 +12,13 @@ export { default as Input } from './components/Inputs'
 export { default as Transition } from './components/Transitions'
 export { default as Tree } from './components/Tree'
 export { default as Checkbox } from './components/checkbox'
+export { default as DatePicker } from './components/InputDatePicker'
+export { default as Progress } from './components/Progress'
+export { default as Select } from './components/Select'
+export { default as Tab } from './components/Tab'
+
+
+
+
 
 
