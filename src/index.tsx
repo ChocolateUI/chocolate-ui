@@ -9,7 +9,7 @@ export { default as AutoComplete } from './components/AutoComplete'
 export { default as Alert } from './components/alert'
 export { default as Icon } from './components/Icons'
 export { default as Input } from './components/Inputs'
-export { default as Transition } from './components/transitions'
+export { default as Transition } from './components/Transitions'
 export { default as Tree } from './components/Tree'
 export { default as Checkbox } from './components/checkbox'
 

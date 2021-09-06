@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Icon from '../Icons/icon'
 import Input, { InputProps } from '../Inputs/input'
 import { scopedClass } from '../../utils/scopedClass'
-import Transition from '../transitions/transition'
+import Transition from '../Transitions/transition'
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside'
 
