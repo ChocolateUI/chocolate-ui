@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ThemeProps } from '../Icons/icon';
+import { ThemeProps } from '../Icons_/icon';
 import { scopedClass } from '../../utils/scopedClass'
 
 const sc = scopedClass('chocolate-progress')

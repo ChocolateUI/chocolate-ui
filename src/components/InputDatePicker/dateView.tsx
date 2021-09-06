@@ -2,7 +2,7 @@ import React, { MouseEvent, Dispatch, SetStateAction } from "react";
 import { ViewLayout } from "./viewLayout";
 import DatePicker, { CalendarType } from "./datePicker";
 import { Button } from "../Button/button";
-import Icon from "../Icons/icon";
+import Icon from "../Icons_/icon";
 import HeaderTitle from "./headerTitle";
 import { CalendarProps } from "./calendar";
 
