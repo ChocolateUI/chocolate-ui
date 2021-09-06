@@ -48,7 +48,7 @@ const BaseAutoComplete = (props: AutoCompleteProps) => {
 
 export default {
   component: AutoComplete,
-  title: 'AutoDrop',
+  title: 'AutoComplete',
   parameters: {
     controls: {
       include: ['disabled', 'size', 'placeholder', 'width']
