@@ -1,9 +1,9 @@
 import React, { FC, ChangeEvent, KeyboardEvent, useState, useEffect, useRef, ReactElement } from 'react'
 import classNames from 'classnames'
-import Icon from '../Icons_/icon'
-import Input, { InputProps } from '../Inputs_/input'
+import Icon from '../Icons/icon'
+import Input, { InputProps } from '../Inputs/input'
 import { scopedClass } from '../../utils/scopedClass'
-import Transition from '../Transitions_/transition'
+import Transition from '../Transitions/transition'
 import useDebounce from '../../hooks/useDebounce'
 import useClickOutside from '../../hooks/useClickOutside'
 
