@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DateContext, IPickerContext } from "./dateManager";
-import { Input } from "../inputs/input";
+import { Input } from "../Inputs/input";
 
 function InputComponent() {
   const { value } = useContext<IPickerContext>(DateContext);

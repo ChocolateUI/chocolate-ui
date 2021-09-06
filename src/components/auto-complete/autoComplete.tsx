@@ -1,7 +1,7 @@
 import React, { FC, ChangeEvent, KeyboardEvent, useState, useEffect, useRef, ReactElement } from 'react'
 import classNames from 'classnames'
 import Icon from '../icons/icon'
-import Input, { InputProps } from '../inputs/input'
+import Input, { InputProps } from '../Inputs/input'
 import { scopedClass } from '../../utils/scopedClass'
 import Transition from '../transitions/transition'
 import useDebounce from '../../hooks/useDebounce'
