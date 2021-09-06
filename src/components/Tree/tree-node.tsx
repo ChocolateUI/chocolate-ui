@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, ChangeEvent } from "react";
 import { TreeSource } from "./tree";
-import Icon from "../icons/icon";
+import Icon from "../Icons/icon";
 import { Key } from "./interface";
 import Checkbox from "../Checkbox";
 

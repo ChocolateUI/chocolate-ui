@@ -2,7 +2,7 @@ import React, { ReactElement, FC, ChangeEvent, InputHTMLAttributes, useState } f
 import classNames from 'classnames'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { scopedClass } from '../../utils/scopedClass'
-import Icon from '../icons/icon'
+import Icon from '../Icons/icon'
 
 const sc = scopedClass('chocolate-input')
 

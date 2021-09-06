@@ -1,6 +1,6 @@
 import React, { FC, ChangeEvent, KeyboardEvent, useState, useEffect, useRef, ReactElement } from 'react'
 import classNames from 'classnames'
-import Icon from '../icons/icon'
+import Icon from '../Icons/icon'
 import Input, { InputProps } from '../Inputs/input'
 import { scopedClass } from '../../utils/scopedClass'
 import Transition from '../transitions/transition'

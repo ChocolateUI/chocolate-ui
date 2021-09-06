@@ -2,7 +2,7 @@ import React, { MouseEvent, MouseEventHandler } from "react";
 import MonthPicker from "./monthPicker";
 import ViewLayout from "./viewLayout";
 import { Button } from "../Button/button";
-import Icon from "../icons";
+import Icon from "../Icons";
 import { CalendarType } from "./datePicker";
 import HeaderTitle from "./headerTitle";
 

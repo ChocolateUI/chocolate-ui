@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import Tabs, { TabsProps } from './tabs';
 import TabItem from './tabItem';
-import Icon from '../icons/icon';
+import Icon from '../Icons/icon';
 import TabsDoc from './tab-doc.mdx'
 
 const BaseTabs = (props: TabsProps) => {
