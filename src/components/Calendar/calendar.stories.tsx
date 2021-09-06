@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
-import DatePicker from './datePicker'
-import DatePickerDoc from './date-picker-doc.mdx'
+import DatePicker from './calendar'
+import DatePickerDoc from './calendar-doc.mdx'
 const BaseDatePicker = () => <div style={{ width: 300 }}> <DatePicker /> </div>
 
 export default {
