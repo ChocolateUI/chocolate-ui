@@ -1,77 +1,80 @@
-import React, { ReactElement, FC, ChangeEvent, InputHTMLAttributes, useState } from 'react'
-import classNames from 'classnames'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import { scopedClass } from '../../utils/scopedClass'
-import Icon from '../Icons/icon'
+import React, {
+  ReactElement,
+  FC,
+  ChangeEvent,
+  InputHTMLAttributes,
+  useState,
+  forwardRef,
+} from "react";
+import classNames from "classnames";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { scopedClass } from "../../utils/scopedClass";
+import Icon from "../Icons/icon";
 
-const sc = scopedClass('chocolate-input')
+const sc = scopedClass("chocolate-input");
 
-type InputSize = 'lg' | 'sm'
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {
-    disabled?: boolean,
-    size?: InputSize,
-    icon?: IconProp,
-    prepend?: string | ReactElement,
-    append?: string | ReactElement,
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+type InputSize = "lg" | "sm";
+export interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLElement>, "size"> {
+  disabled?: boolean;
+  size?: InputSize;
+  icon?: IconProp;
+  prepend?: string | ReactElement;
+  append?: string | ReactElement;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  ref?: any,
 }
 
-export const Input: FC<InputProps> = (props) => {
-    const {
-        disabled,
-        size,
-        icon,
-        prepend,
-        append,
-        style,
-        ...restProps
-    } = props;
-    const [hover, setHover] = useState(false)
-    const classnames = classNames(sc('wrapper'), {
-        [`input-size-${size}`]: size,
-        'is-disabled': disabled,
-        'input-group': prepend || append,
-        'input-group-append': !!append,
-        'input-group-prepend': !!prepend,
-        [`${sc('inner')}-is-hover`]: hover,
-    })
+export const Input: FC<InputProps> = forwardRef((props, ref) => {
+  console.log("InputRef: ", ref);
+  const { disabled, size, icon, prepend, append, style, ...restProps } = props;
+  const [hover, setHover] = useState(false);
+  const classnames = classNames(sc("wrapper"), {
+    [`input-size-${size}`]: size,
+    "is-disabled": disabled,
+    "input-group": prepend || append,
+    "input-group-append": !!append,
+    "input-group-prepend": !!prepend,
+    [`${sc("inner")}-is-hover`]: hover,
+  });
 
-    const fixControlledValue = (value: any) => {
-        if (typeof value === 'undefined' || value === null) {
-            return ''
-        }
-        return value
+  const fixControlledValue = (value: any) => {
+    if (typeof value === "undefined" || value === null) {
+      return "";
     }
+    return value;
+  };
 
-    if ('value' in props) {
-        delete restProps.defaultValue
-        restProps.value = fixControlledValue(props.value)
-    }
-    return (
-        <div
-            className={classnames}
-            style={style}
-        >
-            {prepend && <div className={sc('group-prepend')}>{prepend}</div>}
-            {icon && <div className={sc('icon-wrapper')}><Icon icon={icon} title={`title-${icon}`}/></div>}
-            <input
-                className={sc('inner')}
-                onMouseOver={()=>setHover(!disabled)}
-                onMouseLeave={()=>setHover(false)}
-                disabled={disabled}
-                {...restProps}
-            />
-            {append && <div className={sc('group-append')}>{append}</div>}
+  if ("value" in props) {
+    delete restProps.defaultValue;
+    restProps.value = fixControlledValue(props.value);
+  }
+  return (
+    <div className={classnames} style={style}>
+      {prepend && <div className={sc("group-prepend")}>{prepend}</div>}
+      {icon && (
+        <div className={sc("icon-wrapper")}>
+          <Icon icon={icon} title={`title-${icon}`} />
         </div>
-    )
-}
+      )}
+      <input
+        className={sc("inner")}
+        onMouseOver={() => setHover(!disabled)}
+        onMouseLeave={() => setHover(false)}
+        disabled={disabled}
+        {...restProps}
+      />
+      {append && <div className={sc("group-append")}>{append}</div>}
+    </div>
+  );
+});
 
 Input.defaultProps = {
   disabled: false,
-  size: 'sm',
+  size: "sm",
   icon: undefined,
-  prepend: '',
-  append: '',
-}
+  prepend: "",
+  append: "",
+};
 
 export default Input;

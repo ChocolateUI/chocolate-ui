@@ -26,7 +26,12 @@ function MonthPicker(props: MonthPickerProps) {
             {row.map((month: MonthOfYear, j: number) => {
               const isSelected = month.index === selectedMonthIndex;
               return (
-                <td className={sc("cell")} key={j}>
+                <td
+                  className={classNames(sc("cell"), {
+                    [`${sc("cell-is-selected")}`]: isSelected,
+                  })}
+                  key={j}
+                >
                   <Button
                     className={classNames(sc("ghost"), {
                       [`${sc("is-selected")}`]: isSelected,

@@ -39,7 +39,7 @@ function DateManager(props: DateManagerProps) {
     };
     setState(nextState);
 
-    onChange && onChange(e, nextState);
+    onChange && onChange(e, { ...nextState, origin: "PICKER" });
   }
 
   function onInputChange(e: ChangeEvent<HTMLInputElement>) {

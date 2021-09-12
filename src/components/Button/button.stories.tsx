@@ -80,6 +80,14 @@ Danger.args = {
 };
 
 // _link
+export const Ghost = _default.bind({});
+
+Ghost.args = {
+ ...Default.args,
+ btnType: 'ghost'
+};
+
+// _link
 export const Link = _default.bind({});
 
 Link.args = {

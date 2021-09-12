@@ -73,7 +73,7 @@ export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
               // 选中日期
               const isSelected = isSameDay(day, selectedDate);
               return (
-                <td key={j} className={classNames(sc("day"), {})}>
+                <td key={j} className={classNames(sc("day"))}>
                   <Button
                     className={classNames(sc("ghost"), {
                       [`${sc("is-today")}`]: isToday,

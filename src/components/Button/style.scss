@@ -47,8 +47,9 @@
 }
 
 .btn-ghost {
+    user-select: none;
     box-shadow: none;
-    @include button-style($white, $transparent, $font-color, $white, $primary, $primary)
+    @include button-style($transparent, $transparent, $font-color, $transparent, $primary, $primary)
 }
 
 .btn-default {

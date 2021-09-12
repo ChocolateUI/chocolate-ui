@@ -5,7 +5,10 @@
 .chocolate-picker {
   width: 29rem;
   padding: $padding-normal;
-  border: 0.1rem solid $border-color;
+  border-radius: 2px;
+  // border: 0.1rem solid $border-color;
+  box-shadow: $box-shadow;
+  transition: margin .3s;
 
   &-wrapper {
     position: relative;
@@ -14,6 +17,7 @@
 
   &-header {
     text-align: center;
+    user-select: none;
 
     tr>th {
       padding-bottom: $picker-padding;
@@ -35,9 +39,12 @@
 
   &-weeks-item {
     text-align: center;
+    cursor: pointer;
   }
 
   &-day {
+    user-select: none;
+
     .chocolate-picker-is-today {
       background-color: lighten($primary, 40%);
       border-color: $primary;
@@ -101,8 +108,21 @@
   }
 
   &-cell {
+
     width: 33.3%;
-    border: 0.1rem solid $border-color;
+    border: 0.01rem solid $border-color;
+
+    &-is-selected {
+      background-color: $primary;
+      color: $white;
+    }
+
+    // 优先级
+    .chocolate-picker-month-is-selected {
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
+    }
   }
 
   &-ghost {
@@ -110,20 +130,26 @@
     width: 100%;
     padding: 0;
     font-size: 1.2rem;
-  }
+    border-radius: 0;
 
+    &:focus {
+      color: $white ;
+    }
+  }
 
   &-is-selected {
     background-color: $primary;
     color: $white;
     border-color: $primary;
   }
+
 }
 
 .chocolate-picker-header-title {
   &-wrapper {
     display: flex;
     align-items: center;
+    user-select: none;
 
     >span {
       margin-right: $picker-padding;

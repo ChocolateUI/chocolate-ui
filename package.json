@@ -196,6 +196,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "husky": "7.0.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
+    "keycode": "^2.2.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^1.4.0",
     "node-sass": "^6.0.1",

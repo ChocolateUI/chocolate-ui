@@ -16,7 +16,7 @@ export interface CalendarProps {
 function Calendar(props: CalendarProps) {
   const { selectedDate, onSelectDate } = props;
   const [isDateView, setDateView] = useState(true);
-  const calendarRef = useRef(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   const today = new Date();
   const initialCalendar = {
@@ -34,13 +34,11 @@ function Calendar(props: CalendarProps) {
   const onSetMonthYearView = setDateView.bind(null, false);
 
   const onSetDateView = setDateView.bind(null, true);
-
-  useEffect(() => {
-    // 处理 MonthYearView 展示后聚焦操作
-    if (calendarRef) {
-      calendarRef.current.focus();
-    }
-  }, [isDateView]);
+    
+  // 处理 MonthYearView 展示后聚焦操作
+  // useEffect(() => {
+  //   calendarRef.current && calendarRef.current.focus();
+  // }, [isDateView]);
 
   const onClickToday = (e: MouseEvent<HTMLElement>) => {
     onSelectDate(e, startOfDay(new Date()));
