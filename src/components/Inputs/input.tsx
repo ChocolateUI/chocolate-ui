@@ -26,7 +26,6 @@ export interface InputProps
 }
 
 export const Input: FC<InputProps> = forwardRef((props, ref) => {
-  console.log("InputRef: ", ref);
   const { disabled, size, icon, prepend, append, style, ...restProps } = props;
   const [hover, setHover] = useState(false);
   const classnames = classNames(sc("wrapper"), {
