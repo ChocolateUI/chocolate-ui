@@ -132,7 +132,6 @@
     "build-storybook": "build-storybook -s public",
     "prepublishOnly": "npm run test && npm run lint && npm run build",
     "commit": "git-cz",
-    "chromatic": "npx chromatic --project-token=8600c3581dde"
   },
   "husky": {
     "hooks": {
