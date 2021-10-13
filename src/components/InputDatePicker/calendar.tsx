@@ -1,14 +1,14 @@
-import React, { MouseEvent, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 import DateView from "./dateView";
 import MonthYearView from "./monthYearView";
-import getYear from "date-fns/get_year";
-import getMonth from "date-fns/get_month";
-import startOfDay from "date-fns/start_of_day";
+import getYear from "date-fns/getYear";
+import getMonth from "date-fns/getMonth";
+import startOfDay from "date-fns/startOfDay";
 
 export interface CalendarProps {
   selectedDate: Date;
   onSelectDate: (
-    e: MouseEvent<HTMLElement>,
+    e: ChangeEvent<HTMLInputElement>,
     date: Date
   ) => void;
 }
@@ -40,7 +40,7 @@ function Calendar(props: CalendarProps) {
   //   calendarRef.current && calendarRef.current.focus();
   // }, [isDateView]);
 
-  const onClickToday = (e: MouseEvent<HTMLElement>) => {
+  const onClickToday = (e: ChangeEvent<HTMLInputElement>) => {
     onSelectDate(e, startOfDay(new Date()));
   };
 

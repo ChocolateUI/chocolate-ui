@@ -9,7 +9,7 @@ import React, {
 import classNames from "classnames";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { scopedClass } from "../../utils/scopedClass";
-import Icon from "../Icons/icon";
+import Icon from "../Icon/icon";
 
 const sc = scopedClass("chocolate-input");
 

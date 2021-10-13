@@ -1,6 +1,6 @@
 import React from "react";
 import scopedClass from "../../utils/scopedClass";
-import { Button } from "../Button/button";
+import { Button } from "../Buttons/button";
 import { buildMonths } from "./utils/generator";
 import classNames from "classnames";
 const sc = scopedClass("chocolate-picker-month");

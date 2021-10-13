@@ -2,11 +2,11 @@ import React, { FC, ChangeEvent, useMemo } from "react";
 import classNames from "classnames";
 import { scopedClass } from "../../utils/scopedClass";
 import buildWeeks, { buildDayNames } from "./utils/generator";
-import getDate from "date-fns/get_date";
-import getMonth from "date-fns/get_month";
-import isSameDay from "date-fns/is_same_day";
-import dateFnsIsToday from "date-fns/is_today";
-import { Button } from "../Button/button";
+import getDate from "date-fns/getDate";
+import getMonth from "date-fns/getMonth";
+import isSameDay from "date-fns/isSameDay";
+import dateFnsIsToday from "date-fns/isToday";
+import { Button } from "../Buttons/button";
 import { CalendarProps } from "./calendar";
 
 const sc = scopedClass("chocolate-picker");
@@ -25,7 +25,6 @@ export interface DatePickerProps {
 export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
   const {
     calendar: { year, monthIndex },
-    className,
     selectedDate,
     onSelectDate,
   } = props;
@@ -34,7 +33,7 @@ export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
   const dayNames = useMemo(() => buildDayNames(0), []);
   const exchangeDayNames = (name: string) => {
     switch (name) {
-      case "0":
+      case "7":
         return "日";
       case "1":
         return "一";
@@ -65,7 +64,7 @@ export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
       <tbody className={classNames("weeks")}>
         {weeks.map((week: [], i: number) => (
           <tr key={i} className={classNames(sc("weeks-item"))}>
-            {week.map((day: Date | string | number, j: number) => {
+            {week.map((day: Date, j: number) => {
               // 目前是当前日期
               const isToday = dateFnsIsToday(day);
               // 当前月日期
@@ -81,7 +80,12 @@ export const DatePicker: FC<DatePickerProps & CalendarProps> = (props) => {
                       [`${sc("is-current-month")}`]: !isCurrentMonth,
                     })}
                     btnType="ghost"
-                    onClick={(e) => onSelectDate(e, day)}
+                    onClick={(e) =>
+                      onSelectDate(
+                        (e as unknown) as ChangeEvent<HTMLInputElement>,
+                        day
+                      )
+                    }
                   >
                     {getDate(day)}
                   </Button>

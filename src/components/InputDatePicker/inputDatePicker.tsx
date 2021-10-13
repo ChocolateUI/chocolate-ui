@@ -1,12 +1,12 @@
 import React, { ChangeEvent, FC, useRef, useState } from "react";
-import FocusManager from "../../utils/focusManager";
+import FocusManager from "../../utils/FocusManagers";
 import DateManager from "./dateManager";
 import InputComponent from "./input";
 import Picker from "./picker";
-import keycode from "keycode";
+// import keycode from "keycode";
 
 export interface InputDatePickerProps {
-  onChange?: (e: ChangeEvent<HTMLInputElement>, payload: any) => void;
+  onChange?: (e: ChangeEvent<Element>, payload: any) => void;
 }
 
 export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
@@ -24,8 +24,8 @@ export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
     closePicker();
   }
 
-  function handleOnChange(e: ChangeEvent<HTMLInputElement>, payload: any) {
-    onChange && onChange(e, payload)
+  function handleOnChange(e: ChangeEvent<Element>, payload: any) {
+    onChange && onChange(e, payload);
     if (payload.origin === "PICKER") {
       // TODO: 未获取到 ref
       ref.current && ref.current.focus();
@@ -38,25 +38,32 @@ export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
   }
 
   // TODO: esc 关闭
-  function onKeyDown(e: KeyboardEvent) {
-    switch (e.keyCode) {
-      case keycode.codes.esc:
-        if (showPicker) {
-          ref.current.focus();
-          closePicker();
-        }
-        break;
+  // function onKeyDown(e: KeyboardEvent) {
+    // switch (e.keyCode) {
+    //   case keycode.codes.esc:
+    //     if (showPicker) {
+    //       if (ref.current) {
+    //         ref.current.focus();
+    //       }
+    //       closePicker();
+    //     }
+    //     break;
 
-      default:
-        break;
-    }
-  }
+    //   default:
+    //     break;
+    // }
+  // }
 
   // tabIndex 使 div 可以聚焦，从而可以使用 onFocus/onBlur
   return (
-    <FocusManager onFocus={onFocus} onBlur={onBlur} tabIndex={0} onKeyDown={onKeyDown}>
+    <FocusManager
+      onFocus={onFocus}
+      onBlur={onBlur}
+      tabIndex={0}
+      // onKeyDown={onKeyDown}
+    >
       <DateManager onChange={handleOnChange}>
-        <InputComponent ref={ref} onClick={onClick}/>
+        <InputComponent ref={ref} onClick={onClick} />
         {showPicker && <Picker />}
       </DateManager>
     </FocusManager>

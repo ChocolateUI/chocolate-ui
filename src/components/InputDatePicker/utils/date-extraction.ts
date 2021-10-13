@@ -1,10 +1,10 @@
 import format from "date-fns/format";
-import getDate from "date-fns/get_date";
-import setDate from "date-fns/set_date";
-import lastDayOfMonth from "date-fns/last_day_of_month";
+import getDate from "date-fns/getDate";
+import setDate from "date-fns/setDate";
+import lastDayOfMonth from "date-fns/lastDayOfMonth";
 
 export function dateToStr(date: Date) {
-  return format(date, "YYYY-MM-DD");
+  return format(date, "yyyy-MM-dd");
 }
 
 function getDateRegexp(dateFormat: string) {
@@ -24,7 +24,7 @@ function DatePickerException(code: string) {
 
 export function strToDate(
   strToParse: string,
-  dateFormat: string = "YYYY-MM-DD"
+  dateFormat: string = "yyyy-MM-dd"
 ) {
   const { regexp, partsOrder } = getDateRegexp(dateFormat);
   const dateMatches = strToParse.match(regexp); // 2020-11-11, 2020 11 11;

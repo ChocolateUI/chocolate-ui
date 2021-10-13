@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import Select, { SelectProps } from '../select'
 import Option from '../selectOption'
-jest.mock('../../icons/icon.tsx', () => {
+jest.mock('../../Icon/icon.tsx', () => {
   const React = require('react');
   return () => {
     return <i className="fa" />

@@ -1,8 +1,8 @@
 import chunk from "lodash/chunk";
-import startOfWeek from "date-fns/start_of_week";
-import addDays from "date-fns/add_days";
-import setDay from "date-fns/set_day";
-import setMonth from "date-fns/set_month";
+import startOfWeek from "date-fns/startOfWeek";
+import addDays from "date-fns/addDays";
+import setDay from "date-fns/setDay";
+import setMonth from "date-fns/setMonth";
 import format from "date-fns/format";
 import { MonthOfYear } from "../monthPicker";
 
@@ -21,7 +21,7 @@ export function buildDayNames(weekStartsOn: number): string[] {
     .map((_, i) => (i + weekStartsOn) % 7)
     .map((dayOfWeek) => {
       const day = setDay(new Date(0), dayOfWeek);
-      return format(day, "d");
+      return format(day, "i");
     });
 }
 
@@ -30,7 +30,7 @@ export function buildMonths(): MonthOfYear[][] {
     .fill(0)
     .map((_, i) => setMonth(new Date(0), i))
     .map(
-      (month, j) => ({ index: j, name: format(month, "MMM") } as MonthOfYear)
+      (month, j) => ({ index: j, name: format(month, "L") } as MonthOfYear)
     );
 
   return chunk(months, 3);

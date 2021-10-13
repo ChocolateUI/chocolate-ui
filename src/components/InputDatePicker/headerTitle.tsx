@@ -1,16 +1,23 @@
 import React from "react";
-import { Button } from "../Button/button";
+import { Button } from "../Buttons/button";
 import format from "date-fns/format";
 import { CalendarType } from "./datePicker";
 import YearPicker from "./yearPicker";
 import scopedClass from "../../utils/scopedClass";
 
 const sc = scopedClass("chocolate-picker-header-title");
-function HeaderTitle(props: CalendarType) {
+interface subType {
+  onTitleClick?: () => void;
+  onSelectYear?: (value: number) => void;
+}
+
+type NextType = CalendarType & subType;
+
+function HeaderTitle(props: NextType) {
   const { year, monthIndex, onTitleClick, onSelectYear } = props;
   const firstDayOfMonth = new Date(year, monthIndex);
-  const monthLabel = format(firstDayOfMonth, "MM");
-  const yearLabel = format(firstDayOfMonth, "YYYY");
+  const monthLabel = format(firstDayOfMonth, "L");
+  const yearLabel = format(firstDayOfMonth, "yyyy");
 
   if (onSelectYear) {
     return (

@@ -1,8 +1,8 @@
-import React, { MouseEvent, MouseEventHandler } from "react";
+import React, { ChangeEvent, MouseEventHandler } from "react";
 import MonthPicker from "./monthPicker";
 import ViewLayout from "./viewLayout";
-import { Button } from "../Button/button";
-import Icon from "../Icons";
+import { Button } from "../Buttons/button";
+import Icon from "../Icon";
 import { CalendarType } from "./datePicker";
 import HeaderTitle from "./headerTitle";
 
@@ -11,7 +11,7 @@ interface DateViewProps {
   onSelectMonth: (value: number) => void;
   onSelectYear: (value: number) => void;
   onBackClick: MouseEventHandler<SVGSVGElement>;
-  onClickToday: (e: MouseEvent<HTMLElement>) => void;
+  onClickToday: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 function MonthYearView(props: DateViewProps) {
@@ -36,7 +36,7 @@ function MonthYearView(props: DateViewProps) {
         <MonthPicker selectedMonthIndex={monthIndex} onSelect={onSelectMonth} />
       }
       footerElement={
-        <Button btnType="ghost" onClick={onClickToday}>
+        <Button btnType="ghost" onClick={onClickToday as unknown as any}>
           今天
         </Button>
       }

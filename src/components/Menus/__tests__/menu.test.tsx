@@ -3,7 +3,7 @@ import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react
 import Menu, {MenuProps} from '../menu'
 import MenuItem from '../menuItem'
 import SubMenu from '../subMenu'
-jest.mock('../../icons/icon.tsx', () => {
+jest.mock('../../Icon/icon.tsx', () => {
   const React = require('react');
   return () => {
     return <i className="fa" />

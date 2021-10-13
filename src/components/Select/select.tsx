@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState, createContext, useRef } from 'react'
 import classNames from 'classnames'
 import { SelectOptionProps } from './selectOption'
-import Input from '../Inputs/input'
+import Input from '../Input/input'
 import { scopedClass } from '../../utils/scopedClass'
 import Transition from '../Transitions/transition'
 import useClickOutside from '../../hooks/useClickOutside'

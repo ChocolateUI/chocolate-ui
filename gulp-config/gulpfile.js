@@ -2,10 +2,9 @@
  * @name gulpfile.js
  * @description 打包项目css依赖
  */
-
+ const sass = require('gulp-sass');
  const path = require("path");
  const gulp = require("gulp");
- const sass = require("gulp-sass");
  const autoprefixer = require("gulp-autoprefixer");
  const cssnano = require("gulp-cssnano");
  const size = require("gulp-filesize");

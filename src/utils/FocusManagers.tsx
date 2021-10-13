@@ -2,15 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import omit from "lodash/omit";
 
-function FocusManager(props) {
-  let timeoutId;
-  function onBlur(e) {
+function FocusManager(props: {
+  onBlur: (arg0: { persist: () => void }) => void;
+  onFocus: (arg0: any) => void;
+  children:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+  tabIndex: number;
+  // onKeyDown: (event: KeyboardEvent) => void;
+}) {
+  let timeoutId: NodeJS.Timeout;
+  function onBlur(e: { persist: () => void }) {
     e.persist();
     timeoutId = setTimeout(() => {
       props.onBlur(e);
     });
   }
-  function onFocus(e) {
+  function onFocus(e: any) {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
@@ -29,7 +41,7 @@ function FocusManager(props) {
 
 FocusManager.propTypes = {
   onFocus: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired
+  onBlur: PropTypes.func.isRequired,
 };
 
 export default FocusManager;

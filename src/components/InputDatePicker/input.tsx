@@ -1,9 +1,13 @@
 import React, { forwardRef, useContext } from "react";
 import { DateContext, IPickerContext } from "./dateManager";
-import { Input } from "../Inputs/input";
+import { Input } from "../Input/input";
+
+interface Types {
+  onClick: (event: Event) => void;
+}
 
 const InputComponent = 
-  forwardRef((props, ref) => {
+  forwardRef((props: Types, ref) => {
     const { value, onInputChange } = useContext<IPickerContext>(DateContext);
 
     return (

@@ -4,11 +4,13 @@ import { dateToStr, strToDate } from "./utils/date-extraction";
 interface DateManagerState {
   date: Date;
   textInput: string;
+  origin?: string;
+  errors?: any[];
 }
 
 interface DateManagerProps {
   onChange?: (
-    e: ChangeEvent<HTMLInputElement>,
+    e: ChangeEvent<Element>,
     value: DateManagerState
   ) => void;
   children: React.ReactNode;
@@ -50,7 +52,7 @@ function DateManager(props: DateManagerProps) {
       try {
         date = strToDate(textInput);
       } catch (parseErrors) {
-        errors = parseErrors;
+        errors = parseErrors as any;
       }
     }
     const nextState: DateManagerState = {

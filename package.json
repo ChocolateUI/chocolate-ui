@@ -1,6 +1,6 @@
 {
   "name": "chocolate-ui",
-  "version": "1.0.1",
+  "version": "1.0.44",
   "description": "Indulge in silky smoothness",
   "author": "shiming_xsm",
   "private": false,
@@ -131,7 +131,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "prepublishOnly": "npm run test && npm run lint && npm run build",
-    "commit": "git-cz",
+    "commit": "git-cz"
   },
   "husky": {
     "hooks": {
@@ -155,6 +155,7 @@
     ]
   },
   "devDependencies": {
+    "date-fns": "^2.25.0",
     "@storybook/addon-a11y": "^6.3.4",
     "@storybook/addon-actions": "6.3.4",
     "@storybook/addon-docs": "^6.3.4",

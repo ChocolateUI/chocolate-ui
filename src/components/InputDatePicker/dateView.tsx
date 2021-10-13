@@ -1,8 +1,12 @@
-import React, { MouseEvent, Dispatch, SetStateAction } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  ChangeEvent,
+} from "react";
 import { ViewLayout } from "./viewLayout";
 import DatePicker, { CalendarType } from "./datePicker";
-import { Button } from "../Button/button";
-import Icon from "../Icons/icon";
+import { Button } from "../Buttons/button";
+import Icon from "../Icon/icon";
 import HeaderTitle from "./headerTitle";
 import { CalendarProps } from "./calendar";
 
@@ -12,7 +16,7 @@ interface DateViewProps {
     SetStateAction<{ year: number; monthIndex: number }>
   >;
   onTitleClick: () => void;
-  onClickToday: (e: MouseEvent<HTMLElement>) => void;
+  onClickToday: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 function module(m: number, n: number) {
@@ -63,7 +67,7 @@ function DateView(props: DateViewProps & CalendarProps) {
         rightElement: <Icon icon="angle-right" onClick={goToNextMonth} />,
       }}
       footerElement={
-        <Button btnType="ghost" onClick={onClickToday}>
+        <Button btnType="ghost" onClick={(onClickToday as unknown) as any}>
           今天
         </Button>
       }

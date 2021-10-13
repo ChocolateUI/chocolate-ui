@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import clone from "../../utils/clone";
 import { scopedClass } from "../../utils/scopedClass";
-import Alert from "../Alert/alert";
+import Alert from "../Alerts/alert";
 import { Key } from "./interface";
 import TreeNode from "./tree-node";
 import executeCheck from "./utils/execute";
