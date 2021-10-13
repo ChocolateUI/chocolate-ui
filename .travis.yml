@@ -6,7 +6,7 @@ install:
     - npm install --legacy-peer-deps   
 cache:
     directories:
-    - node_modules   #使用缓存
+    - node_modules  #使用缓存
 env:
     - CI=true #
 script:
