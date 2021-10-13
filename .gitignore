@@ -34,3 +34,6 @@
 /.github
 
 /build-storybook.log
+
+#test
+/test-report.html
