@@ -31,7 +31,7 @@
 .env.production.local
 
 #git action
-/.github
+# /.github
 
 /build-storybook.log
 
