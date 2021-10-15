@@ -73,7 +73,7 @@ module.exports = {
 - 😁 typescript with React Hooks
 - 🍑 使用 `react-testing-library` 完成单元测试
 - 🦌 使用 `storybook` 本地调试和生成文档页面
-- 🥦 CI/CD：使用 `Chromatic` 持续集成和部署
+- 🥦 CI/CD：使用 `Chromatic` + `gitAcAction` 持续集成和部署
 
 #### 🔨 部署
 ![chromatic](https://user-images.githubusercontent.com/18121040/132154705-126869b5-fa9b-4ea8-80fd-f6aba5c81288.png)
