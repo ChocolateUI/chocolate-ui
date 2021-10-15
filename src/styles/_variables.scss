@@ -212,11 +212,11 @@ $btn-font-size:               $font-size-base !default;
 $btn-line-height:             $line-height-base !default;
 
 //不同大小按钮的 padding 和 font size
-$btn-padding-y-sm:            .25rem !default;
-$btn-padding-x-sm:            .5rem !default;
+$btn-padding-y-sm:            .3rem !default;
+$btn-padding-x-sm:            .75rem !default;
 $btn-font-size-sm:            $font-size-sm !default;
 
-$btn-padding-y-lg:            .5rem !default;
+$btn-padding-y-lg:            .35rem !default;
 $btn-padding-x-lg:            1rem !default;
 $btn-font-size-lg:            $font-size-lg !default;
 
@@ -359,4 +359,24 @@ $checkbox-disabled-font-color:      fade($g07, 25%);
 $picker-width:                      2.4rem !default;
 $picker-height:                     2.4rem !default;
 $picker-disabled-color:             $g07 !default;
-$picker-padding:                    $padding-small !default;          
+$picker-padding:                    $padding-small !default;
+
+// Modal 模态框
+$modal-offset-top:                  100px !default;
+$modal-bg-color:                    $white !default;
+$modal-z-index:                     999 !default;
+$modal-padding:                     16px 24px !default;
+$modal-header-height:               64px !default;
+$modal-footer-padding:              0 0 24px 0 !default;
+$modal-title-font-size:             $font-size-base !default;
+$modal-header-padding:              24px !default;
+$modal-close-font-size:             20px !default;
+$modal-close-font-color:            fade(red, 45%) !default;
+$modal-mask-color:                  rgba($black, .5);
+$modal-offset-top:                  100px !default;
+$modal-offset-bottom:               100px !default; // 超长 modal 距离底部的距离
+$modal-width:                       400px !default;
+$modal-method-width:                420px !default;
+$modal-method-icon-size:            22px !default;
+$modal-method-icon-offset:          10px !default;
+$modal-header-title-padding:        0 30px !default;

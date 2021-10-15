@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown, useDropdownToggle, useDropdownMenu } from "react-overlays";
 import scopedClass from "../../utils/scopedClass";
 import classNames from "classnames";
-import { Button } from "../Buttons/button";
+import { Button } from "../Button/button";
 
 const sc = scopedClass("chocolate-dropdown");
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Buttons/button";
+import { Button } from "../Button/button";
 import format from "date-fns/format";
 import { CalendarType } from "./datePicker";
 import YearPicker from "./yearPicker";

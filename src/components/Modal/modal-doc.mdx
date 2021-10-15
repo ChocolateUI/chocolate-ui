@@ -1,0 +1,63 @@
+<!-- Modal Doc -->
+## Modal 模态框
+对话框组件
+
+import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { Modal } from './modal';
+import dedent from 'ts-dedent';
+<Meta title="Components/Input" component={Modal} />;
+
+### 使用
+
+<Source
+  language='jsx'
+  code={
+    dedent`
+      <Modal
+        title="提示"
+        visible={visible}
+        showMask
+        onCancel={() => setVisible(false)}
+        footer={
+          <>
+            <Button
+              btnType="default"
+              size="sm"
+              onClick={() => setVisible(false)}
+            >
+              取消
+            </Button>
+            <Button
+              btnType="primary"
+              style={{ marginLeft: 16 }}
+              onClick={() => setVisible(false)}
+              size="sm"
+            >
+              确认
+            </Button>
+          </>
+        }
+      >
+        <div>确认一下</div>
+        <span style={{ color: "#999999", fontSize: 12 }}>
+          是否要关闭模态框？
+        </span>
+      </Modal>
+    `
+  }
+/>
+
+### 具体参数
+<ArgsTable of={Modal} />
+
+export const Template = (args) => <Modal {...args} />
+
+
+### 组件展示
+
+
+##### default 类型
+
+<Story name="default" id="modal--default">
+{Template.bind({})}
+</Story>

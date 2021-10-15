@@ -6,7 +6,7 @@ import getDate from "date-fns/getDate";
 import getMonth from "date-fns/getMonth";
 import isSameDay from "date-fns/isSameDay";
 import dateFnsIsToday from "date-fns/isToday";
-import { Button } from "../Buttons/button";
+import { Button } from "../Button/button";
 import { CalendarProps } from "./calendar";
 
 const sc = scopedClass("chocolate-picker");
