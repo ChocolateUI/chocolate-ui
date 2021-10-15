@@ -55,11 +55,14 @@ import 'chocolate-ui/dist/components/button/style';
 // .babelrc.js
 module.exports = {
   plugins: [
-    ["babel-plugin-import", {
-      "libraryName": 'chocolate-ui',
-      "libraryDirectory": "dist/components",
-      "style": true
-    },'cuke-ui'], 
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'chocolate-ui',
+        libraryDirectory: 'dist/components',
+        style: true  // 导入 CSS 源文件，可以在编译期间进行优化
+      }
+    ], 
   ]
 }
 ```
