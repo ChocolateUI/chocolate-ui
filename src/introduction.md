@@ -2,25 +2,53 @@
 
 >使用 npm
 
-```javascript
+`
 npm install chocolate-ui --save
-```
+`
 
 >使用 yarn
 
-```javascript
+`
 yarn add chocolate-ui
-```
+`
 
 #### 📖 使用
 
-```javascript
-// 加载样式
-import 'chocolate-ui/dist/index.css'
+1、引入
 
-// 引入组件
-import { Button } from 'chocolate-ui'
-```
+`// 加载样式
+import 'chocolate-ui/dist/index.css'`
+
+`// 引入组件
+import { Button } from 'chocolate-ui'`
+
+2、按需加载
+
+`
+import Button from 'chocolate-ui/dist/components/button';
+`
+
+`
+import 'chocolate-ui/dist/components/button/style';
+`
+
+3、使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
+
+~~~js
+// .babelrc.js
+module.exports = {
+  plugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'chocolate-ui',
+        libraryDirectory: 'dist/components',
+        style: true  // 导入 CSS 源文件，可以在编译期间进行优化
+      }
+    ],
+  ]
+}
+~~~
 
 #### 🚗 Tips
 
@@ -28,29 +56,12 @@ import { Button } from 'chocolate-ui'
 
 #### ✨ 技术栈
 
-* 😁 typescript with React Hooks
-* 🍑 使用 react-testing-library 完成单元测试
-* 🦌 使用 storybook 本地调试和生成文档页面
-* 🥦 使用 react-doc-gen 自动生成文档
-* 🐳 使用 chromatic 发布
-* 🥭 使用第三方库扩充组件-(react-fontawesome, react-transition-group)
+- 😁 全部组件由 Typescript with React Hooks 编写
+- 🍑 使用 `react-testing-library` 完成单元测试
+- 🦌 使用 `Storybook` 本地调试和生成文档页面
+- ⚙️ 组件库打包使用 `Webpack` 和 `Gulp`
+- 🥦 CI/CD：使用 `Chromatic` + `GitActions` 持续集成和部署
 
 #### 😊 谁在使用
 
-- 我自己 -> [chocolate-hooks](https://github.com/ChocolateUI/chocolate-hooks)
-
-#### 🎋 一些命令行
-
-~~~bash
-// 启动本地环境
-npm run stroybook
-
-// 单元测试
-npm test
-
-// build 可发布静态文件
-npm run build
-
-//发布到 npm
-npm run publish
-~~~
+- 我自己的 hooks 集合 -> [chocolate-hooks](https://github.com/ChocolateUI/chocolate-hooks)

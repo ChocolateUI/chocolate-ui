@@ -5,6 +5,8 @@ import { FaGithub } from "react-icons/fa"
 import Introduction from './introduction.md'
 import { name, repository } from "../package.json"
 import "./styles/welcome.scss"
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 
 storiesOf('Welcome page', module)
   .add("介绍", () => (
@@ -28,8 +30,12 @@ storiesOf('Welcome page', module)
         <p> 一个 Web 端的 React 组件库 </p>
         <p> 此刻尽丝滑！ </p>
       </div>
-      <ReactMarkDown
-        source={Introduction}
-      />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <ReactMarkDown
+          rehypePlugins={[rehypeHighlight]}
+          remarkPlugins={[remarkGfm]}
+          children={Introduction}
+        /> 
+      </div>
     </>
   ), { info: { disable: true } })

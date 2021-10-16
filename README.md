@@ -80,4 +80,5 @@ module.exports = {
 - 🥦 CI/CD：使用 `Chromatic` + `GitActions` 持续集成和部署
 
 #### 🔨 部署
+
 ![chromatic](https://user-images.githubusercontent.com/18121040/132154705-126869b5-fa9b-4ea8-80fd-f6aba5c81288.png)
