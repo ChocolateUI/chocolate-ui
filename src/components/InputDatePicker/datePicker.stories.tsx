@@ -1,13 +1,17 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import InputDatePicker, { InputDatePickerProps } from "./inputDatePicker";
+import InputDatePicker from "./inputDatePicker";
 import { actions } from "@storybook/addon-actions";
-import inputDatePickerDoc from './inputDatePickerDoc.mdx';
+import inputDatePickerDoc from "./inputDatePickerDoc.mdx";
+import Card from "../Card/card";
 
-const BaseInputDatePicker = (props: InputDatePickerProps) => {
+const BaseInputDatePicker = () => {
+  const cardCss = { margin: "20px 20px 0 0" };
   return (
     <div style={{ width: 300 }}>
-      <InputDatePicker onChange={()=>actions('onChange')} />
+      <Card title="基本使用" style={cardCss}>
+        <InputDatePicker onChange={() => actions("onChange")} />
+      </Card>
     </div>
   );
 };
