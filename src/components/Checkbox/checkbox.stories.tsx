@@ -2,102 +2,84 @@ import React from "react";
 import { Story, Meta } from "@storybook/react";
 import { CheckboxProps } from "./checkbox";
 import Checkbox from "./index";
-import { CheckboxGroupProps } from "./checkboxGroup";
-import CheckBox from './checkbox-doc.mdx'
+import CheckBox from "./checkbox-doc.mdx";
+import Card from "../Card/card";
 
 const BaseCheckbox = (props: CheckboxProps) => {
-  const {
-    disabled,
-    checked,
-    defaultValue,
-    indeterminate,
-    size,
-    isButton,
-  } = props;
+  const commonCss = { marginRight: 20 };
+  const cardCss = { margin: "20px 20px 0 0" };
   return (
-    <div>
-      <h6>基本使用</h6>
-      <Checkbox
-        onChange={(e) => console.log(e.target.checked)}
-        disabled={disabled}
-        checked={checked}
-        defaultValue={defaultValue}
-        indeterminate={indeterminate}
-        isButton={isButton}
-        size={size}
-        style={{ marginRight: 20 }}
-      >
-        香蕉
-      </Checkbox>
-      <h6 style={{ marginTop: 50 }}>禁用</h6>
-      <Checkbox
-        onChange={(e) => console.log(e.target.checked)}
-        checked={true}
-        disabled={true}
-      >
-        葡萄
-      </Checkbox>
-      <h6 style={{ marginTop: 50 }}>不确定</h6>
-      <Checkbox
-        onChange={(e) => console.log(e.target.checked)}
-        checked={true}
-        indeterminate={true}
-      >
-        橘子
-      </Checkbox>
-      {CheckboxGroup(props as CheckboxGroupProps)}
-      {/* {CheckButton(props)} */}
+    <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
+      <Card title="基本使用" style={cardCss} shadow>
+        <Checkbox style={commonCss}>
+          西瓜🍉
+        </Checkbox>
+        <Checkbox style={commonCss}>
+          葡萄🍇
+        </Checkbox>
+        <Checkbox indeterminate={true}>
+          菠萝🍍
+        </Checkbox>
+      </Card>
+      <Card title="默认选中" style={cardCss} shadow>
+        <Checkbox checked style={commonCss}>
+          西瓜🍉
+        </Checkbox>
+        <Checkbox checked style={commonCss}>
+          葡萄🍇
+        </Checkbox>
+        <Checkbox checked indeterminate={true}>
+          菠萝🍍
+        </Checkbox>
+      </Card>
+      <Card title="不可选中" style={cardCss} shadow>
+        <Checkbox checked={false} disabled style={commonCss}>
+          西瓜🍉
+        </Checkbox>
+        <Checkbox checked disabled style={commonCss}>
+          葡萄🍇
+        </Checkbox>
+        <Checkbox checked disabled indeterminate={true}>
+          菠萝🍍
+        </Checkbox>
+      </Card>
+      <Card title="Checkbox Group" style={cardCss} shadow>
+        <Checkbox.Group
+          onChange={(value: string[]) => {
+            console.log(value, "value");
+          }}
+        >
+          <Checkbox value="苹果" checked style={{ marginRight: 20 }}>
+            苹果🍎
+          </Checkbox>
+          <Checkbox value="茄子" isButton={true} style={{ marginRight: 20 }}>
+            茄子🍆
+          </Checkbox>
+          <Checkbox
+            value="玉米"
+            indeterminate={false}
+            checked
+            style={{ marginRight: 20 }}
+          >
+            玉米🌽
+          </Checkbox>
+          <Checkbox value="番茄">番茄🍅</Checkbox>
+        </Checkbox.Group>
+      </Card>
     </div>
   );
 };
-
-const CheckboxGroup = (props: CheckboxGroupProps) => {
-  return (
-    <div>
-      <h6 style={{ marginTop: 50 }}>组合 && 默认选中</h6>
-      <Checkbox.Group
-        onChange={(value: string[]) => {
-          console.log(value, "value");
-        }}
-      >
-        <Checkbox value="苹果" checked  style={{ marginRight: 20 }}>
-          苹果
-        </Checkbox>
-        <Checkbox value="茄子" isButton={true} style={{ marginRight: 20 }}>
-          茄子
-        </Checkbox>
-        <Checkbox value="玉米" indeterminate={false} checked style={{ marginRight: 20 }}>
-          玉米
-        </Checkbox>
-        <Checkbox value="番茄">番茄</Checkbox>
-      </Checkbox.Group>
-    </div>
-  );
-};
-
-// const CheckButton = (props: CheckboxProps) => {
-//   return (
-//     <div>
-//       <h6 style={{ marginTop: 50 }}>按钮模式</h6>
-//       <Checkbox.Button style={{ marginRight: 20 }}>苹果</Checkbox.Button>
-//       <Checkbox.Button style={{ marginRight: 20 }}>茄子</Checkbox.Button>
-//       <Checkbox.Button checked disabled>
-//         玉米
-//       </Checkbox.Button>
-//     </div>
-//   );
-// };
 
 export default {
   component: BaseCheckbox,
-  title: "Checkbox",
+  title: "Checkbox 多选框",
   parameters: {
     docs: {
       page: CheckBox,
       source: {
-        type: 'code'
-      }
-    }
+        type: "code",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -111,9 +93,9 @@ export default {
 // _default
 const _default: Story<CheckboxProps> = (args) => <BaseCheckbox {...args} />;
 
-export const Default = _default.bind({});
+export const Primary = _default.bind({});
 
-Default.args = {
+Primary.args = {
   className: "",
   checked: false,
   isButton: false,
