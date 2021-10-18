@@ -1,0 +1,96 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+@import "../../styles/reboot";
+
+$chocolate-card-header-font-size: 16px;
+$chocolate-card-header-padding: 18px 20px;
+$chocolate-card-title-padding: 10px 20px;
+$chocolate-card-content-padding: 22px 20px;
+
+.chocolate-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: all $default-transition;
+
+  &.chocolate-card-shadow {
+    box-shadow: $box-shadow;
+  }
+
+  &.chocolate-card-hover {
+    &:hover {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  &.chocolate-card-cover {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+
+    .chocolate-card-header {
+      padding: 0;
+      display: block;
+
+      &-title {
+        padding: $chocolate-card-title-padding;
+      }
+    }
+  }
+
+  &-header {
+    padding: $chocolate-card-header-padding;
+    box-sizing: border-box;
+    border-bottom: 1px solid $border-color;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: $font-size-base;
+
+    &-title {
+      flex: 1 1 auto;
+
+      &.chocolate-card-overflow-hidden {
+        @include ellipsis(1);
+      }
+    }
+
+    &-extra {
+      text-align: right;
+      flex: 0 0 15%;
+      @include ellipsis(1);
+    }
+  }
+
+  &-content {
+    padding: $chocolate-card-content-padding;
+  }
+
+  &-actions {
+    border-top: 1px solid $border-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-item {
+      text-align: center;
+      padding: 12px 0;
+      flex: 1;
+      background-color: $white;
+      cursor: pointer;
+      font-size: $font-size-base;
+      color: $font-color;
+      transition: color $default-transition;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &+.chocolate-card-actions-item {
+        border-left: 1px solid $border-color;
+      }
+    }
+  }
+}

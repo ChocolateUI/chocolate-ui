@@ -4,7 +4,6 @@
 
 .alert-wrapper {
     position: relative;
-    margin-bottom: 20px;
     font-weight: $alert-font-weight-bold;
     line-height: $alert-line-height;
     @include alert-size($alert-padding-y, $alert-padding-x, $alert-font-size, $alert-border-radius);
@@ -39,6 +38,7 @@
 
 .alert-message-normal {
     font-weight: $alert-font-weight;
+    >span{}
 }
 
 .alert-close-icon {

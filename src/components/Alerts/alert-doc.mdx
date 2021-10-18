@@ -1,5 +1,5 @@
 <!-- Alert Doc -->
-## Alert 提示
+## Alert 警告提示
 我们可以配置不同类型的 `Alert`, 以满足各种情况下的展示提示。
 
 import { Story, Meta, ArgsTable, Source } from '@storybook/addon-docs/blocks';
@@ -27,66 +27,3 @@ import dedent from 'ts-dedent';
 <ArgsTable of={Alert} />
 
 export const Template = (args) => <Alert {...args} />
-
-### 组件展示
-
-##### default 类型
-
-<Story 
-  name="default" 
-  id="alert--default" 
-  args={{ 
-    message: "Tips",
-    type: "default",
-    closable: false,
-    description: "Detailed description and advice about default copywriting." 
-  }}
->
-{Template.bind({})}
-</Story>
-
-##### success 类型
-
-<Story 
-  name="default" 
-  id="alert--success" 
-  args={{ 
-    message: "Tips",
-    type: "success",
-    closable: false,
-    description: "Detailed description and advice about default copywriting." 
-  }}
->
-{Template.bind({})}
-</Story>
-
-##### danger 类型
-
-<Story 
-  name="default" 
-  id="alert--danger" 
-  args={{ 
-    message: "Tips",
-    type: "danger",
-    closable: false,
-    description: "Detailed description and advice about default copywriting." 
-  }}
->
-{Template.bind({})}
-</Story>
-
-##### warning 类型
-
-
-<Story 
-  name="default" 
-  id="alert--warning" 
-  args={{ 
-    message: "Tips",
-    type: "warning",
-    closable: false,
-    description: "Detailed description and advice about default copywriting." 
-  }}
->
-{Template.bind({})}
-</Story>
