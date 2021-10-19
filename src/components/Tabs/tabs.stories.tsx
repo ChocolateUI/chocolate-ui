@@ -1,91 +1,83 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import Tabs, { TabsProps } from './tabs';
-import TabItem from './tabItem';
-import Icon from '../Icon/icon';
-import TabsDoc from './tab-doc.mdx'
+import React from "react";
+import { Meta, Story } from "@storybook/react";
+import Tabs, { TabsProps } from "./tabs";
+import TabItem from "./tabItem";
+import Icon from "../Icon/icon";
+import TabsDoc from "./tab-doc.mdx";
+import Card from "../Card/card";
+import {
+  DescriptionBrave,
+  DescriptionEle,
+  DescriptionMoon,
+} from "../../utils/constants";
 
-const BaseTabs = (props: TabsProps) => {
-
-  const { defaultIndex, type } = props;
+const BaseTabs = () => {
+  const cardCss = { margin: "20px 20px 0 0", width: 450 };
   return (
-    <Tabs
-      defaultIndex={defaultIndex}
-      onSelect={(value) => console.log('第', value, '项')}
-      type={type}
-    >
-      <TabItem label="Tab 1">
-        Content of Tab Pane 1
-      </TabItem>
-      <TabItem label="Tab 2">
-        Content of Tab Pane 2
-      </TabItem>
-      <TabItem label="Tab 3">
-        Content of Tab Pane 3
-      </TabItem>
-    </Tabs>
-  )
-}
-
-const IconTabs = (props: TabsProps) => {
-  const { defaultIndex, type } = props;
-  return (
-    <Tabs
-      defaultIndex={defaultIndex}
-      onSelect={(value) => console.log('第', value, '项')}
-      type={type}
-    >
-      <TabItem label="Tab 1">
-        Content of Tab Pane 1
-      </TabItem>
-      <TabItem  label={<span> <Icon icon="music" style={{ marginRight: 5 }} />Tab 2</span>}>
-        Content of Tab Pane 2
-      </TabItem>
-      <TabItem label="Tab 3">
-        Content of Tab Pane 3
-      </TabItem>
-    </Tabs>
-  )
-}
+    <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
+      <Card title="基本使用" style={cardCss} shadow>
+        <Tabs>
+          <TabItem label="Tab 1">{DescriptionEle}</TabItem>
+          <TabItem label="Tab 2">{DescriptionBrave}</TabItem>
+          <TabItem label="Tab 3">{DescriptionMoon}</TabItem>
+        </Tabs>
+      </Card>
+      <Card title="卡片类型" style={cardCss} shadow>
+        <Tabs type="card">
+          <TabItem label="Tab 1">{DescriptionEle}</TabItem>
+          <TabItem label="Tab 2">{DescriptionBrave}</TabItem>
+          <TabItem label="Tab 3">{DescriptionMoon}</TabItem>
+        </Tabs>
+      </Card>
+      <Card title="默认选中" style={cardCss} shadow>
+        <Tabs type="line" defaultIndex={1}>
+          <TabItem label="Tab 1">{DescriptionEle}</TabItem>
+          <TabItem label="Tab 2">{DescriptionBrave}</TabItem>
+          <TabItem label="Tab 3">{DescriptionMoon}</TabItem>
+        </Tabs>
+      </Card>
+      <Card title="Icon" style={cardCss} shadow>
+        <Tabs type="card">
+          <TabItem
+            label={
+              <span>
+                <Icon icon="music" style={{ marginRight: 5 }} />
+                Tab 2
+              </span>
+            }
+          >
+            {DescriptionEle}
+          </TabItem>
+          <TabItem label="Tab 2">{DescriptionBrave}</TabItem>
+          <TabItem label="Tab 3">{DescriptionMoon}</TabItem>
+        </Tabs>
+      </Card>
+    </div>
+  );
+};
 
 export default {
   component: Tabs,
-  title: 'Tabs',
+  title: "Tabs 标签页",
   parameters: {
     docs: {
       page: TabsDoc,
       source: {
-        type: 'code'
-      }
+        type: "code",
+      },
     },
-    controls: { 
+    controls: {
       include: [],
-      hideNoControlsWarning: true 
-    }
-  }
+      hideNoControlsWarning: true,
+    },
+  },
 } as Meta;
 
-const _default: Story<TabsProps> = (args) => <BaseTabs {...args} />;
+const _default: Story<TabsProps> = () => <BaseTabs />;
 
-export const LineType = _default.bind({});
+export const Primary = _default.bind({});
 
-LineType.args = {
+Primary.args = {
   defaultIndex: 0,
-  type: 'line',
-}
-
-
-export const CardType = _default.bind({});
-
-CardType.args = {
-  defaultIndex: 1,
-  type: 'card'
-}
-
-const _withIcon: Story<TabsProps> = (args) => <IconTabs {...args} />
-export const WithIcon = _withIcon.bind({});
-
-WithIcon.args = {
-  ...LineType.args,
-  type: 'card'
-}
+  type: "line",
+};
