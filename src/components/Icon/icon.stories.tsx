@@ -66,7 +66,7 @@ const BaseIcon = (props: IconProps) => {
 
 export default {
   Component: Icon,
-  title: "Icon",
+  title: "Icon 图标",
   argTypes: {
     theme: {
       options: [

@@ -18,7 +18,7 @@ const BaseInputDatePicker = () => {
 
 export default {
   component: InputDatePicker,
-  title: "DatePicker",
+  title: "DatePicker 日期选择器",
   argTypes: {
     defaultValue: {
       // options: [],

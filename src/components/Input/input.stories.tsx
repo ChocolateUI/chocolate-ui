@@ -43,7 +43,7 @@ const BaseInput = () => {
 
 export default {
   component: Input,
-  title: "Input",
+  title: "Input 输入框",
   parameters: {
     docs: {
       page: InputDoc,
