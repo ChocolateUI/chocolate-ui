@@ -20,7 +20,7 @@ export interface ProgressProps {
   /**
    * 自定义样式
    */
-  styles?: React.CSSProperties,
+  style?: React.CSSProperties,
   /**
    * 主题
    */
@@ -32,11 +32,11 @@ export const Progress: FC<ProgressProps> = (props) => {
     percent,
     strokeHeight,
     showText,
-    styles,
+    style,
     theme,
   } = props;
   return (
-    <div className="chocolate-progress" style={styles}>
+    <div className="chocolate-progress" style={style}>
       <div className={sc("bar-outer")} style={{ height: `${strokeHeight}px` }}>
         <div
           className={`${sc("bar-inner")} color-${theme}`}
@@ -54,7 +54,6 @@ Progress.defaultProps = {
   showText: true,
   theme: "primary",
   percent: 0,
-  styles: {}
 }
 
 export default Progress;

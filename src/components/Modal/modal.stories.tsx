@@ -5,27 +5,6 @@ import Button from "../Button";
 import ModalDoc from "./modal-doc.mdx";
 import Card from "../Card/card";
 
-const BaseModal2 = (props: ModalProps) => {
-  const [visible2, setVisible2] = useState(false);
-  const [visible3, setVisible3] = useState(false);
-  const [visible4, setVisible4] = useState(false);
-  const [visible5, setVisible5] = useState(false);
-  const [visible6, setVisible6] = useState(false);
-  const [visible7, setVisible7] = useState(false);
-  const [visible8, setVisible8] = useState(false);
-  const [visible9, setVisible9] = useState(false);
-
-  return (
-    <>
-      <div style={{ marginTop: 20 }}></div>
-      <div style={{ marginTop: 20 }}></div>
-
-      <div style={{ marginTop: 20 }}></div>
-      <div style={{ marginTop: 20 }}></div>
-    </>
-  );
-};
-
 const BaseModal = () => {
   const commonCss = { fontSize: 13, marginBottom: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
