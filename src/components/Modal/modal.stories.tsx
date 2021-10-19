@@ -3,9 +3,9 @@ import { Story, Meta } from "@storybook/react";
 import Modal, { ModalProps } from "./modal";
 import Button from "../Button";
 import ModalDoc from "./modal-doc.mdx";
+import Card from "../Card/card";
 
-const BaseModal = (props: ModalProps) => {
-  const [visible, setVisible] = useState(false);
+const BaseModal2 = (props: ModalProps) => {
   const [visible2, setVisible2] = useState(false);
   const [visible3, setVisible3] = useState(false);
   const [visible4, setVisible4] = useState(false);
@@ -17,198 +17,171 @@ const BaseModal = (props: ModalProps) => {
 
   return (
     <>
-      <div>
+      <div style={{ marginTop: 20 }}></div>
+      <div style={{ marginTop: 20 }}></div>
+
+      <div style={{ marginTop: 20 }}></div>
+      <div style={{ marginTop: 20 }}></div>
+    </>
+  );
+};
+
+const BaseModal = () => {
+  const commonCss = { fontSize: 13, marginBottom: 20 };
+  const cardCss = { margin: "20px 20px 0 0" };
+  const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
+  const [greyBg, setGreyBg] = useState(false);
+  const [visible3, setVisible3] = useState(false);
+  const [visible4, setVisible4] = useState(false);
+  const [closed, setClosed] = useState(false);
+
+  const [visible5, setVisible5] = useState(false);
+  const [visible6, setVisible6] = useState(false);
+  const [visible7, setVisible7] = useState(false);
+  const [visible8, setVisible8] = useState(false);
+  const [visible9, setVisible9] = useState(false);
+  return (
+    <div style={{ display: "flex", width: 888, flexWrap: "wrap" }}>
+      <Card title="蒙层" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible}
-          showMask={false}
+          showMask={greyBg}
+          onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
-          footer={
-            <>
-              <Button
-                btnType="default"
-                size="sm"
-                onClick={() => setVisible(false)}
-              >
-                取消
-              </Button>
-              <Button
-                btnType="primary"
-                style={{ marginLeft: 16 }}
-                onClick={() => setVisible(false)}
-                size="sm"
-              >
-                确认
-              </Button>
-            </>
-          }
         >
           <div>确认一下</div>
           <span style={{ color: "#999999", fontSize: 12 }}>
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible(true)}>不带蒙层的模态框</Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
-        <Modal
-          title="提示"
-          visible={visible2}
-          showMask={true}
-          onCancel={() => setVisible2(false)}
-          footer={
-            <>
-              <Button
-                btnType="default"
-                size="sm"
-                onClick={() => setVisible2(false)}
-              >
-                取消
-              </Button>
-              <Button
-                btnType="primary"
-                style={{ marginLeft: 16 }}
-                onClick={() => setVisible2(false)}
-                size="sm"
-              >
-                确认
-              </Button>
-            </>
-          }
+        <div style={commonCss}>你可以选择是否展示模态框背后的蒙层</div>
+        <Button onClick={() => setVisible(true)}>没有蒙层</Button>
+        <Button
+          btnType="primary"
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            setVisible(true);
+            setGreyBg(true);
+          }}
         >
-          <div>确认一下</div>
-          <span style={{ color: "#999999", fontSize: 12 }}>
-            是否要关闭模态框？
-          </span>
-        </Modal>
-        <Button onClick={() => setVisible2(true)}>带有蒙层的模态框</Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
+          有蒙层
+        </Button>
+      </Card>
+      <Card title="关闭" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible3}
           showMask
           maskClosable={false}
+          onOk={() => setVisible3(false)}
           onCancel={() => setVisible3(false)}
-          footer={
-            <>
-              <Button
-                btnType="default"
-                size="sm"
-                onClick={() => setVisible3(false)}
-              >
-                取消
-              </Button>
-              <Button
-                btnType="primary"
-                style={{ marginLeft: 16 }}
-                onClick={() => setVisible3(false)}
-                size="sm"
-              >
-                确认
-              </Button>
-            </>
-          }
         >
           <div>确认一下</div>
           <span style={{ color: "#999999", fontSize: 12 }}>
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible3(true)}>
-          蒙层点击不会关闭模态框
+        <div style={commonCss}>你可以点击蒙层关闭模态框</div>
+        <Button btnType="primary" onClick={() => setVisible3(true)}>
+          show
         </Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
+      </Card>
+      <Card title="关闭按钮" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible4}
           showMask
-          closable={false}
+          closable={closed}
           onCancel={() => setVisible4(false)}
-          footer={
-            <>
-              <Button
-                btnType="default"
-                size="sm"
-                onClick={() => setVisible4(false)}
-              >
-                取消
-              </Button>
-              <Button
-                btnType="primary"
-                style={{ marginLeft: 16 }}
-                onClick={() => setVisible4(false)}
-                size="sm"
-              >
-                确认
-              </Button>
-            </>
-          }
+          onOk={() => setVisible4(false)}
         >
           <div>确认一下</div>
           <span style={{ color: "#999999", fontSize: 12 }}>
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible4(true)}>不展示关闭按钮</Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
+        <div style={commonCss}>你可以控制模态框右上角的关闭按钮</div>
+        <Button
+          onClick={() => {
+            setVisible4(true);
+            setClosed(false);
+          }}
+        >
+          不展示
+        </Button>
+        <Button
+          btnType="primary"
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            setVisible4(true);
+            setClosed(true);
+          }}
+        >
+          展示
+        </Button>
+      </Card>
+      <Card title="Icon" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible5}
           showMask
           closable={false}
-          onCancel={() => setVisible5(false)}
           icon="crow"
-          footer={
-            <>
-              <Button
-                btnType="default"
-                size="sm"
-                onClick={() => setVisible5(false)}
-              >
-                取消
-              </Button>
-              <Button
-                btnType="primary"
-                style={{ marginLeft: 16 }}
-                onClick={() => setVisible5(false)}
-                size="sm"
-              >
-                确认
-              </Button>
-            </>
-          }
+          onCancel={() => setVisible5(false)}
+          onOk={() => setVisible5(false)}
         >
           <div>确认一下</div>
           <span style={{ color: "#999999", fontSize: 12 }}>
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible5(true)}>有图标的</Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
+        <div style={commonCss}>在 Title 上设置喜欢的 Icon 图标</div>
+        <Button btnType="primary" onClick={() => setVisible5(true)}>
+          有图标的
+        </Button>
+      </Card>
+      <Card title="Icon 主题" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible6}
           showMask
           onCancel={() => setVisible6(false)}
+          onOk={() => setVisible6(false)}
           icon="crow"
           theme="primary"
+        >
+          <div>确认一下</div>
+          <span style={{ color: "#999999", fontSize: 12 }}>
+            是否要关闭模态框？
+          </span>
+        </Modal>
+        <div style={commonCss}>可以在 Title 上为 Icon 图标设置喜欢的主题 </div>
+        <Button btnType="primary" onClick={() => setVisible6(true)}>
+          设置图标主题
+        </Button>
+      </Card>
+
+      <Card title="自定义 Footer" style={cardCss} shadow>
+        <Modal
+          title="提示"
+          visible={visible7}
+          maskClosable={false}
+          onCancel={() => setVisible7(false)}
           footer={
             <>
               <Button
                 btnType="default"
                 size="sm"
-                onClick={() => setVisible6(false)}
+                onClick={() => setVisible7(false)}
               >
                 取消
               </Button>
               <Button
                 btnType="primary"
                 style={{ marginLeft: 16 }}
-                onClick={() => setVisible6(false)}
+                onClick={() => setVisible7(false)}
                 size="sm"
               >
                 确认
@@ -221,25 +194,15 @@ const BaseModal = (props: ModalProps) => {
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible6(true)}>设置图标主题</Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
-        <Modal
-          title="提示"
-          visible={visible7}
-          maskClosable={false}
-          onOk={() => setVisible7(false)}
-          onCancel={() => setVisible7(false)}
-        >
-          <div>确认一下</div>
-          <span style={{ color: "#999999", fontSize: 12 }}>
-            是否要关闭模态框？
-          </span>
-        </Modal>
-        <Button onClick={() => setVisible7(true)}>默认 footer </Button>
-      </div>
+        <div style={commonCss}>
+          当需要当默认 Footer 不满足需要的时候，你可以自己设计 Footer
+        </div>
+        <Button btnType="primary" onClick={() => setVisible7(true)}>
+          自定义 Footer
+        </Button>
+      </Card>
 
-      <div style={{ marginTop: 20 }}>
+      <Card title="自定义馈按钮文案" style={cardCss} shadow>
         <Modal
           title="确认提示"
           visible={visible8}
@@ -254,31 +217,49 @@ const BaseModal = (props: ModalProps) => {
             是否要关闭模态框？
           </span>
         </Modal>
-        <Button onClick={() => setVisible8(true)}>
-          设置默认 footer 按钮文案{" "}
+        <div style={commonCss}>在默认 Footer 中，设置反馈按钮的文案</div>
+        <Button btnType="primary" onClick={() => setVisible8(true)}>
+          show
         </Button>
-      </div>
-      <div style={{ marginTop: 20 }}>
+      </Card>
+      <Card title="模态框宽度" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible9}
           maskClosable={false}
           onOk={() => setVisible9(false)}
           onCancel={() => setVisible9(false)}
-          okText="好的"
-          cancelText="我拒绝"
           width={555}
           content="确认一下"
         />
-        <Button onClick={() => setVisible9(true)}>单独设置宽度</Button>
-      </div>
-    </>
+        <div style={commonCss}>单独设置模态框宽度</div>
+        <Button btnType="primary" onClick={() => setVisible9(true)}>
+          show
+        </Button>
+      </Card>
+      <Card title="居中展示" style={cardCss} shadow>
+        <Modal
+          title="提示"
+          visible={visible2}
+          maskClosable={false}
+          centered
+          onOk={() => setVisible2(false)}
+          onCancel={() => setVisible2(false)}
+          width={555}
+          content="确认一下"
+        />
+        <div style={commonCss}>你可以让模态框居中展示</div>
+        <Button btnType="primary" onClick={() => setVisible2(true)}>
+          居中
+        </Button>
+      </Card>
+    </div>
   );
 };
 
 export default {
   component: Modal,
-  title: "Modal",
+  title: "Modal 模态框",
   parameters: {
     docs: {
       page: ModalDoc,
@@ -289,7 +270,7 @@ export default {
   },
 } as Meta;
 
-const _default: Story<ModalProps> = (args) => <BaseModal {...args} />;
+const _default: Story<ModalProps> = () => <BaseModal />;
 
 // 默认
 export const Default = _default.bind({});
