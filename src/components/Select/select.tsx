@@ -14,6 +14,7 @@ export interface SelectProps {
     children?: React.ReactNode;
     style?: React.CSSProperties;
     defaultValue?: string;
+    placeholder?: string;
 }
 
 interface ISelectContext {
@@ -32,6 +33,7 @@ export const Select: React.FC<SelectProps> = (props) => {
         onChange,
         style,
         defaultValue,
+        placeholder,
     } = props
     const [showOption, setShowOption] = useState(false)
     const [inputValue, setInputValue] = useState(defaultValue)
@@ -77,6 +79,7 @@ export const Select: React.FC<SelectProps> = (props) => {
                     onChange={onChange}
                     icon='angle-down'
                     disabled={disabled}
+                    placeholder={placeholder}
                     // readOnly={!disabled}
                     onClick={() => setShowOption(true)}
                     value={inputValue}

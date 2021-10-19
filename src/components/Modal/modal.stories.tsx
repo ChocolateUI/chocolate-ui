@@ -36,7 +36,14 @@ const BaseModal = () => {
           </span>
         </Modal>
         <div style={commonCss}>你可以选择是否展示模态框背后的蒙层</div>
-        <Button onClick={() => setVisible(true)}>没有蒙层</Button>
+        <Button
+          onClick={() => {
+            setVisible(true);
+            setGreyBg(false);
+          }}
+        >
+          没有蒙层
+        </Button>
         <Button
           btnType="primary"
           style={{ marginLeft: 20 }}
@@ -48,12 +55,12 @@ const BaseModal = () => {
           有蒙层
         </Button>
       </Card>
-      <Card title="关闭" style={cardCss} shadow>
+      <Card title="蒙层关闭" style={cardCss} shadow>
         <Modal
           title="提示"
           visible={visible3}
           showMask
-          maskClosable={false}
+          maskClosable={true}
           onOk={() => setVisible3(false)}
           onCancel={() => setVisible3(false)}
         >
@@ -151,19 +158,19 @@ const BaseModal = () => {
           footer={
             <>
               <Button
-                btnType="default"
+                btnType="danger"
                 size="sm"
                 onClick={() => setVisible7(false)}
               >
-                取消
+                cancel
               </Button>
               <Button
-                btnType="primary"
+                btnType="default"
                 style={{ marginLeft: 16 }}
                 onClick={() => setVisible7(false)}
                 size="sm"
               >
-                确认
+                ok
               </Button>
             </>
           }
@@ -252,6 +259,6 @@ export default {
 const _default: Story<ModalProps> = () => <BaseModal />;
 
 // 默认
-export const Default = _default.bind({});
+export const Primary = _default.bind({});
 
-Default.args = {};
+Primary.args = {};

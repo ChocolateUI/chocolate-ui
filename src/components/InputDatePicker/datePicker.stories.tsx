@@ -8,7 +8,7 @@ import Card from "../Card/card";
 const BaseInputDatePicker = () => {
   const cardCss = { margin: "20px 20px 0 0" };
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 450 }}>
       <Card title="基本使用" style={cardCss}>
         <InputDatePicker onChange={() => actions("onChange")} />
       </Card>
@@ -42,4 +42,4 @@ export default {
 const _default: Story = () => <BaseInputDatePicker />;
 
 // 默认
-export const Default = _default.bind({});
+export const Primary = _default.bind({});

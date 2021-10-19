@@ -1,5 +1,5 @@
 <!-- Tree Doc -->
-## tree 树
+## tree 树形控件
 树组件 `Tree`，提供数据的多层级展示，支持多级父节点，支持 `checkbox` ，支持拖拽。
 
 
@@ -29,30 +29,3 @@ import dedent from 'ts-dedent';
 <ArgsTable of={Tree} />
 
 export const Template = (args) => <Tree {...args} />
-
-
-### 组件展示
-
-##### 基础
-
-<Story name="default-value" id="tree--primary">
-{Template.bind({})}
-</Story>
-
-##### 有默认值
-
-<Story name="default-value" id="tree--default-value">
-{Template.bind({})}
-</Story>
-
-##### 多个父节点
-
-<Story name="multiple-parent" id="tree--multiple-parent">
-{Template.bind({})}
-</Story>
-
-##### 可拖拽
-
-<Story name="draggable" id="tree--draggable">
-{Template.bind({})}
-</Story>

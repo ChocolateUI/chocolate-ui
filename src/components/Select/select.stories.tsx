@@ -10,7 +10,7 @@ const BaseSelect = () => {
   return (
     <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
       <Card title="基础使用" style={cardCss} shadow>
-        <Select style={{ width: 300 }}>
+        <Select style={{ width: 300 }} placeholder="请选择">
           <Option value="苹果 🍎 "> 苹果 🍎 </Option>
           <Option value="橘子 🍊">橘子 🍊</Option>
           <Option value=" 葡萄 🍇"> 葡萄 🍇 </Option>
@@ -18,7 +18,11 @@ const BaseSelect = () => {
         </Select>
       </Card>
       <Card title="默认值" style={cardCss} shadow>
-        <Select style={{ width: 300 }} defaultValue="橘子 🍊">
+        <Select
+          style={{ width: 300 }}
+          defaultValue="橘子 🍊"
+          placeholder="请选择"
+        >
           <Option value="苹果 🍎"> 苹果 🍎 </Option>
           <Option value="橘子 🍊">橘子 🍊</Option>
           <Option value="葡萄 🍇"> 葡萄 🍇 </Option>
@@ -26,7 +30,7 @@ const BaseSelect = () => {
         </Select>
       </Card>
       <Card title="不可选择" style={cardCss} shadow>
-        <Select style={{ width: 300 }}>
+        <Select style={{ width: 300 }} placeholder="请选择">
           <Option value="苹果 🍎"> 苹果 🍎 </Option>
           <Option value="橘子 🍊">橘子 🍊</Option>
           <Option value="葡萄 🍇" disabled>

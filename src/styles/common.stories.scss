@@ -1,0 +1,85 @@
+// .container {
+//   column-count: 2;
+//   column-width: 500px;
+//   column-gap: 0;
+
+//   .item {
+//     margin-bottom: 0;
+//     /* 防止多列布局，分页媒体和多区域上下文中的意外中断 */
+//     break-inside: avoid;
+//   }
+// }
+
+.container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, auto);
+
+  grid-auto-rows: auto;
+  width: 100%;
+
+  &.item:nth-of-type(2n) {
+    grid-row: auto;
+  }
+
+  &.item:nth-of-type(2n+1) {
+    grid-row: auto;
+  }
+}
+
+// .container {
+//   display: flex;
+//   flex-flow: column wrap;
+//   width: 1024px;
+//   height: 1200px;
+
+//   .column {
+//     display: flex;
+//     flex-direction: column;
+//   }
+
+//   .item {
+//     break-inside: avoid;
+//     box-sizing: border-box;
+//     padding: 10px;
+//   }
+// }
+// .container {
+//   display: flex;
+//   flex-flow: column wrap;
+//   align-content: space-between;
+//   /* 容器必须有固定高度
+//    * 且高度大于最高的列高 */
+//   height: 1660px;
+
+//   /* 非必须 */
+//   // background-color: #f7f7f7;
+//   border-radius: 3px;
+//   padding: 20px;
+//   // width: 100%;
+//   // margin: 40px auto;
+//   counter-reset: items;
+// }
+
+// .item {
+//   width: 50%;
+//   /* 非必须 */
+//   position: relative;
+//   margin-bottom: 2%;
+//   border-radius: 3px;
+//   box-sizing: border-box;
+// }
+
+// /* 将内容块重排为3列 */
+// .item:nth-child(3n+1) { order: 1; }
+// .item:nth-child(3n+2) { order: 2; }
+// .item:nth-child(3n)   { order: 3; }
+
+// /* 强制换列 */
+// .container::before,
+// .container::after {
+//   content: "";
+//   flex-basis: 100%;
+//   width: 0;
+//   order: 2;
+// }

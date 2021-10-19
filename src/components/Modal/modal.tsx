@@ -193,7 +193,7 @@ export const Modal: FC<ModalProps> = (props) => {
           <section className={`${prefixCls}-header`}>
             <div className={`${prefixCls}-title`}>
               {title}
-              {icon ? <Icon icon={icon} theme={theme} /> : null}
+              {icon ? <Icon icon={icon} theme={theme} style={{ marginLeft: 5 }}/> : null}
             </div>
             {closable && (
               <img

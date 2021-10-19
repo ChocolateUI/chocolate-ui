@@ -17,6 +17,7 @@
     box-shadow: $btn-box-shadow;
     cursor: pointer;
     transition: $btn-transition;
+    outline: none;
 
     &.disables,
     &[disabled] {

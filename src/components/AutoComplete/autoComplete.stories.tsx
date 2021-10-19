@@ -5,6 +5,8 @@ import { DataSourceType } from "./autoComplete";
 import { lakersWithNumber } from "./dataConfig";
 import AutoCompleteDoc from "./auto-complete-doc.mdx";
 import Card from "../Card/card";
+import "../../styles/common.stories";
+
 interface GithubUserProps {
   login: string;
   url: string;

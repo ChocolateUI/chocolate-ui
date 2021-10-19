@@ -10,20 +10,20 @@ const BaseInput = () => {
   return (
     <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
       <Card title="基本使用" style={cardCss} shadow>
-        <Input placeholder="Basic Usage" style={commonCss} />
+        <Input placeholder="请输入" style={commonCss} />
       </Card>
       <Card title="不同大小" style={cardCss} shadow>
-        <Input size="sm" placeholder="Basic Usage" style={commonCss} />
-        <Input size="lg" placeholder="Basic Usage" style={commonCss} />
+        <Input size="sm" placeholder="请输入" style={commonCss} />
+        <Input size="lg" placeholder="请输入" style={commonCss} />
       </Card>
       <Card title="前置/后置标签" style={cardCss} shadow>
-        <Input prepend="https://" placeholder="Basic Usage" style={commonCss} />
-        <Input append=".com" placeholder="Basic Usage" style={commonCss} />
+        <Input prepend="https://" placeholder="请输入" style={commonCss} />
+        <Input append=".com" placeholder="请输入" style={commonCss} />
       </Card>
       <Card title="有默认值" style={cardCss} shadow>
         <Input
           size="sm"
-          placeholder="Basic Usage"
+          placeholder="请输入"
           defaultValue="defaultValue"
           style={commonCss}
         />
@@ -32,7 +32,7 @@ const BaseInput = () => {
         <Input
           disabled
           size="sm"
-          placeholder="Basic Usage"
+          placeholder="请输入"
           defaultValue="defaultValue"
           style={commonCss}
         />

@@ -10,7 +10,7 @@ const BaseProgress = () => {
   const cardCss = { margin: "20px 20px 0 0", width: 500 };
   return (
     <div style={{ display: "flex", width: 1050, flexWrap: "wrap" }}>
-      <Card title="主题" style={cardCss} shadow>
+      <Card title="八种主题" style={cardCss} shadow>
         <Progress
           percent={30}
           theme="danger"
@@ -60,7 +60,7 @@ const BaseProgress = () => {
           showText={false}
         />
       </Card>
-      <Card title="展示描述" style={cardCss} shadow>
+      <Card title="展示进度值描述" style={cardCss} shadow>
         <Progress percent={30} theme="danger" style={commonCss} />
         <Progress percent={40} theme="dark" style={commonCss} />
         <Progress percent={50} theme="info" style={commonCss} />
