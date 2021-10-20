@@ -10,7 +10,7 @@ const BaseCheckbox = (props: CheckboxProps) => {
   const cardCss = { margin: "20px 20px 0 0" };
   return (
     <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
-      <Card title="基本使用" style={cardCss} shadow>
+      <Card title="基础使用" style={cardCss} shadow>
         <Checkbox style={commonCss}>
           西瓜🍉
         </Checkbox>

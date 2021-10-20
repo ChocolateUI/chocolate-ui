@@ -105,14 +105,14 @@ const BaseButton = () => {
         </Card>
       </div>
       <div className="item">
-        <Card title="Icon 按钮" style={cardCss} shadow>
-          <Button icon="check" btnType="default" style={commonCss}>
+        <Card title="不可用" style={cardCss} shadow>
+          <Button btnType="default" disabled style={commonCss}>
             Default
           </Button>
-          <Button icon="battery-half" btnType="primary" style={commonCss}>
+          <Button btnType="primary" disabled style={commonCss}>
             Primary
           </Button>
-          <Button icon="bolt" btnType="danger" style={commonCss}>
+          <Button btnType="danger" disabled style={commonCss}>
             Danger
           </Button>
           <div
@@ -126,11 +126,11 @@ const BaseButton = () => {
               marginRight: 20,
             }}
           >
-            <Button icon="caret-square-right" btnType="ghost">
+            <Button btnType="ghost" disabled>
               Ghost
             </Button>
           </div>
-          <Button btnType="link" style={commonCss}>
+          <Button btnType="link" style={commonCss} disabled>
             Link
           </Button>
         </Card>

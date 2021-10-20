@@ -3,40 +3,54 @@ import { Story, Meta } from "@storybook/react";
 import Input, { InputProps } from "./input";
 import InputDoc from "./input-doc.mdx";
 import Card from "../Card/card";
+import "../../styles/common.stories";
 
 const BaseInput = () => {
   const commonCss = { width: 300, marginBottom: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
   return (
-    <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
-      <Card title="基本使用" style={cardCss} shadow>
-        <Input placeholder="请输入" style={commonCss} />
-      </Card>
-      <Card title="不同大小" style={cardCss} shadow>
-        <Input size="sm" placeholder="请输入" style={commonCss} />
-        <Input size="lg" placeholder="请输入" style={commonCss} />
-      </Card>
-      <Card title="前置/后置标签" style={cardCss} shadow>
-        <Input prepend="https://" placeholder="请输入" style={commonCss} />
-        <Input append=".com" placeholder="请输入" style={commonCss} />
-      </Card>
-      <Card title="有默认值" style={cardCss} shadow>
-        <Input
-          size="sm"
-          placeholder="请输入"
-          defaultValue="defaultValue"
-          style={commonCss}
-        />
-      </Card>
-      <Card title="不可用" style={cardCss} shadow>
-        <Input
-          disabled
-          size="sm"
-          placeholder="请输入"
-          defaultValue="defaultValue"
-          style={commonCss}
-        />
-      </Card>
+    <div className="container">
+      <div className="item">
+        <Card title="基础使用" style={cardCss} shadow>
+          <Input placeholder="请输入..." style={commonCss} />
+        </Card>
+      </div>
+
+      <div className="item">
+        <Card title="不同大小" style={cardCss} shadow>
+          <Input size="sm" placeholder="请输入..." style={commonCss} />
+          <Input size="lg" placeholder="请输入..." style={commonCss} />
+        </Card>
+      </div>
+
+      <div className="item">
+        <Card title="前置/后置标签" style={cardCss} shadow>
+          <Input prepend="https://" placeholder="请输入..." style={commonCss} />
+          <Input append=".com" placeholder="请输入..." style={commonCss} />
+        </Card>
+      </div>
+
+      <div className="item">
+        <Card title="有默认值" style={cardCss} shadow>
+          <Input
+            size="sm"
+            placeholder="请输入..."
+            defaultValue="defaultValue"
+            style={commonCss}
+          />
+        </Card>
+      </div>
+
+      <div className="item">
+        <Card title="不可用" style={cardCss} shadow>
+          <Input
+            disabled
+            size="sm"
+            placeholder="输入禁用"
+            style={commonCss}
+          />
+        </Card>
+      </div>
     </div>
   );
 };

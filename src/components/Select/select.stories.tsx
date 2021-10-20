@@ -39,6 +39,16 @@ const BaseSelect = () => {
           <Option value="香蕉 🍌"> 香蕉 🍌 </Option>
         </Select>
       </Card>
+      <Card title="不可用" style={cardCss} shadow>
+        <Select style={{ width: 300 }} placeholder="请选择" disabled>
+          <Option value="苹果 🍎"> 苹果 🍎 </Option>
+          <Option value="橘子 🍊">橘子 🍊</Option>
+          <Option value="葡萄 🍇" disabled>
+            葡萄 🍇
+          </Option>
+          <Option value="香蕉 🍌"> 香蕉 🍌 </Option>
+        </Select>
+      </Card>
     </div>
   );
 };

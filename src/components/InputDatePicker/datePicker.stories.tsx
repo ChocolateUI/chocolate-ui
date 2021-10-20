@@ -9,7 +9,7 @@ const BaseInputDatePicker = () => {
   const cardCss = { margin: "20px 20px 0 0" };
   return (
     <div style={{ width: 450 }}>
-      <Card title="基本使用" style={cardCss}>
+      <Card title="基础使用" style={cardCss}>
         <InputDatePicker onChange={() => actions("onChange")} />
       </Card>
     </div>

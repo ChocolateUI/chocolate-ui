@@ -17,7 +17,7 @@ const BaseTabs = () => {
   return (
     <div className="container">
       <div className="item">
-        <Card title="基本使用" style={cardCss} shadow>
+        <Card title="基础使用" style={cardCss} shadow>
           <Tabs>
             <TabItem label="Tab 1">{DescriptionEle}</TabItem>
             <TabItem label="Tab 2">{DescriptionBrave}</TabItem>

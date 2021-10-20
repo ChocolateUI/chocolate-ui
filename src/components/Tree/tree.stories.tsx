@@ -17,9 +17,8 @@ const BaseTree = (props: TreeProps) => {
   } = props;
   let title = "";
   if (defaultCheckedKeys?.length !== undefined) {
-    console.log("draggable: ", draggable);
     if (defaultCheckedKeys.length === 0 && !draggable) {
-      title = "基本使用";
+      title = "基础使用";
     }
     if (defaultCheckedKeys.length === 2) {
       title = "多级父节点";

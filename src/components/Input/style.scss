@@ -45,8 +45,9 @@
 
         &:disabled {
             cursor: not-allowed;
-            background-color: rgba($input-disabled-bg, .65);
+            background-color: rgba($input-disabled-bg, .25);
             border-color: $input-disabled-border-color;
+            color: $g08;
             opacity: 1;
         }
 
