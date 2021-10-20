@@ -27,6 +27,7 @@ const BaseModal = () => {
           title="提示"
           visible={visible}
           showMask={greyBg}
+          maskClosable={false}
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
         >
@@ -38,8 +39,8 @@ const BaseModal = () => {
         <div style={commonCss}>你可以选择是否展示模态框背后的蒙层</div>
         <Button
           onClick={() => {
-            setVisible(true);
             setGreyBg(false);
+            setVisible(true);
           }}
         >
           没有蒙层
@@ -48,8 +49,8 @@ const BaseModal = () => {
           btnType="primary"
           style={{ marginLeft: 20 }}
           onClick={() => {
-            setVisible(true);
             setGreyBg(true);
+            setVisible(true);
           }}
         >
           有蒙层
@@ -80,6 +81,7 @@ const BaseModal = () => {
           visible={visible4}
           showMask
           closable={closed}
+          maskClosable={false}
           onCancel={() => setVisible4(false)}
           onOk={() => setVisible4(false)}
         >
@@ -114,6 +116,7 @@ const BaseModal = () => {
           visible={visible5}
           showMask
           closable={false}
+          maskClosable={false}
           icon="crow"
           onCancel={() => setVisible5(false)}
           onOk={() => setVisible5(false)}
@@ -133,6 +136,7 @@ const BaseModal = () => {
           title="提示"
           visible={visible6}
           showMask
+          maskClosable={false}
           onCancel={() => setVisible6(false)}
           onOk={() => setVisible6(false)}
           icon="crow"
