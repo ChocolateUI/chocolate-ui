@@ -3,45 +3,50 @@
 @import "../../styles/reboot";
 
 .chocolate-select {
-    position: relative;
+  position: relative;
+  cursor: pointer;
 
-    &-option-list {
-        background-color: $white;
-        border: $menu-border-width solid $menu-border-color;
-        box-shadow: $submenu-box-shadow;
-        list-style: none;
-        position: absolute;
-        z-index: 100;
-        left: 0;
-        top: calc(100% + 8px);
-        width: 100%;
-        max-height: $select-option-list-height;
-        overflow: scroll;
-        padding-left: 0;
+  .chocolate-input-inner {
+    cursor: pointer;
+  }
 
-        &-item {
-            line-height: $line-height-lg;
-            height: $line-height-lg;
-            color: rgba($black, .75);
-            cursor: pointer;
-            transition: $menu-transition;
-            padding: $input-padding-y $input-padding-x;
-            font-size: $font-size-base;
-            
-            &.is-disabled{
-              cursor: not-allowed;
-              border-color: $input-disabled-border-color;
-              color: $input-disabled-bg;
-            }
+  &-option-list {
+    background-color: $white;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+    list-style: none;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: calc(100% + 8px);
+    width: 100%;
+    max-height: $select-option-list-height;
+    overflow: scroll;
+    padding-left: 0;
 
-            &.is-active{
-                color: $primary;
-            }
+    &-item {
+      line-height: $line-height-lg;
+      height: $line-height-lg;
+      color: rgba($black, .75);
+      cursor: pointer;
+      transition: $menu-transition;
+      padding: $input-padding-y $input-padding-x;
+      font-size: $font-size-base;
 
-            &.is-hover {
-                color: $primary;
-                background: $g10;
-            }
-        }
+      &.is-disabled {
+        cursor: not-allowed;
+        border-color: $input-disabled-border-color;
+        color: $input-disabled-bg;
+      }
+
+      &.is-active {
+        color: $primary;
+      }
+
+      &.is-hover {
+        color: $primary;
+        background: $g10;
+      }
     }
+  }
 }

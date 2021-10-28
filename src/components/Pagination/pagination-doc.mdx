@@ -1,0 +1,33 @@
+<!-- Pagination Doc -->
+
+## Pagination 进度条
+
+分页器组件 `Pagination`。
+
+import { Story, Meta, ArgsTable, Source } from "@storybook/addon-docs/blocks";
+import { Pagination } from "./pagination";
+import dedent from "ts-dedent";
+<Meta title="Components/Pagination" component={Pagination} />;
+
+### 使用
+
+<Source
+  language="jsx"
+  code={
+    dedent`
+      <Pagination
+        style={{ marginTop: 20 }}
+        pageNo={pageNo}
+        pageSize={pageSize}
+        size={100}
+        onPageChange={(value: number) => setPageNo(value)}
+      />
+    `
+  }
+/>
+
+### 具体参数
+
+<ArgsTable of={Pagination} />
+
+export const Template = (args) => <Pagination {...args} />
