@@ -22,19 +22,19 @@ type UseStateRef = {
   ];
 };
 
-const useStateRef: UseStateRef = <S>(initialState?: S | (() => S)) => {
-  const [state, setState] = useState(initialState);
-  const ref = useRef(state);
+// const useStateRef: UseStateRef = <S>(initialState?: S | (() => S)) => {
+//   const [state, setState] = useState(initialState);
+//   const ref = useRef(state);
 
-  const dispatch: typeof setState = useCallback((setStateAction: any) => {
-    ref.current = isFunction(setStateAction)
-      ? setStateAction(ref.current)
-      : setStateAction;
+//   const dispatch: typeof setState = useCallback((setStateAction: any) => {
+//     ref.current = isFunction(setStateAction)
+//       ? setStateAction(ref.current)
+//       : setStateAction;
 
-    setState(ref.current);
-  }, []);
+//     setState(ref.current);
+//   }, []);
 
-  return [state, dispatch, ref];
-};
+//   return [state, dispatch, ref];
+// };
 
-export default useStateRef;
+// export default useStateRef;

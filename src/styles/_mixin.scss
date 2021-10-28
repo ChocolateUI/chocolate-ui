@@ -117,16 +117,54 @@
 }
 
 @mixin keyframes($animationName) {
-	@-webkit-keyframes #{$animationName} {
-			@content;
-	}
-	@-moz-keyframes #{$animationName} {
-			@content;
-	}
-	@-o-keyframes #{$animationName} {
-			@content;
-	}
-	@keyframes #{$animationName} {
-			@content;
-	}
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+
+@include keyframes(chocolate-fade-out) {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+}
+
+@include keyframes(chocolate-fade-in) {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@include keyframes (chocolate-rotate) {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
 }

@@ -180,27 +180,3 @@
     transform: translate3d(0, 0, 0);
   }
 }
-
-@include keyframes(chocolate-fade-out) {
-  from {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-  }
-}
-
-@include keyframes(chocolate-fade-in) {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
-  }
-}

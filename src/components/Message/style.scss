@@ -1,0 +1,47 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+@import "../../styles/reboot";
+
+.chocolate-message {
+
+  &-wrapper {
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    z-index: 9999999999;
+    overflow: hidden;
+    border-radius: $border-radius;
+    min-width: 260px;
+		height: 40px;
+    box-shadow: $box-shadow-sm;
+    border: $border-width solid $border-color;
+		background-color: $white;
+  }
+
+  &-content {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+		height: 100%;
+		width: 100%;
+    >span {
+      font-size: $font-size-sm;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-open {
+    pointer-events: auto;
+    animation: chocolate-fade-in $animate-time $animate-type forwards;
+  }
+
+  &-close {
+    pointer-events: none;
+    animation: chocolate-fade-out $animate-time $animate-type forwards;
+  }
+
+}

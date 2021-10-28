@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import clone from "../../utils/clone";
 import { scopedClass } from "../../utils/scopedClass";
-import Alert from "../Alerts/alert";
+import Message from "../Message/message";
 import { Key } from "./interface";
 import TreeNode from "./tree-node";
 import executeCheck from "./utils/execute";
@@ -103,7 +103,7 @@ export const Tree: FC<TreeProps> = (props) => {
     let arr: any = [];
     traverseDataNodes(data.current, (item) => {
       const { node, index, pos, parentPos, level, key } = item;
-      const entity: DataEntity = { node, index, pos, level};
+      const entity: DataEntity = { node, index, pos, level };
       const mergedKey = getKey(key, pos);
       posEntities.current[pos] = entity;
       keyEntities.current[mergedKey] = entity;
@@ -115,7 +115,7 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const upDataSource = useCallback(() => {
     setUpdateData(!updateData);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataNode]);
 
   useEffect(() => {
@@ -132,7 +132,7 @@ export const Tree: FC<TreeProps> = (props) => {
         checkedKeyEntity = parseCheckedKeys(checkedKeysState) || {};
         firstRender.current = false;
       }
-      setCheckedKeysState(checkedKeyEntity?.checkedKeys || [])
+      setCheckedKeysState(checkedKeyEntity?.checkedKeys || []);
     }
 
     if (checkedKeyEntity) {
@@ -169,7 +169,7 @@ export const Tree: FC<TreeProps> = (props) => {
 
   const onMove = (toNode: TreeSource) => {
     _toNode.current = clone(toNode);
-    let fromNodeIn = keyEntities.current[fromNode?.key || ''];
+    let fromNodeIn = keyEntities.current[fromNode?.key || ""];
     let toNodeIn = keyEntities.current[toNode.key];
     let fromChildren = fromNodeIn?.parent?.node.children,
       toChildren = toNodeIn?.parent?.node.children;
@@ -181,7 +181,7 @@ export const Tree: FC<TreeProps> = (props) => {
     );
 
     if (fromNodeIn?.parent?.node.key === toNodeIn.node.key) {
-      setShow(true);
+      Message.info({ content: "亲，不能覆盖父节点哈" });
       return;
     }
     if (fromIndex !== undefined && toIndex !== undefined) {
@@ -243,15 +243,6 @@ export const Tree: FC<TreeProps> = (props) => {
           })}
         </div>
       </div>
-      {show && (
-        <div style={{ position: "relative", top: 0 }}>
-          <Alert
-            message="提示"
-            description="亲，不能覆盖父节点哦"
-            type="default"
-          />
-        </div>
-      )}
     </div>
   );
 };
@@ -259,9 +250,9 @@ export const Tree: FC<TreeProps> = (props) => {
 Tree.defaultProps = {
   treeData: [],
   checkedKeys: [],
-  defaultCheckedKeys:[],
+  defaultCheckedKeys: [],
   draggable: false,
   checkable: false,
-}
+};
 
 export default Tree;

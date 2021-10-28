@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useState } from "react";
 import { MouseEvent } from "react";
 import classNames from "classnames";
 import Select from "../Select";
@@ -36,7 +36,7 @@ export interface PaginationProps {
 }
 const prefixCls = "chocolate-pagination";
 
-export function Pagination(props: PaginationProps) {
+export const Pagination: FC<PaginationProps>=(props)=> {
   const {
     pageNo: _pageNo,
     pageSize,

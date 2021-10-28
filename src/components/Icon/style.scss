@@ -10,13 +10,18 @@ $val in $theme-colors {
 }
 
 .chocolate-icon {
-  cursor: pointer;
+
+  // cursor: pointer;
+  &-loading {
+    animation: chocolate-rotate 1s linear infinite;
+  }
 }
+
 
 .svgCls {
   svg {
-      margin-right: 10px;
-      width: 24px;
-      height: 24px;
-    }
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
 }
