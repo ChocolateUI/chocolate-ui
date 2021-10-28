@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 import Card from "../Card/card";
 import { Message, MessageProps } from "./message";
-// import Message-Doc from "./message-doc.mdx";
+import MessageDoc from "./message-doc.mdx";
 import Button from "../Button";
 import "../../styles/common.stories";
 
@@ -122,12 +122,12 @@ export default {
   component: Message,
   title: "Message 消息提示",
   parameters: {
-    // docs: {
-    //   page: PaginationDoc,
-    //   source: {
-    //     type: "code",
-    //   },
-    // },
+    docs: {
+      page: MessageDoc,
+      source: {
+        type: "code",
+      },
+    },
     controls: {
       hideNoControlsWarning: true,
     },

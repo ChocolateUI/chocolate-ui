@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 @import "../../styles/reboot";
 
-.btn {
+.chocolate-btn {
     position: relative;
     display: inline-block;
     font-weight: $btn-font-weight;
@@ -31,50 +31,58 @@
     }
 }
 
-.btn-lg {
+.chocolate-btn-lg {
     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }
 
-.btn-sm {
+.chocolate-btn-sm {
     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
 }
 
-.btn-primary {
+.chocolate-btn-primary {
     @include button-style($primary, $primary, $white)
 }
 
-.btn-danger {
+.chocolate-btn-danger {
     @include button-style($danger, $danger, $white)
 }
 
-.btn-ghost {
+.chocolate-btn-loading {
+    opacity: $btn-disabled-opacity;
+    user-select: none;
+    pointer-events: none;
+}
+
+.chocolate-btn-ghost {
     user-select: none;
     box-shadow: none;
     @include button-style($transparent, $transparent, $font-color, $transparent, $primary, $primary)
 }
 
-.btn-default {
+.chocolate-btn-default {
     @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
 }
 
-.btn-link {
+.chocolate-btn-link {
     font-weight: $font-weight-normal;
     color: $btn-link-color;
     text-decoration: $link-decoration;
     box-shadow: none;
+
     &:hover {
-      color: $btn-link-hover-color;
-      text-decoration: $link-hover-decoration; 
+        color: $btn-link-hover-color;
+        text-decoration: $link-hover-decoration;
     }
+
     &:focus,
     &.focus {
-      text-decoration: $link-hover-decoration;
-      box-shadow: none;
+        text-decoration: $link-hover-decoration;
+        box-shadow: none;
     }
+
     &:disabled,
     &.disabled {
-      color: $btn-link-disabled-color;
-      pointer-events: none;
+        color: $btn-link-disabled-color;
+        pointer-events: none;
     }
-  }
-  
+}

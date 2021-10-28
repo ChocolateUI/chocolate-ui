@@ -1,0 +1,27 @@
+<!-- Message Doc -->
+
+## Message 消息提示
+
+消息提示组件 `Message`。
+
+import { Story, Meta, ArgsTable, Source } from "@storybook/addon-docs/blocks";
+import { Message } from "./message";
+import dedent from "ts-dedent";
+<Meta title="Components/Message" component={Message} />;
+
+### 使用
+
+<Source
+  language="jsx"
+  code={
+    dedent`
+      Message.info({ content: "这是一条普通的提示" })
+    `
+  }
+/>
+
+### 具体参数
+
+<ArgsTable of={Message} />
+
+export const Template = (args) => <Message {...args} />

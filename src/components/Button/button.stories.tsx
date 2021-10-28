@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Story, Meta } from "@storybook/react";
 import Button, { BaseButtonProps } from "./button";
 import ButtonDoc from "./button-doc.mdx";
@@ -8,7 +8,7 @@ import "../../styles/common.stories";
 const BaseButton = () => {
   const commonCss = { marginBottom: 20, marginRight: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
-
+  const [loading, setLoading] = useState(false);
   return (
     <div className="container">
       <div className="item">
@@ -101,6 +101,58 @@ const BaseButton = () => {
           </div>
           <Button btnType="link" style={commonCss}>
             Link
+          </Button>
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="加载中..." style={cardCss} shadow>
+          <Button loading icon="check" btnType="default" style={commonCss}>
+            Default Loading
+          </Button>
+          <Button
+            loading
+            icon="battery-half"
+            btnType="primary"
+            style={commonCss}
+          >
+            Primary Loading
+          </Button>
+          <Button loading icon="bolt" btnType="danger" style={commonCss}>
+            Danger Loading
+          </Button>
+          <div
+            style={{
+              backgroundColor: "#e6ecf1",
+              height: 40,
+              borderRadius: 4,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 20,
+            }}
+          >
+            <Button loading icon="caret-square-right" btnType="ghost">
+              Ghost Loading
+            </Button>
+          </div>
+          <Button loading btnType="link" style={commonCss}>
+            Link Loading
+          </Button>
+          <div style={{ marginBottom: 20 }}>
+            <code>⬇️ 点击后进入加载状态，2 秒后恢复</code>
+          </div>
+          <Button
+            loading={loading}
+            btnType="primary"
+            style={commonCss}
+            onClick={() => {
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+              }, 2000);
+            }}
+          >
+            点一下
           </Button>
         </Card>
       </div>

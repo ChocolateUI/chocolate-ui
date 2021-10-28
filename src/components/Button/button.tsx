@@ -36,7 +36,13 @@ export interface BaseButtonProps {
    * 图标主题
    */
   theme?: ThemeProps;
+  /**
+   * 加载状态
+   */
+  loading?: boolean;
 }
+
+const prefixCls = "chocolate-btn";
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
@@ -61,12 +67,14 @@ export const Button: FC<ButtonProps> = (props) => {
     href,
     icon,
     theme,
+    loading,
     ...restProps
   } = props;
 
-  const classes = classNames("btn", className, {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
+  const classes = classNames(prefixCls, className, {
+    [`${prefixCls}-${btnType}`]: btnType,
+    [`${prefixCls}-${size}`]: size,
+    [`${prefixCls}-loading`]: loading,
     disabled: btnType === "link" && disabled,
   });
 
@@ -79,7 +87,9 @@ export const Button: FC<ButtonProps> = (props) => {
   } else {
     return (
       <button className={classes} disabled={disabled} {...restProps}>
-        {icon ? (
+        {loading ? (
+          <Icon icon="spinner" theme={theme} style={{ marginRight: 5 }} />
+        ) : icon ? (
           <Icon icon={icon} theme={theme} style={{ marginRight: 5 }} />
         ) : null}
         {children}

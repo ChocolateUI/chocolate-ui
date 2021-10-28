@@ -8,11 +8,20 @@ import { ThemeProps } from "../Icon/icon";
 /*
  * Message 组件
  */
-interface ShowProps {
-  content: string; // 文案内容
-  duration?: number; // 持续时间
+export interface ShowProps {
+  /**
+   * 文案内容
+   */
+  content: string;
+  /**
+   * 持续时间
+   */
+  duration?: number;
+  /**
+   * 关闭回调
+   */
   icon?: IconProp;
-  onClose?: () => void; // 关闭回调
+  onClose?: () => void;
 }
 
 export interface MessageProps {
@@ -20,7 +29,7 @@ export interface MessageProps {
   children: React.ReactChild;
   type: string;
   /**
-   * 添加图标到标题后
+   * 添加图标
    */
   icon?: IconProp;
   /**
