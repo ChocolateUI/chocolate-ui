@@ -93,7 +93,6 @@ export const Tree: FC<TreeProps> = (props) => {
   const [fromNode, setFromNodeState] = useState<TreeSource>();
   const _fromNode = useRef<TreeSource>({} as TreeSource);
   const _toNode = useRef<TreeSource>({} as TreeSource);
-  const [show, setShow] = useState(false);
   const [checkedKeysState, setCheckedKeysState] = useState(propCheckedKeys);
   const [dataNode, setDataNode] = useState<DataEntity[]>();
   const firstRender = useRef(true);

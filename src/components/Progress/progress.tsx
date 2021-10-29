@@ -1,59 +1,129 @@
-import React, { FC } from 'react';
-import { ThemeProps } from '../Icon/icon';
-import { scopedClass } from '../../utils/scopedClass'
-
-const sc = scopedClass('chocolate-progress')
+import React, { FC } from "react";
+import { ThemeProps } from "../Icon/icon";
+import { scopedClass } from "../../utils/scopedClass";
+import classNames from "classnames";
+const sc = scopedClass("chocolate-progress");
 
 export interface ProgressProps {
   /**
    * 控制进度条的进度
    */
-  percent: number,
+  percent: number;
   /**
    * 控制进度条的高度
    */
-  strokeHeight?: number,
+  strokeHeight?: number;
   /**
    * 是否展示进度条提示
    */
-  showText?: boolean,
+  showText?: boolean;
   /**
    * 自定义样式
    */
-  style?: React.CSSProperties,
+  style?: React.CSSProperties;
   /**
    * 主题
    */
-  theme?: ThemeProps,
+  theme?: ThemeProps;
+  /**
+   * 圆形进度条
+   */
+  circle?: boolean;
+  /**
+   * 最大值
+   */
+  max: number;
+  className?: string;
+  /**
+   * 单位
+   */
+  unit?: string;
+  /**
+   * 设置圆形进度条的宽度
+   */
+  width?: number;
 }
 
+const prefixCls = "chocolate-progress";
 export const Progress: FC<ProgressProps> = (props) => {
-  const {
-    percent,
-    strokeHeight,
-    showText,
-    style,
-    theme,
-  } = props;
+  const { percent, strokeHeight = 12, showText, style, theme } = props;
+  const { max, className, unit = "%", width = 0, circle } = props;
+
+  let offset = 0;
+  let radius = (width - strokeHeight) / 2;
+  let p = 2 * +radius * Math.PI;
+
+  offset = (max - percent) / max;
+  const op = offset * p;
+  const text = percent <= max ? percent : max;
+  const getStrokeDasharray = (radius: number): number => {
+    return p as number;
+  };
+
+  const cx = width / 2;
+  const cy = width / 2;
+
+  if (circle) {
+    return (
+      <div
+        className={classNames(`${prefixCls}-circle-wrapper`)}
+        style={{ ...style, width: width, height: width }}
+      >
+        <svg
+          className={classNames(className, `${prefixCls}-svg`)}
+          viewBox={`0 0 ${width} ${width}`}
+          width={width}
+          height={width}
+        >
+          <circle
+            cx={cx}
+            cy={cy}
+            r={radius}
+            strokeWidth={strokeHeight}
+            className="arc-background"
+          />
+
+          <circle
+            cx={cx}
+            cy={cy}
+            r={radius}
+            strokeWidth={strokeHeight}
+            className={`${sc("circle-color")}-${theme}`}
+            strokeDashoffset={op >= 0 ? op : 0}
+            strokeDasharray={getStrokeDasharray(radius)}
+          />
+        </svg>
+
+        {showText && (
+          <div
+            className={classNames(`${prefixCls}-circle-text`)}
+          >{`${text}${unit}`}</div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="chocolate-progress" style={style}>
       <div className={sc("bar-outer")} style={{ height: `${strokeHeight}px` }}>
         <div
           className={`${sc("bar-inner")} color-${theme}`}
-          style={{ width: `${percent}%` }}
+          style={{ width: `${text}${unit}` }}
         >
-          {showText && <span className={sc('bar-inner-text')}>{`${percent}%`}</span>}
+          {showText && (
+            <span className={sc("bar-inner-text")}>{`${text}${unit}`}</span>
+          )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Progress.defaultProps = {
-  strokeHeight: 15,
+  strokeHeight: 12,
   showText: true,
   theme: "primary",
   percent: 0,
-}
+};
 
 export default Progress;

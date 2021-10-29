@@ -1,86 +1,290 @@
-import React from "react";
+import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 import Progress, { ProgressProps } from "./progress";
 import ProgressDoc from "./progress-doc.mdx";
 import Card from "../Card/card";
+import Button from "../Button";
 
 const BaseProgress = () => {
   const commonCss = { marginBottom: 20 };
   const commonCssText = { fontSize: 14, marginBottom: 20 };
   const cardCss = { margin: "20px 20px 0 0", width: 500 };
+  const strokeHeight = 7;
+  const [count, setCount] = useState(13);
+  const [count2, setCount2] = useState(90);
   return (
-    <div style={{ display: "flex", width: 1050, flexWrap: "wrap" }}>
-      <Card title="八种主题" style={cardCss} shadow>
-        <Progress
-          percent={30}
-          theme="danger"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={40}
-          theme="dark"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={50}
-          theme="info"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={60}
-          theme="light"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={70}
-          theme="primary"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={80}
-          theme="secondary"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={90}
-          theme="success"
-          style={commonCss}
-          showText={false}
-        />
-        <Progress
-          percent={100}
-          theme="warning"
-          style={commonCss}
-          showText={false}
-        />
-      </Card>
-      <Card title="展示进度值描述" style={cardCss} shadow>
-        <Progress percent={30} theme="danger" style={commonCss} />
-        <Progress percent={40} theme="dark" style={commonCss} />
-        <Progress percent={50} theme="info" style={commonCss} />
-        <Progress percent={60} theme="light" style={commonCss} />
-        <Progress percent={70} theme="primary" style={commonCss} />
-        <Progress percent={80} theme="secondary" style={commonCss} />
-        <Progress percent={90} theme="success" style={commonCss} />
-        <Progress percent={100} theme="warning" style={commonCss} />
-      </Card>
-      <Card title="设置粗细" style={cardCss} shadow>
-      <div style={commonCssText}>通过 strokeHeight 来设置进度条的粗细</div>
-        <Progress percent={30} theme="danger" strokeHeight={10} style={commonCss} />
-        <Progress percent={40} theme="dark" strokeHeight={20} style={commonCss} />
-        <Progress percent={50} theme="info" strokeHeight={20} style={commonCss} />
-        <Progress percent={60} theme="light" strokeHeight={20} style={commonCss} />
-        <Progress percent={70} theme="primary" strokeHeight={20} style={commonCss} />
-        <Progress percent={80} theme="secondary" strokeHeight={20} style={commonCss} />
-        <Progress percent={90} theme="success" strokeHeight={20} style={commonCss} />
-        <Progress percent={100} theme="warning" strokeHeight={30} style={commonCss} />
-      </Card>
+    <div className="container">
+      <div className="item">
+        <Card title="基本使用" style={cardCss} shadow>
+          <Progress
+            percent={60}
+            theme="primary"
+            showText={false}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={50}
+            showText={false}
+            theme="warning"
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={70}
+            theme="secondary"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+
+          <Progress
+            percent={90}
+            theme="success"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <div style={{ marginBottom: 20, fontSize: 14 }}>
+            <code>展示进度值描述：</code>
+          </div>
+          <Progress percent={50} theme="info" style={commonCss} max={100} />
+          <Progress
+            percent={88}
+            theme="dark"
+            showText
+            style={commonCss}
+            max={100}
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="不同主题" style={cardCss} shadow>
+          <div style={{ marginBottom: 20, fontSize: 14 }}>
+            <code>一共支持七种主题：</code>
+          </div>
+          <Progress
+            percent={40}
+            theme="dark"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <Progress
+            percent={30}
+            theme="danger"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <Progress
+            percent={50}
+            theme="info"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <Progress
+            percent={80}
+            theme="secondary"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <Progress
+            percent={70}
+            theme="primary"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+
+          <Progress
+            percent={90}
+            theme="success"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+          <Progress
+            percent={100}
+            theme="warning"
+            style={commonCss}
+            showText={false}
+            max={100}
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card
+          title="圆形进度条"
+          style={{ margin: "20px 20px 0 0", width: 600 }}
+          shadow
+        >
+          <div style={commonCssText}>
+            展示圆形进度条，同时也具有<code>不同的七种主题</code>
+          </div>
+          <div style={{ display: "flex" }}>
+            <Progress
+              circle
+              percent={25}
+              strokeHeight={strokeHeight}
+              max={100}
+              unit="%"
+              width={170}
+              theme="primary"
+              showText
+            />
+            <Progress
+              style={{ marginLeft: 20 }}
+              circle
+              percent={47}
+              strokeHeight={strokeHeight}
+              max={100}
+              unit="%"
+              width={170}
+              theme="danger"
+              showText
+            />
+            <Progress
+              style={{ marginLeft: 20 }}
+              circle
+              strokeHeight={strokeHeight}
+              percent={32}
+              max={100}
+              unit="%"
+              width={170}
+              theme="info"
+              showText
+            />
+          </div>
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="动态演示" style={cardCss} shadow>
+          <Progress
+            percent={count}
+            theme="primary"
+            style={commonCss}
+            max={100}
+          />
+          <Button onClick={() => setCount(count - 1)}>完成度 - 1</Button>
+          <Button
+            style={{ marginLeft: 20 }}
+            onClick={() => setCount(count + 1)}
+          >
+            完成度 + 1
+          </Button>
+          <Progress
+            style={{ margin: "20px 0 20px 0" }}
+            circle
+            strokeHeight={strokeHeight}
+            percent={count2}
+            max={100}
+            unit="%"
+            width={220}
+            theme="primary"
+            showText
+          />
+          <Button onClick={() => setCount2(count2 - 5)}>完成度 - 5</Button>
+          <Button
+            style={{ marginLeft: 20 }}
+            onClick={() => setCount2(count2 + 5)}
+          >
+            完成度 + 5
+          </Button>
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="设置粗细" style={cardCss} shadow>
+          <div style={commonCssText}>
+            通过 <code>strokeHeight</code> 来设置条形进度条的粗细
+          </div>
+          <Progress
+            percent={30}
+            theme="danger"
+            strokeHeight={10}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={46}
+            theme="dark"
+            strokeHeight={11}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={87}
+            theme="warning"
+            strokeHeight={17}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={53}
+            theme="info"
+            strokeHeight={12}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={72}
+            theme="primary"
+            strokeHeight={14}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={91}
+            theme="success"
+            strokeHeight={16}
+            style={commonCss}
+            max={100}
+          />
+          <Progress
+            percent={80}
+            theme="secondary"
+            strokeHeight={15}
+            style={commonCss}
+            max={100}
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="圆形进度条不同大小" style={cardCss} shadow>
+          <div style={{ marginBottom: 20, fontSize: 14 }}>
+            同时可以使用 <code>strokeHeight</code> 来设置圆形进度条的粗细
+          </div>
+          <div style={{ display: "flex" }}>
+            <Progress
+              circle
+              strokeHeight={strokeHeight}
+              percent={47}
+              max={100}
+              unit="%"
+              width={200}
+              theme="warning"
+              showText
+            />
+            <Progress
+              style={{ marginLeft: 20 }}
+              circle
+              strokeHeight={10}
+              percent={32}
+              max={100}
+              unit="%"
+              width={170}
+              theme="dark"
+              showText
+            />
+          </div>
+          <div style={{ marginTop: 20 }}>
+            <code style={{ marginLeft: 42 }}>strokeHeight=5</code>
+            <code style={{ marginLeft: 83 }}>strokeHeight=10</code>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };

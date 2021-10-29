@@ -5,12 +5,15 @@
 .chocolate-progress {
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+
   &-bar-outer {
     border-radius: $progress-border-radius;
     background-color: $progress-bg;
     overflow: hidden;
     position: relative;
   }
+
   &-bar-inner {
     position: absolute;
     left: 0;
@@ -22,15 +25,61 @@
     border-radius: $progress-border-radius;
     line-height: 1;
     transition: $progress-bar-transition;
+
     &-text {
       color: $progress-bar-color;
       font-size: $progress-font-size;
-      margin: 0 5px;  
+      margin: 0 5px;
     }
   }
-  @each $key, $val in $theme-colors {
+
+  @each $key,
+  $val in $theme-colors {
     .color-#{$key} {
       background-color: $val;
     }
   }
+
+
+  &-circle {
+    &-wrapper {
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
+
+    &-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      fill: $font-color;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-base;
+      text-anchor: middle;
+    }
+  }
+
+  &-svg {
+
+    @each $key,
+    $val in $theme-colors {
+      .chocolate-progress-circle-color-#{$key} {
+        stroke: $val;
+        stroke-linecap: round; // inherit
+      }
+    }
+
+    circle {
+      fill: none;
+      // transform: translate(100px, 100px) rotate(-89.9deg);
+      // transform: matrix(0, -1, 1, 0, 0, 250);
+      transition: stroke-dashoffset 0.3s linear;
+    }
+
+    .arc-background {
+      stroke: $light;
+    }
+  }
+
 }
