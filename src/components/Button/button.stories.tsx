@@ -8,11 +8,15 @@ import "../../styles/common.stories";
 const BaseButton = () => {
   const commonCss = { marginBottom: 20, marginRight: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
+  const textCss = { fontSize: 14, marginBottom: 20 };
   const [loading, setLoading] = useState(false);
   return (
     <div className="container">
       <div className="item">
         <Card title="基础使用" style={cardCss} shadow>
+          <div style={textCss}>
+            支持<code> 5种 </code>类型的按钮
+          </div>
           <Button btnType="default" style={commonCss}>
             Default
           </Button>
@@ -42,6 +46,10 @@ const BaseButton = () => {
       </div>
       <div className="item">
         <Card title="不同大小" style={cardCss} shadow>
+          <div style={textCss}>
+            具有两种类型的大小，分别是 <code>sm 和 lg</code> 默认是{" "}
+            <code>sm</code> 类型{" "}
+          </div>
           <Button size="sm" btnType="default" style={commonCss}>
             Small Default
           </Button>

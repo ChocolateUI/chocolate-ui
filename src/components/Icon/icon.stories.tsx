@@ -3,6 +3,7 @@ import { Story, Meta } from "@storybook/react";
 import Icon, { IconProps } from "./icon";
 import iconsCache from "./shared/res";
 import copy from "copy-to-clipboard";
+import Message from "../Message";
 
 const buildIcons = (props: IconProps, icons: any) => {
   const { theme } = props;
@@ -37,7 +38,7 @@ const buildIcons = (props: IconProps, icons: any) => {
                 }}
                 onClick={(e) => {
                   copy(iconName);
-                  alert('复制成功')
+                  Message.success({ content: '复制成功啦' })
                 }}  
                 key={index}
               >
