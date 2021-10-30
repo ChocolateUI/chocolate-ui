@@ -1,0 +1,30 @@
+<!-- Table Doc -->
+
+## Table 表格
+
+表格组件 `Table`
+
+import { Story, Meta, ArgsTable, Source } from "@storybook/addon-docs/blocks";
+import { Table } from "./table";
+import dedent from "ts-dedent";
+<Meta title="Components/Table" component={Table} />;
+
+### 使用
+
+<Source
+  language="jsx"
+  code={dedent` 
+    <Table
+      columns={columns}
+      dataSource={dataSource}
+      showHeader
+      bordered
+    />
+  `}
+/>
+
+### 具体参数
+
+<ArgsTable of={Table} />
+
+export const Template = (args) => <Table {...args} />

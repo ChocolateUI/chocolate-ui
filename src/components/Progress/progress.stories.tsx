@@ -15,7 +15,7 @@ const BaseProgress = () => {
   return (
     <div className="container">
       <div className="item">
-        <Card title="基本使用" style={cardCss} shadow>
+        <Card title="基础使用" style={cardCss} shadow>
           <Progress
             percent={60}
             theme="primary"

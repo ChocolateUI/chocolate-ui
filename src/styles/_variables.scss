@@ -374,7 +374,7 @@ $modal-close-font-size:             20px !default;
 $modal-close-font-color:            fade(red, 45%) !default;
 $modal-mask-color:                  rgba($black, .5);
 $modal-offset-top:                  100px !default;
-$modal-offset-bottom:               100px !default; // 超长 modal 距离底部的距离
+$modal-offset-bottom:               100px !default;
 $modal-width:                       400px !default;
 $modal-method-width:                420px !default;
 $modal-method-icon-size:            22px !default;
@@ -383,3 +383,13 @@ $modal-header-title-padding:        0 30px !default;
 
 // Pagination 分页器
 $pagination-disabled-color:         $g07 !default;     
+
+
+// Table 表格
+$table-border-radius: $border-radius          !default;
+$table-border-color: $border-color            !default;
+$table-bg-color: $g09                         !default;
+$table-font-color: $font-color                !default;
+$table-animate-time: $animate-time            !default;
+$table-animate-type: $animate-time            !default;
+$table-default-transition: $animate-time $animate-type;

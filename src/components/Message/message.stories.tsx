@@ -13,7 +13,7 @@ const BaseMessage = () => {
   return (
     <div className="container">
       <div className="item">
-        <Card title="基本使用" style={cardCss} shadow>
+        <Card title="基础使用" style={cardCss} shadow>
           <div style={textCss}>用作页面信息反馈</div>
           <Button
             onClick={() => Message.info({ content: "这是一条普通的提示" })}

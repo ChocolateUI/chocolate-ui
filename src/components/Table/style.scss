@@ -1,0 +1,47 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+@import "../../styles/reboot";
+
+.chocolate-table {
+  &-origin-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: $table-border-radius;
+  }
+
+  &-bordered {
+    .chocolate-table-origin-table {
+
+      th,
+      td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+
+  .chocolate-table-origin-table {
+    border: 1px solid $table-border-color;
+  }
+
+  &-thead {
+    tr>th {
+      background-color: $table-bg-color;
+      color: $table-font-color;
+      font-size: $font-size-base;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &-thead>tr>th,
+  &-tbody>tr>td {
+    padding: 9px;
+    text-align: left;
+    border-bottom: 1px solid $table-border-color;
+    transition: all $table-default-transition;
+  }
+
+  &-stripe>td {
+    background-color: $g09;
+  }
+}

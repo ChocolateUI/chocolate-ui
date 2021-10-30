@@ -15,7 +15,7 @@ const BaseProgress = () => {
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      <Card title="基本使用" style={cardCss} shadow>
+      <Card title="基础使用" style={cardCss} shadow>
         <div>pageSize：{pageSize}</div>
         <div>pageNo：{pageNo}</div>
         <Pagination
