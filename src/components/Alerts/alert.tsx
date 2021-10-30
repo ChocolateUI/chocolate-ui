@@ -23,7 +23,7 @@ export interface BaseAlertProps {
   /** 指定警告提示的样式，有四种选择 success、default、warning、danger */
   type?: AlertType;
   /** 关闭时触发的回调函数 */
-  onClose?: MouseEventHandler<HTMLButtonElement>;
+  onClose?: MouseEventHandler<SVGSVGElement>;
   style?: CSSProperties;
   /**
    * 添加图标到标题后
@@ -54,7 +54,7 @@ export const Alert: FC<BaseAlertProps> = (props) => {
     "alert-closable": true,
   });
 
-  const handleClose = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClose = (e: MouseEvent<SVGSVGElement>) => {
     setVisible(false);
     onClose && onClose(e);
   };
@@ -62,7 +62,9 @@ export const Alert: FC<BaseAlertProps> = (props) => {
   return visible ? (
     <>
       <div className={classes} {...restProps}>
-        {icon ? <Icon icon={icon} theme={theme} style={{ marginRight: 5}}/> : null}
+        {icon ? (
+          <Icon icon={icon} theme={theme} style={{ marginRight: 5 }} />
+        ) : null}
         <span className={description ? "" : "alert-message-normal"}>
           {message}
         </span>
@@ -70,9 +72,11 @@ export const Alert: FC<BaseAlertProps> = (props) => {
           <span className="alert-description">{description}</span>
         )}
         {closable && (
-          <button className="alert-close-icon" onClick={handleClose}>
-            x
-          </button>
+          <Icon
+            className="alert-close-icon"
+            icon="times"
+            onClick={handleClose}
+          ></Icon>
         )}
       </div>
     </>

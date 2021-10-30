@@ -56,21 +56,8 @@
       cursor: pointer;
       color: $modal-close-font-color;
       font-size: $modal-close-font-size;
-      width: 10px;
-      height: 10px;
-
-      &,
-      i {
-        transition: all 0.3s $animate-type;
-      }
-
-      &:hover {
-
-        &,
-        i {
-          color: $primary;
-        }
-      }
+      width: 18px;
+      height: 18px;
     }
   }
 

@@ -1,7 +1,6 @@
 import React, { FC, useState, KeyboardEvent, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
-import close from "./close.png";
 import Button from "../Button";
 import Icon from "../Icon";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -128,7 +127,7 @@ export const Modal: FC<ModalProps> = (props) => {
     ...attr
   } = props;
   const ESC_KEY_CODE = 27;
-  const [init, setInit] = useState(false);
+  const [init] = useState(false);
 
   const _onOk = () => {
     onOk && onOk();
@@ -193,15 +192,16 @@ export const Modal: FC<ModalProps> = (props) => {
           <section className={`${prefixCls}-header`}>
             <div className={`${prefixCls}-title`}>
               {title}
-              {icon ? <Icon icon={icon} theme={theme} style={{ marginLeft: 5 }}/> : null}
+              {icon ? (
+                <Icon icon={icon} theme={theme} style={{ marginLeft: 5 }} />
+              ) : null}
             </div>
             {closable && (
-              <img
-                src={close}
+              <Icon
                 className={`${prefixCls}-close`}
+                icon="times"
                 onClick={_onCancel}
-                alt=""
-              />
+              ></Icon>
             )}
           </section>
           <section className={`${prefixCls}-content`}>
