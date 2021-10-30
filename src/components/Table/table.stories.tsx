@@ -165,6 +165,10 @@ const BaseTabs = () => {
     <div className="container">
       <div className="item">
         <Card title="基础使用" style={cardCss} shadow>
+          <div style={{ marginTop: 20, marginBottom: 20 }}>
+            表格的基础使用，支持<code> 表格边框 </code>，<code>隔行条纹</code>
+            ，以及<code> 自定义列宽</code>
+          </div>
           <Table
             columns={columns}
             dataSource={dataSource}
