@@ -105,13 +105,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @if ($n >=2) {
+  @if ($n >= 2) {
     display: -webkit-box;
     -webkit-line-clamp: $n;
     -webkit-box-orient: vertical;
   }
 
-  @if ($n=1) {
+  @if ($n == 1) {
     white-space: nowrap;
   }
 }
