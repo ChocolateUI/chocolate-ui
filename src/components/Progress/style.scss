@@ -26,6 +26,22 @@
     line-height: 1;
     transition: $progress-bar-transition;
 
+    &-animate::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg,
+          transparent 25%,
+          rgba(255, 255, 255, 0.5) 50%,
+          transparent 75%);
+      background-size: 400% 100%;
+      animation: progress-loading 1.5s $animate-type infinite;
+    }
+
     &-text {
       color: $progress-bar-color;
       font-size: $progress-font-size;
@@ -61,6 +77,7 @@
   }
 
   &-svg {
+    transform: rotate(-90deg);
 
     @each $key,
     $val in $theme-colors {
@@ -72,8 +89,6 @@
 
     circle {
       fill: none;
-      // transform: translate(100px, 100px) rotate(-89.9deg);
-      // transform: matrix(0, -1, 1, 0, 0, 250);
       transition: stroke-dashoffset 0.3s linear;
     }
 
@@ -82,4 +97,14 @@
     }
   }
 
+}
+
+@include keyframes(progress-loading) {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
 }

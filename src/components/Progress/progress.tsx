@@ -42,23 +42,31 @@ export interface ProgressProps {
    * 设置圆形进度条的宽度
    */
   width?: number;
+  /**
+   * 动画效果，条形进度条生效
+   */
+  animation?: boolean;
 }
 
 const prefixCls = "chocolate-progress";
 export const Progress: FC<ProgressProps> = (props) => {
-  const { percent, strokeHeight = 12, showText, style, theme } = props;
+  const {
+    percent,
+    strokeHeight = 12,
+    showText,
+    style,
+    theme,
+    animation,
+  } = props;
   const { max, className, unit = "%", width = 0, circle } = props;
 
   let offset = 0;
   let radius = (width - strokeHeight) / 2;
-  let p = 2 * +radius * Math.PI;
+  let perimeter = 2 * +radius * Math.PI;
 
   offset = (max - percent) / max;
-  const op = offset * p;
-  const text = percent <= max ? percent : max;
-  const getStrokeDasharray = (radius: number): number => {
-    return p as number;
-  };
+  const op = offset * perimeter;
+  const text = percent <= max ? (percent <= 0 ? 0 : percent) : max;
 
   const cx = width / 2;
   const cy = width / 2;
@@ -90,7 +98,7 @@ export const Progress: FC<ProgressProps> = (props) => {
             strokeWidth={strokeHeight}
             className={`${sc("circle-color")}-${theme}`}
             strokeDashoffset={op >= 0 ? op : 0}
-            strokeDasharray={getStrokeDasharray(radius)}
+            strokeDasharray={perimeter}
           />
         </svg>
 
@@ -107,7 +115,9 @@ export const Progress: FC<ProgressProps> = (props) => {
     <div className="chocolate-progress" style={style}>
       <div className={sc("bar-outer")} style={{ height: `${strokeHeight}px` }}>
         <div
-          className={`${sc("bar-inner")} color-${theme}`}
+          className={classNames(`${sc("bar-inner")}`, `color-${theme}`, {
+            [`${prefixCls}-bar-inner-animate`]: animation,
+          })}
           style={{ width: `${text}${unit}` }}
         >
           {showText && (

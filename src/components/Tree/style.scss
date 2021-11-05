@@ -10,7 +10,7 @@
   &-nodes {
     position: relative;
     overflow: hidden;
-
+    animation: chocolate-fade-in $default-transition forwards;
     .node {
       .inner {
         color: #000;
@@ -34,8 +34,6 @@
         }
         .caret-down:before {
           content: '\25BE';
-          // width: 16rem;
-          // height: 16rem;
           font-size: $tree-content-font-size;
         }
         .content {

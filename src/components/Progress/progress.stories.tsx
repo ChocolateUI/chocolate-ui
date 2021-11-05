@@ -30,22 +30,29 @@ const BaseProgress = () => {
             style={commonCss}
             max={100}
           />
+          <div style={commonCssText}>
+            设置
+            <code> animation</code> 为<code> true </code>
+            时，将会显示动画效果，仅当 <code>type = line</code> 时生效
+          </div>
           <Progress
             percent={70}
-            theme="secondary"
+            theme="danger"
             style={commonCss}
             showText={false}
+            animation
             max={100}
           />
 
           <Progress
             percent={90}
-            theme="success"
+            theme="secondary"
             style={commonCss}
             showText={false}
+            animation
             max={100}
           />
-          <div style={{ marginBottom: 20, fontSize: 14 }}>
+          <div style={commonCssText}>
             <code>展示进度值描述：</code>
           </div>
           <Progress percent={50} theme="info" style={commonCss} max={100} />
@@ -61,7 +68,11 @@ const BaseProgress = () => {
       <div className="item">
         <Card title="不同主题" style={cardCss} shadow>
           <div style={{ marginBottom: 20, fontSize: 14 }}>
-            <code>一共支持七种主题：</code>
+            一共支持七种主题：
+            <code>
+              primary 、 secondary 、 success 、 warning 、 danger 、 light 、
+              dark
+            </code>
           </div>
           <Progress
             percent={40}
@@ -118,7 +129,7 @@ const BaseProgress = () => {
       <div className="item">
         <Card
           title="圆形进度条"
-          style={{ margin: "20px 20px 0 0", width: 600 }}
+          style={{ margin: "20px 20px 0 0", width: 420 }}
           shadow
         >
           <div style={commonCssText}>
@@ -146,17 +157,6 @@ const BaseProgress = () => {
               theme="danger"
               showText
             />
-            <Progress
-              style={{ marginLeft: 20 }}
-              circle
-              strokeHeight={strokeHeight}
-              percent={32}
-              max={100}
-              unit="%"
-              width={170}
-              theme="info"
-              showText
-            />
           </div>
         </Card>
       </div>
@@ -168,10 +168,12 @@ const BaseProgress = () => {
             style={commonCss}
             max={100}
           />
-          <Button onClick={() => setCount(count - 1)}>完成度 - 1</Button>
+          <Button onClick={() => setCount(count - 1 <= 0 ? 0 : count - 1)}>
+            完成度 - 1
+          </Button>
           <Button
             style={{ marginLeft: 20 }}
-            onClick={() => setCount(count + 1)}
+            onClick={() => setCount(count + 1 >= 100 ? 100 : count + 1)}
           >
             完成度 + 1
           </Button>
@@ -186,10 +188,12 @@ const BaseProgress = () => {
             theme="primary"
             showText
           />
-          <Button onClick={() => setCount2(count2 - 5)}>完成度 - 5</Button>
+          <Button onClick={() => setCount2(count2 - 5 <= 0 ? 0 : count2 - 5)}>
+            完成度 - 5
+          </Button>
           <Button
             style={{ marginLeft: 20 }}
-            onClick={() => setCount2(count2 + 5)}
+            onClick={() => setCount2(count2 + 5 >= 100 ? 100 : count2 + 5)}
           >
             完成度 + 5
           </Button>

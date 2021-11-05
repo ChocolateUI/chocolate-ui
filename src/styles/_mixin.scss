@@ -10,6 +10,7 @@
   color: $color;
   background: $background;
   border-color: $border;
+  transition: all $animate-time $animate-type;
 
   &:hover {
     color: $hover-color;

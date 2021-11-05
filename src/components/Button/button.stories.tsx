@@ -9,6 +9,7 @@ const BaseButton = () => {
   const commonCss = { marginBottom: 20, marginRight: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
   const textCss = { fontSize: 14, marginBottom: 20 };
+  const [small, setSmall] = useState(false);
   const [loading, setLoading] = useState(false);
   return (
     <div className="container">
@@ -50,18 +51,33 @@ const BaseButton = () => {
             具有两种类型的大小，分别是 <code>sm 和 lg</code> 默认是{" "}
             <code>sm</code> 类型{" "}
           </div>
-          <Button size="sm" btnType="default" style={commonCss}>
-            Small Default
+          <Button
+            size={small ? "sm" : "lg"}
+            btnType="default"
+            style={commonCss}
+            onClick={() => setSmall(!small)}
+          >
+            {small ? "Small" : "Large"} Default
           </Button>
-          <Button size="lg" btnType="primary" style={commonCss}>
-            Large Primary
+          <Button
+            size={small ? "sm" : "lg"}
+            btnType="primary"
+            style={commonCss}
+            onClick={() => setSmall(!small)}
+          >
+            {small ? "Small" : "Large"} Primary
           </Button>
-          <Button size="lg" btnType="danger" style={commonCss}>
-            Large Danger
+          <Button
+            size={small ? "sm" : "lg"}
+            btnType="danger"
+            style={commonCss}
+            onClick={() => setSmall(!small)}
+          >
+            {small ? "Small" : "Large"} Danger
           </Button>
           <div
             style={{
-              backgroundColor: "#6777ef",
+              backgroundColor: "#e6ecf1",
               height: 50,
               borderRadius: 4,
               display: "flex",
@@ -71,13 +87,22 @@ const BaseButton = () => {
             }}
           >
             <div>
-              <Button size="lg" btnType="ghost">
-                Large Ghost
+              <Button
+                size={small ? "sm" : "lg"}
+                btnType="ghost"
+                onClick={() => setSmall(!small)}
+              >
+                {small ? "Small" : "Large"} Ghost
               </Button>
             </div>
           </div>
-          <Button size="lg" btnType="link" style={commonCss}>
-            Large Link
+          <Button
+            size={small ? "sm" : "lg"}
+            btnType="link"
+            style={commonCss}
+            onClick={() => setSmall(!small)}
+          >
+            {small ? "Small" : "Large"} Link
           </Button>
         </Card>
       </div>

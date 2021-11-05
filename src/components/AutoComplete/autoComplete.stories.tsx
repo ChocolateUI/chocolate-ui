@@ -49,76 +49,92 @@ const renderOption = (item: DataSourceType) => {
 const BaseAutoComplete = () => {
   const commonCss = { width: 300, marginBottom: 20 };
   const cardCss = { margin: "20px 20px 0 0" };
-
+  const textCss = { fontSize: 14, marginBottom: 20 };
   return (
-    <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
-      <Card title="不同大小" style={cardCss} shadow>
-        <AutoComplete
-          fetchSuggestions={handleFetch}
-          style={commonCss}
-          size="sm"
-          placeholder="输入你最喜欢换的水果试试看"
-        />
-        <AutoComplete
-          fetchSuggestions={handleFetch}
-          style={commonCss}
-          size="lg"
-          placeholder="输入你最喜欢换的水果试试看"
-        />
-      </Card>
-      <Card title="远程搜索" style={cardCss} shadow>
-        <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          size="sm"
-          placeholder="随便搜点什么吧"
-        />
-        <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          size="lg"
-          placeholder="随便搜点什么吧"
-        />
-      </Card>
-      <Card title="不可用" style={cardCss} shadow>
-        <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          disabled
-          size="sm"
-          placeholder="随便搜点什么吧"
-        />
-        <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          disabled
-          size="lg"
-          placeholder="随便搜点什么吧"
-        />
-      </Card>
-      <Card title="自定义下拉选项" style={cardCss} shadow>
-      <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          size="sm"
-          renderOption={renderOption}
-          placeholder="随便搜点什么吧"
-        />
-        <AutoComplete
-          fetchSuggestions={handleAsyncFetch}
-          style={commonCss}
-          size="lg"
-          renderOption={renderOption}
-          placeholder="随便搜点什么吧"
-        />
-      </Card>
+    <div className="container">
+      <div className="item">
+        <Card title="基础使用" style={cardCss} shadow>
+          <div style={textCss}>根据当前输入展示输入建议（下拉选择）。</div>
+          <AutoComplete
+            fetchSuggestions={handleFetch}
+            style={commonCss}
+            size="sm"
+            placeholder="输入你最喜欢换的水果试试看"
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="远程搜索" style={cardCss} shadow>
+          <div style={textCss}>根据服务端数据动态渲染展示</div>
+          <AutoComplete
+            fetchSuggestions={handleAsyncFetch}
+            style={commonCss}
+            size="sm"
+            placeholder="随便搜点什么吧"
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="不可用" style={cardCss} shadow>
+          <div style={textCss}>可以设置禁止选择状态</div>
+          <AutoComplete
+            fetchSuggestions={handleAsyncFetch}
+            style={commonCss}
+            disabled
+            size="sm"
+            placeholder="随便搜点什么吧"
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="自定义下拉选项" style={cardCss} shadow>
+          <div style={textCss}>
+            可以传入 <code>AutoComplete.renderOption</code>{" "}
+            作为组件的属性，而非使用 <code>data</code>。
+          </div>
+          <AutoComplete
+            fetchSuggestions={handleAsyncFetch}
+            style={commonCss}
+            size="sm"
+            renderOption={renderOption}
+            placeholder="随便搜点什么吧"
+          />
+        </Card>
+      </div>
+      <div className="item">
+        <Card title="不同大小" style={cardCss} shadow>
+          <div style={textCss}>
+            设置 <code>size</code> 展示不同的尺寸
+          </div>
+          <AutoComplete
+            fetchSuggestions={handleFetch}
+            style={commonCss}
+            size="lg"
+            placeholder="输入你最喜欢换的水果试试看"
+          />
+          <AutoComplete
+            fetchSuggestions={handleAsyncFetch}
+            style={commonCss}
+            size="lg"
+            renderOption={renderOption}
+            placeholder="随便搜点什么吧"
+          />
+          <AutoComplete
+            fetchSuggestions={handleAsyncFetch}
+            style={commonCss}
+            size="lg"
+            renderOption={renderOption}
+            placeholder="随便搜点什么吧"
+          />
+        </Card>
+      </div>
     </div>
   );
 };
 
 export default {
   component: AutoComplete,
-  title: "AutoComplete 自动完成",
+  title: "AutoComplete 自动补全",
   parameters: {
     controls: {
       include: ["disabled", "size", "placeholder", "width"],
