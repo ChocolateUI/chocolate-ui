@@ -70,7 +70,7 @@ const BaseProgress = () => {
           <div style={{ marginBottom: 20, fontSize: 14 }}>
             一共支持七种主题：
             <code>
-              primary 、 secondary 、 success 、 warning 、 danger 、 light 、
+              primary 、 secondary 、 success 、 warning 、 danger 、 info 、
               dark
             </code>
           </div>
