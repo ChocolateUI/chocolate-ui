@@ -10,6 +10,7 @@ import {
   DescriptionMoon,
 } from "../../utils/constants";
 import TableDoc from "./table-doc.mdx";
+import Message from "../Message";
 
 const BaseTabs = () => {
   const [stripe, setStripe] = useState(false);
@@ -75,10 +76,18 @@ const BaseTabs = () => {
       ),
       opt: (
         <div style={{ display: "flex" }}>
-          <Button btnType="primary" style={{ flex: 1, marginRight: 7 }}>
+          <Button
+            btnType="primary"
+            style={{ flex: 1, marginRight: 7 }}
+            onClick={() => Message.info({ content: "敬请期待～" })}
+          >
             添加
           </Button>
-          <Button btnType="danger" style={{ flex: 1 }}>
+          <Button
+            btnType="danger"
+            style={{ flex: 1 }}
+            onClick={() => Message.info({ content: "敬请期待～", duration: 10000 })}
+          >
             删除
           </Button>
         </div>

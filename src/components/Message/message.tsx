@@ -67,23 +67,25 @@ export function Message(props: MessageProps) {
     }
   };
   const result = (
-    <div
-      className={classNames(`${prefixCls}-wrapper`, {
-        [`${prefixCls}-open`]: visible,
-        [`${prefixCls}-close`]: !visible,
-      })}
-    >
-      <div className={classNames(`${prefixCls}-content`)}>
-        {icon ? (
-          <Icon icon={icon} theme={theme} style={{ marginRight: 8 }} />
-        ) : (
-          <Icon
-            icon={getIconType(type).icon as IconProp}
-            theme={getIconType(type).theme as ThemeProps}
-            style={{ marginRight: 8 }}
-          />
-        )}
-        <span>{children}</span>
+    <div className={`${prefixCls}`}>
+      <div
+        className={classNames(`${prefixCls}-wrapper`, {
+          [`${prefixCls}-open`]: visible,
+          [`${prefixCls}-close`]: !visible,
+        })}
+      >
+        <div className={classNames(`${prefixCls}-content`)}>
+          {icon ? (
+            <Icon icon={icon} theme={theme} style={{ marginRight: 8 }} />
+          ) : (
+            <Icon
+              icon={getIconType(type).icon as IconProp}
+              theme={getIconType(type).theme as ThemeProps}
+              style={{ marginRight: 8 }}
+            />
+          )}
+          <span>{children}</span>
+        </div>
       </div>
     </div>
   );
