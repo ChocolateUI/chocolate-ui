@@ -86,7 +86,7 @@ const BaseTabs = () => {
           <Button
             btnType="danger"
             style={{ flex: 1 }}
-            onClick={() => Message.info({ content: "敬请期待～", duration: 10000 })}
+            onClick={() => Message.info({ content: "敬请期待～" })}
           >
             删除
           </Button>
