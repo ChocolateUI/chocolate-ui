@@ -115,8 +115,7 @@ const BaseAutoComplete = () => {
           <AutoComplete
             fetchSuggestions={handleAsyncFetch}
             style={commonCss}
-            size="lg"
-            renderOption={renderOption}
+            size="sm"
             placeholder="随便搜点什么吧"
           />
           <AutoComplete
