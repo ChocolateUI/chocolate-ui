@@ -73,7 +73,7 @@ module.exports = {
 
 #### ✨ 技术栈
 
-- 😁 全部组件由 Typescript with React Hooks 编写
+- 😁 全部组件由 `TypeScript with React Hooks` 编写
 - 🍑 使用 `react-testing-library` 完成单元测试
 - 🦌 使用 `Storybook` 本地调试和生成文档页面
 - ⚙️ 组件库打包使用 `Webpack` 和 `Gulp`

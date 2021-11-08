@@ -13,10 +13,3 @@ declare module 'lodash/cloneDeep';
 declare module 'lodash/clone';
 
 declare module 'lodash/chunk';
-
-
-// declare module 'react-lowlight'
-
-// declare module 'highlight.js/lib/languages/javascript'
-
-// declare module 'highlight.js/lib/languages/typescript'
