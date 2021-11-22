@@ -190,7 +190,6 @@ function fillExecuteCheck(
 		entities.forEach((entity) => {
 			const { parent } = entity
 
-			// Skip if no need to check
 			if (!entity.parent || visitedKeys.has(parent.key)) {
 				return
 			}
