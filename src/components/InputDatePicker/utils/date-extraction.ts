@@ -8,7 +8,7 @@ export function dateToStr(date: Date) {
 }
 
 function getDateRegexp(dateFormat: string) {
-  //MM-DD-YYYY [MM,DD,YYYY]
+  //MM-dd-YYYY [MM,dd,YYYY]
   const dateFormatAsRegexp = dateFormat
     .replace(/[A-Za-z]{4}/g, "([0-9]{4})")
     .replace(/[A-Za-z]{2}/g, "([0-9]{2})");
@@ -19,7 +19,7 @@ function getDateRegexp(dateFormat: string) {
 }
 
 function DatePickerException(code: string) {
-  this.code = code;
+  return code;
 }
 
 export function strToDate(
@@ -31,13 +31,13 @@ export function strToDate(
   const dateErrors = [];
 
   if (!dateMatches) {
-    dateErrors.push(new DatePickerException("INVALID_DATE_FORMAT"));
+    dateErrors.push(DatePickerException("INVALID_DATE_FORMAT"));
     throw dateErrors;
   }
 
   const yearIndex = partsOrder.indexOf("YYYY");
   const monthIndex = partsOrder.indexOf("MM");
-  const dayIndex = partsOrder.indexOf("DD");
+  const dayIndex = partsOrder.indexOf("dd");
 
   const yearString = dateMatches[yearIndex + 1];
   const monthString = dateMatches[monthIndex + 1];
@@ -46,17 +46,17 @@ export function strToDate(
   const month = parseInt(monthString, 10);
 
   if (month === 0 || month > 12) {
-    dateErrors.push(new DatePickerException("INVALID_MONTH_NUMBER"));
+    dateErrors.push(DatePickerException("INVALID_MONTH_NUMBER"));
   }
   const day = parseInt(dayString, 10);
   if (day === 0) {
-    dateErrors.push(new DatePickerException("INVALID_DAY_NUMBER"));
+    dateErrors.push(DatePickerException("INVALID_DAY_NUMBER"));
   }
   const year = parseInt(yearString, 10);
   const monthDate = new Date(year, month - 1);
   const lastDay = lastDayOfMonth(monthDate);
   if (day > getDate(lastDay)) {
-    dateErrors.push(new DatePickerException("INVALID_DAY_OF_MONTH"));
+    dateErrors.push(DatePickerException("INVALID_DAY_OF_MONTH"));
   }
 
   if (dateErrors.length > 0) {

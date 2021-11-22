@@ -26,6 +26,7 @@ export const InputDatePicker: FC<InputDatePickerProps> = (props) => {
 
   function handleOnChange(e: ChangeEvent<Element>, payload: any) {
     onChange && onChange(e, payload);
+    console.log('payload: ', payload);
     if (payload.origin === "PICKER") {
       // TODO: 未获取到 ref
       ref.current && ref.current.focus();
