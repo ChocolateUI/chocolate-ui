@@ -23,7 +23,7 @@ yarn add chocolate-ui
 1、引入
 
 `// 加载样式
-import 'chocolate-ui/dist/index.css'`
+import "chocolate-ui/dist/components/index.css";
 
 `// 引入组件
 import { Button } from 'chocolate-ui'`
