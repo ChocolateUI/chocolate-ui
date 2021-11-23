@@ -11,35 +11,35 @@ const BaseCheckbox = (props: CheckboxProps) => {
   return (
     <div style={{ display: "flex", width: 1024, flexWrap: "wrap" }}>
       <Card title="基础使用" style={cardCss} shadow>
-        <Checkbox style={commonCss}>
+        <Checkbox value="1" style={commonCss}>
           西瓜🍉
         </Checkbox>
-        <Checkbox style={commonCss}>
+        <Checkbox value="2" style={commonCss}>
           葡萄🍇
         </Checkbox>
-        <Checkbox indeterminate={true}>
+        <Checkbox value="3" indeterminate={true}>
           菠萝🍍
         </Checkbox>
       </Card>
       <Card title="默认选中" style={cardCss} shadow>
-        <Checkbox checked style={commonCss}>
+        <Checkbox value="1" checked style={commonCss}>
           西瓜🍉
         </Checkbox>
-        <Checkbox checked style={commonCss}>
+        <Checkbox value="2" checked style={commonCss}>
           葡萄🍇
         </Checkbox>
-        <Checkbox checked indeterminate={true}>
+        <Checkbox value="3" checked indeterminate={true}>
           菠萝🍍
         </Checkbox>
       </Card>
       <Card title="不可选中" style={cardCss} shadow>
-        <Checkbox checked={false} disabled style={commonCss}>
+        <Checkbox value="1" checked={false} disabled style={commonCss}>
           西瓜🍉
         </Checkbox>
-        <Checkbox checked disabled style={commonCss}>
+        <Checkbox value="2" checked disabled style={commonCss}>
           葡萄🍇
         </Checkbox>
-        <Checkbox checked disabled indeterminate={true}>
+        <Checkbox value="3" checked disabled indeterminate={true}>
           菠萝🍍
         </Checkbox>
       </Card>

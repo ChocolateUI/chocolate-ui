@@ -22,7 +22,7 @@ export interface CheckboxProps {
 export const CheckboxComponent: FC<CheckboxProps> = (props) => {
   const {
     className,
-    checked,
+    checked = false,
     isButton,
     children,
     disabled,
@@ -30,13 +30,12 @@ export const CheckboxComponent: FC<CheckboxProps> = (props) => {
     indeterminate,
     value,
     style,
-    onChange
+    onChange,
   } = props;
   const [isChecked, setIsChecked] = useState(checked);
-  
   useEffect(() => {
-    setIsChecked(checked)
-  }, [checked])
+    setIsChecked(checked);
+  }, [checked]);
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked(!isChecked);
     onChange && onChange(e);
