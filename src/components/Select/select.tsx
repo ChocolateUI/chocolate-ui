@@ -19,10 +19,12 @@ export interface SelectProps {
 
 interface ISelectContext {
   index?: string;
-  onSelect?: (selectItem: string) => void;
+  onSelect?: (selectItem: itemType) => void;
   onShowOption?: (value: boolean) => void;
   value?: string;
 }
+
+type itemType = { key: string, val: string}
 
 export const SelectContext = createContext<ISelectContext>({ index: "0" });
 
@@ -38,9 +40,9 @@ export const Select: React.FC<SelectProps> = (props) => {
   const [showOption, setShowOption] = useState(false);
   const [inputValue, setInputValue] = useState(defaultValue);
 
-  const handleClick = (value: string | ChangeEvent<HTMLInputElement>) => {
-    setInputValue(value as string);
-    onChange && onChange(value as ChangeEvent<HTMLInputElement>);
+  const handleClick = (item: itemType) => {
+    setInputValue(item.val  as string);
+    onChange && onChange(item.key as unknown as ChangeEvent<HTMLInputElement>);
   };
   const handleShowOption = (value: boolean) => {
     setShowOption(value);

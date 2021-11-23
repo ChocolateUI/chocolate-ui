@@ -18,9 +18,9 @@ const SelectOption: React.FC<SelectOptionProps> = (props) => {
   const [hover, setHover] = useState(false);
 
   const handleOptionItem = (e: MouseEvent<HTMLLIElement>) => {
-    const _value = (e.target as any).innerHTML;
+    const _value = (e.target as any).innerHTML as string;
     if (!props.disabled) {
-      context.onSelect && context.onSelect(_value);
+      context.onSelect && context.onSelect({ key: value, val: _value } );
       context.onShowOption && context.onShowOption(false);
     }
   };
