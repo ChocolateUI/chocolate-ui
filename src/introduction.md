@@ -12,6 +12,12 @@ npm install chocolate-ui --save
 yarn add chocolate-ui
 `
 
+##### 💁‍♂️ 在线演示
+
+[chocolate-ui.com](https://60e31bd4495b7b003b0b96a3-qwpgkogipx.chromatic.com/)
+
+[![Edit nn6yr2m94](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/agitated-lamarr-2t34j?autoresize=1&hidenavigation=1&expanddevtools=1)
+
 #### 📖 使用
 
 1、引入

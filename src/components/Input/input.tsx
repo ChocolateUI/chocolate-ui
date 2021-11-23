@@ -22,11 +22,20 @@ export interface InputProps
   prepend?: string | ReactElement;
   append?: string | ReactElement;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  ref?: any,
+  ref?: any;
 }
 
 export const Input: FC<InputProps> = forwardRef((props, ref) => {
-  const { disabled, size, icon, prepend, append, style, ...restProps } = props;
+  const {
+    disabled,
+    size,
+    icon,
+    prepend,
+    append,
+    style,
+    onChange = () => {},
+    ...restProps
+  } = props;
   const [hover, setHover] = useState(false);
   const classnames = classNames(sc("wrapper"), {
     [`input-size-${size}`]: size,
@@ -61,6 +70,7 @@ export const Input: FC<InputProps> = forwardRef((props, ref) => {
         onMouseOver={() => setHover(!disabled)}
         onMouseLeave={() => setHover(false)}
         disabled={disabled}
+        onChange={onChange}
         {...restProps}
       />
       {append && <div className={sc("group-append")}>{append}</div>}

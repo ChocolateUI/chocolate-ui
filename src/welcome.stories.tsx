@@ -29,6 +29,18 @@ storiesOf('Welcome page', module)
         <p> <span role="img" aria-label="chocolateUi" >🍫</span> Chocolate-Ui 即插即用，纵享丝滑 <span role="img" aria-label="chocolateUi" > 🎗️</span></p>
         <p> 一个 Web 端的 React 组件库 </p>
         <p> 此刻尽丝滑！ </p>
+        <iframe
+          src="https://codesandbox.io/s/agitated-lamarr-2t34j?autoresize=1&hidenavigation=1&expanddevtools=1"
+          style={{
+            width: "100%",
+            height: "555px",
+            border: 0,
+            borderRadius: "4px",
+            overflow: "hidden",
+            margin: "50px 0"
+          }}
+          sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+        />
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <ReactMarkDown

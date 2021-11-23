@@ -1,51 +1,48 @@
-import React, { useContext, useState } from 'react'
-import classNames from 'classnames'
-import { scopedClass } from '../../utils/scopedClass'
-import { SelectContext } from './select'
+import React, { MouseEvent, useContext, useState } from "react";
+import classNames from "classnames";
+import { scopedClass } from "../../utils/scopedClass";
+import { SelectContext } from "./select";
 
 export interface SelectOptionProps {
-  value: string,
-  children: React.ReactNode,
-  disabled?: boolean,
-  active?: boolean,
+  value: string;
+  children: React.ReactNode;
+  disabled?: boolean;
+  active?: boolean;
 }
 
-const sc = scopedClass('chocolate-select')
+const sc = scopedClass("chocolate-select");
 
 const SelectOption: React.FC<SelectOptionProps> = (props) => {
-  const {
-    value,
-    children,
-    ...restProps
-  } = props
-  const context = useContext(SelectContext)
-  const [hover, setHover] = useState(false)
+  const { value, children, ...restProps } = props;
+  const context = useContext(SelectContext);
+  const [hover, setHover] = useState(false);
 
-  const handleOptionItem = (item: string) => {
+  const handleOptionItem = (e: MouseEvent<HTMLLIElement>) => {
+    const _value = (e.target as any).innerHTML;
     if (!props.disabled) {
-      context.onSelect && context.onSelect(item)
-      context.onShowOption && context.onShowOption(false)
+      context.onSelect && context.onSelect(_value);
+      context.onShowOption && context.onShowOption(false);
     }
-  }
-  const classnames = classNames(sc('option-list-item'), {
-    'is-disabled': props.disabled,
-    'is-active': value === context.value,
-    'is-hover': hover,
-  })
+  };
+  const classnames = classNames(sc("option-list-item"), {
+    "is-disabled": props.disabled,
+    "is-active": value === context.value,
+    "is-hover": hover,
+  });
   return (
     <li
       className={classnames}
-      onMouseOver={()=>{
-        if(!props.disabled){
-          setHover(true)
+      onMouseOver={() => {
+        if (!props.disabled) {
+          setHover(true);
         }
       }}
-      onMouseLeave={()=>setHover(false)}
-      onClick={() => handleOptionItem(value)}
+      onMouseLeave={() => setHover(false)}
+      onClick={handleOptionItem}
       {...restProps}
     >
       {children}
     </li>
-  )
-}
-export default SelectOption
+  );
+};
+export default SelectOption;
