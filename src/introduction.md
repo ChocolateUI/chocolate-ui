@@ -65,7 +65,7 @@ module.exports = {
 - 😁 全部组件由 `TypeScript with React Hooks` 编写
 - 🍑 使用 `react-testing-library` 完成单元测试
 - 🦌 使用 `Storybook` 本地调试和生成文档页面
-- ⚙️ 组件库打包使用 `Webpack` 和 `Gulp`
+- ⚙️ 组件库使用 `TSC` 编译 `Ts` 和 `Gulp` 打包 `CSS`
 - 🥦 CI/CD：使用 `Chromatic` + `GitActions` 持续集成和部署
 
 #### 😊 谁在使用
