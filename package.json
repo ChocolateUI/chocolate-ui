@@ -84,7 +84,7 @@
     "mini-css-extract-plugin": "0.11.3",
     "moment": "^2.29.1",
     "moment-range": "^4.0.2",
-    "optimize-css-assets-webpack-plugin": "5.0.4",
+    "optimize-css-assets-webpack-plugin": "5.0.8",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-loader": "3.0.0",
