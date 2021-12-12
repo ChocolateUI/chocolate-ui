@@ -66,7 +66,7 @@ module.exports = {
 - 🍑 使用 `react-testing-library` 完成单元测试
 - 🦌 使用 `Storybook` 本地调试和生成文档页面
 - ⚙️ 组件库使用 `TSC` 编译 `Ts` 和 `Gulp` 打包 `CSS`
-- 🥦 CI/CD：使用 `Chromatic` + `GitActions` 持续集成和部署
+- 🥦 CI/CD：使用 `Chromatic` + `GitHub Action` 持续集成和部署
 
 #### 😊 谁在使用
 
