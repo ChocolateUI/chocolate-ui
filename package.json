@@ -194,7 +194,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemap": "^1.0.1",
     "gulp-sourcemaps": "^3.0.0",
-    "husky": "7.0.0",
+    "husky": "7.0.4",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "keycode": "^2.2.0",
     "lodash": "^4.17.21",
